@@ -105,6 +105,9 @@ html_static_path = ['_static']
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
+html_theme_options = {
+    "repository_url": "https://github.com/JakeGWater/Virtual-Production-Independent-Film-Guide",
+}
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
