@@ -1,0 +1,6 @@
+{
+  "name": "vpifg",
+  "scripts": {
+    "start": "sphinx-serve"
+  }
+}
