@@ -1,0 +1,4 @@
+{
+  "install": "pip install sphinx sphinx-autobuild",
+	"start": "sphinx-autobuild -p $PORT . _build"
+}
