@@ -25,9 +25,11 @@ jobs:
       
       - name: Sphinx Build
         uses: ammaraskar/sphinx-action@0.4
+        with:
+          build-command: "sphinx-build -b html . _build"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./_build
