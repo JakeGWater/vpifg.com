@@ -67,7 +67,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', '.local/*']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
@@ -78,7 +78,7 @@ html_title = project
 
 # NOTE: All the lines are after this are the theme-specific ones. These are
 #       written as part of the site generation pipeline for this project.
-html_theme = "sphinx_book_theme"
+html_theme = "sphinx_material"
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -94,7 +94,7 @@ html_theme = "sphinx_book_theme"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+# html_static_path = ['_static']
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -106,7 +106,31 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 html_theme_options = {
-    "repository_url": "https://github.com/JakeGWater/Virtual-Production-Independent-Film-Guide",
+
+    # Set the name of the project to appear in the navigation.
+    'nav_title': 'VPIFG',
+
+    # Set you GA account ID to enable tracking
+    'google_analytics_account': 'UA-XXXXX',
+
+    # Specify a base_url used to generate sitemap.xml. If not
+    # specified, then no sitemap will be built.
+    'base_url': 'https://vpifg.com',
+
+    # Set the color and the accent color
+    # 'color_primary': 'blue',
+    # 'color_accent': 'light-blue',
+
+    # Set the repo location to get a badge with stats
+    'repo_url': 'https://github.com/JakeGWater/Virtual-Production-Independent-Film-Guide',
+    'repo_name': 'Virtual Production Independent Film Guide',
+
+    # Visible levels of the global TOC; -1 means unlimited
+    'globaltoc_depth': 3,
+    # If False, expand all TOC entries
+    'globaltoc_collapse': False,
+    # If True, show hidden TOC entries
+    'globaltoc_includehidden': False,
 }
 
 
