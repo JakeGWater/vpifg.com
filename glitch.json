@@ -1,4 +1,0 @@
-{
-  "install": "pip3 install -r requirements.txt",
-  "start": "sphinx-autobuild --port $PORT . _build"
-}

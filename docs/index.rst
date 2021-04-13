@@ -10,4 +10,4 @@ Virtual Production Independent Film Guide
    :maxdepth: 2
    :glob:
    
-   docs/*
+   *
