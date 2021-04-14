@@ -1,0 +1,6 @@
+{
+    "scripts":{
+        "start":"sphinx-autobuild --port 3000 docs _build",
+        "install": "pip3 install -r requirements.txt"
+    }
+}

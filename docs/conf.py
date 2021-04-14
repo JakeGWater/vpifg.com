@@ -129,19 +129,19 @@ html_theme_options = {
     'repo_name': 'Virtual Production Independent Film Guide',
 
     # Visible levels of the global TOC; -1 means unlimited
-    'globaltoc_depth': 3,
+    'globaltoc_depth': 2,
     # If False, expand all TOC entries
-    'globaltoc_collapse': False,
+    'globaltoc_collapse': True,
     # If True, show hidden TOC entries
     'globaltoc_includehidden': False,
 }
-
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'VirtualProductionIndependentFilmGuide'
-
+html_static_path = ["../_static"]
+html_css_files = ["custom.css"]
 
 # -- Options for LaTeX output ------------------------------------------------
 
