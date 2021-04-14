@@ -12,8 +12,8 @@ Virtual Production Independent Film Guide
    :maxdepth: 1
    
    workflows
+   fundamentals
    guides
-   ref
    studios
    about
    resources
@@ -27,9 +27,9 @@ Organization
 
 The guide is split into an easy to reference organization.
 
-* :doc:`workflows` are specific combinations of tools and methods for producing your content. If you're not sure where to start, take a look at some existing workflows.
-* :doc:`fundamentals` are the basic building blocks of virtual production. It is assumed that people familiarize themselves with the fundamentals. Other content will frequently reference fundamentals.
-* :doc:`guides` are individual articles about using a particular tool in a particular way. Workflows should reference guides whenever possible. In fact a workflow might be seen as a series of guides.
+* :doc:`workflows` are virtual production recipes. They work, and they are used by others. If you're not sure where to start, take a look at some existing workflows.
+* :doc:`fundamentals` are the basic building blocks of virtual production. 
+* :doc:`guides` if workflows are recipes, the guides are the ingredients. Guides break down a topic or task into detailed steps.
 * :doc:`studios` are reference examples of actual studio set up with a list of their equipment used. This should help others price estimate what a particular set up is going to cost, as well as valid weather a particular piece of equipment has been field tested.
 * :doc:`resources` are external links to other handy resources, tutorials, guides etc.
 

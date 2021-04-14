@@ -5,5 +5,5 @@ Fundamentals
 .. toctree::
     :glob:
 
-    color
-    timecode
+    fundamentals/*
+

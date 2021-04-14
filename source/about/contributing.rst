@@ -69,3 +69,18 @@ Insert the following code into the beginning of your page:
 
         This content is marked as **Experimental**, and may not be :term:`Production Ready`.
 
+Referencing Resources
+---------------------
+
+All references to external resources should use `citations <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#citations>`_ whenever possible.
+
+For example:
+
+1. Refer to to the citation from your guide or workflow as follows::
+
+    Use the [unrealengine] to ...
+2. Cite the resource under the relevant :doc:`/resources` file as::
+
+    .. [unrealengine] The unreal game engine `<https://www.unrealengine.com>`_
+
+Using citations keeps things under control, and ensures that all links are reusable and relevant.

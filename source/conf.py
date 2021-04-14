@@ -108,7 +108,7 @@ html_theme = "sphinx_material"
 html_sidebars = {
     "**": ["searchbox.html", "globaltoc.html", "localtoc.html"]
 }
-
+html_logo = "_static/logo.png"
 html_theme_options = {
 
     # Set the name of the project to appear in the navigation.
