@@ -2,6 +2,8 @@
 Color Pipeline
 ==============
 
+.. wip::
+
 Maintaining your color pipeline is extremely important.
 As an overview, the color pipeline keeps your colors correctly identified at every step.
 

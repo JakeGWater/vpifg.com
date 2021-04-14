@@ -2,6 +2,8 @@
 Color
 =====
 
+.. wip::
+
 Colors is a complex topic, both technically and artistically.
 However, it can broken down into smaller well-understood pieces.
 We break managing color down into three categories:

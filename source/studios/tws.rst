@@ -5,6 +5,12 @@ T.W.S. Home Studio
 **Triple Word Score Home Studio**
 
 *********
+Workflows
+*********
+
+* :doc:`/workflows/BURN`
+
+*********
 Equipment
 *********
 

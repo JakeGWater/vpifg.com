@@ -20,12 +20,12 @@ Virtual Production Independent Film Guide
    glossary
 
 The VPIFG is our technical reference for virtual production for smaller independent studios and individuals.
-We primarily revolve around using Enreal Engine, but the guide is extensible enough that we can accommodate other production workflows as necessary.
+We primarily revolve around using Unreal Engine, but the guide is extensible enough that we can accommodate other production workflows as necessary.
 
 Organization
 ============
 
-The guide is split into an easy to reference organization.
+The guide is split into an easy-to-reference organization.
 
 * :doc:`workflows` are virtual production recipes. They work, and they are used by others. If you're not sure where to start, take a look at some existing workflows.
 * :doc:`fundamentals` are the basic building blocks of virtual production. 
@@ -44,4 +44,4 @@ See :doc:`about/contributing` for more.
 Sponsor
 =======
 
-Everything here is free to use, but if you would like to support our we very much welcome that.
+Everything here is free to use, but if you would like to support us we very much welcome that.
