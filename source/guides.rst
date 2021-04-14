@@ -1,10 +1,10 @@
-=========
-Reference
-=========
+==========
+Guides
+==========
 
 .. toctree::
     :titlesonly:
     :glob:
 
-    ref/*
+    guides/*
 

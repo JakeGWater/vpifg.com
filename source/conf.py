@@ -141,7 +141,7 @@ html_theme_options = {
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'VirtualProductionIndependentFilmGuide'
-html_static_path = ["../_static"]
+html_static_path = ["_static"]
 html_css_files = ["custom.css"]
 
 # -- Options for LaTeX output ------------------------------------------------
