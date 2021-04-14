@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'Virtual Production Independent Film Guide'
+project = u'VPIFG'
 copyright = u'2021, Jake G. Water'
 author = u'Jake G. Water'
 
@@ -108,6 +108,7 @@ html_theme = "sphinx_material"
 html_sidebars = {
     "**": ["searchbox.html", "globaltoc.html", "localtoc.html"]
 }
+
 html_theme_options = {
 
     # Set the name of the project to appear in the navigation.
@@ -125,15 +126,15 @@ html_theme_options = {
     # 'color_accent': 'light-blue',
 
     # Set the repo location to get a badge with stats
-    'repo_url': 'https://github.com/JakeGWater/Virtual-Production-Independent-Film-Guide',
+    'repo_url': 'https://github.com/JakeGWater/vpifg.com',
     'repo_name': 'JakeGWater/vpifg.com',
 
     # Visible levels of the global TOC; -1 means unlimited
-    'globaltoc_depth': 2,
+    'globaltoc_depth': -1,
     # If False, expand all TOC entries
     'globaltoc_collapse': True,
     # If True, show hidden TOC entries
-    'globaltoc_includehidden': False,
+    'globaltoc_includehidden': True,
 }
 
 # -- Options for HTMLHelp output ---------------------------------------------

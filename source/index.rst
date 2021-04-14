@@ -4,10 +4,11 @@
    contain the root `toctree` directive.
 
 Virtual Production Independent Film Guide
-====================================================
+=========================================
 
 .. toctree::
-   :maxdepth: 2
+   :caption: Table of Contents
+   :maxdepth: 1
    :glob:
    
    *

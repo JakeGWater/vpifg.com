@@ -2,9 +2,17 @@
 The B.U.R.N. Workflow
 ##################
 
+.. toctree::
+    :titlesonly:
+    :hidden:
+    :glob:
+
+    BURN/*
+
 .. glossary::
     
-    BURN : **Blackmagic, Unreal, Resolve, and Nuke.**
+    B.U.R.N. 
+        **Blackmagic, Unreal, Resolve, and Nuke.**
 
 The BURN workflow is a green-screen, single camera, shot-oriented workflow for pre-recorded film or TV. 
 It is designed to be small, cost-efficient, but able to achive high-quality output.
@@ -13,17 +21,8 @@ It is designed to be small, cost-efficient, but able to achive high-quality outp
 
     BURN is not for live events, or multi-camera recording
 
-Workflow
-========
-
-.. toctree::
-    :titlesonly:
-    :glob:
-
-    BURN/*
-
 Overview
-********
+==================
 
 BURN is a compromise between mixed-reality and traditional green-screen workflows. BURN has two pieces:
 

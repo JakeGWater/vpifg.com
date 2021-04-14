@@ -8,13 +8,21 @@ We break managing color down into three categories:
 
 .. glossary::
 
-    Color Pipeline : 
+    Color Pipeline
         The color pipeline is a technical process, ensuring color spaces are appropriately transformed at each step of your production and post-production process.
 
-        See :doc:`color-pipeline` for more details.
-    Color Correction : 
+        See :doc:`color/pipeline` for more details.
+    
+    Color Correction
         Color correction involves correcting footage against a real-life reference,
         such as a color chart.
-    Color Grading : 
+    
+    Color Grading
         Color grading is subjecting, used for mood by the director to help tell the story.
 
+.. toctree::
+    :caption: See Also
+    :titlesonly:
+    :glob:
+
+    color/*

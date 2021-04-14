@@ -37,8 +37,7 @@ Software
 ========
 
 #. Windows 10 Pro 20H2
-#. Unreal 4.26
+#. :doc:`/ref/unreal` 4.26
 #. Blackmagic Desktop Video Setup 11.7
 #. Davinci Resolve 17
 #. Nuke 13.1
-
