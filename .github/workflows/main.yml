@@ -27,7 +27,7 @@ jobs:
         uses: ammaraskar/sphinx-action@0.4
         with:
           docs-folder: "."
-          build-command: "sphinx-build -b html . _build"
+          build-command: "sphinx-build -b html docs _build"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
