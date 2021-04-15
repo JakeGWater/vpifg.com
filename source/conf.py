@@ -19,9 +19,10 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'VPIFG'
+project = u'Virtual Production Indie Film Guide'
 copyright = u'2021, Jake G. Water'
 author = u'Jake G. Water'
+show_authors = True
 
 # The short X.Y version
 version = u''
@@ -37,21 +38,24 @@ release = u''
 import os
 import sys
 
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ['_templates']
+
 sys.path.append(os.path.abspath("./_ext"))
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx_git',
     'notices',
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.githubpages',
+    'sphinxcontrib.svgbob',
+    'sphinxemoji.sphinxemoji',
 ]
-
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -77,13 +81,21 @@ exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', '.local/*']
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
 
-
 # -- Options for HTML output -------------------------------------------------
 html_title = project
 
+html_theme_path = ["../_themes"]
+
 # NOTE: All the lines are after this are the theme-specific ones. These are
 #       written as part of the site generation pipeline for this project.
-html_theme = "sphinx_material"
+html_theme = "pydata_sphinx_theme"
+html_context = {
+    # "github_url": "https://github.com", # or your GitHub Enterprise interprise
+    "github_user": "JakeGWater",
+    "github_repo": "vpifg.com",
+    "github_version": "main",
+    "doc_path": "/source",
+}
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -110,36 +122,48 @@ html_theme = "sphinx_material"
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
-html_sidebars = {
-    "**": ["searchbox.html", "globaltoc.html", "localtoc.html"]
-}
 html_logo = "_static/logo.png"
+# html_favicon = "path/to/favicon.ico"
+html_sidebars = {
+    "**": ["search-field", "sidebar-nav-bs", "sidebar-ethical-ads"]
+}
 html_theme_options = {
+    "use_edit_page_button": True,
+    "show_toc_level": 2,
 
-    # Set the name of the project to appear in the navigation.
-    'nav_title': 'VPIFG',
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/JakeGWater/vpifg.com",
+            "icon": "fab fa-github-square",
+        },
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/channel/UCnfp_DTTZZ4I0R_4SDs46JQ",
+            "icon": "fab fa-youtube-square",
+        },
+        {
+            "name": "Twitter",
+            "url": "https://twitter.com/JakeGWater",
+            "icon": "fab fa-twitter-square",
+        },
+    ],
 
-    # Set you GA account ID to enable tracking
-    'google_analytics_account': 'UA-XXXXX',
-
-    # Specify a base_url used to generate sitemap.xml. If not
-    # specified, then no sitemap will be built.
-    'base_url': 'https://vpifg.com',
+    "navbar_start": ["navbar-logo"],
+    "navbar_center": [],
+    "navbar_end": ["navbar-icon-links"],
+      "footer_items": ["copyright", "sphinx-version"],
 
     # Set the color and the accent color
     # 'color_primary': 'blue',
     # 'color_accent': 'light-blue',
 
-    # Set the repo location to get a badge with stats
-    'repo_url': 'https://github.com/JakeGWater/vpifg.com',
-    'repo_name': 'JakeGWater/vpifg.com',
-
-    # Visible levels of the global TOC; -1 means unlimited
-    'globaltoc_depth': -1,
     # If False, expand all TOC entries
     'globaltoc_collapse': True,
     # If True, show hidden TOC entries
     'globaltoc_includehidden': True,
+
+    # "home_page_in_toc": True
 }
 
 # -- Options for HTMLHelp output ---------------------------------------------

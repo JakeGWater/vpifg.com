@@ -1,3 +1,7 @@
-Sphinx>=3.5.4
-sphinx-autobuild>=2021.3.14
-sphinx_material>=0.0.32
+-e forks/pydata-sphinx-theme
+-e forks/sphinx-git
+Sphinx==3.5.4
+sphinx-autobuild==2021.3.14
+sphinxcontrib-svgbob>=0.1.1
+sphinxemoji>=0.1.8
+humanize>=3.4.1
