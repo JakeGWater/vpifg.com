@@ -3,8 +3,7 @@ Guides
 ==========
 
 .. toctree::
-    :titlesonly:
     :glob:
+    :hidden:
 
     guides/*
-
