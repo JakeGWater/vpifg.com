@@ -1,3 +1,16 @@
 dl.citation dt {
     float:none!important;
 }
+
+main[role=main] {
+    display: flex;
+    flex-direction: column;   
+}
+
+#main-content {
+    flex-grow: 1;
+}
+
+.bd-toc nav li.active>a.active {
+    border-left:none;
+}

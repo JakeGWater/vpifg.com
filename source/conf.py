@@ -37,6 +37,9 @@ release = u''
 import os
 import sys
 
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ['_templates']
+
 sys.path.append(os.path.abspath("./_ext"))
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -49,9 +52,6 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.githubpages',
 ]
-
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -77,13 +77,21 @@ exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', '.local/*']
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
 
-
 # -- Options for HTML output -------------------------------------------------
 html_title = project
 
+html_theme_path = ["../_themes"]
+
 # NOTE: All the lines are after this are the theme-specific ones. These are
 #       written as part of the site generation pipeline for this project.
-html_theme = "sphinx_material"
+html_theme = "pydata_sphinx_theme"
+html_context = {
+    # "github_url": "https://github.com", # or your GitHub Enterprise interprise
+    "github_user": "<your-github-org>",
+    "github_repo": "<your-github-repo>",
+    "github_version": "<your-branch>",
+    "doc_path": "/",
+}
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -110,36 +118,36 @@ html_theme = "sphinx_material"
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
-html_sidebars = {
-    "**": ["searchbox.html", "globaltoc.html", "localtoc.html"]
-}
 html_logo = "_static/logo.png"
+# html_favicon = "path/to/favicon.ico"
+html_sidebars = {
+    "**": ["search-field", "sidebar-nav-bs", "sidebar-ethical-ads"]
+}
 html_theme_options = {
+    "use_edit_page_button": True,
+    "use_issues_button": True,
+    "repository_branch": "main",
+    "use_repository_button": True,
+    "path_to_docs": "source",
+    "show_toc_level": 2,
 
-    # Set the name of the project to appear in the navigation.
-    'nav_title': 'VPIFG',
-
-    # Set you GA account ID to enable tracking
-    'google_analytics_account': 'UA-XXXXX',
-
-    # Specify a base_url used to generate sitemap.xml. If not
-    # specified, then no sitemap will be built.
-    'base_url': 'https://vpifg.com',
+    "navbar_start": ["navbar-logo"],
+    "navbar_center": [],
+    "navbar_end": ["navbar-icon-links"],
 
     # Set the color and the accent color
     # 'color_primary': 'blue',
     # 'color_accent': 'light-blue',
 
     # Set the repo location to get a badge with stats
-    'repo_url': 'https://github.com/JakeGWater/vpifg.com',
-    'repo_name': 'JakeGWater/vpifg.com',
+    'repository_url': 'https://github.com/JakeGWater/vpifg.com',
 
-    # Visible levels of the global TOC; -1 means unlimited
-    'globaltoc_depth': -1,
     # If False, expand all TOC entries
     'globaltoc_collapse': True,
     # If True, show hidden TOC entries
     'globaltoc_includehidden': True,
+
+    # "home_page_in_toc": True
 }
 
 # -- Options for HTMLHelp output ---------------------------------------------

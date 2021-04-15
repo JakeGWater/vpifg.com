@@ -1,0 +1,17 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: yarn-build-production
+        name: Build src files
+        language: system
+        entry: bash -c "yarn build:production"
+        files: ^src/*
+-   repo: https://github.com/psf/black
+    rev: 20.8b1
+    hooks:
+    -   id: black
+        language_version: python3
+-   repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.3
+    hooks:
+    -   id: flake8

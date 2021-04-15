@@ -1,0 +1,62 @@
+.navbar {
+  position: fixed;
+  min-height: var(--pst-header-height);
+  width: 100%;
+  padding: 0;
+
+  .container-xl {
+    height: 100%;
+  }
+
+  @include media-breakpoint-up(md) {
+    // Anything in navbar center should be left-justified (e.g. links)
+    #navbar-center > .navbar-center-item {
+      float: left;
+    }
+
+    // Anything in end part of the navbar should be right-justified (e.g. icons)
+    #navbar-end > .navbar-end-item {
+      float: right;
+    }
+  }
+}
+
+.navbar-brand {
+  position: relative;
+  height: var(--pst-header-height);
+  width: auto;
+  padding: 0.5rem 0;
+
+  img {
+    max-width: 100%;
+    height: 100%;
+    width: auto;
+  }
+}
+
+// If we want the shadow to only point downward in the future, set
+// box-shadow to: 0 0.125rem 0.25rem -0.125rem rgba(0, 0, 0, 0.11);
+.navbar-light {
+  background: #fff !important;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.11);
+
+  .navbar-nav {
+    li a.nav-link {
+      padding: 0 .5rem;
+      color: rgba(var(--pst-color-navbar-link), 1);
+
+      &:hover {
+        color: rgba(var(--pst-color-navbar-link-hover), 1);
+      }
+    }
+
+    > .active > .nav-link {
+      font-weight: 600;
+      color: rgba(var(--pst-color-navbar-link-active), 1);
+    }
+  }
+}
+
+.navbar-header a {
+  padding: 0 15px;
+}
