@@ -66,8 +66,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Nuke" href="nuke.html" />
-    <link rel="prev" title="Guides" href="../guides.html" />
+    <link rel="next" title="BRaw to Davinci Resolve" href="braw-to-resolve.html" />
+    <link rel="prev" title="Setting Up Timecode with BMPCC4k" href="timecode-bmpcc.html" />
   
    
 
@@ -179,7 +179,8 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
           <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">VPIFG</a></li>
-          <li class="md-tabs__item"><a href="../guides.html" class="md-tabs__link">Guides</a></li>
+          <li class="md-tabs__item"><a href="../workflows.html" class="md-tabs__link">Workflows</a></li>
+          <li class="md-tabs__item"><a href="../workflows/BURN.html" class="md-tabs__link">The BURN Workflow</a></li>
       </ul>
     </div>
   </nav>
@@ -222,21 +223,31 @@
     
     
       <a href="../workflows.html" class="md-nav__link">Workflows</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../fundamentals.html" class="md-nav__link">Fundamentals</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../guides.html" class="md-nav__link">Guides</a>
       <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../workflows/BURN.html" class="md-nav__link">The BURN Workflow</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../workflows/BURN.html#pre-production" class="md-nav__link">Pre-Production</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="unreal-set-design.html" class="md-nav__link">Unreal Set Design</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="timecode-bmpcc.html" class="md-nav__link">Setting Up Timecode with BMPCC4k</a>
+      
+    
+    </li>
     <li class="md-nav__item">
     
     
@@ -266,52 +277,49 @@
     <li class="md-nav__item">
     
     
-      <a href="nuke.html" class="md-nav__link">Nuke</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="nuke-to-resolve.html" class="md-nav__link">Nuke to Resolve</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="resolve.html" class="md-nav__link">Davinci Resolve</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="resolve-to-nuke.html" class="md-nav__link">Resolve to Nuke</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="unreal.html" class="md-nav__link">Unreal Engine</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="unreal-to-nuke.html" class="md-nav__link">Unreal to Nuke</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="unreal-to-resolve.html" class="md-nav__link">Unreal to Resolve</a>
+      <a href="hdri-sets.html" class="md-nav__link">HDRIs for Set Design</a>
       
     
     </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../workflows/BURN.html#production" class="md-nav__link">Production</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../workflows/BURN.html#post-production" class="md-nav__link">Post-Production</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../workflows/LIVE.html" class="md-nav__link">The LIVE Workflow</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../fundamentals.html" class="md-nav__link">Fundamentals</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../guides.html" class="md-nav__link">Guides</a>
+      
     
     </li>
     <li class="md-nav__item">
@@ -332,13 +340,6 @@
     
     
       <a href="../resources.html" class="md-nav__link">Resources</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../glossary.html" class="md-nav__link">Glossary</a>
       
     
     </li>
@@ -371,7 +372,7 @@
             
   
 <h1 id="guides-bmpcc4k-to-braw--page-root">BMPCC4k to BRaw<a class="headerlink" href="#guides-bmpcc4k-to-braw--page-root" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference internal" href="../glossary.html#term-BMPCC4k"><span class="xref std std-term">BMPCC4k</span></a> can record in both Apple ProRes and Blackmagic Raw.
+<p>The <span class="xref std std-term">BMPCC4k</span> can record in both Apple ProRes and Blackmagic Raw.
 We recommend using BRaw because ProRes is not a RAW format, and there may be fewer options when importing into Resolve.</p>
 <div class="important admonition">
 <p class="admonition-title">Planned</p>
@@ -390,7 +391,7 @@ Please see our <a class="reference internal" href="../about/roadmap.html"><span 
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../guides.html" title="Guides"
+            <a href="timecode-bmpcc.html" title="Setting Up Timecode with BMPCC4k"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -399,17 +400,17 @@ Please see our <a class="reference internal" href="../about/roadmap.html"><span 
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Guides </span>
+                      class="md-footer-nav__direction"> Previous </span> Setting Up Timecode with BMPCC4k </span>
               </div>
             </a>
           
           
-            <a href="nuke.html" title="Nuke"
+            <a href="braw-to-resolve.html" title="BRaw to Davinci Resolve"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Nuke </span>
+                class="md-footer-nav__direction"> Next </span> BRaw to Davinci Resolve </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
