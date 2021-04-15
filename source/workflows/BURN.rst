@@ -1,29 +1,55 @@
-#####################
-The B.U.R.N. Workflow
-#####################
-
-.. toctree::
-    :hidden:
-    
-    /guides/braw-to-resolve
-    /guides/nuke-to-resolve
-    /guides/resolve-to-nuke
-    /guides/unreal-to-nuke
-    /guides/unreal-to-resolve
-
-.. wip::
+#################
+The BURN Workflow
+#################
 
 .. glossary::
     
-    B.U.R.N. 
+    BURN 
         **Blackmagic, Unreal, Resolve, and Nuke.**
+
+.. wip::
+
+Pre-Production
+--------------
+
+.. toctree::
+    :titlesonly:
+
+    /guides/unreal-set-design
+    /guides/timecode-bmpcc
+    /guides/bmpcc4k-to-braw
+    /guides/braw-to-resolve
+    /guides/hdri-sets
+
+Production
+----------
+
+.. toctree::
+    :titlesonly:
+
+    /guides/unreal-ocio
+    /guides/lens-distortion
+    /guides/unreal-composure
+    /guides/recording-take-recorder
+
+Post-Production
+---------------
+
+.. toctree::
+    :titlesonly:
+
+    /guides/unreal-to-nuke
+    /guides/unreal-to-resolve
+    /guides/nuke-depth-of-field
+    /guides/nuke-to-resolve
+    /guides/resolve-to-nuke
 
 The BURN workflow is a green-screen, single camera, shot-oriented workflow for pre-recorded film or TV. 
 It is designed to be small, cost-efficient, but able to achive high-quality output.
 
 .. caution::
 
-    BURN may not be suitable for live events, or multi-camera recording
+    BURN may not be suitable for live events, or multi-camera recording. Check out :doc:`LIVE` instead.
 
 Overview
 ==================
