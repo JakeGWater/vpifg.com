@@ -21,14 +21,18 @@ Contributions whenever possible should adhere to the following guidelines:
 #. Contributions must be centred around virtual production.
 #. Contributions should try to fit into the existing pattern. As a workflow, reference, studio setup, or resource.
 #. Contributions must be :term:`Production Ready` or clearly marked as `Experimental`_.
-#. Contribution should be complete. The reader should not have to leave the site to finish reading. For example, a workflow cannot be incomplete but point to an external site for the remaining steps.
-    #. Links to external resources must be in the :doc:`/resources` section. Other content should cross-link to the relevant content in resources.
-    #. Content that is a `Work in Progress`_ is allowed, but must be clearly marked as such. Works in progress may reference external sites in `Comments <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#comments>`_. Note that works in progress which do not move forward may be removed.
-#. Embedding complex content, such as videos, figures, slides is encouraged and permitted. The content origin must be on our list of `Approved Domains`_.
-#. Images must be hosted from vpifg.com
+#. Contribution which are not complete must be marked as `Work in Progress`_.
+#. External Links:
 
-Approved Domains
-----------------
+   #. Must go in the relevant :doc:`/resources` section. Use a `Citation <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#citations>`_ to cross-link from elsewhere.
+   #. *Exception* studio pages (:doc:`/studios`) may use external links, including affiliate links.
+
+#. Embedding content, such as videos, figures, slides is encouraged and permitted. The content origin must be on our list of `Allowed Embedding Domains`_.
+#. Images must be hosted from vpifg.com
+#. Use `References for External Resources`_
+
+Allowed Embedding Domains
+--------------------------
 
 - youtube.com
 - docs.google.com
@@ -39,15 +43,13 @@ Work in Progress
 
 Any incomplete content must be marked as a work in progress with the following display:
 
-.. caution::
+.. wip::
 
-    This content is a **Work in Progress** and may be incomplete.
+Insert the following code immediately after the page title.
 
 .. code-block:: rst
 
-    .. caution::
-
-        This content is a **Work in Progress** and may be incomplete.
+    .. wip::
 
 If content is also experimental, it should be marked as both.
 
@@ -57,20 +59,16 @@ Experimental
 We encourage experimental setups, but we don't want to send people down the wrong path.
 Experimental pages should begin with the following display:
 
-.. danger::
-
-    This content is marked as **Experimental**, and may not be :term:`Production Ready`.
+.. experimental::
 
 Insert the following code into the beginning of your page:
 
 .. code-block:: rst
 
-    .. danger::
+    .. experimental::
 
-        This content is marked as **Experimental**, and may not be :term:`Production Ready`.
-
-Referencing Resources
----------------------
+References for External Resources
+---------------------------------
 
 All references to external resources should use `citations <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#citations>`_ whenever possible.
 

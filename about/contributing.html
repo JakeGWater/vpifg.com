@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contributing &#8212; VPIFG</title>
+    <title>Contributing &#8212; Virtual Production Indie Film Guide</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.ee6fb81b276d6fba8a971ad8e9b95dd9.css" rel="stylesheet" />
@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Licenses" href="licenses.html" />
-    <link rel="prev" title="About" href="../about.html" />
+    <link rel="prev" title="Blog" href="blog.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -50,13 +50,10 @@
 
   <div id="navbar-start">
     
-    
-
-<a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../index.html">
   <img src="../_static/logo.png" class="logo" alt="logo">
+  <span class="title">Virtual Production Indie Film Guide</span>
 </a>
-
-
     
   </div>
 
@@ -74,6 +71,24 @@
       
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/JakeGWater/vpifg.com" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UCnfp_DTTZZ4I0R_4SDs46JQ" rel="noopener" target="_blank" title="YouTube">
+            <span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/JakeGWater" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
       </ul>
       </div>
       
@@ -106,7 +121,7 @@
   <ul>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../workflows/BURN.html">
-     The BURN Workflow
+     BURN Workflow
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
@@ -188,11 +203,6 @@
            </li>
           </ul>
          </li>
-         <li class="toctree-l5">
-          <a class="reference internal" href="../guides/hdri-sets.html">
-           HDRIs for Set Design
-          </a>
-         </li>
         </ul>
        </li>
        <li class="toctree-l4 has-children">
@@ -205,6 +215,11 @@
          </i>
         </label>
         <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../guides/uncreal-ocio.html">
+           OCIO Setup in Unreal
+          </a>
+         </li>
          <li class="toctree-l5">
           <a class="reference internal" href="../guides/lens-distortion.html">
            Adjusting for Lens Distortion
@@ -400,11 +415,6 @@
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../guides/hdri-sets.html">
-     HDRIs for Set Design
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../guides/lens-distortion.html">
      Adjusting for Lens Distortion
     </a>
@@ -539,12 +549,24 @@
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="blog.html">
+     Blog
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+    <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="simple">
+    </ul>
+   </li>
    <li class="toctree-l2 current active has-children">
     <a class="current reference internal" href="#">
      Contributing
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-    <label for="toctree-checkbox-22">
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -560,8 +582,8 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="#approved-domains">
-       Approved Domains
+      <a class="reference internal" href="#allowed-embedding-domains">
+       Allowed Embedding Domains
       </a>
      </li>
      <li class="toctree-l3">
@@ -575,8 +597,8 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="#referencing-resources">
-       Referencing Resources
+      <a class="reference internal" href="#references-for-external-resources">
+       References for External Resources
       </a>
      </li>
     </ul>
@@ -591,19 +613,14 @@
      Roadmap
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="todo.html">
-     Todo List
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../resources.html">
    Resources
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-  <label for="toctree-checkbox-23">
+  <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+  <label for="toctree-checkbox-24">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -612,8 +629,8 @@
     <a class="reference internal" href="../resources/free.html">
      Free Resources
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
+    <label for="toctree-checkbox-25">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -634,8 +651,8 @@
     <a class="reference internal" href="../resources/paid.html">
      Paid Resources
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
-    <label for="toctree-checkbox-25">
+    <input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/>
+    <label for="toctree-checkbox-26">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -685,8 +702,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#approved-domains">
-   Approved Domains
+  <a class="reference internal nav-link" href="#allowed-embedding-domains">
+   Allowed Embedding Domains
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -700,8 +717,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#referencing-resources">
-   Referencing Resources
+  <a class="reference internal nav-link" href="#references-for-external-resources">
+   References for External Resources
   </a>
  </li>
 </ul>
@@ -713,7 +730,7 @@
                 
 
 <div class="tocsection editthispage">
-    <a href="https://github.com/<your-github-org>/<your-github-repo>/edit/<your-branch>//about/contributing.rst">
+    <a href="https://github.com/JakeGWater/vpifg.com/edit/main//source/about/contributing.rst">
         <i class="fas fa-pencil-alt"></i> Edit this page
     </a>
 </div>
@@ -752,20 +769,20 @@ We have tried to organize the site such that we can include a variety of content
 <li><p>Contributions must be centred around virtual production.</p></li>
 <li><p>Contributions should try to fit into the existing pattern. As a workflow, reference, studio setup, or resource.</p></li>
 <li><p>Contributions must be <a class="reference internal" href="../fundamentals.html#term-Production-Ready"><span class="xref std std-term">Production Ready</span></a> or clearly marked as <a class="reference internal" href="#experimental">Experimental</a>.</p></li>
-<li><dl class="simple">
-<dt>Contribution should be complete. The reader should not have to leave the site to finish reading. For example, a workflow cannot be incomplete but point to an external site for the remaining steps.</dt><dd><ol class="arabic simple">
-<li><p>Links to external resources must be in the <a class="reference internal" href="../resources.html"><span class="doc">Resources</span></a> section. Other content should cross-link to the relevant content in resources.</p></li>
-<li><p>Content that is a <a class="reference internal" href="#work-in-progress">Work in Progress</a> is allowed, but must be clearly marked as such. Works in progress may reference external sites in <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#comments">Comments</a>. Note that works in progress which do not move forward may be removed.</p></li>
+<li><p>Contribution which are not complete must be marked as <a class="reference internal" href="#work-in-progress">Work in Progress</a>.</p></li>
+<li><p>External Links:</p>
+<ol class="arabic simple">
+<li><p>Must go in the relevant <a class="reference internal" href="../resources.html"><span class="doc">Resources</span></a> section. Use a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#citations">Citation</a> to cross-link from elsewhere.</p></li>
+<li><p><em>Exception</em> studio pages (<a class="reference internal" href="../studios.html"><span class="doc">Studios</span></a>) may use external links, including affiliate links.</p></li>
 </ol>
-</dd>
-</dl>
 </li>
-<li><p>Embedding complex content, such as videos, figures, slides is encouraged and permitted. The content origin must be on our list of <a class="reference internal" href="#approved-domains">Approved Domains</a>.</p></li>
+<li><p>Embedding content, such as videos, figures, slides is encouraged and permitted. The content origin must be on our list of <a class="reference internal" href="#allowed-embedding-domains">Allowed Embedding Domains</a>.</p></li>
 <li><p>Images must be hosted from vpifg.com</p></li>
+<li><p>Use <a class="reference internal" href="#references-for-external-resources">References for External Resources</a></p></li>
 </ol>
 </div>
-<div class="section" id="approved-domains">
-<h2>Approved Domains<a class="headerlink" href="#approved-domains" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="allowed-embedding-domains">
+<h2>Allowed Embedding Domains<a class="headerlink" href="#allowed-embedding-domains" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>youtube.com</p></li>
 <li><p>docs.google.com</p></li>
@@ -775,13 +792,12 @@ We have tried to organize the site such that we can include a variety of content
 <div class="section" id="work-in-progress">
 <h2>Work in Progress<a class="headerlink" href="#work-in-progress" title="Permalink to this headline">¶</a></h2>
 <p>Any incomplete content must be marked as a work in progress with the following display:</p>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>This content is a <strong>Work in Progress</strong> and may be incomplete.</p>
+<div class="warning admonition">
+<p class="admonition-title">Work In Progress</p>
+<p>This page is a <strong>Work in Progress</strong> and may be incomplete.</p>
 </div>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">caution</span><span class="p">::</span>
-
-    This content is a <span class="gs">**Work in Progress**</span> and may be incomplete.
+<p>Insert the following code immediately after the page title.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">wip</span><span class="p">::</span>
 </pre></div>
 </div>
 <p>If content is also experimental, it should be marked as both.</p>
@@ -790,19 +806,17 @@ We have tried to organize the site such that we can include a variety of content
 <h2>Experimental<a class="headerlink" href="#experimental" title="Permalink to this headline">¶</a></h2>
 <p>We encourage experimental setups, but we don’t want to send people down the wrong path.
 Experimental pages should begin with the following display:</p>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>This content is marked as <strong>Experimental</strong>, and may not be <a class="reference internal" href="../fundamentals.html#term-Production-Ready"><span class="xref std std-term">Production Ready</span></a>.</p>
+<div class="danger admonition">
+<p class="admonition-title">Work In Progress</p>
+<p>This page is <strong>Experimental</strong> and may not be <a class="reference internal" href="../fundamentals.html#term-Production-Ready"><span class="xref std std-term">Production Ready</span></a>.</p>
 </div>
 <p>Insert the following code into the beginning of your page:</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">danger</span><span class="p">::</span>
-
-    This content is marked as <span class="gs">**Experimental**</span>, and may not be <span class="na">:term:</span><span class="nv">`Production Ready`</span>.
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">experimental</span><span class="p">::</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="referencing-resources">
-<h2>Referencing Resources<a class="headerlink" href="#referencing-resources" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="references-for-external-resources">
+<h2>References for External Resources<a class="headerlink" href="#references-for-external-resources" title="Permalink to this headline">¶</a></h2>
 <p>All references to external resources should use <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#citations">citations</a> whenever possible.</p>
 <p>For example:</p>
 <ol class="arabic">
@@ -827,7 +841,7 @@ Experimental pages should begin with the following display:</p>
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../about.html" title="previous page">About</a>
+    <a class='left-prev' id="prev-link" href="blog.html" title="previous page">Blog</a>
     <a class='right-next' id="next-link" href="licenses.html" title="next page">Licenses</a>
 
               </div>

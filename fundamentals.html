@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fundamentals &#8212; VPIFG</title>
+    <title>Fundamentals &#8212; Virtual Production Indie Film Guide</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.ee6fb81b276d6fba8a971ad8e9b95dd9.css" rel="stylesheet" />
@@ -50,13 +50,10 @@
 
   <div id="navbar-start">
     
-    
-
-<a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="index.html">
   <img src="_static/logo.png" class="logo" alt="logo">
+  <span class="title">Virtual Production Indie Film Guide</span>
 </a>
-
-
     
   </div>
 
@@ -74,6 +71,24 @@
       
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/JakeGWater/vpifg.com" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UCnfp_DTTZZ4I0R_4SDs46JQ" rel="noopener" target="_blank" title="YouTube">
+            <span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/JakeGWater" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
       </ul>
       </div>
       
@@ -106,7 +121,7 @@
   <ul>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="workflows/BURN.html">
-     The BURN Workflow
+     BURN Workflow
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
@@ -188,11 +203,6 @@
            </li>
           </ul>
          </li>
-         <li class="toctree-l5">
-          <a class="reference internal" href="guides/hdri-sets.html">
-           HDRIs for Set Design
-          </a>
-         </li>
         </ul>
        </li>
        <li class="toctree-l4 has-children">
@@ -205,6 +215,11 @@
          </i>
         </label>
         <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="guides/uncreal-ocio.html">
+           OCIO Setup in Unreal
+          </a>
+         </li>
          <li class="toctree-l5">
           <a class="reference internal" href="guides/lens-distortion.html">
            Adjusting for Lens Distortion
@@ -400,11 +415,6 @@
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="guides/hdri-sets.html">
-     HDRIs for Set Design
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="guides/lens-distortion.html">
      Adjusting for Lens Distortion
     </a>
@@ -540,11 +550,23 @@
   </label>
   <ul>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="about/contributing.html">
-     Contributing
+    <a class="reference internal" href="about/blog.html">
+     Blog
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
     <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="simple">
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="about/contributing.html">
+     Contributing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -560,8 +582,8 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="about/contributing.html#approved-domains">
-       Approved Domains
+      <a class="reference internal" href="about/contributing.html#allowed-embedding-domains">
+       Allowed Embedding Domains
       </a>
      </li>
      <li class="toctree-l3">
@@ -575,8 +597,8 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="about/contributing.html#referencing-resources">
-       Referencing Resources
+      <a class="reference internal" href="about/contributing.html#references-for-external-resources">
+       References for External Resources
       </a>
      </li>
     </ul>
@@ -591,19 +613,14 @@
      Roadmap
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="about/todo.html">
-     Todo List
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="resources.html">
    Resources
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-  <label for="toctree-checkbox-23">
+  <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+  <label for="toctree-checkbox-24">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -612,8 +629,8 @@
     <a class="reference internal" href="resources/free.html">
      Free Resources
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
+    <label for="toctree-checkbox-25">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -634,8 +651,8 @@
     <a class="reference internal" href="resources/paid.html">
      Paid Resources
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
-    <label for="toctree-checkbox-25">
+    <input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/>
+    <label for="toctree-checkbox-26">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -678,7 +695,7 @@
                 
 
 <div class="tocsection editthispage">
-    <a href="https://github.com/<your-github-org>/<your-github-repo>/edit/<your-branch>//fundamentals.rst">
+    <a href="https://github.com/JakeGWater/vpifg.com/edit/main//source/fundamentals.rst">
         <i class="fas fa-pencil-alt"></i> Edit this page
     </a>
 </div>
@@ -708,11 +725,24 @@ As such, we will frequently reference the following standards:</p>
 <dt id="term-Production-Ready">Production Ready<a class="headerlink" href="#term-Production-Ready" title="Permalink to this term">¶</a></dt><dd><p>Production Ready content should meet broadcast standards, and for lack of a better term be <em>sellable</em>.
 More simply, production ready content must maintain its <a class="reference internal" href="fundamentals/color/pipeline.html"><span class="doc">Color Pipeline</span></a> and preserve <a class="reference internal" href="fundamentals/timecode.html"><span class="doc">Timecode Integrity</span></a>.</p>
 </dd>
-<dt id="term-Timecode-Integrity">Timecode Integrity<a class="headerlink" href="#term-Timecode-Integrity" title="Permalink to this term">¶</a></dt><dd><p>Timecode integrity requires all hardware and software that consumes or produces media to maintain the original timecode both on import and export.</p>
+<dt id="term-Timecode">Timecode<a class="headerlink" href="#term-Timecode" title="Permalink to this term">¶</a></dt><dd><p>Timecode requires for projcts with post-production, that all hardware and software that consumes or produces media to maintain the original timecode both on import and export.</p>
 <p>See more in <a class="reference internal" href="fundamentals/timecode.html"><span class="doc">Timecode Integrity</span></a>.</p>
 </dd>
-<dt id="term-Color-Pipeline">Color Pipeline<a class="headerlink" href="#term-Color-Pipeline" title="Permalink to this term">¶</a></dt><dd><p>Your color pipeline is what transforms color spaces correctly between pieces of hardware and software.</p>
+<dt id="term-ACES">ACES<a class="headerlink" href="#term-ACES" title="Permalink to this term">¶</a></dt><dd><p>ACES is the prefered color pipeline. ACES requires that Raw files are exported only to ACES, and not another smaller color space.
+Correct input and output transforms must be used to maintainer your color pipeline.
+CG footage may be exported to ACEScg.</p>
 <p>See more in <a class="reference internal" href="fundamentals/color/pipeline.html"><span class="doc">Color Pipeline</span></a>.</p>
+</dd>
+<dt id="term-4K">4K<a class="headerlink" href="#term-4K" title="Permalink to this term">¶</a></dt><dd><p>We believe 4K source files are the minimum requirment for selling content, even if eventually downsampled.</p>
+</dd>
+<dt id="term-Raw">Raw<a class="headerlink" href="#term-Raw" title="Permalink to this term">¶</a></dt><dd><p>Raw requires that all original footage is shot in that cameras RAW format.
+Footage should not be re-encoded to a colorspace outside of ACES.</p>
+</dd>
+<dt id="term-Live">Live<a class="headerlink" href="#term-Live" title="Permalink to this term">¶</a></dt><dd><p>Live requires the ability to output a Rec.709/sRGB or wider-gamut 1080p or better video signal.</p>
+</dd>
+<dt id="term-Multicam">Multicam<a class="headerlink" href="#term-Multicam" title="Permalink to this term">¶</a></dt><dd><p>Multicam requires that for multiple cameras, they are genlocked if shooting live or with nDisplay.</p>
+</dd>
+<dt id="term-nDisplay">nDisplay<a class="headerlink" href="#term-nDisplay" title="Permalink to this term">¶</a></dt><dd><p>nDisplay requires that all input sources are genlocked, and that same synchronization signal is driving the nDisplay wall.</p>
 </dd>
 </dl>
 </div>
