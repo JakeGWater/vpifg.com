@@ -9,3 +9,58 @@ dl.citation dt {
 .prodcheck {
     background-color: greenyellow;
 }
+
+div.topic {
+    background: #f5f5f5;
+    /* box-shadow 0 2px 4px 0 rgb(0 0 0 / 20%); */
+    border-radius: 5px;
+    border: 2px solid #555555;
+}
+
+div.topic p.topic-title {
+    margin-top: 0;
+    margin-bottom:5px;
+}
+
+p.topic-title::before {
+    margin-right:.5em;
+    margin-left: .25rem;
+    content: '\f328';
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+}
+
+/* From https://codepen.io/cliftwalker/pen/XJaEXY */
+
+/* @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic); */
+blockquote{
+  font-size: 1.4em;
+  /* width:60%; */
+  /* margin:50px auto; */
+  /* font-family:Open Sans; */
+  font-style:italic;
+  color: #555555;
+  padding:1em 30px 1em 75px;
+  border-left:8px solid #78C0A8 ;
+  /* line-height:1.6; */
+  position: relative;
+  background:#EDEDED;
+}
+
+blockquote::before{
+  font-family:Arial;
+  content: "\201C";
+  color:#78C0A8;
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+blockquote::after{
+  content: '';
+}
+
+blockquote .attribution {
+    text-align: right;
+}
