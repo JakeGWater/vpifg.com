@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'VPIFG'
+project = u'Virtual Production Indie Film Guide'
 copyright = u'2021, Jake G. Water'
 author = u'Jake G. Water'
 
@@ -87,10 +87,10 @@ html_theme_path = ["../_themes"]
 html_theme = "pydata_sphinx_theme"
 html_context = {
     # "github_url": "https://github.com", # or your GitHub Enterprise interprise
-    "github_user": "<your-github-org>",
-    "github_repo": "<your-github-repo>",
-    "github_version": "<your-branch>",
-    "doc_path": "/",
+    "github_user": "JakeGWater",
+    "github_repo": "vpifg.com",
+    "github_version": "main",
+    "doc_path": "/source",
 }
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -125,22 +125,34 @@ html_sidebars = {
 }
 html_theme_options = {
     "use_edit_page_button": True,
-    "use_issues_button": True,
-    "repository_branch": "main",
-    "use_repository_button": True,
-    "path_to_docs": "source",
     "show_toc_level": 2,
+
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/JakeGWater/vpifg.com",
+            "icon": "fab fa-github-square",
+        },
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/channel/UCnfp_DTTZZ4I0R_4SDs46JQ",
+            "icon": "fab fa-youtube-square",
+        },
+        {
+            "name": "Twitter",
+            "url": "https://twitter.com/JakeGWater",
+            "icon": "fab fa-twitter-square",
+        },
+    ],
 
     "navbar_start": ["navbar-logo"],
     "navbar_center": [],
     "navbar_end": ["navbar-icon-links"],
+      "footer_items": ["copyright", "sphinx-version"],
 
     # Set the color and the accent color
     # 'color_primary': 'blue',
     # 'color_accent': 'light-blue',
-
-    # Set the repo location to get a badge with stats
-    'repository_url': 'https://github.com/JakeGWater/vpifg.com',
 
     # If False, expand all TOC entries
     'globaltoc_collapse': True,

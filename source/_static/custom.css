@@ -2,15 +2,10 @@ dl.citation dt {
     float:none!important;
 }
 
-main[role=main] {
-    display: flex;
-    flex-direction: column;   
+#navbar-icon-links i.fa-youtube-square:before {
+    color: #c4302b;
 }
 
-#main-content {
-    flex-grow: 1;
-}
-
-.bd-toc nav li.active>a.active {
-    border-left:none;
+.prodcheck {
+    background-color: greenyellow;
 }

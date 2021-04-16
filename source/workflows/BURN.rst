@@ -1,24 +1,38 @@
 #################
-The BURN Workflow
+BURN Workflow
 #################
-
-.. glossary::
-    
-    BURN 
-        **Blackmagic, Unreal, Resolve, and Nuke.**
 
 .. wip::
 
-The BURN workflow is a green-screen, single camera, shot-oriented workflow for pre-recorded film or TV. 
-It is designed to be small, cost-efficient, but able to achive high-quality output.
+.. admonition:: Production Checklist
 
-.. caution::
+    .. list-table::
+        :header-rows: 1
 
+        *   - :term:`4K`
+            - :term:`Timecode`
+            - :term:`ACES`
+            - :term:`Raw`
+            - :term:`Live`
+            - :term:`Multicam`
+            - :term:`nDisplay`
+        *   - ✅
+            - ✅
+            - ✅
+            - ✅
+            - ❌
+            - ❌
+            - ❌
+    
     BURN may not be suitable for live events, or multi-camera recording. Check out :doc:`LIVE` instead.
 
 Overview
 ==================
 
+**Blackmagic, Unreal, Resolve, and Nuke.**
+
+The BURN workflow is a green-screen, single camera, shot-oriented workflow for pre-recorded film or TV. 
+It is designed to be small, cost-efficient, but able to achive high-quality output.
 BURN is a compromise between mixed-reality and traditional green-screen workflows. BURN has two pieces:
 
 1. All equipment records internally at its highest quality.
@@ -48,7 +62,6 @@ Pre-Production
     /guides/timecode-bmpcc
     /guides/bmpcc4k-to-braw
     /guides/braw-to-resolve
-    /guides/hdri-sets
 
 Production
 ----------
@@ -56,7 +69,7 @@ Production
 .. toctree::
     :titlesonly:
 
-    /guides/unreal-ocio
+    /guides/uncreal-ocio
     /guides/lens-distortion
     /guides/unreal-composure
     /guides/recording-take-recorder

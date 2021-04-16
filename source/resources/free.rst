@@ -10,5 +10,6 @@ Content
 Software
 ========
 
-.. [Blender] `<https://www.blender.org/>`_
+.. [UnrealEngine] `<https://unrealengine.com>`_
 
+.. [NukeNonCommercial] `<https://www.foundry.com/products/nuke/non-commercial>`_

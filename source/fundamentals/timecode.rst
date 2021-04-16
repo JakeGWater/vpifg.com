@@ -20,7 +20,7 @@ Youw will encounter multiple types of timecode encodings.
         Vertical interval timecode embeds an SMPTE-encoded timecode between every frame.
         Cameras that *output timecode* probably use this.
 
-        The :doc:`/guides/bmpcc4k` outputs VITC over HDMI.
+        The [BMPCC4k]_ outputs VITC over HDMI.
     
     LTC
         Linear timecode embeds an SMPTE timecode into an audio channel.
@@ -31,4 +31,4 @@ Youw will encounter multiple types of timecode encodings.
 
         Example: ``scene1-shot3-00014291.exr``
 
-        :doc:`/guides/nuke` natively uses Frame Numbering. :doc:`/guides/resolve` can use both Frame Numbering as well as SMPTE timecodes.
+        [Nuke]_ natively uses Frame Numbering. [Resolve]_ can use both Frame Numbering as well as SMPTE timecodes.
