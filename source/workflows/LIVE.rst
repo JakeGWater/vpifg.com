@@ -1,5 +1,5 @@
 =================
-The LIVE Workflow
+LIVE Workflow
 =================
 
 .. planned::

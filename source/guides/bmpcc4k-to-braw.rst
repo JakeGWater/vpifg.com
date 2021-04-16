@@ -2,7 +2,7 @@
 BMPCC4k to BRaw
 ===============
 
-The :term:`BMPCC4k` can record in both Apple ProRes and Blackmagic Raw.
+The [BMPCC4k]_ can record in both [ProRes]_ and [BlackmagicRaw]_.
 We recommend using BRaw because ProRes is not a RAW format, and there may be fewer options when importing into Resolve.
 
 .. planned::

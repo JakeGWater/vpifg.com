@@ -24,12 +24,12 @@ Contributions whenever possible should adhere to the following guidelines:
 #. Contribution which are not complete must be marked as `Work in Progress`_.
 #. External Links:
 
-   #. Must go in the relevant :doc:`/resources` section. Use a `Citation <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#citations>`_ to cross-link from elsewhere.
+   #. Must go in the relevant :doc:`/references` section. Use a `Citation <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#citations>`_ to cross-link from elsewhere.
    #. *Exception* studio pages (:doc:`/studios`) may use external links, including affiliate links.
 
 #. Embedding content, such as videos, figures, slides is encouraged and permitted. The content origin must be on our list of `Allowed Embedding Domains`_.
 #. Images must be hosted from vpifg.com
-#. Use `References for External Resources`_
+#. Use `References for External Content`_
 
 Allowed Embedding Domains
 --------------------------
@@ -67,17 +67,18 @@ Insert the following code into the beginning of your page:
 
     .. experimental::
 
-References for External Resources
----------------------------------
+References for External Content
+-------------------------------
 
-All references to external resources should use `citations <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#citations>`_ whenever possible.
+All references to external content should use `citations <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#citations>`_ whenever possible.
 
 For example:
 
 1. Refer to to the citation from your guide or workflow as follows::
 
-    Use the [unrealengine] to ...
-2. Cite the resource under the relevant :doc:`/resources` file as::
+    Use the [unrealengine]_ to ...
+
+2. Cite the content under the relevant :doc:`/references` file as::
 
     .. [unrealengine] The unreal game engine `<https://www.unrealengine.com>`_
 

@@ -22,6 +22,7 @@
 project = u'Virtual Production Indie Film Guide'
 copyright = u'2021, Jake G. Water'
 author = u'Jake G. Water'
+show_authors = True
 
 # The short X.Y version
 version = u''
@@ -51,6 +52,8 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.githubpages',
+    'sphinxcontrib.svgbob',
+    'sphinxemoji.sphinxemoji',
 ]
 
 # The suffix(es) of source filenames.
