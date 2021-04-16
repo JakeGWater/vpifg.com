@@ -63,3 +63,5 @@ tl;dr
 * You assert that you have the right to license your contributions to us (i.e. you are the author)
 * You own all your contributions, and you can do whatever you like with them.
 * You have licensed your contributions to us, and we may also do whatever we like with them.
+
+You are always free to use our combined chanages under our [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License](LICENSE.md).
