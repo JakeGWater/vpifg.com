@@ -27,5 +27,5 @@ jobs:
         with:
           pre-build-command: "apt-get install -y git"
           docs-folder: '.'
-          build-command: "sphinx-build -b -aE -W dirhtml source build"
+          build-command: "sphinx-build -aE -W -b dirhtml source build"
 
