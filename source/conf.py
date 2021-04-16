@@ -47,6 +47,7 @@ sys.path.append(os.path.abspath("./_ext"))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx_git',
     'notices',
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',

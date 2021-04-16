@@ -21,6 +21,7 @@ from docutils import nodes
 from docutils.parsers.rst import Directive, directives
 from git import Repo
 
+import humanize
 
 # pylint: disable=too-few-public-methods, abstract-method
 class GitDirectiveBase(Directive):
@@ -167,6 +168,7 @@ class GitChangelog(GitDirectiveBase):
         return filtered_commits
 
     def _build_markup(self, commits):
+        output = output_node()
         list_node = nodes.bullet_list()
         for commit in commits:
             date_str = datetime.fromtimestamp(commit.authored_date)
@@ -176,32 +178,62 @@ class GitChangelog(GitDirectiveBase):
                 message = commit.message
                 detailed_message = None
 
+            
             item = nodes.list_item()
             par = nodes.paragraph()
-            # choose detailed message style by detailed-message-strong option
-            if self.options.get('detailed-message-strong', True):
-                par += nodes.strong(text=message)
+            # search for PR numbers (e.g. #12)
+            match = re.search(r'\#\d+', message)
+            if match:
+                span = match.span()
+                begin = nodes.strong(text=message[:span[0]])
+                pr_num = message[span[0]:span[1]]
+                middle = nodes.reference(text=pr_num)
+                middle['refuri'] = 'https://github.com/JakeGWater/vpifg.com/pull/%s' % pr_num[1:]
+                end = nodes.strong(text=message[span[1]:])
+                par += [begin, middle, end]
             else:
-                par += nodes.inline(text=message)
+                par += nodes.strong(text=message)
+            # choose detailed message style by detailed-message-strong option
+            # if self.options.get('detailed-message-strong', True):
+            #     par += nodes.strong(text=message)
+            # else:
+            #     par += nodes.inline(text=message)
 
             if not self.options.get('hide_author'):
-                par += [nodes.inline(text=" by "),
-                        nodes.emphasis(text=six.text_type(commit.author))]
+                newnode = nodes.reference(commit.author.name, commit.author.name)
+                newnode['refuri'] = 'https://github.com/%s' % commit.author.name
+                par += [nodes.inline(text=" by "), newnode]
             if not self.options.get('hide_date'):
-                par += [nodes.inline(text=" at "),
-                        nodes.emphasis(text=str(date_str))]
+                par += [nodes.inline(text=" "), nodes.emphasis(text=humanize.naturaltime(date_str))]
             item.append(par)
             if detailed_message and not self.options.get('hide_details'):
                 detailed_message = detailed_message.strip()
                 if self.options.get('detailed-message-pre', False):
-                    item.append(
-                        nodes.literal_block(text=detailed_message))
+                    literal = nodes.literal_block(text=detailed_message)
+                    literal['language'] = 'md'
+                    item.append(literal)
                 else:
                     item.append(nodes.paragraph(text=detailed_message))
             list_node.append(item)
-        return [list_node]
+        output += list_node
+        return [output]
 
+class output_node(nodes.General, nodes.Element):
+    pass
+
+def html_visit_output_node(self, node):
+    self.body.append(self.starttag(node, 'div', '', CLASS='gitlog'))
+
+def html_depart_output_node(self, node):
+    self.body.append('</div>')
 
 def setup(app):
+    app.add_node(
+        output_node,
+        html=(
+            html_visit_output_node,
+            html_depart_output_node
+        )
+    )
     app.add_directive('git_changelog', GitChangelog)
     app.add_directive('git_commit_detail', GitCommitDetail)

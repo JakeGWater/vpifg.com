@@ -20,6 +20,15 @@ Virtual Production Independent Film Guide
 The VPIFG intends to be a technical reference for virtual production for smaller independent studios and individuals.
 Primarily using [UnrealEngine]_, but extensible enough to accommodate as many production workflows as necessary.
 
+.. topic:: Latest Updates
+
+   .. git_changelog::
+      :hide_details: 1
+      :class: shortlog
+      :revisions: 3
+
+   See :doc:`about/changelog` for all updates.
+
 Organization
 ============
 
