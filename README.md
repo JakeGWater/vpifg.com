@@ -6,15 +6,15 @@
 
 There are three primary ways to contribute:
 
-1. Edit directly on the website _(Easiest)_.
-2. Edit using Gitpod _(Easy and you get to see a local preview)_.
-3. Local checkout.
+1. [Edit directly on the website](#edit-on-website) _(Easiest)_.
+2. [Edit using Gitpod](#edit-in-gitpod) _(Easy and you get to see a local preview)_.
+3. [Local checkout](#local-checkout).
 
 In all cases, you will have to:
 
 1. Follow the [Contribution Guidelines](https://github.com/JakeGWater/vpifg.com/blob/main/source/about/contributing.rst) 
 1. [Create a Pull-Request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)
-1. Sign the CLA*
+1. Sign the [CLA](#cla)*
 1. Respond to any feedback, and wait for merge.
 
 Once the PR is merged, it will immediately be live.
