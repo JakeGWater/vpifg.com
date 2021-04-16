@@ -1,0 +1,10 @@
+sphinx_git.egg-info/
+dist/
+*.pyc
+sample/_build
+docs/_build
+.travis-solo
+.ropeproject
+*.swp
+.tox
+build
