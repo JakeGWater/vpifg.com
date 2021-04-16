@@ -1,10 +1,10 @@
 ##################
-Timecode Integrity
+Timecode
 ##################
 
 .. wip::
 
-Timecode integrity will make our lives easier at every step.
+Timecode will make our lives easier at every step.
 Even for a short film, there may be hundreds of shots, each requiring post-production and vfx.
 
 Youw will encounter multiple types of timecode encodings.

@@ -4,7 +4,5 @@ Blog
 
 .. rubric:: Latest Updates
 
-.. toctree::
-    :glob:
+- :doc:`/guides/timecode-bmpcc` (*April 15, 2021*)
 
-    blog/*
