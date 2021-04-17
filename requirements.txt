@@ -5,3 +5,4 @@ sphinx-autobuild==2021.3.14
 sphinxcontrib-svgbob>=0.1.1
 sphinxemoji>=0.1.8
 humanize>=3.4.1
+recommonmark>=0.7.1

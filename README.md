@@ -63,5 +63,7 @@ tl;dr
 * You assert that you have the right to license your contributions to us (i.e. you are the author)
 * You own all your contributions, and you can do whatever you like with them.
 * You have licensed your contributions to us, and we may also do whatever we like with them.
+* The CLA does not apply to any embedded or linked content (i.e. anything not committed to this repository).
+  For example, if you embed a youtube video, the CLA does not apply to that video.
 
 You are always free to use our combined chanages under our [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License](LICENSE.md).

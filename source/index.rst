@@ -11,11 +11,12 @@ Virtual Production Independent Film Guide
    :hidden:
    
    about
-   fundamentals
+   production
    workflows
    guides
    studios
    references
+   CodeOfConduct
 
 The VPIFG intends to be a technical reference for virtual production for smaller independent studios and individuals.
 Primarily using [UnrealEngine]_, but extensible enough to accommodate as many production workflows as necessary.
@@ -36,7 +37,7 @@ Organization
 The guide is split into an easy-to-reference organization.
 
 * :doc:`workflows` are virtual production recipes. They work, and they are used by others. If you're not sure where to start, take a look at some existing workflows.
-* :doc:`fundamentals` are the basic building blocks of virtual production. 
+* :doc:`production` are what we consider the standards of production.
 * :doc:`guides` if workflows are recipes, the guides are the ingredients. Guides break down a topic or task into detailed steps.
 * :doc:`studios` are reference examples of actual studio set up with a list of their equipment used. This should help others price estimate what a particular set up is going to cost, as well as valid weather a particular piece of equipment has been field tested.
 * :doc:`references` are external links to other handy resources, tutorials, guides etc.

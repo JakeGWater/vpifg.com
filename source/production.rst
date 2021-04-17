@@ -10,7 +10,7 @@ Thus we aim to ensure all guides and workflows are :term:`Production Ready`.
 
     Production Ready
         Production Ready content should meet broadcast standards, and for lack of a better term be *sellable*. 
-        More simply, production ready content must maintain its :doc:`/fundamentals/color/pipeline` and preserve :doc:`/fundamentals/timecode`.
+        More simply, production ready content must maintain its :doc:`/production/color/pipeline` and preserve :doc:`/production/timecode`.
 
 Exactly what makes something production ready depends on the production.
 Therefore we score every workflow against the following checklist.
@@ -22,7 +22,7 @@ Production Checklist
     :glob:
     :hidden:
 
-    fundamentals/*
+    production/*
 
 We score workflows against the following elements.
 
@@ -31,14 +31,14 @@ We score workflows against the following elements.
     Timecode
         Timecode requires for projcts with post-production, that all hardware and software that consumes or produces media to maintain the original timecode both on import and export.
         
-        See more in :doc:`/fundamentals/timecode`.
+        See more in :doc:`/production/timecode`.
 
     ACES
         ACES is the prefered color pipeline. ACES requires that Raw files are exported only to ACES, and not another smaller color space.
         Correct input and output transforms must be used to maintainer your color pipeline.
         CG footage may be exported to ACEScg.
 
-        See more in :doc:`/fundamentals/color`.
+        See more in :doc:`/production/color`.
     
     4K
         We believe 4K source and output files are the minimum requirment for selling content, even if eventually downsampled.

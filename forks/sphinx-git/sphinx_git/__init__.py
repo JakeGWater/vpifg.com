@@ -199,8 +199,6 @@ class GitChangelog(GitDirectiveBase):
             else:
                 message = commit.message
                 detailed_message = None
-
-            print(commit.message.split('\n', 1)[0], len(files))
             
             files_ul = nodes.bullet_list()
             if not self.options.get('hide_details'):

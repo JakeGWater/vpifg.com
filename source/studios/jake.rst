@@ -1,8 +1,8 @@
 ########################
-T.W.S. Home Studio
+Jake's Home Studio
 ########################
 
-**Triple Word Score Home Studio**
+My home studio.
 
 *********
 Workflows
