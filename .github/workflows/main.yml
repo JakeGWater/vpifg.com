@@ -31,10 +31,11 @@ jobs:
         with:
           pre-build-command: "apt-get install -y git"
           docs-folder: '.'
+          build-command: "sphinx-build -aE -W -b dirhtml source build"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/html
+          publish_dir: ./build
           cname: vpifg.com
