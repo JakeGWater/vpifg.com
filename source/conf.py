@@ -125,7 +125,7 @@ html_context = {
 html_logo = "_static/logo.png"
 # html_favicon = "path/to/favicon.ico"
 html_sidebars = {
-    "**": ["search-field", "sidebar-nav-bs", "sidebar-ethical-ads"]
+    "**": ["logo", "search-field", "sidebar-nav-bs", "sidebar-ethical-ads"]
 }
 html_theme_options = {
     "use_edit_page_button": True,
@@ -150,9 +150,9 @@ html_theme_options = {
     ],
 
     "navbar_start": ["navbar-logo"],
-    "navbar_center": [],
+    "navbar_center": ["banner", ],
     "navbar_end": ["navbar-icon-links"],
-      "footer_items": ["copyright", "sphinx-version"],
+    "footer_items": ["copyright", "sphinx-version"],
 
     # Set the color and the accent color
     # 'color_primary': 'blue',
