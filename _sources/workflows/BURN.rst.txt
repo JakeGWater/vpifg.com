@@ -41,8 +41,6 @@ BURN is a compromise between mixed-reality and traditional green-screen workflow
 The lower quality capture is immediately available for editing, and contains all the final vfx, but without any post-processing polish that may be applied.
 After editing, the higher quality footage may be substituted in using timecode to insert any clips into their correct spot in the timeline.
 
-BURN maintains :doc:`/production/timecode` as well as its :doc:`/production/color/pipeline`.
-
 .. rubric:: Illustsrated Workflow
 
 .. raw:: html
