@@ -5,9 +5,17 @@ dl.citation dt {
 #navbar-icon-links i.fa-youtube-square:before {
     color: #c4302b;
 }
-
-.prodcheck {
-    background-color: greenyellow;
+#navbar-icon-links i.fa, #navbar-icon-links i.fab, #navbar-icon-links i.far, #navbar-icon-links i.fas {
+    font-size: 32px!important;
+}
+.navbar {
+    min-height: 0;
+}
+.navbar-brand {
+    height: 45px;
+}
+.prodcheck th.head {
+    text-align: center;
 }
 
 div.topic {
