@@ -26,6 +26,7 @@ Primarily using [UnrealEngine]_, but extensible enough to accommodate as many pr
       :hide_details: 1
       :class: shortlog
       :revisions: 3
+      :filename_filter: source/.*\.rst
 
    See :doc:`about/changelog` for all updates.
 

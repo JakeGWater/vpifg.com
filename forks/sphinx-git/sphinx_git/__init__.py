@@ -134,6 +134,22 @@ class GitChangelog(GitDirectiveBase):
         markup = self._build_markup(commits)
         return markup
 
+    def _get_files_in_commits(self, commits):
+        commits_and_files = []
+        for commit in commits:
+            # SHA of an empty tree found at
+            # http://stackoverflow.com/questions/33916648/get-the-diff-details-of-first-commit-in-gitpython
+            # will be used to get the list of files of initial commit
+            compared_with = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
+            if len(commit.parents) > 0:  # pylint: disable=len-as-condition
+                compared_with = commit.parents[0].hexsha
+            files = []
+            for diff in commit.diff(compared_with):
+                files.append(diff.a_path)
+                files.append(diff.b_path)
+            commits_and_files.append((commit, files))
+        return commits_and_files
+
     def _commits_to_display(self):
         repo = self._find_repo()
         commits = self._filter_commits(repo)
@@ -146,9 +162,9 @@ class GitChangelog(GitDirectiveBase):
             commits = repo.iter_commits()
             revisions_to_display = self.options.get('revisions', 10)
             commits = list(commits)[:revisions_to_display]
-        if 'filename_filter' in self.options:
-            return self._filter_commits_on_filenames(commits)
-        return commits
+        # if 'filename_filter' in self.options:
+        return self._filter_commits_on_filenames(commits)
+        # return commits
 
     def _filter_commits_on_filenames(self, commits):
         filtered_commits = []
@@ -160,17 +176,23 @@ class GitChangelog(GitDirectiveBase):
             compared_with = '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
             if len(commit.parents) > 0:  # pylint: disable=len-as-condition
                 compared_with = commit.parents[0].hexsha
+            files = []
             for diff in commit.diff(compared_with):
-                if filter_exp.match(diff.a_path) or \
-                        filter_exp.match(diff.b_path):
-                    filtered_commits.append(commit)
-                    break
+                if 'filename_filter' in self.options:
+                    if filter_exp.match(diff.a_path):
+                        files.append(diff.a_path)
+                    if filter_exp.match(diff.b_path):
+                        files.append(diff.b_path)
+                else:
+                    files.append(diff.a_path)
+                    files.append(diff.b_path)
+            filtered_commits.append((commit, files))
         return filtered_commits
 
-    def _build_markup(self, commits):
+    def _build_markup(self, commits_and_files):
         output = output_node()
         list_node = nodes.bullet_list()
-        for commit in commits:
+        for commit, files in commits_and_files:
             date_str = datetime.fromtimestamp(commit.authored_date)
             if '\n' in commit.message:
                 message, detailed_message = commit.message.split('\n', 1)
@@ -178,7 +200,22 @@ class GitChangelog(GitDirectiveBase):
                 message = commit.message
                 detailed_message = None
 
+            print(commit.message.split('\n', 1)[0], len(files))
             
+            files_ul = nodes.bullet_list()
+            if not self.options.get('hide_details'):
+                for file in list(dict.fromkeys(files)):
+                    # file_link = nodes.reference(text=file)
+                    # file_link['refuri'] = "https://github.com/JakeGWater/vpifg.com/blob/%s/%s" % (commit.hexsha, file)
+                    # print(file_link)
+                    refuri = 'https://github.com/JakeGWater/vpifg.com/blob/%s/%s' % (commit.hexsha, file)
+                    file_link = nodes.reference('', file[7:], refuri=refuri)
+                    p = nodes.paragraph()
+                    p += file_link
+                    list_item = nodes.list_item()
+                    list_item.append(p)
+                    files_ul.append(list_item)
+
             item = nodes.list_item()
             par = nodes.paragraph()
             # search for PR numbers (e.g. #12)
@@ -193,11 +230,6 @@ class GitChangelog(GitDirectiveBase):
                 par += [begin, middle, end]
             else:
                 par += nodes.strong(text=message)
-            # choose detailed message style by detailed-message-strong option
-            # if self.options.get('detailed-message-strong', True):
-            #     par += nodes.strong(text=message)
-            # else:
-            #     par += nodes.inline(text=message)
 
             if not self.options.get('hide_author'):
                 newnode = nodes.reference(commit.author.name, commit.author.name)
@@ -215,6 +247,7 @@ class GitChangelog(GitDirectiveBase):
                 else:
                     item.append(nodes.paragraph(text=detailed_message))
             list_node.append(item)
+            list_node.append(files_ul)
         output += list_node
         return [output]
 
