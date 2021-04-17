@@ -81,7 +81,31 @@ blockquote .attribution {
     margin-right: .5em;
 }
 
-img.avatar {
-    border-radius: 50%;
-    margin: 10px;
+.clear {
+    clear: both;
+}
+
+.avatar {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
+    float: right;
+    padding: 5px;
+    margin: 5px -10px 5px 5px;
+    background: rgb(210,220,210);
+    border: 2px solid rgb(190,200,190);
+}
+
+.avatar-introduction {
+    text-align: right;
+    flex-grow: 2;
+}
+
+.avatar-image {
+    /* width: 100px; */
+    /* height: 100px; */
+    flex-grow: 1;
+    flex-basis: 100px;
+    margin: 0;
+    padding: 0;
 }

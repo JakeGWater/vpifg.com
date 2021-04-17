@@ -67,7 +67,81 @@ class NoticeDirective(SphinxDirective):
         
         return [notice_node]
 
+class Avatar(nodes.General, nodes.Element):
+    pass
+
+def visit_Avatar_node(self, node):
+    self.body.append(self.starttag(node, 'div', '', CLASS='avatar'))
+
+def depart_Avatar_node(self, node):
+    self.body.append('</div>')
+
+class AvatarDirective(SphinxDirective):
+    option_spec = {
+        # 'class': directives.unchanged,
+        # 'revisions': directives.nonnegative_int,
+        # 'rev-list': six.text_type,
+        # 'detailed-message-pre': bool,
+        # 'detailed-message-strong': bool,
+        # 'filename_filter': six.text_type,
+        # 'hide_author': bool,
+        # 'hide_date': bool,
+        # 'hide_details': bool,
+        # 'repo-dir': six.text_type,
+    }
+
+    has_content = True
+    required_arguments=1
+
+    def run(self):
+        avatar = Avatar()
+        imgurl = self.arguments[0]
+
+        imgbox = nodes.container()
+        imgbox['classes'] = ['avatar-image']
+        
+        image = nodes.image()
+        image['uri'] = imgurl
+        
+        imgbox += image
+        
+        text = nodes.container()
+        text['classes'] = ['avatar-introduction']
+
+        self.state.nested_parse(self.content, self.content_offset, text)
+
+        avatar += text
+        avatar += imgbox
+
+        # clear = nodes.container()
+        # clear['classes'] = ['avatar-clear']
+        # avatar += clear
+
+        return [avatar]
+
+class Clear(nodes.General, nodes.Element):
+    pass
+
+def visit_Clear_node(self, node):
+    self.body.append(self.starttag(node, 'div', '', CLASS='clear'))
+
+def depart_Clear_node(self, node):
+    self.body.append('</div>')
+
+class ClearDirective(SphinxDirective):
+    def run(self):
+        return [Clear()]
+
 def setup(app):
+    app.add_node(Avatar,
+                html=(visit_Avatar_node, depart_Avatar_node),)
+    app.add_directive('avatar', AvatarDirective)
+
+    app.add_directive('clear', ClearDirective)
+    app.add_node(Clear,
+                 html=(visit_Clear_node, depart_Clear_node),)
+
+
     # app.add_config_value('todo_include_todos', False, 'html')
     app.add_node(notice,
                  html=(visit_notice_node, depart_notice_node),)
