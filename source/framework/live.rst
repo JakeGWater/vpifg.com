@@ -1,6 +1,6 @@
-=================
-LIVE Workflow
-=================
+====
+Live
+====
 
 .. admonition:: Help Wanted
 
