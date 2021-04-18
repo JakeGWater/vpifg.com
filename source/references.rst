@@ -5,7 +5,7 @@ References
 Content
 =======
 
-.. [HdriHaven] :guilabel:`FREE` high quality HDRIs `<https://hdrihaven.com>`_
+.. .. [HdriHaven] :guilabel:`FREE` high quality HDRIs `<https://hdrihaven.com>`_
 
 Software
 ========

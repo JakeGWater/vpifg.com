@@ -17,6 +17,10 @@ dl.citation dt {
 .prodcheck th.head {
     text-align: center;
 }
+div.prodcheck {
+    margin:0;
+    padding:0;
+}
 
 div.topic {
     background: #f5f5f5;

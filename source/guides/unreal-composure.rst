@@ -1,16 +1,24 @@
 ==============================
-Setting up Composure in Unreal
+Unreal Composure
 ==============================
 
-.. planned::
+.. topic:: Lesson Plan
 
-..
-    #. outputting sRGB linear from camera
-    #. bm media source (as sRGB linear)
-    #. composure
-        #. media plate
-            #. sRGB linear
-        #. cgi
-        #. garbage matte
-        #. output (Rec.709 transform)
-    #. pay attention to COLOR
+    #. Camera to Unreal
+    #. Camera Recording
+    #. Media Input
+    #. Composure
+
+       #. Media Plate
+    
+          #. OCIO Input Transform (to sRGB linear)
+          #. Chroma Keying
+    
+       #. CG Plate
+       #. Garbage Matte
+       #. Media Output
+       
+          #. Disable Tonemapping
+          #. OCIO Output Transform
+
+.. planned::
