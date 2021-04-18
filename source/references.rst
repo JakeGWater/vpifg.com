@@ -2,22 +2,20 @@
 References
 ==============
 
-:guilabel:`FOOBAR`
-
 Content
 =======
 
-.. [HdriHaven] `<https://hdrihaven.com>`_
+.. [HdriHaven] :guilabel:`FREE` high quality HDRIs `<https://hdrihaven.com>`_
 
 Software
 ========
 
-.. [UnrealEngine] `<https://unrealengine.com>`_
+.. [UnrealEngine] :guilabel:`FREE` `<https://unrealengine.com>`_
 
-.. [NukeNonCommercial] `<https://www.foundry.com/products/nuke/non-commercial>`_
+.. [NukeNonCommercial] :guilabel:`FREE` `<https://www.foundry.com/products/nuke/non-commercial>`_
 
 .. [Resolve] 
-    `Davinci Resolve <https://www.blackmagicdesign.com/products/davinciresolve/>`_
+    :guilabel:`FREE` `Davinci Resolve <https://www.blackmagicdesign.com/products/davinciresolve/>`_
     
     See also [ResolveStudio]_
 
@@ -40,4 +38,6 @@ Hardware
 
 .. [BMPCC4k] 
     
+    Introductory 4k RAW Cinema Cmera.
+
     `Tech Specs <https://www.blackmagicdesign.com/products/blackmagicpocketcinemacamera/techspecs/W-CIN-12>`_

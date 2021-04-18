@@ -92,6 +92,21 @@ def add_toctree_functions(app, pagename, templatename, context, doctree):
             toc_sphinx = index_toctree(app, pagename, startdepth, **kwargs)
 
         soup = bs(toc_sphinx, "html.parser")
+        
+        def rearrange_ul(ul):
+            to_end = []
+            for li in ul.find_all("li", recursive=False):
+                if li.find("a"):
+                    href = li.find("a")["href"]
+                    if "#" in href and href != "#":
+                        to_end.append(li.extract())
+                if li.ul:
+                    rearrange_ul(li.ul)
+            for li in to_end:
+                ul.insert(0, li)
+
+        for ul in soup("ul", recursive=False):
+            rearrange_ul(ul)
 
         # pair "current" with "active" since that's what we use w/ bootstrap
         for li in soup("li", {"class": "current"}):

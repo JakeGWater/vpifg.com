@@ -1,5 +1,5 @@
 =====
-Color
+ACES
 =====
 
 .. wip::
@@ -13,7 +13,7 @@ We break managing color down into three categories:
     Color Pipeline
         The color pipeline is a technical process, ensuring color spaces are appropriately transformed at each step of your production and post-production process.
 
-        See :doc:`color/pipeline` for more details.
+        See :doc:`aces/pipeline` for more details.
     
     Color Correction
         Color correction involves correcting footage against a real-life reference,
@@ -27,4 +27,4 @@ We break managing color down into three categories:
     :titlesonly:
     :glob:
 
-    color/*
+    aces/*
