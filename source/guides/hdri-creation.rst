@@ -107,31 +107,6 @@ If not capturing directly, you can use one or more of the following approaches.
 #. Guess using charts.
 #. Use :math:`1.6e9 cd/m^2`
 
-If you plan on capturing the sun directly, the camera needs to be able to catpure 33EV.
-From [Wiki:EV100]_ given :math:`N` as the apeture and :math:`t` as shutter speed, then EV can be calculated as:
-
-.. math:: EV = \log_2 \frac{N^2}{t}
-
-Or reversing that with :math:`EV=33` and apeture f/8 we get:
-
-.. math:: t = \frac{N^2}{2^{EV}} = \frac{1}{134217728}
-
-That's an impossible shutter speed. Even for f/32 we would need a shutter speed of 1/17747798.
-There is no way to capture the sun without *very strong ND filters*.
-For f/8 and 1/8000 shutter speed, a camera can capture EV18.96, thus we need 33-19 = 14-stops of filters.
-
-The NiSi filters provide 10, 6, and 3 stop filters which can be stacked giving a total of 19 stops, *perfect*.
-
-.. warning::
-
-   Do not change any bracketing settings. Add the filters only. PtGui will get upset if the bracketing values change and refuse to create your HDRI.
-
-
-.. [Wiki:EV100] https://en.wikipedia.org/wiki/Exposure_value
-
-Camera Settings
----------------
-
 Calibration Photos
 ------------------
 
@@ -154,8 +129,32 @@ You will have to set your camera to begin taking photos at the most-underexposed
 Extreme Light Sources
 ---------------------
 
+Equip your ND filters, try not to move the camera.
+
+.. warning::
+
+   Do not change any bracketing settings. Add the filters only. PtGui will get upset if the bracketing values change and refuse to create your HDRI.
+
+
 The Sun is Very Bright
 ^^^^^^^^^^^^^^^^^^^^^^
+
+If you plan on capturing the sun directly, the camera needs to be able to catpure 33EV.
+From [Wiki:EV100]_ given :math:`N` as the apeture and :math:`t` as shutter speed, then EV can be calculated as:
+
+.. math:: EV = \log_2 \frac{N^2}{t}
+
+Or reversing that with :math:`EV=33` and apeture f/8 we get:
+
+.. math:: t = \frac{N^2}{2^{EV}} = \frac{1}{134217728}
+
+That's an impossible shutter speed. Even for f/32 we would need a shutter speed of 1/17747798.
+There is no way to capture the sun without *very strong ND filters*.
+For f/8 and 1/8000 shutter speed, a camera can capture EV18.96, thus we need 33-19 = 14-stops of filters.
+
+The NiSi filters provide 10, 6, and 3 stop filters which can be stacked giving a total of 19 stops, *perfect*.
+
+.. [Wiki:EV100] https://en.wikipedia.org/wiki/Exposure_value
 
 Second Calibration Photos
 -------------------------
@@ -166,11 +165,32 @@ Post-Processing
 Processing Raw Photos
 ---------------------
 
-*  in [CaptureOne]_ and [ColorChecker_Camera_Calibration]_
+PtGui can process most Raw files directly, but as an option we can use [CaptureOne]_ to apply an calibrated ICC profile to the Raw files and save them as 16-bit TIFFs.
+
+.. sidebar:: Generating an ICC Profile
+
+   .. raw:: html
+
+      <iframe width="100%" src="https://www.youtube.com/embed/FxW7tN6FNh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#. White balance using your calibration photo. You can apply this to all further Raw files.
+#. Crop and extract the calibration photo of your color chart, after white balancing. 
+
+   #. Apply an empty ICC profile
+   #. Export as a 16-bit TIFF with embedded ICC profile.
+
+#. Use [ColorChecker_Camera_Calibration]_ to generate an ICC profile.
+#. Back in CaptureOne, apply white-balance, and the generated ICC profile to the 300+ bracketed shots of your HDRI. Stay in linear space.
+#. Export as 16-bit TIFFs.
+#. Use these TIFFs in the next section.
+
 
 Creating the HDRIs
 ------------------
 
+#. Drag all your bracketed shots into PtGui.
+#. PtGui should recognize that your are trying to create an HDR photo and offer go group bracketed photos.
+#. Adjust the EV for any brackets which had filters applied to them.
 
 .. [PtGui] https://www.ptgui.com/
 
