@@ -1,0 +1,23 @@
+{%- if meta is defined and meta is not none %}
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-info-circle"></i> Metadata
+</div>
+<ul class="visible nav section-nav flex-column">
+    {%- if meta["author"] %}
+    <li class="toc-h2 nav-item toc-entry">
+        <a clspanss="nav-link" href="{{ meta['author_url'] or '#' }}">
+        Author: {{ meta["author"] }}
+        </a>
+    </li>
+    {%- endif %}
+    {%- if meta["date"] %}
+    <li class="toc-h2 nav-item toc-entry">
+        <a clspanss="nav-link" href="#">
+        Date: {{ meta["date"] }}
+        </a>
+    </li>
+    {%- endif %}
+</ul>
+{%- else %}
+<!-- No Page Metadata Found -->
+{%- endif %}
