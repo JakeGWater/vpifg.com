@@ -155,16 +155,12 @@ html_theme_options = {
     "navbar_end": ["navbar-icon-links"],
     "footer_items": ["copyright", "sphinx-version"],
 
-    # Set the color and the accent color
-    # 'color_primary': 'blue',
-    # 'color_accent': 'light-blue',
+    "page_sidebar_items": ["page-toc", "edit-this-page", "page-metadata"],
 
-    # If False, expand all TOC entries
     'globaltoc_collapse': True,
-    # If True, show hidden TOC entries
     'globaltoc_includehidden': True,
 
-    # "home_page_in_toc": True
+    
 }
 
 # -- Options for HTMLHelp output ---------------------------------------------
