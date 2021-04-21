@@ -1,4 +1,5 @@
-:author: @nvcexploder - Ben Acker
+:author: Ben Acker
+:author_url: https://twitter.com/nvcexploder
 :date: 2021-04-20
 
 ########################
