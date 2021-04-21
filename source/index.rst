@@ -18,6 +18,8 @@ Virtual Production Independent Film Guide
    help
    references
    CodeOfConduct
+   LICENSE
+   cla
 
 The VPIFG intends to be a technical reference for virtual production for smaller independent studios and individuals.
 Primarily using [UnrealEngine]_, but extensible enough to accommodate as many production workflows as necessary.
@@ -29,6 +31,7 @@ Primarily using [UnrealEngine]_, but extensible enough to accommodate as many pr
       :class: shortlog
       :revisions: 3
       :filename_filter: source/.*\.rst
+      :link-to-docs: 1
 
    See :doc:`about/changelog` for all updates.
 

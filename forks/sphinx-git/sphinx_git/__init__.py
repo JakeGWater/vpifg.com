@@ -13,8 +13,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
+
 import re
 from datetime import datetime
+from pathlib import Path
 
 import six
 from docutils import nodes
@@ -22,6 +25,8 @@ from docutils.parsers.rst import Directive, directives
 from git import Repo
 
 import humanize
+
+global SPHINX_SRC_DIR
 
 # pylint: disable=too-few-public-methods, abstract-method
 class GitDirectiveBase(Directive):
@@ -121,6 +126,7 @@ class GitChangelog(GitDirectiveBase):
         'hide_date': bool,
         'hide_details': bool,
         'repo-dir': six.text_type,
+        'link-to-docs': bool,
     }
 
     def run(self):
@@ -179,10 +185,11 @@ class GitChangelog(GitDirectiveBase):
             files = []
             for diff in commit.diff(compared_with):
                 if 'filename_filter' in self.options:
+                    # In the case of renames, we want the destination not the original
                     if filter_exp.match(diff.a_path):
                         files.append(diff.a_path)
-                    if filter_exp.match(diff.b_path):
-                        files.append(diff.b_path)
+                    # if filter_exp.match(diff.b_path):
+                    #     files.append(diff.b_path)
                 else:
                     files.append(diff.a_path)
                     files.append(diff.b_path)
@@ -190,6 +197,7 @@ class GitChangelog(GitDirectiveBase):
         return filtered_commits
 
     def _build_markup(self, commits_and_files):
+        global SPHINX_SRC_DIR
         output = output_node()
         list_node = nodes.bullet_list()
         for commit, files in commits_and_files:
@@ -201,7 +209,23 @@ class GitChangelog(GitDirectiveBase):
                 detailed_message = None
             
             files_ul = nodes.bullet_list()
-            if not self.options.get('hide_details'):
+            if SPHINX_SRC_DIR is not None and self.options.get('link-to-docs'):
+                for file in list(dict.fromkeys(files)):
+                    p = nodes.paragraph()
+                    path = Path(SPHINX_SRC_DIR) / '..' / file
+                    if os.path.exists(path):
+                        text, _ = self.state.inline_text(':doc:`/%s`' % file[7:-4], lineno=-1)
+                        p += text
+                        # refuri = 'https://github.com/JakeGWater/vpifg.com/blob/%s/%s' % (commit.hexsha, file)
+                        # file_link = nodes.reference('', commit.hexsha[0:8], refuri=refuri)
+                    else:
+                        refuri = 'https://github.com/JakeGWater/vpifg.com/blob/%s/%s' % (commit.hexsha, file)
+                        file_link = nodes.reference('', file[7:], refuri=refuri)
+                        p += file_link
+                    list_item = nodes.list_item()
+                    list_item.append(p)
+                    files_ul.append(list_item)
+            elif not self.options.get('hide_details'):
                 for file in list(dict.fromkeys(files)):
                     # file_link = nodes.reference(text=file)
                     # file_link['refuri'] = "https://github.com/JakeGWater/vpifg.com/blob/%s/%s" % (commit.hexsha, file)
@@ -259,6 +283,9 @@ def html_depart_output_node(self, node):
     self.body.append('</div>')
 
 def setup(app):
+    global SPHINX_SRC_DIR
+    
+    SPHINX_SRC_DIR = app.srcdir
     app.add_node(
         output_node,
         html=(
