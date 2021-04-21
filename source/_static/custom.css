@@ -99,7 +99,7 @@ img.avatar {
 }
 
 .license {
-    margin: -.5em;
+    margin: .5em -.5em;
     padding: .5em;
     background: #f8f8f8;
 }
@@ -112,4 +112,12 @@ img.avatar {
 .topic .gitlog {
     max-height: 300px;
     overflow-y: auto;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+iframe.figma {
+    aspect-ratio: 16/9;
 }
