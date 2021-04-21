@@ -2,5 +2,10 @@
 OCIO Setup in Unreal
 ====================
 
-.. planned::
+.. topic:: Lesson Plan
 
+    #. What is OCIO?
+    #. Download latest Configs
+    #. Configuring in Unreal
+
+.. planned::
