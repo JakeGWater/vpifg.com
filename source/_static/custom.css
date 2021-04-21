@@ -93,3 +93,14 @@ img.avatar {
     border-radius: 50%;
     margin: 10px;
 }
+
+.license {
+    margin: -.5em;
+    padding: .5em;
+    background: #f8f8f8;
+}
+
+.license-notice {
+    font-size: x-small;
+    text-align: right;
+}
