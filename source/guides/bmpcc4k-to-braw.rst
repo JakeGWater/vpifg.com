@@ -1,13 +1,13 @@
+:author: Jake G. Water
+:date: 2021-04-21
+
 ===============
 BMPCC4k to BRaw
 ===============
 
 .. topic:: Lesson Plan
 
-    #. [BlackmagicRaw]_ vs [ProRes]_
-    #. Camera Settings
-
-.. planned::
+    #. BMPCC Camera Settings to Record in BRaw
 
 Overview
 ========
@@ -25,7 +25,7 @@ Settings
     * **Blackmagic RAW**
     * **Constant Quality**
     * **Q0**
-      The bit-rate of Constant Quality files varries, but BRaw Cosntant bitrate files with 3:1 compression use about 6 GB/minute according to [BRawDocs]_.
+      The bit-rate of Constant Quality files varries, but BRaw Cosntant bitrate files with 3:1 compression use about 6 GB/minute according to [BlackmagicRaw]_.
     
     .. figure:: bmpcc4k-to-braw/record_quality_resolution.png
 
@@ -68,8 +68,4 @@ Settings
         cleaner results.
 
   * We typically use 400 and leave it at that.
-
-.. [BRawDocs] 
-    
-    https://documents.blackmagicdesign.com/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf
 

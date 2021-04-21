@@ -23,6 +23,9 @@ Software
 
 .. [BlackmagicRaw] `<https://www.blackmagicdesign.com/products/blackmagicursaminipro/blackmagicraw>`_
 
+    `Manual <https://documents.blackmagicdesign.com/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf>`_
+
+
 .. [Nuke]
     
     Paid software from `Foundary <https://www.foundry.com/products/nuke>`_.
