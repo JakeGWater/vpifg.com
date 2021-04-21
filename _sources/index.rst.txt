@@ -31,6 +31,7 @@ Primarily using [UnrealEngine]_, but extensible enough to accommodate as many pr
       :class: shortlog
       :revisions: 3
       :filename_filter: source/.*\.rst
+      :link-to-docs: 1
 
    See :doc:`about/changelog` for all updates.
 

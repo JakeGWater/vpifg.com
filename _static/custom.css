@@ -104,3 +104,8 @@ img.avatar {
     font-size: x-small;
     text-align: right;
 }
+
+.topic .gitlog {
+    max-height: 300px;
+    overflow-y: auto;
+}
