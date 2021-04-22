@@ -25,7 +25,7 @@ Settings
     * **Blackmagic RAW**
     * **Constant Quality**
     * **Q0**
-      The bit-rate of Constant Quality files varries, but BRaw Cosntant bitrate files with 3:1 compression use about 6 GB/minute according to [BlackmagicRaw]_.
+      The bit-rate of Constant Quality files varries, but BRaw Constant-bitrate files under 3:1-compression use about 6 GB/minute according to [BlackmagicRaw]_.
     
     .. figure:: bmpcc4k-to-braw/record_quality_resolution.png
 
@@ -67,5 +67,4 @@ Settings
         that you can select ISO 1,250 as it will engage the higher native ISO and provide much
         cleaner results.
 
-  * We typically use 400 and leave it at that.
-
+  * We use 400 in a studio setting.
