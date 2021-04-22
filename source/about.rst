@@ -14,8 +14,8 @@ About
 
 Hi I'm Jake.
 I make software for a living, but film and video have always been a passion.
-A while back I started building a home virtual production studio with some friends.
-The world of VFX has always appealed to me, and with [UnrealEngine]_, [Blender]_ and other free software the virtual world of filmmaking has never felt more accessible.
+A while back I got into Virtual Production, and started out trying to build a home studio.
+Between [UnrealEngine]_, [Blender]_, [Resolve]_ and other free software the world of filmmaking has never felt more accessible.
 I absolutely love the idea of real, immediate, interactive worlds to explore as a filmmaker.
 
 I started recording some of our progress on YouTube, with as much technical detail as possible.
