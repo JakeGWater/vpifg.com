@@ -1,6 +1,6 @@
-====================
-OCIO Setup in Unreal
-====================
+=================
+Unreal OCIO Setup
+=================
 
 .. topic:: Lesson Plan
 
@@ -13,19 +13,50 @@ OCIO Setup in Unreal
 What is OCIO
 ============
 
-Any time footage leaves the camera and enters your computer, or your video files move between programs, we need to think about the color pipeline.
-We need to know:
+Any time footage leaves the camera and enters your computer, or your video files move between programs, we need to think about the color pipeline:
 
-1. What color space the footage is coming from, and
-2. what color space the footage is going to.
+#. What color space the footage is coming from, and
+#. what color space the footage is going into.
 
-Mapping between color spaces is easy, usually, thanks to OCIO.
-OCIO can be somewhat confusing, but in short it is:
+For example, an annotated color pipeline from :doc:`/workflows/BURN` looks like:
+
+.. svgbob::
+   :align: center
+
+         Raw        ┌──────┐             Raw
+      ┌────────────►│  BRaw├───────────────────────────────────┐
+      │             └──────┘                                   │
+      │                                                        ▼
+      │                        sRGB                        ┌───────┐   ACES
+   ┌──┴──┐  sRGB    ┌──────┐  Linear   ┌─────────┐         │Davinci├───────►
+   │BMPCC├─────────►│Unreal├──────────►│Composure│         │Resolve│
+   └─────┘          └──┬───┘           └────┬────┘         │       │
+                       │                    │              └───────┘
+                       │                    ▼ sRGB             ▲
+                       │               ┌────────┐              │
+                       │sRGB           │LiveView│              │
+                       │Linear         └────────┘              │
+                       │                                       │
+                       ▼                                       │
+                 ┌────────────┐ ACEScg   ┌──────┐  ACEScg      │
+                 │Movie Render├─────────►│  Nuke├──────────────┘
+                 │   Queue    │          └──────┘
+                 └────────────┘
+
+Unreal uses sRGB Linear internally, but from the above diagram it will also need to convert from and into sRGB, and ACEScg.
+
+OCIO makes converting between color spaces easy. In short OCIO is:
 
 1. A catalog of common color spaces.
 2. A set of tools for converting between those spaces.
 
-To use OCIO in Unreal, we need to tell Unreal where to find the catalog, and then which color spaces we wish to use.
+At each junction in our pipeline, will need to tell Unreal:
+
+#. where to find the OCIO configs
+#. what color space we are converting from.
+#. what color space we are converting into.
+
+Unreal and OCIO will handle the rest.
 
 Where OCIO is Necessary
 =======================
@@ -33,12 +64,11 @@ Where OCIO is Necessary
 There are several places we will need OCIO with Unreal.
 
 #. Blackmagic Media Source Input and Output in Composure.
- 
-   #. The incoming camera footage must be mapped to *sRGB Linear*.
-   #. The outgoing composure will be mapped to *Rec.709*.
 
-#. Movie Render Queue. We will render our footage to ACEScg.
+   #. The incoming camera footage must be mapped from sRGB to sRGB Linear.
+   #. The outgoing composure will be mapped from sRGB Linera to sRGB or Rec.709.
 
+#. Movie Render Queue needs to map from sRGB Linear to ACEScg.
 
 Downloading OCIO
 ================
@@ -62,11 +92,41 @@ Configuring Unreal
 All OCIO transforms are expressed as *from* some space *to* another space. 
 We need to select every space we intend to convert from, as well as every space we intend to convert into.
 
-#. Create an OCIO object.
+#. Create an **OpenColorIO Configuration** from the Content Browser.
+
+   .. figure:: https://i.postimg.cc/CLmNG0Xw/image.png
+
+   Name it whatever you like, then double-click the configuration to edit:
+
+   .. figure:: https://i.postimg.cc/C5yqCPHC/image.png
+
+   Browse to the OCIO configurations you downloaded earlier.
+
+   .. figure:: https://i.postimg.cc/FHbhWPbF/image.png
+
+   Locate your ``config.ocio`` file in the corresponding version, we are using ``aces_1.1``
+
+   .. figure:: https://i.postimg.cc/28Q5M8rf/image.png
+
 #. Add the following color spaces:
 
-   #. sRGB Linear - This is the default working space of Unreal. All conversions will either be *from* or *to* this space.
-   #. ACES 2065-1 - Not necessarily used, but this is sort of the unviersal color space, and worth having around.
-   #. ACEScg - We will render our footage to ACEScg.
-   #. Rec.709 - We will convert our live composure output to either Rec.709 or sRGB.
-   #. sRGB
+   .. figure:: https://i.postimg.cc/Y2xVsJZs/image.png
+
+   ``Utility ▶ Utility - Linear - sRGB``
+      This is the default working space of Unreal. All conversions will either be *from* or *to* this space.
+   ``ACES ▶ ACES - ACES2065-1``
+      Not necessarily used, but this is sort of the unviersal color space, and worth having around.
+   ``ACES ▶ ACES - ACEScg``
+      We will render our footage to ACEScg.
+   ``Output ▶ Output - Rec.709``
+      We will convert our live composure output to either Rec.709 or sRGB.
+   ``Output ▶ Output - sRGB``
+      OCIO will let us use sRGB output also as an input.
+
+This should cover everything we need.
+If you use other color spaces, add them to the list.
+
+.. warning::
+
+   The BMPCC does not output sRGB by default.
+   We will need to configure it in :doc:`bmpcc-hdmi-srgb`.
