@@ -24,7 +24,8 @@ div.prodcheck {
 
 div.topic {
     background: #f5f5f5;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%);
+    /* box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%); */
+    box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.05), 0 0 0.05rem rgba(0,0,0,.1);
     /* border-radius: 5px; */
     border: 1px solid #aaa;
 }
@@ -120,4 +121,9 @@ iframe.figma {
 
 #comparison > td {
     text-align: center;
+}
+
+.figure {
+    background: white;
+    box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.05), 0 0 0.05rem rgba(0,0,0,.1);
 }
