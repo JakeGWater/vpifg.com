@@ -57,7 +57,7 @@ Production
     /guides/unreal-ocio
     /guides/lens-distortion
     /guides/unreal-composure
-    /guides/recording-take-recorder
+    /guides/unreal-take-recorder
 
 Post-Production
 ---------------
