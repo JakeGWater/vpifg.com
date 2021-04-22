@@ -936,6 +936,16 @@
     <i class="fas fa-info-circle"></i> Metadata
 </div>
 <ul class="visible nav section-nav flex-column">
+    <li class="toc-h2 nav-item toc-entry">
+        <a clspanss="nav-link" href="#">
+        Author: Jake G. Water
+        </a>
+    </li>
+    <li class="toc-h2 nav-item toc-entry">
+        <a clspanss="nav-link" href="#">
+        Date: 2021-04-21
+        </a>
+    </li>
 </ul>
               </div>
               
@@ -956,47 +966,53 @@
 <div class="topic">
 <p class="topic-title">Lesson Plan</p>
 <ol class="arabic simple">
-<li><p><a class="reference internal" href="../../references/#blackmagicraw" id="id1"><span>[BlackmagicRaw]</span></a> vs <a class="reference internal" href="../../references/#prores" id="id2"><span>[ProRes]</span></a></p></li>
-<li><p>Camera Settings</p></li>
+<li><p>BMPCC Camera Settings to Record in BRaw</p></li>
 </ol>
-</div>
-<div class="important admonition">
-<p class="admonition-title">Planned</p>
-<p>This content is <strong>Planned</strong>.
-Please see our <a class="reference internal" href="../../about/roadmap/"><span class="doc">Roadmap</span></a> for more info.</p>
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>We recommend recording to Blackmagic Raw because they work really well with Davinci Resolve.</p>
+<p>We want to capture our source at the highest possible quality and dynamic range.
+This will be combined in post-production with the CG footage from Unreal.</p>
 </div>
 <div class="section" id="settings">
 <h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
+<ul>
 <li><p>Record:</p>
 <ul>
 <li><p>CODEC AND QUALITY:</p>
-<ul>
+<ul class="simple">
 <li><p><strong>Blackmagic RAW</strong></p></li>
 <li><p><strong>Constant Quality</strong></p></li>
 <li><p><strong>Q0</strong>
-The bit-rate of Constant Quality files varries, but BRaw Cosntant bitrate files with 3:1 compression use about 6 GB/minute according to <a class="reference internal" href="#brawdocs" id="id3"><span>[BRawDocs]</span></a>.</p></li>
+The bit-rate of Constant Quality files varries, but BRaw Constant-bitrate files under 3:1-compression use about 6 GB/minute according to <a class="reference internal" href="../../references/#blackmagicraw" id="id1"><span>[BlackmagicRaw]</span></a>.</p></li>
 </ul>
+<div class="figure align-default">
+<img alt="../../_images/record_quality_resolution.png" src="../../_images/record_quality_resolution.png" />
+</div>
 </li>
 <li><p>Resolution: Either of the following</p>
-<ul>
+<ul class="simple">
 <li><p>Choose <strong>4K DCI</strong> <code class="docutils literal notranslate"><span class="pre">4096x2160</span></code> if your intended output is <em>film</em>.</p></li>
-<li><p>Choose <strong>Ultra HD</strong> <code class="docutils literal notranslate"><span class="pre">3840x2160</span></code> if your intended output is <em>TV</em>. This resolution matches the aspect ratio of 1080p, and will work a little better with your live preview.</p></li>
+<li><p>Choose <strong>Ultra HD</strong> <code class="docutils literal notranslate"><span class="pre">3840x2160</span></code> if your intended output is <em>TV</em>, or if you want a live 1080p output from Composure.</p></li>
 </ul>
 </li>
 <li><p>Dynamic Range: <strong>Film</strong>.
-You want to record at the largest dynamic range possible.</p></li>
+You want to record at the largest dynamic range possible.</p>
+<div class="figure align-default">
+<img alt="../../_images/record_film_range.png" src="../../_images/record_film_range.png" />
+</div>
+</li>
 <li><p>Project Frame Rate:</p>
-<ul>
+<ul class="simple">
 <li><p>Choose <strong>24fps</strong> if your intended output is <em>film</em>.</p></li>
 <li><p>Choose <strong>23.97</strong> if your intended output is <em>TV</em>.</p></li>
 </ul>
 </li>
-<li><p>Apply LUT in File: <strong>Off</strong></p></li>
+<li><p>Apply LUT in File: <strong>Off</strong></p>
+<div class="figure align-default">
+<img alt="../../_images/record_lut_in_file.png" src="../../_images/record_lut_in_file.png" />
+</div>
+</li>
 </ul>
 </li>
 </ul>
@@ -1014,18 +1030,11 @@ reference point. The ISO range between 1,250 and 25,600 uses the native ISO of
 between ISO 1,000 or 1,250, we suggest closing down one stop on your lens’ iris so
 that you can select ISO 1,250 as it will engage the higher native ISO and provide much
 cleaner results.</p>
-<div class="license-notice">This content is FairUse licensed from <a class="license-source", href=https://documents.blackmagicdesign.com/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf>BlackmagicPocketCinemaCamera4KManual</a></div><ul class="simple">
-<li><p>We typically use 400 and leave it at that.</p></li>
+<div class="license-notice">This content is FairUse licensed from <a class="license-source", href=https://documents.blackmagicdesign.com/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf>BlackmagicPocketCinemaCamera4KManual</a></div></li>
+<li><p>We use 400 in a studio setting.</p></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<dl class="citation">
-<dt class="label" id="brawdocs"><span class="brackets"><a class="fn-backref" href="#id3">BRawDocs</a></span></dt>
-<dd><p><a class="reference external" href="https://documents.blackmagicdesign.com/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf">https://documents.blackmagicdesign.com/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf</a></p>
-</dd>
-</dl>
 </div>
 </div>
 

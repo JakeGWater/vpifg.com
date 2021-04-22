@@ -19,9 +19,12 @@ Software
     
     See also [ResolveStudio]_
 
-.. [ProRes] `Apple ProRes Raw <https://support.apple.com/en-us/HT208671>`_
+.. .. [ProRes] `Apple ProRes Raw <https://support.apple.com/en-us/HT208671>`_
 
 .. [BlackmagicRaw] `<https://www.blackmagicdesign.com/products/blackmagicursaminipro/blackmagicraw>`_
+
+    `Manual <https://documents.blackmagicdesign.com/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf>`_
+
 
 .. [Nuke]
     
