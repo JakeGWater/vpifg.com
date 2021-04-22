@@ -21,6 +21,8 @@ Software
 
 .. .. [ProRes] `Apple ProRes Raw <https://support.apple.com/en-us/HT208671>`_
 
+.. [Blender] https://www.blender.org/
+
 .. [BlackmagicRaw] `<https://www.blackmagicdesign.com/products/blackmagicursaminipro/blackmagicraw>`_
 
     `Manual <https://documents.blackmagicdesign.com/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf>`_
