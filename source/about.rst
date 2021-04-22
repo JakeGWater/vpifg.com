@@ -32,4 +32,3 @@ Happy filming.
     :glob:
 
     about/*
-

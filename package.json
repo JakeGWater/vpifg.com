@@ -2,6 +2,6 @@
     "scripts":{
         "start":"sphinx-autobuild -aE -b dirhtml --port 3000 --watch 'forks' source build",
         "install": "pip3 install -r requirements.txt",
-        "clean": "sphinx-build -aE -b dirhtml -vvvvv -T source build"
+        "incremental": "sphinx-build -b dirhtml --port 3000 source build"
     }
 }

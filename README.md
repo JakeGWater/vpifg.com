@@ -36,6 +36,11 @@ You can even preview your ideas live.
 
 ## Local Checkout
 
+### Pre-Requisites
+
+1. Git must be installed
+1. Python 3.8.9 or greater 
+
 ### Install
 
 ```sh
@@ -52,18 +57,29 @@ npm start
 
 _You do not need npm, it is for convenience only. Check out the package.json file for the direct python commands to run_.
 
-### Submitting a PR
+View your site at http://localhost:3000/
+
+# Architecture
+
+1. We use [Sphinx](https://github.com/sphinx-doc/sphinx) to build a static html site using,
+   [docutils](https://docutils.sourceforge.io/) and [reStructuredText](https://docutils.sourceforge.io/rst.html).
+1. We use a modified [Pydata Sphinx Theme](https://github.com/pydata/pydata-sphinx-theme).
+1. Pull-requests are tested using a [GitHub Test Action](https://github.com/JakeGWater/vpifg.com/blob/main/.github/workflows/test.yaml).
+1. [CLA Assistant](https://cla-assistant.io/) handles the CLAs.
+1. On merging to `main` we use a [GitHub Build Action](https://github.com/JakeGWater/vpifg.com/blob/main/.github/workflows/main.yml) to deploy a `gh-pages` branch.
+1. GitHub Pages hosts the static site.
+1. Cloudflare provides a CDN.
+
+The above architecture currently has zero reocurring costs, aside from the domain name.
+
+# License
+
+All content in `source` is licensed according to [`source/LICENSE.md`](source/LICENSE.md),
+unless otherwise specified in `source/about/licenses.rst` or as noted within the file.
+
+All content outside of `source` is licensed under its original licenses,
+or licensed as [MIT](https://opensource.org/licenses/MIT) as a fallback.
 
 # CLA
 
-[Text Available Here](https://gist.github.com/JakeGWater/80087b416dcf23f07f98ddf73fd47301)
-
-tl;dr
-
-* You assert that you have the right to license your contributions to us (i.e. you are the author)
-* You own all your contributions, and you can do whatever you like with them.
-* You have licensed your contributions to us, and we may also do whatever we like with them.
-* The CLA does not apply to any embedded or linked content (i.e. anything not committed to this repository).
-  For example, if you embed a youtube video, the CLA does not apply to that video.
-
-You are always free to use our combined chanages under our [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License](LICENSE.md).
+See https://vpifg.com/cla
