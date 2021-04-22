@@ -2,13 +2,13 @@
 Unreal OCIO Setup
 =================
 
-.. topic:: Lesson Plan
+.. contents:: Lesson Plan
+   :local:
 
-    #. What is OCIO?
-    #. How to Download
-    #. Configuring in Unreal
+.. topic:: Next
 
-.. wip::
+   * :doc:`bmpcc-hdmi-srgb`
+   * :doc:`unreal-composure`
 
 What is OCIO
 ============
@@ -43,7 +43,7 @@ For example, an annotated color pipeline from :doc:`/workflows/BURN` looks like:
                  │   Queue    │          └──────┘
                  └────────────┘
 
-Unreal uses sRGB Linear internally, but from the above diagram it will also need to convert from and into sRGB, and ACEScg.
+Unreal uses sRGB-Linear internally, but from the above diagram it will also need to convert from and into sRGB, and ACEScg.
 
 OCIO makes converting between color spaces easy. In short OCIO is:
 
@@ -65,10 +65,10 @@ There are several places we will need OCIO with Unreal.
 
 #. Blackmagic Media Source Input and Output in Composure.
 
-   #. The incoming camera footage must be mapped from sRGB to sRGB Linear.
+   #. The incoming camera footage must be mapped from sRGB to sRGB-Linear.
    #. The outgoing composure will be mapped from sRGB Linera to sRGB or Rec.709.
 
-#. Movie Render Queue needs to map from sRGB Linear to ACEScg.
+#. Movie Render Queue needs to map from sRGB-Linear to ACEScg.
 
 Downloading OCIO
 ================
@@ -82,9 +82,6 @@ Downloading OCIO
    .. figure:: https://i.postimg.cc/hGnsNwDv/image.png
    
 #. Save it somewhere you can access from Unreal.
-
-.. [ColourScience-ACES12] https://github.com/colour-science/OpenColorIO-Configs/tree/feature/aces-1.2-config
-.. [OpenColorIO-103] https://opencolorio.readthedocs.io/en/latest/configurations/aces_1.0.3.html
 
 Configuring Unreal
 ==================
@@ -126,7 +123,14 @@ We need to select every space we intend to convert from, as well as every space 
 This should cover everything we need.
 If you use other color spaces, add them to the list.
 
-.. warning::
+.. note::
 
    The BMPCC does not output sRGB by default.
    We will need to configure it in :doc:`bmpcc-hdmi-srgb`.
+
+References
+==========
+
+.. [ColourScience-ACES12] https://github.com/colour-science/OpenColorIO-Configs/tree/feature/aces-1.2-config
+
+.. [OpenColorIO-103] https://opencolorio.readthedocs.io/en/latest/configurations/aces_1.0.3.html
