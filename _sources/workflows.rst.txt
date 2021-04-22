@@ -12,32 +12,41 @@ Workflows
 
 No doubt, there are numerous workflows that can be used for virtual production.
 
-We intend to document any workflows we use, but welcome the contributions of others.
+We intend to document any workflows we use, and welcome the contributions of others.
 Think of workflows as recipes that can be copied, tweaked, and remixed by others.
 
-.. glossary:: 
-    
-    Production Checklist
+Comparison
+==========
 
-        Workflows are annotated with Production Checklists,
-        which are at-a-glance tables indicating how :term:`Production Ready` a workflow is.
+.. list-table::
+    :header-rows: 1
 
-        .. admonition:: Production Checklist
+    *   - Workflow
+        - :term:`4K`
+        - :term:`Timecode`
+        - :term:`ACES`
+        - :term:`Raw`
+        - :term:`Live`
+        - :term:`Multicam`
+        - :term:`nDisplay`
+    *   - `BURN <workflows/burn>`_
+        - ✅
+        - ✅
+        - ✅
+        - ✅
+        - ❌
+        - ❌
+        - ❌
+    *   - `LIVE <workflows/live>`_
+        - ❌
+        - ✅
+        - ❌
+        - ❌
+        - ✅
+        - ✅
+        - ❌
 
-            .. list-table::
-                :header-rows: 1
+Add Your Own
+============
 
-                *   - :term:`4K`
-                    - :term:`Timecode`
-                    - :term:`ACES`
-                    - :term:`Raw`
-                    - :term:`Live`
-                    - :term:`Multicam`
-                    - :term:`nDisplay`
-                *   - ✅
-                    - ✅
-                    - ✅
-                    - ✅
-                    - ❌
-                    - ❌
-                    - ❌
+If you would like to add your own workflow, check out :doc:`/about/contributing` to get started.

@@ -36,7 +36,7 @@ Adding Workflows
 
 #. Workflows should reference a series of :doc:`/guides` to be placed in `sources/guides <https://github.com/JakeGWater/vpifg.com/tree/main/source/guides>`_.
 #. Incomplete workflows **must** be marked as `Work in Progress`_.
-#. Workflows **must** include a :term:`Production Checklist` banner. See :doc:`/workflows/BURN`.
+#. Workflows **must** include a :ref:`production-checklist` banner. See :doc:`/workflows/BURN`.
    Insert after your title::
 
         .. prodcheck::
