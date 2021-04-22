@@ -14,8 +14,12 @@ dl.citation dt {
 .navbar-brand {
     height: 45px;
 }
-.prodcheck th.head {
+.prodcheck th.head, th.head {
     text-align: center;
+}
+div.prodcheck {
+    margin:0;
+    padding:0;
 }
 
 div.topic {
@@ -95,7 +99,7 @@ img.avatar {
 }
 
 .license {
-    margin: -.5em;
+    margin: .5em -.5em;
     padding: .5em;
     background: #f8f8f8;
 }
@@ -108,4 +112,12 @@ img.avatar {
 .topic .gitlog {
     max-height: 300px;
     overflow-y: auto;
+}
+
+iframe.figma {
+    aspect-ratio: 16/9;
+}
+
+#comparison > td {
+    text-align: center;
 }
