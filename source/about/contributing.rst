@@ -68,8 +68,16 @@ Adding Guides
 #. Guides must be part of a workflow. If you have a general tip, consider adding a Help page instead.
 #. Contribution which are not complete must be marked as `Work in Progress`_.
 #. Please follow the `Referencing Content`_ and `Embedding Content`_ guidelines.
-#. Images must be hosted from vpifg.com, add them to ``sources/_static/guides``.
-   You **must** own the images, or be allowed to license the images for use on vpifg.com.
+#. Images must:
+   
+   #. be hosted from vpifg.com by adding them to the repository, or
+   #. be hosted on one of:
+
+      - https://postimages.org/
+      - https://cubeupload.com/
+   
+#. Images hosted on external sites might be copied to vpifg at any time.
+   You **must** own the copyright to the image, or be allowed to license it.
 
 Adding Help
 -----------
@@ -83,14 +91,15 @@ Each Help article should be its own document in ``sources/help``.
 Referencing Content
 ----------------------
 
-#. External links **must** be `Citation <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#citations>`_. 
+#. External links **must** be `Citations <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#citations>`_. 
 
-   1. Refer to to the citation from your guide or workflow as follows::
+   #. Refer to to the citation from your guide or workflow as follows::
 
        Use the [unrealengine]_ to ...
-   2. Put the citation in :doc:`/references` as::
+   #. Add the citation, either in the same document, or in :doc:`/references` as::
 
        .. [unrealengine] The unreal game engine `<https://www.unrealengine.com>`_
+   #. Keep in mind, your citation might be relocated to :doc:`/references`.
 
 #. *Exceptions* 
     

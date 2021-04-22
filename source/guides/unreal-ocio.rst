@@ -44,7 +44,13 @@ Downloading OCIO
 ================
 
 #. If you check here [OpenColorIO-103]_ it tells you to go *here* instead [ColourScience-ACES12]_.
+
+   .. figure:: https://i.postimg.cc/RZCHwRh2/image.png
+
 #. Download the repository. It's **BIG**, like 5GB.
+
+   .. figure:: https://i.postimg.cc/hGnsNwDv/image.png
+   
 #. Save it somewhere you can access from Unreal.
 
 .. [ColourScience-ACES12] https://github.com/colour-science/OpenColorIO-Configs/tree/feature/aces-1.2-config
