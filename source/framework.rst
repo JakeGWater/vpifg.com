@@ -20,6 +20,8 @@ our aim is towards professional content that is :term:`Production Ready`.
     
     framework/*
 
+.. _production-checklist:
+
 Production Checklist
 ====================
 

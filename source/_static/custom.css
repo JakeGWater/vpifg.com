@@ -14,7 +14,7 @@ dl.citation dt {
 .navbar-brand {
     height: 45px;
 }
-.prodcheck th.head {
+.prodcheck th.head, th.head {
     text-align: center;
 }
 div.prodcheck {
@@ -114,10 +114,10 @@ img.avatar {
     overflow-y: auto;
 }
 
-p {
-    margin-bottom: 0;
-}
-
 iframe.figma {
     aspect-ratio: 16/9;
+}
+
+#comparison > td {
+    text-align: center;
 }
