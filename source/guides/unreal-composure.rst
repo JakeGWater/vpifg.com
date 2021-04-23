@@ -172,6 +172,30 @@ Media Source Setup
 
    .. figure:: https://i.postimg.cc/hvWqJnYJ/screenshot-2.png
 
+Timecode
+--------
+
+.. figure:: https://i.postimg.cc/mgcNR9sL/screenshot-21.png
+
+.. figure:: https://i.postimg.cc/8kK65Cwj/screenshot-22.png
+
+.. figure:: https://i.postimg.cc/W1jFYJ1Y/screenshot-23.png
+
+.. figure:: https://i.postimg.cc/t4MbZLwd/screenshot-24.png
+
+Genlock
+-------
+
+.. figure:: https://i.postimg.cc/dtWPpbsM/screenshot-25.png
+
+.. figure:: https://i.postimg.cc/3rncx2Pm/screenshot-26.png
+
+.. figure:: https://i.postimg.cc/mrfd5jHf/screenshot-27.png
+
+.. figure:: https://i.postimg.cc/1zQHHzky/screenshot-28.png
+
+
+
 Composure
 =========
 
@@ -202,6 +226,14 @@ The **Media Plate** is how we add our camera input to the composure.
 
 OCIO Input Transform
 --------------------
+
+.. sidebar:: Transform Comparison
+
+   .. figure:: https://i.postimg.cc/DfWQksdx/composure-ocio-comparison.png
+
+      A broken color pipeline can be hard to notice.
+      sRGB without an OCIO transform looks *almost right*,
+      but it's not nearly as vibrant when compared to correctly transformed footage.
 
 #. Before keying, we need to convert the sRGB footage into sRGB-linear.
    Add a new transform pass, and move it to the beginning before *Multi Pass Chroma Keyer*.
@@ -307,10 +339,31 @@ Garbage Matte (Optional)
 Media Output
 ============
 
+.. figure:: https://i.postimg.cc/L4NsT0Z7/screenshot-18.png
+
+.. figure:: https://i.postimg.cc/MKgq3kZs/screenshot-19.png
+
 OCIO Output Transform
 ---------------------
 
+.. sidebar:: Color Conversion Comparison
 
-Disable Tonemapping
--------------------
+   .. figure:: https://i.postimg.cc/Wp5k37TG/composure-output-comparison.png
 
+Under the default settings, Unreal applies tone mapping to our image, and sends it out.
+We don't want this.
+We want to use OCIO.
+
+Next to *Color Conversion* click *Compositing Tone Pass* and change it to **Compositing OpenColor IO Pass**.
+
+#. Select the OCIO Config you have already been using.
+#. The source color space is Unreal, which is always Linear - sRGB.
+#. The destinataion color space is whatever you want, but we are going to use sRGB.
+
+   .. figure:: https://i.postimg.cc/zvRPVQmB/screenshot-20.png
+
+#. If you view the SDI signal on an sRGB calibrated monitor, it should look correct. 
+
+   .. figure:: https://i.postimg.cc/wxGQr2Cf/screenshot-29.png
+
+      We loop back our SDI connection into Blackmagic Media Express to view the output.
