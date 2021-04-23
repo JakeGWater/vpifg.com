@@ -144,6 +144,8 @@ Troubleshooting
 Media Source Setup
 ==================
 
+We use a Media Bundle to connect Unreal to the Decklink.
+
 #. Create a new **Media Bundle**
 
    .. figure:: https://i.postimg.cc/4dT0cmgd/image.png
@@ -194,7 +196,26 @@ Genlock
 
 .. figure:: https://i.postimg.cc/1zQHHzky/screenshot-28.png
 
+Virtual Camera
+==============
 
+BMPCC4K Sensor Size: 18.96mm x 10mm
+
+.. math:: \frac{3840}{4096} \cdot 18.96mm = 17.775mm 
+
+So the effective sensor size when shooting in UHD is 17.775mm x 10mm.
+We can double check this has the same aspect ratio as 1080p
+
+.. math:: 1920\cdot\frac{10mm}{17.775mm} \cong 1080
+
+Unreal lets us set a number of settings.
+In general, try to match your real-world camera settings exactly.
+
+.. figure:: https://i.postimg.cc/HxxMmSjP/screenshot-30.png
+
+.. figure:: https://i.postimg.cc/mrdw71HJ/screenshot-31.png
+
+.. math:: \mathbb{crop_w} = width_{bmpcc}/width_{cine} = 19.95/23.76 = 0.83964646464
 
 Composure
 =========
@@ -354,6 +375,7 @@ Under the default settings, Unreal applies tone mapping to our image, and sends 
 We don't want this.
 We want to use OCIO.
 
+With the comp selected, go to the details panel.
 Next to *Color Conversion* click *Compositing Tone Pass* and change it to **Compositing OpenColor IO Pass**.
 
 #. Select the OCIO Config you have already been using.
