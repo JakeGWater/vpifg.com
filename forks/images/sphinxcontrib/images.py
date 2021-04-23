@@ -158,10 +158,12 @@ class ImageDirective(Directive):
             img['remote'] = True
             if download:
                 _, ext = os.path.splitext(self.arguments[0])
-                img['uri'] = '/%s/%s%s' % (conf['cache_path'], hashlib.sha1(self.arguments[0].encode()).hexdigest(), ext)
+                rel = '%s%s' % (hashlib.sha1(self.arguments[0].encode()).hexdigest(), ext)
+                img['uri'] = '/%s/%s' % (conf['cache_path'], rel)
+                print(img['uri'])
                 img['remote_uri'] = self.arguments[0]
                 env.remote_images[img['remote_uri']] = img['uri']
-                env.images.add_file('', img['uri'])
+                env.images.add_file('', rel)
             else:
                 img['uri'] = self.arguments[0]
                 img['remote_uri'] = self.arguments[0]
@@ -347,7 +349,7 @@ def configure_backend(app):
 
     app.add_directive('thumbnail', ImageDirective)
     if config['override_image_directive']:
-        app.add_directive('figure', ImageDirective)
+        app.add_directive('figure', ImageDirective, override=True)
     app.env.remote_images = {}
 
 def setup(app):

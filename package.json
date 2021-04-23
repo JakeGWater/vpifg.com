@@ -3,7 +3,7 @@
         "start":"sphinx-autobuild -aE -b dirhtml --port 3000 --watch 'forks' --ignore 'source/_static/_images/*' source build",
         "install": "pip3 install -r requirements.txt",
         "clean": "rm -rf build _static/_images",
-        "ci": "CI=1 sphinx-build -aE -b dirhtml -vvvvv -T source build",
-        "ci-watch": "sphinx-autobuild -aE -b dirhtml --watch 'forks' --ignore 'source/_static/_images/*' source build"
+        "ci": "CI=1 sphinx-build -aE -b dirhtml -W -vvvvv -T source build",
+        "ci-watch": "sphinx-autobuild -aE -b dirhtml -W --watch 'forks' --ignore 'source/_static/_images/*' source build"
     }
 }

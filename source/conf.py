@@ -58,15 +58,10 @@ extensions = [
     'sphinxcontrib.svgbob',
 ]
 
-if os.environ.get('CI') is not None:
-    CI = True
-else:
-    CI = False
-# sphinxcontrib.images
 images_config = {
     'default_group': 'images',
-    'download': CI,
-    'cache_path': '_static/_images',
+    'download': False,
+    'cache_path': '_images',
     'class': 'thumbnail',
     'override_image_directive': True,
 }
