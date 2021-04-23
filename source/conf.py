@@ -47,16 +47,30 @@ sys.path.append(os.path.abspath("./_ext"))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'notices',
     'recommonmark',
     'sphinx_git',
-    'notices',
-    'sphinx.ext.todo',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.ifconfig',
     'sphinx.ext.githubpages',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.todo',
+    'sphinxcontrib.images',
     'sphinxcontrib.svgbob',
     'sphinxemoji.sphinxemoji',
 ]
+
+if os.environ.get('CI') is not None:
+    CI = True
+else:
+    CI = False
+# sphinxcontrib.images
+images_config = {
+    'default_group': 'images',
+    'download': CI,
+    'cache_path': '_static/_images',
+    'class': 'thumbnail',
+    'override_image_directive': True,
+}
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -160,7 +174,7 @@ html_theme_options = {
     'globaltoc_collapse': True,
     'globaltoc_includehidden': True,
 
-    
+    'navigation_with_keys': False
 }
 
 # -- Options for HTMLHelp output ---------------------------------------------
