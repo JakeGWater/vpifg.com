@@ -56,7 +56,6 @@ extensions = [
     'sphinx.ext.todo',
     'sphinxcontrib.images',
     'sphinxcontrib.svgbob',
-    'sphinxemoji.sphinxemoji',
 ]
 
 if os.environ.get('CI') is not None:
