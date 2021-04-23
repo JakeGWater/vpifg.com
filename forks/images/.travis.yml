@@ -1,0 +1,97 @@
+language: python
+cache:
+  directories:
+    - $PWD/wheelhouse
+    - $HOME/.cache/pip
+dist: xenial
+env:
+  global:
+    - PIP_FIND_LINKS=$PWD/wheelhouse
+install:
+  - pip install -U pip setuptools wheel
+  - pip install -U virtualenv
+script:
+    - ./setup.py test
+matrix:
+  include:
+    - python: 2.7
+      env: TOXENV=py27-sphinx185
+
+    - python: 3.6
+      env: TOXENV=py36-sphinx201
+    - python: 3.6
+      env: TOXENV=py36-sphinx212
+    - python: 3.6
+      env: TOXENV=py36-sphinx222
+    - python: 3.6
+      env: TOXENV=py36-sphinx231
+    - python: 3.6
+      env: TOXENV=py36-sphinx244
+    - python: 3.6
+      env: TOXENV=py36-sphinx300
+    - python: 3.6
+      env: TOXENV=py36-sphinx321
+
+
+    - python: 3.7
+      env: TOXENV=py37-sphinx201
+    - python: 3.7
+      env: TOXENV=py37-sphinx212
+    - python: 3.7
+      env: TOXENV=py37-sphinx222
+    - python: 3.7
+      env: TOXENV=py37-sphinx231
+    - python: 3.7
+      env: TOXENV=py37-sphinx244
+    - python: 3.7
+      env: TOXENV=py37-sphinx300
+    - python: 3.7
+      env: TOXENV=py37-sphinx321
+
+    - python: 3.8
+      env: TOXENV=py38-sphinx201
+    - python: 3.8
+      env: TOXENV=py38-sphinx212
+    - python: 3.8
+      env: TOXENV=py38-sphinx222
+    - python: 3.8
+      env: TOXENV=py38-sphinx231
+    - python: 3.8
+      env: TOXENV=py38-sphinx244
+    - python: 3.8
+      env: TOXENV=py38-sphinx300
+    - python: 3.8
+      env: TOXENV=py38-sphinx321
+
+    - python: 3.9-dev
+      env: TOXENV=py39-sphinx201
+    - python: 3.9-dev
+      env: TOXENV=py39-sphinx212
+    - python: 3.9-dev
+      env: TOXENV=py39-sphinx222
+    - python: 3.9-dev
+      env: TOXENV=py39-sphinx231
+    - python: 3.9-dev
+      env: TOXENV=py39-sphinx244
+    - python: 3.9-dev
+      env: TOXENV=py39-sphinx300
+    - python: 3.9-dev
+      env: TOXENV=py39-sphinx321
+
+    - python: pypy
+      env: TOXENV=pypy-sphinx185
+
+    - python: pypy3
+      env: TOXENV=pypy3-sphinx201
+    - python: pypy3
+      env: TOXENV=pypy3-sphinx212
+    - python: pypy3
+      env: TOXENV=pypy3-sphinx222
+    - python: pypy3
+      env: TOXENV=pypy3-sphinx231
+    - python: pypy3
+      env: TOXENV=pypy3-sphinx244
+    - python: pypy3
+      env: TOXENV=pypy3-sphinx300
+    - python: pypy3
+      env: TOXENV=pypy3-sphinx321

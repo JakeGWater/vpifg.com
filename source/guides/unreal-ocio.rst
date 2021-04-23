@@ -126,7 +126,7 @@ If you use other color spaces, add them to the list.
 .. note::
 
    The BMPCC does not output sRGB by default.
-   We will need to configure it in :doc:`bmpcc-hdmi-srgb`.
+   We will need to conimage it in :doc:`bmpcc-hdmi-srgb`.
 
 References
 ==========
