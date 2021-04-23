@@ -195,12 +195,15 @@ The **Media Plate** is how we add our camera input to the composure.
 
    .. figure:: https://i.postimg.cc/zDCv1D3H/screenshot-5.png
 
-#. In the media plate details panel, under ``Inputs > MediaSource > Media Source`` find the source from your media bundle.
-   You should be able to see the live video.
+#. In the media plate details panel, under ``Inputs > MediaSource > Media Source`` find the texture created with your media bundle.
+   You should be see a copy of the live video in the texture thumbnail.
 
    .. figure:: https://i.postimg.cc/0jn9KQJt/screenshot-7.png
 
-#. Before keying, we need to map the color space to OCIO.
+OCIO Input Transform
+--------------------
+
+#. Before keying, we need to convert the sRGB footage into sRGB-linear.
    Add a new transform pass, and move it to the beginning before *Multi Pass Chroma Keyer*.
    
    #. Choose **Compositing Open Color IOPass**, and select your OCIO config.
@@ -213,22 +216,93 @@ The **Media Plate** is how we add our camera input to the composure.
 
    It is handy to have a color chart to see if your colors look right.
    If not, you may have a break in your color pipeline.
-
-
-OCIO Input Transform
---------------------
+   Fix it now.
 
 Chroma Keying
 -------------
 
+The next step is keying out the green screen.
+In the :doc:`/workflows/BURN`, the composure output we are creating is a sort of "proxy".
+We capture the live composure, which allows our editor to get started immediately,
+but the proxy will be replaced by a higher quality render later.
+
+We will key out our 4K footage again in Davinci Resolve,
+so the keyed footage in this section only needs to be *good enough*.
+
+#. Use the **Multi Pass Chroma Keyer** transform to remove your green screen.
+
+   .. figure:: https://i.postimg.cc/cJv7Dtxn/screenshot-9.png
+
+#. Despill helps remove any green color which has reflected back onto your subject. 
+
+   .. figure:: https://i.postimg.cc/yxW4rTGH/screenshot-10.png
+
+#. Erode trims the fringes of your subject, letting you create a crisper edge.
+
+   .. figure:: https://i.postimg.cc/ZYQ15pgW/screenshot-11.png
+
+
 CG Plate
 ========
 
-Garbage Matte
-=============
+#. In the composure tab, right-click the comp and add another layer element. Choose **CG Layer**.
+   You should see two layers to your comp, a media platae, and a cg element.
+
+   .. figure:: https://i.postimg.cc/kg5VnrtN/screenshot-12.png
+
+The CG layer adds a camera to your scene.
+Point your camera at whatever you want.
+We are going to overlay the media plate and CG layer.
+This will insert the live actors into the CG scene seen by the camera.
+
+If you want to add motion see :doc:`unreal-vive-livelink`.
 
 Composition
 ===========
+
+#. Select your comp, and in the details panel under ``Transform Passes`` add a transform pass.
+
+   #. Leave the default type as ``Compositing Element Material Pass``.
+   #. Create a new material, and save it anywhere.
+
+   .. figure:: https://i.postimg.cc/Gm9pWkZq/screenshot-13.png
+
+The material we just created is in charge of combining the layers of the comp.
+Open the material editor to edit the material. We want it to look like this eventually:
+
+.. figure:: https://i.postimg.cc/T1ZkTjtg/screenshot-14.png
+
+#. Add two ``TextureSampleParamater2D`` nodes.
+
+   #. Name the first *exactly* the same name as your media plate.
+   #. Name the second *exactly* the same name as your cg element.
+
+   .. warning::
+
+      If your names don't match exactly, it won't work.
+
+   #. Combine the *RGBA* channels with an *Over* node.
+      Ensure the media plate is on top, since it contains an alpha layer (from the keyer).
+   #. After combining, we have to mask out the alpha layer, or the Blackmagic Media Output will complain.
+      Attach the Over node's output to a new *Component Mask* node.
+      In the details panel, ensure only *R*, *G*, and *B* are selected.
+
+      .. figure:: https://i.postimg.cc/fyj6qrzk/screenshot-17.png
+       
+   #. While selecting the output material, under the details panel change *Material Domain* to *Post Process*.
+
+      .. figure:: https://i.postimg.cc/YqCgSL5m/screenshot-15.png
+   
+   #. Attach the mask output to the emissive color. 
+
+      .. figure:: https://i.postimg.cc/T1ZkTjtg/screenshot-14.png
+
+   #. Click on the comp to see a preview of the combined layers.
+
+      .. figure:: https://i.postimg.cc/m2KDGcB4/screenshot-16.png
+
+Garbage Matte (Optional)
+========================
 
 Media Output
 ============
