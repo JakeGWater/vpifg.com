@@ -133,3 +133,9 @@ iframe.figma {
   padding:2px;
   box-shadow: inset 1px 0 3px 2px rgba(0,0,0,.4);
 }
+
+.compare-image {
+    width: 100%;
+    --img-width: calc(width);
+    --img-height: calc(height);
+}

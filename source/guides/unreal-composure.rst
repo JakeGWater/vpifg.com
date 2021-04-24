@@ -199,23 +199,63 @@ Genlock
 Virtual Camera
 ==============
 
-BMPCC4K Sensor Size: 18.96mm x 10mm
+The CineCameraActor in Unreal has a lot of settings that mirror real world cameras.
+Those settings when tweaked can affect the image.
+
+The **sensor size** has a large effect on the final image. 
+A smaller sensor acts like a zoom.
+
+#. A full-frame sensor with a 35mm lens:
+
+   .. figure:: https://i.postimg.cc/DwWn7fsG/filmback-c35.png
+
+#. The same camera and lens, but with the smaller Blackmagic sensor: 
+
+   .. figure:: https://i.postimg.cc/Pr5dFQ52/filmback-bm43.png
+
+Focal length and sensor size *offset* each other.
+A smaller sensor acts like a zoom.
+In real-live photography a larger sensor produces a better quality image,
+but in digital cinema the sensor size has no effect on quality.
+
+#. The Blackmagic MFT sensor with a 10mm lens:
+
+   .. figure:: https://i.postimg.cc/wMXrDcdH/filmback-left.png
+
+#. A 1000mm lens, but offset with an equally large sensor:
+
+   .. figure:: https://i.postimg.cc/kgXHtbY3/filmback-right.png
+
+.. sidebar:: CropFactorCalculator for BMPCC
+   
+   .. figure:: https://i.postimg.cc/hjQ2Gwsp/screenshot-32.png
+
+   From [CropFactorCalculator]_
+
+While it is possible to calculate the same image proportions with different settings,
+it's far easier to match the virtual camera settings exactly to your real world camera.
+
+The BMPCC4K Sensor Size is: 18.96mm x 10mm for 4K DCI (4096 x 2160).
+Since we are recording at UHD (3840 x 2160), it is a little narrower than the full DCI.
+We should calculate a new sensor size with the reduced width, but keeping the full height.
+So, our new narrower sensor width is:
 
 .. math:: \frac{3840}{4096} \cdot 18.96mm = 17.775mm 
 
-So the effective sensor size when shooting in UHD is 17.775mm x 10mm.
-We can double check this has the same aspect ratio as 1080p
+The effective sensor size in UHD is 17.775mm x 10mm.
+We should double check this has the same aspect ratio as 1080p, which is the scaled down resolution sent over HDMI.
 
-.. math:: 1920\cdot\frac{10mm}{17.775mm} \cong 1080
+.. math:: \frac{17.775mm}{10mm} \cong 1.7775 \cong \frac{1920}{1080}
 
-Unreal lets us set a number of settings.
-In general, try to match your real-world camera settings exactly.
+We are using a Metabones Speedbooster 0.71 with a Sigma 18-35mm lens (zoomed to 24mm).
+According to [CropFactorCalculator]_ our *Focal Length with Speed Booster* is 32.17mm.
 
-.. figure:: https://i.postimg.cc/HxxMmSjP/screenshot-30.png
+Thus our virtual camera settins are:
 
-.. figure:: https://i.postimg.cc/mrdw71HJ/screenshot-31.png
+#. Focal Length: **32.17mm**
+#. Sensor Size: **17.775mm x 10mm**
 
-.. math:: \mathbb{crop_w} = width_{bmpcc}/width_{cine} = 19.95/23.76 = 0.83964646464
+.. [CropFactorCalculator] https://danielscottfilms.com/crop-factor-calculator/
 
 Composure
 =========

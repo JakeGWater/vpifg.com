@@ -48,6 +48,10 @@ sys.path.append(os.path.abspath("./_ext"))
 # ones.
 extensions = [
     'notices',
+    'figma',
+    'compare',
+    'license',
+    'prodcheck',
     'recommonmark',
     'sphinx_git',
     'sphinx.ext.githubpages',
@@ -177,6 +181,8 @@ html_theme_options = {
 htmlhelp_basename = 'VirtualProductionIndependentFilmGuide'
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
+html_js_files = [
+]
 
 # -- Options for LaTeX output ------------------------------------------------
 
