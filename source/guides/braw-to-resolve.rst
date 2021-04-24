@@ -4,7 +4,7 @@ BRaw to Davinci Resolve
 
 .. topic:: Pre-Requisites
     
-    #. :doc:`bmpcc4k-to-braw`
+    #. :doc:`bmpcc-to-braw`
 
 .. topic:: Lesson Plan
 

@@ -27,7 +27,7 @@ Settings
     * **Q0**
       The bit-rate of Constant Quality files varries, but BRaw Constant-bitrate files under 3:1-compression use about 6 GB/minute according to [BlackmagicRaw]_.
     
-    .. image:: bmpcc4k-to-braw/record_quality_resolution.png
+    .. image:: bmpcc-to-braw/record_quality_resolution.png
 
   * Resolution: Either of the following 
   
@@ -37,7 +37,7 @@ Settings
   * Dynamic Range: **Film**. 
     You want to record at the largest dynamic range possible.
 
-    .. image:: bmpcc4k-to-braw/record_film_range.png
+    .. image:: bmpcc-to-braw/record_film_range.png
 
   * Project Frame Rate: 
   
@@ -46,7 +46,7 @@ Settings
 
   * Apply LUT in File: **Off**
 
-    .. image:: bmpcc4k-to-braw/record_lut_in_file.png
+    .. image:: bmpcc-to-braw/record_lut_in_file.png
 
 .. important::
     

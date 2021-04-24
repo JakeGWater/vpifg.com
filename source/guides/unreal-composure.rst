@@ -1,11 +1,16 @@
+:author: Jake G. Water
+:date: 2021-04-23
+
 ==============================
 Unreal Composure
 ==============================
 
 .. topic:: Pre-Requisites
 
-   * :doc:`unreal-ocio`
    * :doc:`bmpcc-hdmi-srgb`
+   * :doc:`unreal-ocio`
+   * :doc:`unreal-timecode-genlock`
+   * :doc:`unreal-virtual-camera-matching`
 
 .. topic:: Lesson Plan
    
@@ -14,7 +19,7 @@ Unreal Composure
 
 .. topic:: Next
 
-   * :doc:`bmpcc4k-to-braw`
+   * :doc:`bmpcc-to-braw`
    * :doc:`unreal-take-recorder`
 
 Camera
@@ -52,7 +57,7 @@ We will use a Decklink 8K Pro, but other supported cards should work the same.
                                                                                    └───┤              │
                                                                                        └──────────────┘
 
-.. important::
+.. note::
 
    To our knowledge, the **Microconverter - Blackmagic HDMI to SDI 3G** is the only supported
    HDMI to SDI coverter that preserves timecode.
@@ -63,83 +68,17 @@ Settings
 Your camera *must* output a known color space.
 We will use sRGB in our example by having the BMPCC transform the outgoing HDMI signal via a LUT.
 
-See :doc:`bmpcc-hdmi-srgb` on setting up the BMPCC to output sRGB.
-
 .. important::
 
-   Ensure your camera is set to record in its RAW format with full-gamut color space.
-   See :doc:`bmpcc4k-to-braw`.
+   See :doc:`bmpcc-hdmi-srgb` on setting up the BMPCC to output sRGB.
+
+While the HDMI signal is 1080p sRGB, ensure your camera is set to record in its RAW format with its widest-gamut color space.
+
+.. important::
    
-   **Do not apply any LUTS to the recorded file**.
+   See :doc:`bmpcc-to-braw` on setting up the BMPCC to record in 4K RAW.
 
-Checking It Works
------------------
-
-Before proceeding, we should check the SDI connection is working.
-
-#. Open Blackmagic MediaExpress.
-
-   .. figure:: https://i.postimg.cc/Vvc4YQLp/image.png
-
-#. Choose the decklink port your camera is connected to
-
-   .. figure:: https://i.postimg.cc/GhZ3bdWq/image.png
-
-#. Switch to the **Log and Capture** tab
-
-   .. figure:: https://i.postimg.cc/QMKyhrrk/image.png
-
-#. You should see your camera, live!
-
-   .. figure:: https://i.postimg.cc/J7Qm9jx7/image.png
-
-      Say hello to our head-model Bob.
-
-#. Test your timecode by recording a short clip.
-
-   .. figure:: https://i.postimg.cc/qR2GqJq0/image.png
-
-   .. figure:: https://i.postimg.cc/gJbvfCD7/image.png
-
-   The timecode won't show up until you play back the recorded clip.
-   You should see the timecode from your camera appear under the *In* and *Out* labels.
-
-   .. figure:: https://i.postimg.cc/LXhpFW8z/image.png
-
-      Bob has never looked happier!
-
-.. important::
-
-   If your footage doesn't appear, or the colors look wrong *STOP AND FIX IT*.
-
-Troubleshooting
-^^^^^^^^^^^^^^^
-
-.. list-table::
-   :header-rows: 1
-   :align: left
-   :widths: 20 20 60
-
-   * - Problem
-     - Caused by
-     - Fix
-   * - The screen is black
-     - No video input
-     - Try another decklink port;
-       Check all your wiring;
-       Ensure you have setup your Decklink correctly in **Desktop Video Setup**.
-   * - The video looks dark
-     - Incorrect color space.
-     - You might be outputting sRGB-linear or ACES instead of sRGB.
-       Check the LUT being used by the camera.
-   * - The video looks dull or washed out.
-     - Incorrect color space.
-     - You might be sending the Blackmagic Film color space over SDI.
-       Unfortunately that color space is not in OCIO, and Unreal does not know how to convert it.
-       Try enabling a Film-to-sRGB LUT on the HDMI signal.
-   * - The device cannot be selected because it is greyed out.
-     - Another application is using the video input.
-     - Ensure Unreal or another app isn't using the SDI connection.
+Check that your camera connection is working :doc:`/help/troubleshooting-decklink`.
 
 Media Source Setup
 ==================
@@ -174,88 +113,35 @@ We use a Media Bundle to connect Unreal to the Decklink.
 
    .. figure:: https://i.postimg.cc/hvWqJnYJ/screenshot-2.png
 
-Timecode
---------
+.. important::
 
-.. figure:: https://i.postimg.cc/mgcNR9sL/screenshot-21.png
+   If your footage doesn't appear see :doc:`/help/troubleshooting-decklink` for help.
 
-.. figure:: https://i.postimg.cc/8kK65Cwj/screenshot-22.png
+Timecode and Genlock
+====================
 
-.. figure:: https://i.postimg.cc/W1jFYJ1Y/screenshot-23.png
+Our composure output will output timecode, and use genlock to drive the render frame rate.
+Without timecode, the footage you record from composure will not match up with any VFX you render in post-processing.
+We want the live composited footage to exactly match the timecode of the raw footage.
 
-.. figure:: https://i.postimg.cc/t4MbZLwd/screenshot-24.png
+.. important::
 
-Genlock
--------
+   See :doc:`unreal-timecode-genlock` on setting up timecode and genlock with the Blackmagic Decklink 8K Pro.
 
-.. figure:: https://i.postimg.cc/dtWPpbsM/screenshot-25.png
+Check that the timecode in Unreal is being driven by your custom blueprint,
+and the displayed time matches your camera.
+Check that genlock is operating at the desired framerate.
 
-.. figure:: https://i.postimg.cc/3rncx2Pm/screenshot-26.png
-
-.. figure:: https://i.postimg.cc/mrfd5jHf/screenshot-27.png
-
-.. figure:: https://i.postimg.cc/1zQHHzky/screenshot-28.png
+.. figure:: https://i.postimg.cc/wv0msKcD/screenshot-33.png
 
 Virtual Camera
 ==============
 
-The CineCameraActor in Unreal has a lot of settings that mirror real world cameras.
-Those settings when tweaked can affect the image.
+Set your virtual camera to exactly match your real-life camera. 
 
-The **sensor size** has a large effect on the final image. 
-A smaller sensor acts like a zoom.
+.. important::
 
-#. A full-frame sensor with a 35mm lens:
-
-   .. figure:: https://i.postimg.cc/DwWn7fsG/filmback-c35.png
-
-#. The same camera and lens, but with the smaller Blackmagic sensor: 
-
-   .. figure:: https://i.postimg.cc/Pr5dFQ52/filmback-bm43.png
-
-Focal length and sensor size *offset* each other.
-A smaller sensor acts like a zoom.
-In real-live photography a larger sensor produces a better quality image,
-but in digital cinema the sensor size has no effect on quality.
-
-#. The Blackmagic MFT sensor with a 10mm lens:
-
-   .. figure:: https://i.postimg.cc/wMXrDcdH/filmback-left.png
-
-#. A 1000mm lens, but offset with an equally large sensor:
-
-   .. figure:: https://i.postimg.cc/kgXHtbY3/filmback-right.png
-
-.. sidebar:: CropFactorCalculator for BMPCC
-   
-   .. figure:: https://i.postimg.cc/hjQ2Gwsp/screenshot-32.png
-
-   From [CropFactorCalculator]_
-
-While it is possible to calculate the same image proportions with different settings,
-it's far easier to match the virtual camera settings exactly to your real world camera.
-
-The BMPCC4K Sensor Size is: 18.96mm x 10mm for 4K DCI (4096 x 2160).
-Since we are recording at UHD (3840 x 2160), it is a little narrower than the full DCI.
-We should calculate a new sensor size with the reduced width, but keeping the full height.
-So, our new narrower sensor width is:
-
-.. math:: \frac{3840}{4096} \cdot 18.96mm = 17.775mm 
-
-The effective sensor size in UHD is 17.775mm x 10mm.
-We should double check this has the same aspect ratio as 1080p, which is the scaled down resolution sent over HDMI.
-
-.. math:: \frac{17.775mm}{10mm} \cong 1.7775 \cong \frac{1920}{1080}
-
-We are using a Metabones Speedbooster 0.71 with a Sigma 18-35mm lens (zoomed to 24mm).
-According to [CropFactorCalculator]_ our *Focal Length with Speed Booster* is 32.17mm.
-
-Thus our virtual camera settins are:
-
-#. Focal Length: **32.17mm**
-#. Sensor Size: **17.775mm x 10mm**
-
-.. [CropFactorCalculator] https://danielscottfilms.com/crop-factor-calculator/
+   See :doc:`unreal-virtual-camera-matching` for details on configuring the virtual camera.
 
 Composure
 =========
@@ -296,16 +182,16 @@ OCIO Input Transform
       sRGB without an OCIO transform looks *almost right*,
       but it's not nearly as vibrant when compared to correctly transformed footage.
 
-#. Before keying, we need to convert the sRGB footage into sRGB-linear.
-   Add a new transform pass, and move it to the beginning before *Multi Pass Chroma Keyer*.
-   
-   #. Choose **Compositing Open Color IOPass**, and select your OCIO config.
-   #. Under Source Color Space, choose the color space your HDMI feed is using, in our case it is sRGB.
-   #. Under Destination Color Space, choose ``Utility - Linear - sRGB`` the Unreal Engine color space.
+Before keying, we need to convert the sRGB footage into sRGB-linear.
+Add a new transform pass, and move it to the beginning before *Multi Pass Chroma Keyer*.
 
-   .. figure:: https://i.postimg.cc/DzrHwNG6/screenshot-8.png
+#. Choose **Compositing Open Color IOPass**, and select your OCIO config.
+#. Under Source Color Space, choose the color space your HDMI feed is using, in our case it is sRGB.
+#. Under Destination Color Space, choose ``Utility - Linear - sRGB`` the Unreal Engine color space.
 
-.. important::
+.. figure:: https://i.postimg.cc/DzrHwNG6/screenshot-8.png
+
+.. hint::
 
    It is handy to have a color chart to see if your colors look right.
    If not, you may have a break in your color pipeline.
@@ -338,10 +224,10 @@ so the keyed footage in this section only needs to be *good enough*.
 CG Plate
 ========
 
-#. In the composure tab, right-click the comp and add another layer element. Choose **CG Layer**.
-   You should see two layers to your comp, a media platae, and a cg element.
+In the composure tab, right-click the comp and add another layer element. Choose **CG Layer**.
+You should see two layers to your comp, a media platae, and a cg element.
 
-   .. figure:: https://i.postimg.cc/kg5VnrtN/screenshot-12.png
+.. figure:: https://i.postimg.cc/kg5VnrtN/screenshot-12.png
 
 The CG layer adds a camera to your scene.
 Point your camera at whatever you want.
@@ -353,46 +239,46 @@ If you want to add motion see :doc:`unreal-vive-livelink`.
 Composition
 ===========
 
-#. Select your comp, and in the details panel under ``Transform Passes`` add a transform pass.
+Select your comp, and in the details panel under ``Transform Passes`` add a transform pass.
 
-   #. Leave the default type as ``Compositing Element Material Pass``.
-   #. Create a new material, and save it anywhere.
+#. Leave the default type as ``Compositing Element Material Pass``.
+#. Create a new material, and save it anywhere.
 
-   .. figure:: https://i.postimg.cc/Gm9pWkZq/screenshot-13.png
+.. figure:: https://i.postimg.cc/Gm9pWkZq/screenshot-13.png
 
 The material we just created is in charge of combining the layers of the comp.
 Open the material editor to edit the material. We want it to look like this eventually:
 
 .. figure:: https://i.postimg.cc/T1ZkTjtg/screenshot-14.png
 
-#. Add two ``TextureSampleParamater2D`` nodes.
+Add two ``TextureSampleParamater2D`` nodes.
 
-   #. Name the first *exactly* the same name as your media plate.
-   #. Name the second *exactly* the same name as your cg element.
+#. Name the first *exactly* the same name as your media plate.
+#. Name the second *exactly* the same name as your cg element.
 
-   .. warning::
+.. warning::
 
-      If your names don't match exactly, it won't work.
+   If the node names do not exactly match your layer comp names, it won't work.
 
-   #. Combine the *RGBA* channels with an *Over* node.
-      Ensure the media plate is on top, since it contains an alpha layer (from the keyer).
-   #. After combining, we have to mask out the alpha layer, or the Blackmagic Media Output will complain.
-      Attach the Over node's output to a new *Component Mask* node.
-      In the details panel, ensure only *R*, *G*, and *B* are selected.
+#. Combine the *RGBA* channels with an *Over* node.
+   Ensure the media plate is on top, since it contains an alpha layer (from the keyer).
+#. After combining, we have to mask out the alpha layer, or the Blackmagic Media Output will complain.
+   Attach the Over node's output to a new *Component Mask* node.
+   In the details panel, ensure only *R*, *G*, and *B* are selected.
 
-      .. figure:: https://i.postimg.cc/fyj6qrzk/screenshot-17.png
-       
-   #. While selecting the output material, under the details panel change *Material Domain* to *Post Process*.
+   .. figure:: https://i.postimg.cc/fyj6qrzk/screenshot-17.png
+    
+#. While selecting the output material, under the details panel change *Material Domain* to *Post Process*.
 
-      .. figure:: https://i.postimg.cc/YqCgSL5m/screenshot-15.png
-   
-   #. Attach the mask output to the emissive color. 
+   .. figure:: https://i.postimg.cc/YqCgSL5m/screenshot-15.png
 
-      .. figure:: https://i.postimg.cc/T1ZkTjtg/screenshot-14.png
+#. Attach the mask output to the emissive color. 
 
-   #. Click on the comp to see a preview of the combined layers.
+   .. figure:: https://i.postimg.cc/T1ZkTjtg/screenshot-14.png
 
-      .. figure:: https://i.postimg.cc/m2KDGcB4/screenshot-16.png
+#. Click on the comp to see a preview of the combined layers.
+
+   .. figure:: https://i.postimg.cc/m2KDGcB4/screenshot-16.png
 
 Garbage Matte (Optional)
 ========================
@@ -400,16 +286,30 @@ Garbage Matte (Optional)
 Media Output
 ============
 
-.. figure:: https://i.postimg.cc/L4NsT0Z7/screenshot-18.png
+The composure is running! Now we need to send it somewhere to record.
+We will route the output through an unused Decklink port.
 
-.. figure:: https://i.postimg.cc/MKgq3kZs/screenshot-19.png
+#. Select the comp in World Outliner, and go to the details panel.
+   Add a **Compositing Media Capture Output** Output Pass to the *Composure Outputs*.
+
+   If the *Capture Output* setting is blank, create a new **Blackmagic Media Output** and save it anywhere you like.
+
+   .. figure:: https://i.postimg.cc/fTThvG7J/screenshot-35.png
+
+#. Choose an unused port to output the SDI signal.
+
+   .. figure:: https://i.postimg.cc/mZjvhdxR/screenshot-36.png
+
+#. Make sure to set *VITC* as your timecode format, and *Wait for Sync* if you have genlock enabled.
+
+   .. figure:: https://i.postimg.cc/wvVGyBGF/screenshot-37.png
 
 OCIO Output Transform
 ---------------------
 
 .. sidebar:: Color Conversion Comparison
 
-   .. figure:: https://i.postimg.cc/Wp5k37TG/composure-output-comparison.png
+   .. figure:: https://i.postimg.cc/76YNRnKM/composure-output-comparison.png
 
 Under the default settings, Unreal applies tone mapping to our image, and sends it out.
 We don't want this.
@@ -425,7 +325,16 @@ Next to *Color Conversion* click *Compositing Tone Pass* and change it to **Comp
    .. figure:: https://i.postimg.cc/zvRPVQmB/screenshot-20.png
 
 #. If you view the SDI signal on an sRGB calibrated monitor, it should look correct. 
+   Here we have looped our signal back into the Decklink to view the composure output in Blackmagic MediaExpress.
 
    .. figure:: https://i.postimg.cc/wxGQr2Cf/screenshot-29.png
 
       We loop back our SDI connection into Blackmagic Media Express to view the output.
+
+   You can use Blackmagic MediaExpress to record the composure output, as it will capture the output with timecode intact.
+
+Final
+=====
+
+If you followed every step, great work.
+Yu have setup composure with end-to-end *timecode-integrity* and an intact *color pipeline*.
