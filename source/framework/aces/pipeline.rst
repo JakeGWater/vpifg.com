@@ -4,19 +4,26 @@ Color Pipeline
 
 .. wip::
 
-Maintaining your color pipeline is extremely important.
+.. epigraph::
+
+   If you have spent any time learning about color management,
+   you will probably agree that it feels overwhelming.
+   This is our attempt at a framework for understanding color that can be built upon.
 
 .. note::
 
-   This section intends to be read more like a reference than an introduction.
+   This content is probably a poor first introduction to color management.
+   Instead, it is tareted at folks who have sporradic knowledge,
+   but have difficulty remembering how to tie it all together.
+
    There are a lot of good introductions to ACES and Color Management that already exist,
    and we prefer linking to those whenever possible.
 
-.. sidebar:: Color Management, Color spaces and Gamut
+   This video is a great place to start:
 
    .. raw:: html
-
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/NU0P1w5tfHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   
+      <iframe style="height:calc(var(--width)*9/16);" width="100%" src="https://www.youtube.com/embed/NU0P1w5tfHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 Abstractly, will to refer to all aspects of color management as fitting within the following framework.
@@ -24,30 +31,34 @@ Abstractly, will to refer to all aspects of color management as fitting within t
 .. svgbob::
 
    ┌────────┐   Capture   ┌──────────┐    Import    ┌─────────┐
-   │        ├────────────►│          ├─────────────►│ Working │
+   │        ├────────────►│          ├─────────────►│  Working│
    │ Device │             │ Encoding │              │         │
-   │        │◄────────────┤          │◄─────────────┤  Space  │
+   │        │◄────────────┤          │◄─────────────┤ Space   │
    └────────┘   Display   └──────────┘    Export    └─────────┘
 
-Davice
+
+
+Device
+   **Devices always involve light.**
    A Device is a real physical thing, like a camera, TV, monitor, or projector. 
    Display Devices convert electrical signals into illuminated pixels.
    Capture Devices convert incoming light to electrical signals.
 
 Encoding
-   And encoding is a digital signal.
+   **An encoding is transferable digital information.**
    It can be recorded to a file, or sent over a wire.
    Internally there are a lot of characteristics to encodings,
    but we will refer to each permutation as its own encoding.
 
 Working Space
+   **Working Spaces are Temporary.**
    A working space is used to manipulate image data, such as a video or photo.
    Working spaces import encoded content, manipulate it, then export it.
 
-Everything related to color management fits into this abstract pattern.
+Everything film, tv, and video production setup fits into the above pattern.
 Let's look at a few examples:
 
-#. Use a BMPCC to record a video as a RAW file.
+#. Record using a BMPCC and save the video as a RAW file.
 
    In this example, the BMPCC is the device specifically a capture device. The camera measures the light coming into the sensor, and assembles that into a single frame of image data.
    The RAW file, in thise case BlackmagicRaw is an encoding.
@@ -55,7 +66,7 @@ Let's look at a few examples:
    Internally the BMPCC knows how to convert between the sensor and file.
    In this example there is no working space.
 
-#. Use a BMPCC and output an HDMI signal to a nearby monitor.
+#. Record using a BMPCC and output an HDMI signal to a nearby monitor.
 
    In this example there are two devices, and one encoding.
    the BMPCC it is a capture device, and the monitor is a display device.
@@ -64,92 +75,185 @@ Let's look at a few examples:
    but the color space represented by those numbers.
    
    If the BMPCC outputs an sRGB signal over HDMI,
-   we consider it a different encoding from transmitting a Filmic color space signal.
+   we consider it a different encoding from assuming another color space.
 
-Here is the problem.
-Each of these files and programs uses numbers to describe the colors in its scene.
+#. A BMPCC saved to a file, then editied in Davinci Resolve.
 
-For example sRGB uses three numbers to describe the color of each pixel.
-One for the amount of red, green, and blue respectively between 0 and 1.
-The reddest red, for example, would be ``(1, 0, 0)``.
-The greenest green would be ``(0, 1, 0)``, and the bluest blue is ``(0, 0, 1)``.
-
-Unfortunately the color ``(1, 0, 0)`` in sRGB might be very different from the color represented by ``(1, 0, 0)`` in BRaw-Film.
-There are other challenges:
-
-#. Different spaces has different ranges. 
-   While sRGB numbers are between 0 and 1, an ACES number is between 0 and 65504.
-#. Colors can *get brighter faster* in different color spaces. 
-   The rate can even change within a color space (this is what gamma/log stuff does).
-   If you double an ACES color, it gets twice as bright so we call that linear.
-   In sRGB, doubling the value 0.1 to 0.2 does not make the pixel twice as bright.
-
-Copying the files between these color-spaces without proper conversion will skew the colors away from their original values.
-Any time we change color spaces, we need to **transform** the values.
-For example, if we have Braw-Film value of 0.25 we need to figure out what the equivalent ACES number is that represents the same color.
-
-There are a lot of names for these transforms:
-
-#. IDTs (Input Device Transforms)
-#. ODTs (Output Device Transforms)
-#. LUTs
-
-However not all LUTs are actually color transforms.
-In fact most are not.
-The LUT needs to have been specifically designed to changes colors from a specific color space into another.
-
-It gets worse.
-If color spaces are buckets, different buckets are different sizes.
-Some, like ACES, can hold more colors.
-The sRGB bucket is one of the smaller buckets.
-So what happens if we try to convert from ACES to sRGB?
-The extra colors spill on the floor.
-
-File Encoding
-Color Primaries
-Gamma Curves
-Bit Depth
-
-In theory, any of these are interchangable.
-In practice, there are only a few combinations you are going to encounter.
-
-Here are the ones to remember.
-
-ACES files are saved as 16-bit EXRs, with linear gamma.
-
-A Blackmagic Raw file is always a 10-bit custom log curve.
-
-Practical Guid to ACES
-
-#. ACES encodes relative exposure.
-   Relative to what you may ask?
-   Whatever you decide, really.
-   Practically, you should use a color chart to calibrate against your ambient light level.
-#. Film an 18% gray catd and set the RGB value to [.18, .18, .18]. Your calibration is done.
-#. The RGB value [1, 1, 1] represents a 100% diffusely-reflective material.
-   If there was only ambient light in your scene, nothing would exceed an intensity of 1.
-#. Emissive light sources can and should exceed 1. How much? 
-   It turns out by a lot. 
-   There is no real upper limit.
-   If your gray card reading is accurate, the exposure value of the light illuminating it would be 3.14.
-#. From zero to 18% gray ACES can encode about 12 stops, and 18 stops from 18% to its maximum brightness.
-
-Math bits
-
-#. ACES is an RGB format, where each pixel is made up of three 16-bit half-floats.
-   So a pixel contains :math:`16\times3=48` bits.
-#. Practically, this gives each color a range between :math:`2^{-14}` to :math:`65504`.
-#. This means ACES can encode 65,536 different intensities per color channel.
+   In this example, there is one device, one encoding, and one working space.
+   The BMPCC captures the incoming footage and saves it to a BRaw file encoding.
+   The file is imported into Resolve's working space.
 
 
-An unbroken color pipeline means accounting for each of these changes at every step. 
-Generally, if your footage looks washed out, too dark, or otherwise bad you likely have a break in your color pipeline.
+Encodings are at the center of the diagram,
+and they are extremely important to the color pipeline.
 
-.. warning::
+This leads to a key takeaway:
 
-    LUTs cannot undo a broken color pipeline, no matter how hard you try.
+.. important::
 
-A deep dive on color is beyond This article's current scope.
-All you need to keep in mind is that any time you move footage from  one step to the next,
-the color pipeline is involved.
-For every workflow we discuss, we should consider how to maintain the color pipeline.
+      If you know the exact encoding of image data, you can reproduce the colors correctly.
+
+And there is an important corollary:
+
+.. danger::
+
+      If you know the exact encoding of image data, you *cannot* reproduce the colors correctly
+
+Encodings
+=========
+
+Every encoding, ultimately, is a bunch of numbers. 
+Those numbers describe sub-pixels, which togeth form pixels, which together form images, which together form videos.
+
+Each number represents one subpixel. 
+Typically three subpixels per pixel: one red, one green, and one blue.
+Not always, but usually.
+The numbers can be compressed, squeezed, rearranged, etc but it's always one number per subpixel.
+
+Encodings are a broad agreement about what numbers refer to what colors,
+in the same way that a language is a broad agreemnt about what words/sounds refer to what objects.
+When you get your encodings wrong,
+it can be like trynig to read French text expecting english.
+
+In many ways, getting an encoding *really wrong* is preferable because it's easy to spot.
+Subtle errors are more deciving, like the differences between US English and UK English.
+An sRGB file encoded with a 2.4 gamma curve looks almost right under a 2.2 gamma curve.
+Just like the word *chips* sounds correct in the US eng UK,
+but the underlying meaning is different.
+These subtle errors are much harder to notice,
+which is why we realy on a framework to tell us when we need color management and how to do it.
+
+When is Color Management Needed
+===============================
+
+.. important::
+
+   Color management is needed any time you move into or from an encoding.
+
+#. Device color management is accomplished via Calibration.
+#. Working Space color management is accomplished via Transforms.
+
+Device Calibration
+==================
+
+Calibration requires the use of special calibration equipment.
+
+A display device is often calibrated with a device like the x-Rite iDisplay Pro,
+where software feeds in a bunch of numbers to your display then measures what light gets generated.
+The software then *calibrates* the display by "fiddling with the numbers" until the outputted light looks correct.
+It saves the data for re-use later, as a Look Up Table (LUT).
+
+#. For computers, the LUT is usually saved into an ICC profile and used directly by the OS software.
+
+   In this case, the computer does not output a true sRGB signal 
+   but a slightly modified one such that the monitor *appears* to correctly display sRGB.
+#. Some displays are *hardware calibratable* and store the LUT within the hardware device.
+
+Going back to our languages example, these are more like regional dialects than new languages.
+In the US, "pie" might refer to pizza, a sweet pastry, or a savory pastry.
+When meeting a new friend,
+you might ask them to order a "pie" and see what you get.
+You give them some information, a word, and see what real-world thing you get back.
+That is display calibration.
+
+A capture device also needs calibration, usually with a device like the [X-RiteColorCheckerVideo]_.
+Similar to above,
+we use softare to process a content which contains an image of our color checker.
+The true values of each color swatch are already known to the softare,
+so when examining the image if those colors are different it can calculate the necessary corrections.
+
+In our languages example,
+this would be like showing your friend a rounded cheese'n tomato-sauce dish and asking what they call it.
+You feed in a real-world item, and ask for the information they use to describe it.
+
+Corrections generated by calibration software are stored as LUTs.
+LUTs are necessary if one wishes to transform from one encoding to another.
+In our abstract model,
+it is worth highlighting a distinction between "this is an 8-bit sRGB" encoding,
+and the more abstract "this file contains enough information to assign the correct color to every pixel" encoding.
+
+#. Some cameras can be hardware calibrated. 
+   They will apply the corrections your calibration softawre generates before encoding the file.
+#. Most of the time, corrections are applied in a *Working Space* like Davinci Resolve.
+
+.. important::
+
+   We must treat all files, even files shot with the same camera, as different encodings.
+   At least until the color calibration corrections have been applied.
+   
+Remember how we said two encodings were different unless *all settings* were identical.
+We treat the calibration as part of the encoding.
+
+#. For multiple takes, only one calibration is often necessary.
+   We would refer to the files from all those takes collectively as having the same encoding.
+#. If two separate files were recorded to the same file-format with the same settings,
+   and each was captured on a hardawre calibrated camera then we say they have the same encoding.
+
+Lets take a look at two examples:
+
+1. Meg is filming two scenes on the same [RED]_ camera. One scene is indoor and the other is outdoor.
+   Both scenes are saved as [RedcodeRaw]_ files with the same settings aside from ISO, f-stop, and focal length.
+   
+   Before each scene, Meg records a few seconds of an x-Rite Color Passport checker.
+
+   *Are all these files the same encoding?*
+
+   No. It is reasonable to assume all takes in a scene are the same encoding,
+   since they would have the same calibration.
+   However, there are enough differences between the indoor and outdoor scenes that we should assume a significantly different calibration is required.
+   Thus there are two encodings: one from the indoor scenes, and one from the outdoor scenes.
+2. Tom has a two camera live TV broadcast.
+   At the beginning of every day, Tom takes a color checker to each camera and generates a correction from test footage such that the cameras output a Rec.709 signal over SDI.
+
+   *Do these SDI cables carry the same encoding?*
+
+   Yes. We say these cables have the same encoding because they originate from hardware calibrated cameras.
+   The cameras apply a correction to their intended output based on real world calbration. 
+
+As you can see, these different examples both fit within our abstract framework.
+Further, we can use that framework to ensure we maintain our color pipeline.
+In Meg's example, we use our framework to tell us that footage from the two scenes cannot be combined until we have applied color correction.
+
+Working Space Transforms
+========================
+
+Transforms are just as important as calibration,
+but are more math and book keeping than measuring.
+
+Working spaces *import* one or more encodings.
+The encodings might all be different.
+Either saved into different file formats,
+saved in different color spaces,
+or saved before color correction has been applied.
+In any case, simply combining the numbers stored in each file will rarely if ever work out.
+
+Before combining, the numbers from each encoding need to be transformed such that they all mean the same thing.
+Think of this like another *internal* encoding used by the working space.
+It doesn't matter because you never need to know the encoding, as long as your transforms know what to do.
+
+.. important::
+
+   OpenColorIO (OCIO) is a comprehensive system for transforming content between color spaces. 
+
+For example:
+
+#. Meg, wanting to edit the footage from her two scenes imports those files into Resolve,
+   which has been set to use ACES color management.
+   Immediately after importing, no transforms have yet been applied.
+   Meg clicks each file, and sets the appropriate Input Device Transform (IDT) which informs Resolve which color space the file is using.
+   Resolve takes care of the rest.
+
+   The files will be automataically converted to the internal ACES space when added to a timeline. 
+  
+   One more step though.
+   Remember that Meg filmed two scenes with two different calibrations.
+   Resolve does not know to apply any color correction automataically,
+   but Meg can then go through each file and apply the color correction LUTs generated by the calibration software.
+
+Summary
+=======
+
+We don't expect you to completely understand ACES or color management if this is your fist encounter with it.
+Rather, if you've struggled with how it all fits together, then we hope this framework helps you see the whole picture.
+
+A great next step is diving into the details.
