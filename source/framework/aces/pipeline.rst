@@ -21,14 +21,20 @@ Color Pipeline
 
    This video is a great place to start:
 
-   .. raw:: html
-   
-      <iframe style="height:calc(var(--width)*9/16);" width="100%" src="https://www.youtube.com/embed/NU0P1w5tfHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   .. youtube:: https://www.youtube.com/embed/NU0P1w5tfHQ
 
+Abstract
+========
 
-Abstractly, will to refer to all aspects of color management as fitting within the following framework.
+Our goal with a framework is to keep it simple enough to remember,
+but complete enough to be useful.
+The consequence of this is that frameworks tend to be a bit abstract,
+since they need reduce an infinite variety of workflows into a common set of steps.
+
+Our framework, all of it, is described by the following diagram:
 
 .. svgbob::
+   :align: center
 
    ┌────────┐   Capture   ┌──────────┐    Import    ┌─────────┐
    │        ├────────────►│          ├─────────────►│  Working│
@@ -36,7 +42,10 @@ Abstractly, will to refer to all aspects of color management as fitting within t
    │        │◄────────────┤          │◄─────────────┤ Space   │
    └────────┘   Display   └──────────┘    Export    └─────────┘
 
+Where each of the terms in the diagram has a meaning below:
 
+Terminology
+-----------
 
 Device
    **Devices always involve light.**
@@ -52,8 +61,12 @@ Encoding
 
 Working Space
    **Working Spaces are Temporary.**
-   A working space is used to manipulate image data, such as a video or photo.
-   Working spaces import encoded content, manipulate it, then export it.
+   A working space imports, combines, manipulates, and exports encodings.
+   Working spaces must deal with importing multiples encodings,
+   and transforming them such that they can work together.
+
+Examples
+--------
 
 Everything film, tv, and video production setup fits into the above pattern.
 Let's look at a few examples:
@@ -83,9 +96,18 @@ Let's look at a few examples:
    The BMPCC captures the incoming footage and saves it to a BRaw file encoding.
    The file is imported into Resolve's working space.
 
+Encodings
+---------
 
 Encodings are at the center of the diagram,
 and they are extremely important to the color pipeline.
+
+.. sidebar:: Encodings are Like Languages
+
+   Encodings are a broad agreement about what numbers refer to what colors,
+   in the same way that a language is a broad agreemnt about what words/sounds refer to what objects.
+   When you get your encodings wrong,
+   it can be like trynig to read French text expecting english.
 
 This leads to a key takeaway:
 
@@ -99,8 +121,12 @@ And there is an important corollary:
 
       If you know the exact encoding of image data, you *cannot* reproduce the colors correctly
 
-Encodings
-=========
+.. sidebar:: Chips Please
+
+   Just like the word *chips* sounds correct in the US eng UK,
+   but the underlying meaning is different.
+   These subtle errors are much harder to notice,
+   which is why we realy on a framework to tell us when we need color management and how to do it.
 
 Every encoding, ultimately, is a bunch of numbers. 
 Those numbers describe sub-pixels, which togeth form pixels, which together form images, which together form videos.
@@ -110,38 +136,46 @@ Typically three subpixels per pixel: one red, one green, and one blue.
 Not always, but usually.
 The numbers can be compressed, squeezed, rearranged, etc but it's always one number per subpixel.
 
-Encodings are a broad agreement about what numbers refer to what colors,
-in the same way that a language is a broad agreemnt about what words/sounds refer to what objects.
-When you get your encodings wrong,
-it can be like trynig to read French text expecting english.
-
 In many ways, getting an encoding *really wrong* is preferable because it's easy to spot.
 Subtle errors are more deciving, like the differences between US English and UK English.
 An sRGB file encoded with a 2.4 gamma curve looks almost right under a 2.2 gamma curve.
-Just like the word *chips* sounds correct in the US eng UK,
-but the underlying meaning is different.
-These subtle errors are much harder to notice,
-which is why we realy on a framework to tell us when we need color management and how to do it.
 
-When is Color Management Needed
-===============================
 
+Color Management
+================
+   
 .. important::
 
    Color management is needed any time you move into or from an encoding.
 
-#. Device color management is accomplished via Calibration.
-#. Working Space color management is accomplished via Transforms.
+   #. Device color management is accomplished via Calibration, specifically either
+      
+      #. Display Calibration, or
+      #. Capture Calibration.
 
-Device Calibration
-==================
+   #. Working Space color management is accomplished via Transforms.
+  
+Display Calibration
+-------------------
 
 Calibration requires the use of special calibration equipment.
 
+.. sidebar:: Let's Split a Pie
+
+   Calibrations are more like adapting to regional dialects than new languages.
+   In the US, "pie" might refer to pizza, a sweet pastry, or a savory pastry.
+   When meeting a new friend,
+   you might ask them to order a "pie" and see what you get.
+
+   You give them some information, a word, and see what real-world thing you get back.
+   
+   *That is display calibration.*
+
+
 A display device is often calibrated with a device like the x-Rite iDisplay Pro,
-where software feeds in a bunch of numbers to your display then measures what light gets generated.
+where software feeds in a bunch of numbers to your display then exactly measures what light the display generates.
 The software then *calibrates* the display by "fiddling with the numbers" until the outputted light looks correct.
-It saves the data for re-use later, as a Look Up Table (LUT).
+It saves the data for re-use as a Look Up Table (LUT).
 
 #. For computers, the LUT is usually saved into an ICC profile and used directly by the OS software.
 
@@ -149,12 +183,11 @@ It saves the data for re-use later, as a Look Up Table (LUT).
    but a slightly modified one such that the monitor *appears* to correctly display sRGB.
 #. Some displays are *hardware calibratable* and store the LUT within the hardware device.
 
-Going back to our languages example, these are more like regional dialects than new languages.
-In the US, "pie" might refer to pizza, a sweet pastry, or a savory pastry.
-When meeting a new friend,
-you might ask them to order a "pie" and see what you get.
-You give them some information, a word, and see what real-world thing you get back.
-That is display calibration.
+   In these cases, the computer ouputs a true sRGB signal.
+   Interally the display applies the LUT before sending the data to the panel.
+
+Capture Calibration
+-------------------
 
 A capture device also needs calibration, usually with a device like the [X-RiteColorCheckerVideo]_.
 Similar to above,
@@ -189,7 +222,7 @@ We treat the calibration as part of the encoding.
 #. If two separate files were recorded to the same file-format with the same settings,
    and each was captured on a hardawre calibrated camera then we say they have the same encoding.
 
-Lets take a look at two examples:
+.. rubric:: Lets take a look at two examples:
 
 1. Meg is filming two scenes on the same [RED]_ camera. One scene is indoor and the other is outdoor.
    Both scenes are saved as [RedcodeRaw]_ files with the same settings aside from ISO, f-stop, and focal length.
@@ -199,7 +232,7 @@ Lets take a look at two examples:
    *Are all these files the same encoding?*
 
    No. It is reasonable to assume all takes in a scene are the same encoding,
-   since they would have the same calibration.
+   since they were filmed under the same conditions.
    However, there are enough differences between the indoor and outdoor scenes that we should assume a significantly different calibration is required.
    Thus there are two encodings: one from the indoor scenes, and one from the outdoor scenes.
 2. Tom has a two camera live TV broadcast.
@@ -208,14 +241,14 @@ Lets take a look at two examples:
    *Do these SDI cables carry the same encoding?*
 
    Yes. We say these cables have the same encoding because they originate from hardware calibrated cameras.
-   The cameras apply a correction to their intended output based on real world calbration. 
+   The cameras apply a correction to their output based on real world calbration. 
 
 As you can see, these different examples both fit within our abstract framework.
 Further, we can use that framework to ensure we maintain our color pipeline.
 In Meg's example, we use our framework to tell us that footage from the two scenes cannot be combined until we have applied color correction.
 
 Working Space Transforms
-========================
+------------------------
 
 Transforms are just as important as calibration,
 but are more math and book keeping than measuring.
