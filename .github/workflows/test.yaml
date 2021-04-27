@@ -35,4 +35,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./PREVIEW/$GITHUB_ACTOR/$GITHUB_HEAD_REF
+          publish_dir: ./build
+          destination_dir: PREVIEW/$GITHUB_ACTOR/$GITHUB_HEAD_REF
+          keep_files: true
+          cname: vpfig.com
