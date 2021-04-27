@@ -31,11 +31,8 @@ jobs:
           docs-folder: '.'
           build-command: "sphinx-build -aE -W -b dirhtml source build"
       
-      - name: Build and deploy to gh-pages
-        uses: sauloxd/review-apps@v1.3.3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          build-cmd: 'true'
-          branch: 'gh-pages' # The branch you chose to be your github-pages source
-          dist: 'build' # The dist folder where your build command will place the build artifacts
-          slug: 'PREVIEW' # The partial URL where your apps will live. This is useful if you want to deploy both your react app and storybook app inside the same repository
-
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./PREVIEW/$GITHUB_ACTOR/$GITHUB_HEAD_REF
