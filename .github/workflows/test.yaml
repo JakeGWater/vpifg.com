@@ -38,6 +38,14 @@ jobs:
         with:
           fetch-depth: 0
       
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "${{ github.token }}"
+          target_url: https://vpifg.com/PREVIEW/${{ github.event.number }}
+          environment: production
+
       - name: Sphinx Build
         uses: ammaraskar/sphinx-action@0.4
         with:
