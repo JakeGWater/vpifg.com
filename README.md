@@ -28,6 +28,8 @@ Example: [Edit this file](https://github.com/JakeGWater/vpifg.com/edit/main/READ
 
 ## Edit in Gitpod
 
+*This is the recommended workflow*
+
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JakeGWater/vpifg.com)
 
 Gitpod will bootstrap a cloud dev environment for you.
