@@ -1,0 +1,8 @@
+====
+Help
+====
+
+.. toctree::
+    :glob:
+
+    help/*
