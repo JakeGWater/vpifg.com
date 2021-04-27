@@ -36,6 +36,7 @@ jobs:
         if: success() && steps.findPr.outputs.number
         env:
           PR: ${{ steps.findPr.outputs.pr }}
+          DEPLOY_URL: https://vpifg.com/PREVIEW/${{github.actor}}/${{steps.extract_branch.outputs.branch}}
 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create GitHub deployment
@@ -67,6 +68,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: https://vpifg.com/PREVIEW/${{github.actor}}/${{steps.extract_branch.outputs.branch}}
+          environment_url: https://vpifg.com/PREVIEW/${{github.actor}}/${{steps.extract_branch.outputs.branch}}
           state: "success"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
