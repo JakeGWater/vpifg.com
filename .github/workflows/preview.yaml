@@ -53,6 +53,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: https://vpifg.com/PREVIEW/${{ github.event.number }}
+          environment_url: https://vpifg.com/PREVIEW/${{ github.event.number }}
           state: "success"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
