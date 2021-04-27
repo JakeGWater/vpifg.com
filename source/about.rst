@@ -6,7 +6,7 @@ About
 
     I absolutely love the idea of real, immediate, interactive worlds to explore as a filmmaker.
 
-.. figure:: /_static/jakegwater.jpg
+.. image:: /_static/jakegwater.jpg
     :height: 128px
     :width: 128 px
     :align: left
