@@ -43,4 +43,3 @@ jobs:
           publish_dir: ./build
           destination_dir: PREVIEW/${{ github.event.number }}
           keep_files: true
-          cname: vpfig.com
