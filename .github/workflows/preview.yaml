@@ -36,15 +36,13 @@ jobs:
         if: success() && steps.findPr.outputs.number
         env:
           PR: ${{ steps.findPr.outputs.pr }}
-          DEPLOY_HOST: https://vpifg.com
-          DEPLOY_PATH: PREVIEW/${{github.actor}}/${{steps.extract_branch.outputs.branch}}
 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create GitHub deployment
         id: deployment
         with:
           token: "${{ github.token }}"
-          target_url: ${{ env.DEPLOY_HOST }}/${{ env.DEPLOY_PATH }}
+          target_url: https://vpifg.com/PREVIEW/${{github.actor}}/${{steps.extract_branch.outputs.branch}}
           ref: ${{github.ref}}
           environment: preview
 
@@ -60,7 +58,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          destination_dir: ${{env.DEPLOY_PATH}}
+          destination_dir: PREVIEW/${{github.actor}}/${{steps.extract_branch.outputs.branch}}
           keep_files: true
       
       - name: Update deployment status (success)
@@ -68,7 +66,7 @@ jobs:
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: "${{ github.token }}"
-          target_url: ${{ env.DEPLOY_HOST }}/${{ env.DEPLOY_PATH }}
+          target_url: https://vpifg.com/PREVIEW/${{github.actor}}/${{steps.extract_branch.outputs.branch}}
           state: "success"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 
@@ -77,6 +75,6 @@ jobs:
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: "${{ github.token }}"
-          target_url: ${{ env.DEPLOY_HOST }}/${{ env.DEPLOY_PATH }}
+          target_url: https://vpifg.com/PREVIEW/${{github.actor}}/${{steps.extract_branch.outputs.branch}}
           state: "failure"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
