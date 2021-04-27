@@ -44,7 +44,8 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: https://vpifg.com/PREVIEW/${{ github.event.number }}
-          environment: production
+          ref: ${{github.ref}}
+          environment: preview
 
       - name: Sphinx Build
         uses: ammaraskar/sphinx-action@0.4
