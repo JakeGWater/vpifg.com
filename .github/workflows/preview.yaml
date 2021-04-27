@@ -60,7 +60,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          destination_dir: ${{DEPLOY_PATH}}
+          destination_dir: ${{env.DEPLOY_PATH}}
           keep_files: true
       
       - name: Update deployment status (success)
