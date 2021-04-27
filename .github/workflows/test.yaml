@@ -30,12 +30,17 @@ jobs:
           pre-build-command: "apt-get install -y git"
           docs-folder: '.'
           build-command: "sphinx-build -aE -W -b dirhtml source build"
-      
+    
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          destination_dir: PREVIEW/${{env.GITHUB_HEAD_REF}}
+          destination_dir: PREVIEW/${{ steps.extract_branch.outputs.branch }}
           keep_files: true
           cname: vpfig.com
