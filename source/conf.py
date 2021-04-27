@@ -106,6 +106,9 @@ html_context = {
     "doc_path": "/source",
 }
 
+html_extra_path = [
+    "robots.txt"
+]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
