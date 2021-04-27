@@ -2,29 +2,31 @@
 ACES
 =====
 
-.. wip::
+Colors is a complex topic,
+and no matter what we write here there will be more to know.
 
-Colors is a complex topic, both technically and artistically.
-However, it can broken down into smaller well-understood pieces.
-We break managing color down into three categories:
+As it matters to Virtual Production,
+we are going to focus on **Technical Color Management**,
+also knows as your **Color Pipeline**.
 
-.. glossary::
+There are two parts:
 
-    Color Pipeline
-        The color pipeline is a technical process, ensuring color spaces are appropriately transformed at each step of your production and post-production process.
+#. :doc:`aces/theory` is a high-level framework for understanding how all the pieces fit together.
+#. :doc:`aces/reference` is a loosely organized collection of important details.
 
-        See :doc:`aces/pipeline` for more details.
-    
-    Color Correction
-        Color correction involves correcting footage against a real-life reference,
-        such as a color chart.
-    
-    Color Grading
-        Color grading is subjecting, used for mood by the director to help tell the story.
+ACES is one implementation of color management, and while there are other approaches, we recommend using ACES.
+For a `Workflow </workflows>`_ to check (✅) the *ACES* box, it must use ACES as its color pipeline,
+and apply color management at all steps.
+
+.. admonition:: Note
+    :class: warning
+
+    Color Management is different from Artistic Color Grading,
+    where directors and colorists adjust colors for storytelling purposes.
 
 .. toctree::
-    :caption: See Also
-    :titlesonly:
-    :glob:
+    :hidden:
 
-    aces/*
+    aces/theory
+    aces/reference
+

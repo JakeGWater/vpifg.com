@@ -1,6 +1,6 @@
-==============
-Color Pipeline
-==============
+=======================
+Color Management Theory
+=======================
 
 .. wip::
 
@@ -119,7 +119,7 @@ And there is an important corollary:
 
 .. danger::
 
-      If you know the exact encoding of image data, you *cannot* reproduce the colors correctly
+      If you don't know the exact encoding of image data, you *cannot* reproduce the colors correctly
 
 .. sidebar:: Chips Please
 
@@ -295,4 +295,4 @@ Summary
 We don't expect you to completely understand color management if this is your fist encounter with it.
 Rather, if you've struggled with how it all fits together, then we hope this framework helps you see the whole picture.
 
-A great next step is diving into the details.
+A great next step is to dive into the details, and check out the :doc:`reference`.
