@@ -107,7 +107,7 @@ html_context = {
 }
 
 html_extra_path = [
-    "robots.txt"
+    "_copy"
 ]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
