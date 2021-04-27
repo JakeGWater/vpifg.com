@@ -30,25 +30,4 @@ jobs:
           pre-build-command: "apt-get install -y git"
           docs-folder: '.'
           build-command: "sphinx-build -aE -W -b dirhtml source build"
-          
-  preview:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      
-      - name: Sphinx Build
-        uses: ammaraskar/sphinx-action@0.4
-        with:
-          pre-build-command: "apt-get install -y git"
-          docs-folder: '.'
-          build-command: "sphinx-build -aE -b dirhtml source build"
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          destination_dir: PREVIEW/${{ github.event.number }}
-          keep_files: true
