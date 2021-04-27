@@ -32,11 +32,11 @@ If you zoom all the way out on Color Management, this is what we believe you wil
 .. svgbob::
    :align: center
 
-   ┌────────┐   Capture   ┌──────────┐    Import    ┌─────────┐
-   │        ├────────────►│          ├─────────────►│  Working│
-   │ Device │             │ Encoding │              │         │
-   │        │◄────────────┤          │◄─────────────┤ Space   │
-   └────────┘   Display   └──────────┘    Export    └─────────┘
+   ┌────────┐   Capture   ┌──────────┐    Import    ┌──────────┐
+   │        ├────────────►│          ├─────────────►│  Working │
+   │ Device │             │ Encoding │              │  Space   │
+   │        │◄────────────┤          │◄─────────────┤          │
+   └────────┘   Display   └──────────┘    Export    └──────────┘
 
 Everything about our theory on color management relates back to this diagram.
 The diagram is meant to be simple enough to memorize, but useful enough that it can be a guide through every step.
