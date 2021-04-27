@@ -41,6 +41,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          destination_dir: PREVIEW/${{ steps.extract_branch.outputs.branch }}
+          destination_dir: PREVIEW/${{ github.event.number }}
           keep_files: true
           cname: vpfig.com
