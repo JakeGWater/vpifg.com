@@ -61,6 +61,10 @@ _You do not need npm, it is for convenience only. Check out the package.json fil
 
 View your site at http://localhost:3000/
 
+# Pull Requests
+
+Submitted Pull Requests will be deployed to `https://vpifg.com/PREVIEW/$NUMBER` where `$NUMBER` is the number of your pull request.
+
 # Architecture
 
 1. We use [Sphinx](https://github.com/sphinx-doc/sphinx) to build a static html site using,
