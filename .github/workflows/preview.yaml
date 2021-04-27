@@ -1,0 +1,66 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Test Site
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches:
+      _ '!main'
+      - '!gh-pages'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "${{ github.token }}"
+          target_url: https://vpifg.com/PREVIEW/${{ github.event.number }}
+          ref: ${{github.ref}}
+          environment: preview
+
+      - name: Sphinx Build
+        uses: ammaraskar/sphinx-action@0.4
+        with:
+          pre-build-command: "apt-get install -y git"
+          docs-folder: '.'
+          build-command: "sphinx-build -aE -b dirhtml source build"
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          destination_dir: PREVIEW/${{ github.event.number }}
+          keep_files: true
+      
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          target_url: https://vpifg.com/PREVIEW/${{ github.event.number }}
+          state: "success"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          target_url: https://vpifg.com/PREVIEW/${{ github.event.number }}
+          state: "failure"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
