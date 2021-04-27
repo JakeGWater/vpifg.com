@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Sphinx Build
+      - name: Sphinx Build and Test
         uses: ammaraskar/sphinx-action@0.4
         with:
           pre-build-command: "apt-get install -y git"
@@ -34,6 +34,17 @@ jobs:
   preview:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: Sphinx Build
+        uses: ammaraskar/sphinx-action@0.4
+        with:
+          pre-build-command: "apt-get install -y git"
+          docs-folder: '.'
+          build-command: "sphinx-build -aE -b dirhtml source build"
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
