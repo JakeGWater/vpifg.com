@@ -26,12 +26,8 @@ Color Management Theory
 Abstract
 ========
 
-Our goal with a framework is to keep it simple enough to remember,
-but complete enough to be useful.
-The consequence of this is that frameworks tend to be a bit abstract,
-since they need reduce an infinite variety of workflows into a common set of steps.
-
-Our framework, all of it, is described by the following diagram:
+We believe good theories, at a high level, allow you to see the big picture.
+If you zoom all the way out on Color Management, this is what we believe you will see.
 
 .. svgbob::
    :align: center
@@ -42,7 +38,11 @@ Our framework, all of it, is described by the following diagram:
    │        │◄────────────┤          │◄─────────────┤ Space   │
    └────────┘   Display   └──────────┘    Export    └─────────┘
 
-Where each of the terms in the diagram has a meaning below:
+Everything about our theory on color management relates back to this diagram.
+The diagram is meant to be simple enough to memorize, but useful enough that it can be a guide through every step.
+For specifics, we have :doc:`/reference`.
+
+Let's dive into the theory!
 
 Terminology
 -----------
