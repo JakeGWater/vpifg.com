@@ -34,7 +34,7 @@ jobs:
       - name: Build and deploy to gh-pages
         uses: sauloxd/review-apps@v1.3.3
         with:
-          build-cmd: 'sphinx-build -aE -b dirhtml source build'
+          build-cmd: 'true'
           branch: 'gh-pages' # The branch you chose to be your github-pages source
           dist: 'build' # The dist folder where your build command will place the build artifacts
           slug: 'PREVIEW' # The partial URL where your apps will live. This is useful if you want to deploy both your react app and storybook app inside the same repository
