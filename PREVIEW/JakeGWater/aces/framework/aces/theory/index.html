@@ -1,0 +1,1581 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Management Theory &#8212; Virtual Production Indie Film Guide</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.ee6fb81b276d6fba8a971ad8e9b95dd9.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.c86189f1ce1b71a67eb6.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Color Management Reference" href="../reference/" />
+    <link rel="prev" title="ACES" href="../" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    <a class="navbar-brand" href="../../../">
+  <span class="title">Virtual Production Indie Film Guide</span>
+</a>
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <a class="navbar-brand" href="#">
+    <!-- ADD BADGE HERE -->
+</a>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/JakeGWater/vpifg.com" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UCnfp_DTTZZ4I0R_4SDs46JQ" rel="noopener" target="_blank" title="YouTube">
+            <span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/JakeGWater" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><div style="margin:auto; width:100px;" >
+<img height=100 width=100 src="../../../_static/logo.png" class="logo" alt="logo">
+</div><form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../about/">
+   About
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../about/changelog/">
+     Changelog
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../about/contributing/">
+     Contributing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../about/contributing/#overview">
+       Overview
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../about/contributing/#contributing-guidelines">
+       Contributing Guidelines
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../about/contributing/#adding-workflows">
+         Adding Workflows
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../about/contributing/#adding-guides">
+         Adding Guides
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../about/contributing/#adding-help">
+         Adding Help
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../about/contributing/#referencing-content">
+         Referencing Content
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../about/contributing/#embedding-content">
+         Embedding Content
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../about/contributing/#work-in-progress">
+         Work in Progress
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../about/contributing/#experimental">
+         Experimental
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../about/licenses/">
+     Licenses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../about/roadmap/">
+     Roadmap
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../">
+   Framework
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../4k/">
+     4K
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="../">
+     ACES
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3 current active has-children">
+      <a class="current reference internal" href="#">
+       Color Management Theory
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+      <label for="toctree-checkbox-6">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="#abstract">
+         Abstract
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+        <label for="toctree-checkbox-7">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="#terminology">
+           Terminology
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="#examples">
+           Examples
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="#encodings">
+           Encodings
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="#color-management">
+         Color Management
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+        <label for="toctree-checkbox-8">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="#display-calibration">
+           Display Calibration
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="#capture-calibration">
+           Capture Calibration
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="#working-space-transforms">
+           Working Space Transforms
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="#summary">
+         Summary
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../reference/">
+       Color Management Reference
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../reference/#data-types">
+         Data Types
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+        <label for="toctree-checkbox-10">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../reference/#integers">
+           Integers
+          </a>
+         </li>
+         <li class="toctree-l5 has-children">
+          <a class="reference internal" href="../reference/#floats">
+           Floats
+          </a>
+          <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+          <label for="toctree-checkbox-11">
+           <i class="fas fa-chevron-down">
+           </i>
+          </label>
+          <ul>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../reference/#normal">
+             Normal
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../reference/#subnormal">
+             Subnormal
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../reference/#half-floats">
+           Half Floats
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../reference/#color-spaces">
+         Color Spaces
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+        <label for="toctree-checkbox-12">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../reference/#cie-color">
+           CIE Color
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../reference/#lab-color">
+           LAB Color
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../reference/#color-primaries">
+           Color Primaries
+          </a>
+         </li>
+         <li class="toctree-l5 has-children">
+          <a class="reference internal" href="../reference/#gamma-curves">
+           Gamma Curves
+          </a>
+          <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+          <label for="toctree-checkbox-13">
+           <i class="fas fa-chevron-down">
+           </i>
+          </label>
+          <ul>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../reference/#logarithmic">
+             Logarithmic
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../reference/#linear">
+             Linear
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../reference/#color-gamut">
+           Color Gamut
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../reference/#color-space-transforms">
+           Color Space Transforms
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../reference/#opencolorio">
+         OpenColorIO
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../reference/#exr">
+         EXR
+        </a>
+       </li>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../reference/#light">
+         Light
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+        <label for="toctree-checkbox-14">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../reference/#luminance">
+           Luminance
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../reference/#illuminance">
+           Illuminance
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../reference/#reflectance">
+           Reflectance
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../reference/#reference-materials">
+           Reference Materials
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../reference/#aces">
+         ACES
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../live/">
+     Live
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../multicam/">
+     Multicam
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../ndisplay/">
+     nDisplay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../raw/">
+     RAW
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../timecode/">
+     Timecode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../#production-checklist">
+     Production Checklist
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../workflows/">
+   Workflows
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../workflows/BURN/">
+     BURN Workflow
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+    <label for="toctree-checkbox-16">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../workflows/BURN/#overview">
+       Overview
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../workflows/BURN/#guides">
+       Guides
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+      <label for="toctree-checkbox-17">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../../../workflows/BURN/#pre-production">
+         Pre-Production
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+        <label for="toctree-checkbox-18">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../guides/unreal-set-design/">
+           Unreal Set Design
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../guides/timecode-bmpcc/">
+           Setting Up Timecode with BMPCC4k
+          </a>
+         </li>
+         <li class="toctree-l5 has-children">
+          <a class="reference internal" href="../../../guides/bmpcc4k-to-braw/">
+           BMPCC4k to BRaw
+          </a>
+          <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+          <label for="toctree-checkbox-19">
+           <i class="fas fa-chevron-down">
+           </i>
+          </label>
+          <ul>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../../../guides/bmpcc4k-to-braw/#overview">
+             Overview
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../../../guides/bmpcc4k-to-braw/#settings">
+             Settings
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../guides/braw-to-resolve/">
+           BRaw to Davinci Resolve
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../../../workflows/BURN/#production">
+         Production
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+        <label for="toctree-checkbox-20">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5 has-children">
+          <a class="reference internal" href="../../../guides/unreal-ocio/">
+           Unreal OCIO Setup
+          </a>
+          <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+          <label for="toctree-checkbox-21">
+           <i class="fas fa-chevron-down">
+           </i>
+          </label>
+          <ul>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../../../guides/unreal-ocio/#what-is-ocio">
+             What is OCIO
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../../../guides/unreal-ocio/#where-ocio-is-necessary">
+             Where OCIO is Necessary
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../../../guides/unreal-ocio/#downloading-ocio">
+             Downloading OCIO
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../../../guides/unreal-ocio/#configuring-unreal">
+             Configuring Unreal
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../../../guides/unreal-ocio/#references">
+             References
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../guides/lens-distortion/">
+           Adjusting for Lens Distortion
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../guides/unreal-composure/">
+           Unreal Composure
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../guides/recording-take-recorder/">
+           Recording with Take Recorder
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../../../workflows/BURN/#post-production">
+         Post-Production
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+        <label for="toctree-checkbox-22">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../guides/unreal-to-nuke/">
+           Unreal to Nuke
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../guides/unreal-to-resolve/">
+           Unreal to Resolve
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../guides/nuke-depth-of-field/">
+           Adding DoF to Unreal Renders in Nuke
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../guides/nuke-to-resolve/">
+           Nuke to Resolve
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../guides/resolve-to-nuke/">
+           Resolve to Nuke
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../workflows/LIVE/">
+     LIVE Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../workflows/#comparison">
+     Comparison
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../workflows/#add-your-own">
+     Add Your Own
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../guides/">
+   Guides
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+  <label for="toctree-checkbox-23">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/bmpcc-hdmi-srgb/">
+     BMPCC HDMI sRGB Setup
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../guides/bmpcc4k-to-braw/">
+     BMPCC4k to BRaw
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../guides/bmpcc4k-to-braw/#overview">
+       Overview
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../guides/bmpcc4k-to-braw/#settings">
+       Settings
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/braw-to-resolve/">
+     BRaw to Davinci Resolve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/lens-distortion/">
+     Adjusting for Lens Distortion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/nuke-depth-of-field/">
+     Adding DoF to Unreal Renders in Nuke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/nuke-to-resolve/">
+     Nuke to Resolve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/recording-take-recorder/">
+     Recording with Take Recorder
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/resolve-to-nuke/">
+     Resolve to Nuke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/timecode-bmpcc/">
+     Setting Up Timecode with BMPCC4k
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/unreal-composure/">
+     Unreal Composure
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../guides/unreal-ocio/">
+     Unreal OCIO Setup
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
+    <label for="toctree-checkbox-25">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../guides/unreal-ocio/#what-is-ocio">
+       What is OCIO
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../guides/unreal-ocio/#where-ocio-is-necessary">
+       Where OCIO is Necessary
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../guides/unreal-ocio/#downloading-ocio">
+       Downloading OCIO
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../guides/unreal-ocio/#configuring-unreal">
+       Configuring Unreal
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../guides/unreal-ocio/#references">
+       References
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/unreal-set-design/">
+     Unreal Set Design
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/unreal-to-nuke/">
+     Unreal to Nuke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../guides/unreal-to-resolve/">
+     Unreal to Resolve
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../studios/">
+   Studios
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/>
+  <label for="toctree-checkbox-26">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../studios/ben/">
+     Ben’s Home Studio
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/>
+    <label for="toctree-checkbox-27">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../studios/ben/#equipment">
+       Equipment
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/>
+      <label for="toctree-checkbox-28">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../../../studios/ben/#hardware">
+         Hardware
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/>
+        <label for="toctree-checkbox-29">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5 has-children">
+          <a class="reference internal" href="../../../studios/ben/#filming">
+           Filming
+          </a>
+          <input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/>
+          <label for="toctree-checkbox-30">
+           <i class="fas fa-chevron-down">
+           </i>
+          </label>
+          <ul>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../../../studios/ben/#green-screen">
+             Green Screen
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../studios/ben/#computer-setup">
+           Computer Setup
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../studios/ben/#software">
+           Software
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../studios/jake/">
+     Jake’s Home Studio
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/>
+    <label for="toctree-checkbox-31">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../studios/jake/#workflows">
+       Workflows
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../../studios/jake/#equipment">
+       Equipment
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/>
+      <label for="toctree-checkbox-32">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../../../studios/jake/#hardware">
+         Hardware
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/>
+        <label for="toctree-checkbox-33">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../studios/jake/#filming">
+           Filming
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../../studios/jake/#computer">
+           Computer
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../../studios/jake/#software">
+         Software
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../studios/#add-your-studio">
+     Add Your Studio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../help/">
+   Help
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/>
+  <label for="toctree-checkbox-34">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../help/bmpcc-dead-pixel/">
+     Dead Pixel on BMPCC
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../references/">
+   References
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/>
+  <label for="toctree-checkbox-35">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../references/#content">
+     Content
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../references/#software">
+     Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../references/#hardware">
+     Hardware
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../CodeOfConduct/">
+   Code of Conduct
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/>
+  <label for="toctree-checkbox-36">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CodeOfConduct/#our-pledge">
+     Our Pledge
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CodeOfConduct/#our-standards">
+     Our Standards
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CodeOfConduct/#enforcement-responsibilities">
+     Enforcement Responsibilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CodeOfConduct/#scope">
+     Scope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CodeOfConduct/#enforcement">
+     Enforcement
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../CodeOfConduct/#enforcement-guidelines">
+     Enforcement Guidelines
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/>
+    <label for="toctree-checkbox-37">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../CodeOfConduct/#correction">
+       1. Correction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../CodeOfConduct/#warning">
+       2. Warning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../CodeOfConduct/#temporary-ban">
+       3. Temporary Ban
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../CodeOfConduct/#permanent-ban">
+       4. Permanent Ban
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../CodeOfConduct/#attribution">
+     Attribution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../LICENSE/">
+   License
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/>
+  <label for="toctree-checkbox-38">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../../LICENSE/#creative-commons-attribution-noncommercial-noderivatives-4-0-international-public-license">
+     Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/>
+    <label for="toctree-checkbox-39">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../LICENSE/#section-1-definitions">
+       Section 1 – Definitions.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../LICENSE/#section-2-scope">
+       Section 2 – Scope.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../LICENSE/#section-3-license-conditions">
+       Section 3 – License Conditions.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../LICENSE/#section-4-sui-generis-database-rights">
+       Section 4 – Sui Generis Database Rights.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../LICENSE/#section-5-disclaimer-of-warranties-and-limitation-of-liability">
+       Section 5 – Disclaimer of Warranties and Limitation of Liability.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../LICENSE/#section-6-term-and-termination">
+       Section 6 – Term and Termination.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../LICENSE/#section-7-other-terms-and-conditions">
+       Section 7 – Other Terms and Conditions.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../../LICENSE/#section-8-interpretation">
+       Section 8 – Interpretation.
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../cla/">
+   Contributor License Agreement
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/>
+  <label for="toctree-checkbox-40">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../cla/#tl-dr">
+     tl;dr
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../cla/#unowned">
+     Unowned
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstract">
+   Abstract
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#terminology">
+     Terminology
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples">
+     Examples
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encodings">
+     Encodings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#color-management">
+   Color Management
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#display-calibration">
+     Display Calibration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#capture-calibration">
+     Capture Calibration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#working-space-transforms">
+     Working Space Transforms
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/JakeGWater/vpifg.com/edit/main//source/framework/aces/theory.rst">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+              </div>
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-info-circle"></i> Metadata
+</div>
+<ul class="visible nav section-nav flex-column">
+</ul>
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="color-management-theory">
+<h1>Color Management Theory<a class="headerlink" href="#color-management-theory" title="Permalink to this headline">¶</a></h1>
+<div class="warning admonition">
+<p class="admonition-title">Work In Progress</p>
+<p>This page is a <strong>Work in Progress</strong> and may be incomplete.</p>
+</div>
+<blockquote class="epigraph">
+<div><p>If you have spent any time learning about color management,
+you will probably agree that it feels overwhelming.
+This is our attempt at a framework for understanding color that can be built upon.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This content is probably a poor first introduction to color management.
+Instead, it is tareted at folks who have sporradic knowledge,
+but have difficulty remembering how to tie it all together.</p>
+<p>There are a lot of good introductions to ACES and Color Management that already exist,
+and we prefer linking to those whenever possible.</p>
+<p>This video is a great place to start:</p>
+<div><div class="video-container"><iframe src="https://www.youtube.com/embed/NU0P1w5tfHQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></div>
+<div class="section" id="abstract">
+<h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<p>We believe good theories, at a high level, allow you to see the big picture.
+If you zoom all the way out on Color Management, this is what we believe you will see.</p>
+<img alt="┌────────┐   Capture   ┌──────────┐    Import    ┌──────────┐ │        ├────────────►│          ├─────────────►│  Working │ │ Device │             │ Encoding │              │  Space   │ │        │◄────────────┤          │◄─────────────┤          │ └────────┘   Display   └──────────┘    Export    └──────────┘" class="svgbob align-center" src="../../../_images/svgbob-4ebb5ef0837f198e4f12be5cb478657caed46ff0.svg" /><p>Everything about our theory on color management relates back to this diagram.
+The diagram is meant to be simple enough to memorize, but useful enough that it can be a guide through every step.
+For specifics, we have <span class="xref std std-doc">/reference</span>.</p>
+<p>Let’s dive into the theory!</p>
+<div class="section" id="terminology">
+<h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>Device</dt><dd><p><strong>Devices always involve light.</strong>
+A Device is a real physical thing, like a camera, TV, monitor, or projector.
+Display Devices convert electrical signals into illuminated pixels.
+Capture Devices convert incoming light to electrical signals.</p>
+</dd>
+<dt>Encoding</dt><dd><p><strong>An encoding is transferable digital information.</strong>
+It can be recorded to a file, or sent over a wire.
+Internally there are a lot of characteristics to encodings,
+but we will refer to each permutation as its own encoding.</p>
+</dd>
+<dt>Working Space</dt><dd><p><strong>Working Spaces are Temporary.</strong>
+A working space imports, combines, manipulates, and exports encodings.
+Working spaces must deal with importing multiples encodings,
+and transforming them such that they can work together.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Everything film, tv, and video production setup fits into the above pattern.
+Let’s look at a few examples:</p>
+<ol class="arabic">
+<li><p>Record using a BMPCC and save the video as a RAW file.</p>
+<p>In this example, the BMPCC is the device specifically a capture device. The camera measures the light coming into the sensor, and assembles that into a single frame of image data.
+The RAW file, in thise case BlackmagicRaw is an encoding.
+Every number in the file corresponds to a specific real-world color.
+Internally the BMPCC knows how to convert between the sensor and file.
+In this example there is no working space.</p>
+</li>
+<li><p>Record using a BMPCC and output an HDMI signal to a nearby monitor.</p>
+<p>In this example there are two devices, and one encoding.
+the BMPCC it is a capture device, and the monitor is a display device.
+The HDMI signal carries an encoding over it.
+Importantly the encoding is not just the numbers sent via HDMI itself,
+but the color space represented by those numbers.</p>
+<p>If the BMPCC outputs an sRGB signal over HDMI,
+we consider it a different encoding from assuming another color space.</p>
+</li>
+<li><p>A BMPCC saved to a file, then editied in Davinci Resolve.</p>
+<p>In this example, there is one device, one encoding, and one working space.
+The BMPCC captures the incoming footage and saves it to a BRaw file encoding.
+The file is imported into Resolve’s working space.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="encodings">
+<h3>Encodings<a class="headerlink" href="#encodings" title="Permalink to this headline">¶</a></h3>
+<p>Encodings are at the center of the diagram,
+and they are extremely important to the color pipeline.</p>
+<div class="sidebar">
+<p class="sidebar-title">Encodings are Like Languages</p>
+<p>Encodings are a broad agreement about what numbers refer to what colors,
+in the same way that a language is a broad agreemnt about what words/sounds refer to what objects.
+When you get your encodings wrong,
+it can be like trynig to read French text expecting english.</p>
+</div>
+<p>This leads to a key takeaway:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you know the exact encoding of image data, you can reproduce the colors correctly.</p>
+</div>
+<p>And there is an important corollary:</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>If you don’t know the exact encoding of image data, you <em>cannot</em> reproduce the colors correctly</p>
+</div>
+<div class="sidebar">
+<p class="sidebar-title">Chips Please</p>
+<p>Just like the word <em>chips</em> sounds correct in the US eng UK,
+but the underlying meaning is different.
+These subtle errors are much harder to notice,
+which is why we realy on a framework to tell us when we need color management and how to do it.</p>
+</div>
+<p>Every encoding, ultimately, is a bunch of numbers.
+Those numbers describe sub-pixels, which togeth form pixels, which together form images, which together form videos.</p>
+<p>Each number represents one subpixel.
+Typically three subpixels per pixel: one red, one green, and one blue.
+Not always, but usually.
+The numbers can be compressed, squeezed, rearranged, etc but it’s always one number per subpixel.</p>
+<p>In many ways, getting an encoding <em>really wrong</em> is preferable because it’s easy to spot.
+Subtle errors are more deciving, like the differences between US English and UK English.
+An sRGB file encoded with a 2.4 gamma curve looks almost right under a 2.2 gamma curve.</p>
+</div>
+</div>
+<div class="section" id="color-management">
+<h2>Color Management<a class="headerlink" href="#color-management" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Color management is needed any time you move into or from an encoding.</p>
+<ol class="arabic simple">
+<li><p>Device color management is accomplished via Calibration, specifically either</p>
+<ol class="arabic simple">
+<li><p>Display Calibration, or</p></li>
+<li><p>Capture Calibration.</p></li>
+</ol>
+</li>
+<li><p>Working Space color management is accomplished via Transforms.</p></li>
+</ol>
+</div>
+<div class="section" id="display-calibration">
+<h3>Display Calibration<a class="headerlink" href="#display-calibration" title="Permalink to this headline">¶</a></h3>
+<p>Calibration requires the use of special calibration equipment.</p>
+<div class="sidebar">
+<p class="sidebar-title">Let’s Split a Pie</p>
+<p>Calibrations are more like adapting to regional dialects than new languages.
+In the US, “pie” might refer to pizza, a sweet pastry, or a savory pastry.
+When meeting a new friend,
+you might ask them to order a “pie” and see what you get.</p>
+<p>You give them some information, a word, and see what real-world thing you get back.</p>
+<p><em>That is display calibration.</em></p>
+</div>
+<p>A display device is often calibrated with a device like the x-Rite iDisplay Pro,
+where software feeds in a bunch of numbers to your display then exactly measures what light the display generates.
+The software then <em>calibrates</em> the display by “fiddling with the numbers” until the outputted light looks correct.
+It saves the data for re-use as a Look Up Table (LUT).</p>
+<ol class="arabic">
+<li><p>For computers, the LUT is usually saved into an ICC profile and used directly by the OS software.</p>
+<p>In this case, the computer does not output a true sRGB signal
+but a slightly modified one such that the monitor <em>appears</em> to correctly display sRGB.</p>
+</li>
+<li><p>Some displays are <em>hardware calibratable</em> and store the LUT within the hardware device.</p>
+<p>In these cases, the computer ouputs a true sRGB signal.
+Interally the display applies the LUT before sending the data to the panel.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="capture-calibration">
+<h3>Capture Calibration<a class="headerlink" href="#capture-calibration" title="Permalink to this headline">¶</a></h3>
+<p>A capture device also needs calibration, usually with a device like the <span id="id1">[X-RiteColorCheckerVideo]</span>.
+Similar to above,
+we use softare to process a content which contains an image of our color checker.
+The true values of each color swatch are already known to the softare,
+so when examining the image if those colors are different it can calculate the necessary corrections.</p>
+<p>In our languages example,
+this would be like showing your friend a rounded cheese’n tomato-sauce dish and asking what they call it.
+You feed in a real-world item, and ask for the information they use to describe it.</p>
+<p>Corrections generated by calibration software are stored as LUTs.
+LUTs are necessary if one wishes to transform from one encoding to another.
+In our abstract model,
+it is worth highlighting a distinction between “this is an 8-bit sRGB” encoding,
+and the more abstract “this file contains enough information to assign the correct color to every pixel” encoding.</p>
+<ol class="arabic simple">
+<li><p>Some cameras can be hardware calibrated.
+They will apply the corrections your calibration softawre generates before encoding the file.</p></li>
+<li><p>Most of the time, corrections are applied in a <em>Working Space</em> like Davinci Resolve.</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>We must treat all files, even files shot with the same camera, as different encodings.
+At least until the color calibration corrections have been applied.</p>
+</div>
+<p>Remember how we said two encodings were different unless <em>all settings</em> were identical.
+We treat the calibration as part of the encoding.</p>
+<ol class="arabic simple">
+<li><p>For multiple takes, only one calibration is often necessary.
+We would refer to the files from all those takes collectively as having the same encoding.</p></li>
+<li><p>If two separate files were recorded to the same file-format with the same settings,
+and each was captured on a hardawre calibrated camera then we say they have the same encoding.</p></li>
+</ol>
+<p class="rubric">Lets take a look at two examples:</p>
+<ol class="arabic">
+<li><p>Meg is filming two scenes on the same <span id="id2">[RED]</span> camera. One scene is indoor and the other is outdoor.
+Both scenes are saved as <span id="id3">[RedcodeRaw]</span> files with the same settings aside from ISO, f-stop, and focal length.</p>
+<p>Before each scene, Meg records a few seconds of an x-Rite Color Passport checker.</p>
+<p><em>Are all these files the same encoding?</em></p>
+<p>No. It is reasonable to assume all takes in a scene are the same encoding,
+since they were filmed under the same conditions.
+However, there are enough differences between the indoor and outdoor scenes that we should assume a significantly different calibration is required.
+Thus there are two encodings: one from the indoor scenes, and one from the outdoor scenes.</p>
+</li>
+<li><p>Tom has a two camera live TV broadcast.
+At the beginning of every day, Tom takes a color checker to each camera and generates a correction from test footage such that the cameras output a Rec.709 signal over SDI.</p>
+<p><em>Do these SDI cables carry the same encoding?</em></p>
+<p>Yes. We say these cables have the same encoding because they originate from hardware calibrated cameras.
+The cameras apply a correction to their output based on real world calibration.</p>
+</li>
+</ol>
+<p>As you can see, these different examples both fit within our abstract framework.
+Further, we can use that framework to ensure we maintain our color pipeline.
+In Meg’s example, we use our framework to tell us that footage from the two scenes cannot be combined until we have applied color correction.</p>
+</div>
+<div class="section" id="working-space-transforms">
+<h3>Working Space Transforms<a class="headerlink" href="#working-space-transforms" title="Permalink to this headline">¶</a></h3>
+<p>Transforms are just as important as calibration,
+but are more math and book keeping than measuring.</p>
+<div class="sidebar">
+<p class="sidebar-title">It’s all Legalese to Me</p>
+<p>There’s a reason contracts are written in a style of english that otherwise unpalatable.
+As we have already seen, every day english is full of ambiguities, and assumptions.
+Legalese exists to answer the question “What exactly did we agree to”.</p>
+<p>In other words, legalese is your <em>working space</em>.</p>
+</div>
+<p>Working spaces <em>import</em> one or more encodings.
+The encodings might all be different.
+Either saved into different file formats,
+saved in different color spaces,
+or saved before color correction has been applied.
+In any case, simply combining the numbers stored in each file will rarely if ever work out.</p>
+<p>Before combining, the numbers from each encoding need to be transformed such that they all mean the same thing.
+Think of this like another <em>internal</em> encoding used by the working space.
+It doesn’t matter because you never need to know the encoding, as long as your transforms know what to do.</p>
+<p class="rubric">Example</p>
+<p>Meg, wanting to edit the footage from her two scenes imports those files into Resolve,
+which has been set to use ACES color management.
+Immediately after importing, no transforms have yet been applied.
+Meg clicks each file, and sets the appropriate Input Device Transform (IDT) which informs Resolve which color space the file is using.
+Resolve takes care of the rest.</p>
+<p>The files will be automatically converted to the internal ACES space when added to a timeline.</p>
+<p>One more step though.
+Remember that Meg filmed two scenes with two different calibrations.
+Resolve does not know to apply any color correction automatically,
+but Meg can then go through each file and apply the color correction LUTs generated by the calibration software.</p>
+<p>After correction, Meg can freely combine her footage without worrying about potential color problems.</p>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>We don’t expect you to completely understand color management if this is your fist encounter with it.
+Rather, if you’ve struggled with how it all fits together, then we hope this framework helps you see the whole picture.</p>
+<p>A great next step is to dive into the details, and check out the <a class="reference internal" href="../reference/"><span class="doc">Color Management Reference</span></a>.</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../" title="previous page">ACES</a>
+    <a class='right-next' id="next-link" href="../reference/" title="next page">Color Management Reference</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+    
+  <script src="../../../_static/js/index.c86189f1ce1b71a67eb6.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Jake G. Water.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
