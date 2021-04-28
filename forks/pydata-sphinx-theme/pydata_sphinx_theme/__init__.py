@@ -450,6 +450,14 @@ def soup_to_python(soup, only_pages=False):
 
 def setup_edit_url(app, pagename, templatename, context, doctree):
     """Add a function that jinja can access for returning the edit URL of a page."""
+    # gitpod.io/#https://gitlab.com/gitpod/spring-petclinic/-/blob/master/src/main/java/org/springframework/samples/petclinic/owner/Pet.java
+    def get_gitpod_url():
+        # print(pagename)
+        doc_path = context.get("doc_path", "")
+        file = doctree['source'][len(app.env.srcdir):]
+        branch=context.get("github_version", "main")
+        out = f"https://gitpod.io/#https://github.com/JakeGWater/vpifg.com/blob/{branch}/{doc_path}{file}"
+        return out
 
     def get_edit_url():
         """Return a URL for an "edit this page" link."""
@@ -514,6 +522,7 @@ def setup_edit_url(app, pagename, templatename, context, doctree):
         )
 
     context["get_edit_url"] = get_edit_url
+    context["get_gitpod_url"] = get_gitpod_url
 
     # Ensure that the max TOC level is an integer
     context["theme_show_toc_level"] = int(context.get("theme_show_toc_level", 1))
