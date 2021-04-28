@@ -456,7 +456,7 @@ def setup_edit_url(app, pagename, templatename, context, doctree):
         doc_path = context.get("doc_path", "")
         file = doctree['source'][len(app.env.srcdir):]
         branch=context.get("github_version", "main")
-        out = f"https://gitpod.io/#https://github.com/JakeGWater/vpifg.com/-/blob/{branch}/{doc_path}{file}"
+        out = f"https://gitpod.io/#https://github.com/JakeGWater/vpifg.com/blob/{branch}/{doc_path}{file}"
         return out
 
     def get_edit_url():
