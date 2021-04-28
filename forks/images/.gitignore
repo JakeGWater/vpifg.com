@@ -1,0 +1,8 @@
+/docs/source/_images
+/docs/build
+/.tox
+*~
+*pyc
+*egg*
+build
+dist

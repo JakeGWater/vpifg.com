@@ -142,6 +142,63 @@ class prodcheckDirective(SphinxDirective):
         cont += adm
         return [cont]
 
+class license(nodes.General, nodes.Element):
+    pass
+
+def visit_license_node(self, node):
+    self.body.append(self.starttag(node, 'div', '', CLASS='license'))
+
+def depart_license_node(self, node):
+    self.body.append('<div class="license-notice">This content is %s licensed from ' % node['license'])
+    self.body.append(f'<a class="license-source", href={node["source_url"]}>{node["source"]}</a>')
+    return self.body.append('</div>')
+
+# def yesno(argument):
+#     return directives.choice(argument, ('yes', 'no'))
+
+class licenseDirective(SphinxDirective):
+    has_content = True
+    required_arguments = 1
+    option_spec = {
+        'source': directives.unchanged,
+        'source_url': directives.uri,
+    }
+
+    def run(self):
+        license_node = license()
+        license_node['license'] = self.arguments[0]
+        license_node['source'] = self.options['source']
+        license_node['source_url'] = self.options['source_url']
+
+        self.state.nested_parse(self.content, self.content_offset, license_node)
+        return [license_node]
+
+class figma(nodes.General, nodes.Element):
+    pass
+
+def visit_figma_node(self, node):
+    self.body.append(f'<iframe class="figma" style="aspect-ratio: {node["aspect"]}; border: 1px solid rgba(0, 0, 0, 0.1);" width="{node["width"]}" height="{node["height"]}" src="https://www.figma.com/embed?embed_host=share&url={node["refuri"]}"></iframe>')
+
+def depart_figma_node(self, node):
+    pass
+
+class figmaDirective(SphinxDirective):
+    required_arguments = 1
+    option_spec = {
+        'width': directives.nonnegative_int,
+        'height': directives.nonnegative_int,
+        'aspect': directives.unchanged,
+    }
+
+    def run(self):
+        figma_node = figma()
+        figma_node['width'] = self.options.get('width') or "100%"
+        figma_node['height'] = self.options.get('height')
+        figma_node['refuri'] = self.arguments[0]
+        figma_node['aspect'] = self.options.get("aspect") or "16/9"
+
+        return [figma_node]
+
 def setup(app):
     # app.add_config_value('todo_include_todos', False, 'html')
     app.add_node(notice,
@@ -154,8 +211,13 @@ def setup(app):
                  html=(visit_prodcheck_node, depart_prodcheck_node),)
     app.add_directive('prodcheck', prodcheckDirective)
 
-    # app.add_directive('todolist', TodolistDirective)
-    # app.connect('doctree-resolved', process_notice_nodes)
+    app.add_node(license,
+                 html=(visit_license_node, depart_license_node),)
+    app.add_directive('license', licenseDirective)
+
+    app.add_node(figma,
+                 html=(visit_figma_node, depart_figma_node),)
+    app.add_directive('figma', figmaDirective)
 
     return {
         'version': '0.1',

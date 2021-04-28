@@ -4,27 +4,14 @@ BURN Workflow
 
 .. wip::
 
-.. admonition:: Production Checklist
-
-    .. list-table::
-        :header-rows: 1
-
-        *   - :term:`4K`
-            - :term:`Timecode`
-            - :term:`ACES`
-            - :term:`Raw`
-            - :term:`Live`
-            - :term:`Multicam`
-            - :term:`nDisplay`
-        *   - ✅
-            - ✅
-            - ✅
-            - ✅
-            - ❌
-            - ❌
-            - ❌
-    
-    BURN may not be suitable for live events, or multi-camera recording. Check out :doc:`LIVE` instead.
+.. prodcheck::
+    :4k: yes
+    :timecode: yes
+    :raw: yes
+    :aces: yes
+    :ndisplay: no
+    :live: no
+    :multicam: no
 
 Overview
 ==================
@@ -67,7 +54,7 @@ Production
 .. toctree::
     :titlesonly:
 
-    /guides/uncreal-ocio
+    /guides/unreal-ocio
     /guides/lens-distortion
     /guides/unreal-composure
     /guides/recording-take-recorder

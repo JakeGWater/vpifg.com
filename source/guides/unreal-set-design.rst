@@ -2,8 +2,14 @@
 Unreal Set Design
 =================
 
+.. topic:: Lesson Plan
+
+    #. Plugins & Settings
+    #. Landscape
+    #. Lighting
+    #. HDRIs and [HdriHaven]
+    #. Bridge
+    #. Color Chart
+
 .. planned::
 
-.. rubric:: Notes
-
-#. Use an HDRI. The easiest way to get started is from [HdriHaven]_.

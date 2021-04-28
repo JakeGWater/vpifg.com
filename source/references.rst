@@ -5,7 +5,7 @@ References
 Content
 =======
 
-.. [HdriHaven] :guilabel:`FREE` high quality HDRIs `<https://hdrihaven.com>`_
+.. .. [HdriHaven] :guilabel:`FREE` high quality HDRIs `<https://hdrihaven.com>`_
 
 Software
 ========
@@ -19,9 +19,14 @@ Software
     
     See also [ResolveStudio]_
 
-.. [ProRes] `Apple ProRes Raw <https://support.apple.com/en-us/HT208671>`_
+.. .. [ProRes] `Apple ProRes Raw <https://support.apple.com/en-us/HT208671>`_
+
+.. [Blender] https://www.blender.org/
 
 .. [BlackmagicRaw] `<https://www.blackmagicdesign.com/products/blackmagicursaminipro/blackmagicraw>`_
+
+    `Manual <https://documents.blackmagicdesign.com/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf>`_
+
 
 .. [Nuke]
     

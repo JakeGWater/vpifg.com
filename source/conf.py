@@ -47,16 +47,24 @@ sys.path.append(os.path.abspath("./_ext"))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'notices',
     'recommonmark',
     'sphinx_git',
-    'notices',
-    'sphinx.ext.todo',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.ifconfig',
     'sphinx.ext.githubpages',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.todo',
+    'sphinxcontrib.images',
     'sphinxcontrib.svgbob',
-    'sphinxemoji.sphinxemoji',
 ]
+
+images_config = {
+    'default_group': 'images',
+    'download': False,
+    'cache_path': '_images',
+    'class': 'thumbnail',
+    'override_image_directive': True,
+}
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -98,6 +106,9 @@ html_context = {
     "doc_path": "/source",
 }
 
+html_extra_path = [
+    "_copy"
+]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
@@ -159,8 +170,7 @@ html_theme_options = {
 
     'globaltoc_collapse': True,
     'globaltoc_includehidden': True,
-
-    
+    'navigation_with_keys': False,
 }
 
 # -- Options for HTMLHelp output ---------------------------------------------

@@ -1,11 +1,6 @@
-.. Virtual Production Independent Film Guide documentation master file, created by
-   sphinx-quickstart on Mon Apr 12 15:33:42 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-=========================================
-Virtual Production Independent Film Guide
-=========================================
+===================================
+Virtual Production Indie Film Guide
+===================================
 
 .. toctree::
    :hidden:
@@ -18,6 +13,8 @@ Virtual Production Independent Film Guide
    help
    references
    CodeOfConduct
+   LICENSE
+   cla
 
 The VPIFG intends to be a technical reference for virtual production for smaller independent studios and individuals.
 Primarily using [UnrealEngine]_, but extensible enough to accommodate as many production workflows as necessary.
@@ -29,13 +26,14 @@ Primarily using [UnrealEngine]_, but extensible enough to accommodate as many pr
       :class: shortlog
       :revisions: 3
       :filename_filter: source/.*\.rst
+      :link-to-docs: 1
 
    See :doc:`about/changelog` for all updates.
 
 Organization
 ============
 
-The guide is split into an easy-to-reference organization.
+The guide organized as follows:
 
 * :doc:`workflows` are recipes for Virtual Production. They work, and they are used by others. If you're not sure where to start, take a look at some existing workflows.
 * :doc:`framework` explains how we evaluate and compare workflows. Not all workflows are created equal.
