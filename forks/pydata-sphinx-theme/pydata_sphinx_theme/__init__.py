@@ -450,7 +450,6 @@ def soup_to_python(soup, only_pages=False):
 
 def setup_edit_url(app, pagename, templatename, context, doctree):
     """Add a function that jinja can access for returning the edit URL of a page."""
-
     def get_edit_url():
         """Return a URL for an "edit this page" link."""
         file_name = f"{pagename}{context['page_source_suffix']}"
