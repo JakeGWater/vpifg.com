@@ -8,6 +8,13 @@ dl.citation dt {
 #navbar-icon-links i.fa, #navbar-icon-links i.fab, #navbar-icon-links i.far, #navbar-icon-links i.fas {
     font-size: 32px!important;
 }
+#navbar-center {
+    flex-grow: 1;
+    display: flex;
+}
+.navbar-center-item {
+    margin: 0 auto;
+}
 .navbar {
     min-height: 0;
 }

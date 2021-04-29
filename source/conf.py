@@ -99,6 +99,15 @@ html_title = project
 
 html_theme_path = ["../_themes"]
 
+import json
+
+if os.environ.get('GITPOD_WORKSPACE_CONTEXT') is not None:
+    GITHUB_BRANCH=json.loads(os.getenv('GITPOD_WORKSPACE_CONTEXT'))['ref']
+else:
+    GITHUB_BRANCH=os.getenv('GIT_BRANCH') or "main"
+
+print(f"Using Branch {GITHUB_BRANCH}")
+
 # NOTE: All the lines are after this are the theme-specific ones. These are
 #       written as part of the site generation pipeline for this project.
 html_theme = "pydata_sphinx_theme"
@@ -106,8 +115,8 @@ html_context = {
     # "github_url": "https://github.com", # or your GitHub Enterprise interprise
     "github_user": "JakeGWater",
     "github_repo": "vpifg.com",
-    "github_version": "main",
-    "doc_path": "/source",
+    "github_version": GITHUB_BRANCH,
+    "doc_path": "source",
 }
 
 html_extra_path = [

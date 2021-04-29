@@ -53,6 +53,8 @@ jobs:
           pre-build-command: "apt-get install -y git"
           docs-folder: '.'
           build-command: "sphinx-build -aE -b dirhtml source build"
+        env:
+            GIT_BRANCH: ${{steps.extract_branch.outputs.branch}}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
