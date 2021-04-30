@@ -282,10 +282,30 @@ Add two ``TextureSampleParamater2D`` nodes.
 
    .. figure:: https://i.postimg.cc/m2KDGcB4/screenshot-16.png
 
-Lighting
-========
+Dynamic Range Matching
+======================
 
-See :doc:`unreal-composure-lighting`.
+Your composure will look much better if you match the dynamic range between the CG layer and media plate.
+We will accomplish this by adjusting lighting, both in the real scene and virtual scene.
+
+In Unreal
+---------
+
+#. In your Cinema Camera's details panel, disable physical based controls.
+#. Adjust your scene lighting until :math:`L_{M}` measures 0.18 nits. This is middle-gray in [SRGBLinear]_.
+#. Measure :math:`L_{N}` and :math:`L_{S}`.
+#. Calculate the dynamic range :math:`\Delta EV=EV_{N} - EV_{S}`.
+
+In Real Life
+------------
+
+#. Measure :math:`L_{S'}`.
+#. Adjust your key light until :math:`EV_{N'} = EV_{S'} + \Delta EV`
+#. Use false color to adjust your camera until :math:`L_{M'}` appears as middle gray.
+
+.. important:: 
+   
+   See :doc:`unreal-composure-lighting`.
 
 Garbage Matte (Optional)
 ========================
