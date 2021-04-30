@@ -19,16 +19,6 @@
     <div class="container-fluid">
         <main class="row">
             <div class="col">
-                <h1>CSV to HTML Table</h1>
-
-                <p>Display any CSV file as a searchable, filterable, pretty HTML table. Done in 100% JavaScript. <a
-                        href="https://github.com/derekeder/csv-to-html-table">Code
-                        on GitHub</a>.</p>
-
-                <p> Here's a table of Health Clinics from the <a href="https://data.cityofchicago.org/browse?q=health%20clinic&sortBy=relevance&utf8=%E2%9C%93">City
-                        of Chicago Data Portal</a>.
-                </p>
-
                 <div id="table-container"></div>
             </div>
         </main>
@@ -43,33 +33,34 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.csv.min.js"></script>
+    <script src="jquery.csv.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <script src="js/csv_to_html_table.js"></script>
+    <script src="csv_to_html_table.js"></script>
 
     <script>
-        function format_link(link) {
-            if (link)
-                return "<a href='" + link + "' target='_blank'>" + link + "</a>";
-            else return "";
-        }
+    let params = new URLSearchParams(location.hash.substr(1));
+    let data_location = location.protocol + '//' + location.hostname + params.get("table")
+    let csv = new URL(data_location)
+    let csv_path = csv.pathname
+    function format_link(link) {
+        if (link)
+            return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+        else return "";
+    }
 
-        CsvToHtmlTable.init({
-            csv_path: "data/Health Clinics in Chicago.csv",
-            element: "table-container",
-            allow_download: true,
-            csv_options: {
-                separator: ",",
-                delimiter: '"'
-            },
-            datatables_options: {
-                paging: false
-            },
-            custom_formatting: [
-                [4, format_link]
-            ]
-        });
+    CsvToHtmlTable.init({
+        csv_path: csv_path,
+        element: "table-container",
+        allow_download: params.get('download'),
+        csv_options: {
+            separator: ",",
+            delimiter: '"'
+        },
+        datatables_options: {
+            paging: false
+        },
+    });
     </script>
 </body>
 
