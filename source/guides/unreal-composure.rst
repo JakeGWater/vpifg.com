@@ -282,6 +282,11 @@ Add two ``TextureSampleParamater2D`` nodes.
 
    .. figure:: https://i.postimg.cc/m2KDGcB4/screenshot-16.png
 
+Lighting
+========
+
+See :doc:`unreal-composure-lighting`.
+
 Garbage Matte (Optional)
 ========================
 
