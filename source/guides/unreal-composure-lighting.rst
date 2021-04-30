@@ -5,22 +5,57 @@
 Unreal Composure Lighting
 =========================
 
-    
-You can achieve vivid, realistic colors using Composure *without color grading*.
+.. important::
 
-But you will need to understand how Unreal processes colors.
-More specifically, it's important to understand how OCIO processes color.
+    You can achieve vivid, realistic colors using Composure *without color grading*.
 
-Unreal is going to render your footage as *Linear sRGB*, which for lack of a better definition is:
+Physical Lighting
+=================
 
-#. Each pixel's color and intensity is determined three numbers, one for *Red*, one for *Green*, and one for *Blue*.
+Unreal is capable of physical lighting.
+That is, you can enter real-world brightnesses for your lights,
+and real world settings for your camera.
+The result should *look realistic*.
+
+.. figure:: https://i.postimg.cc/XYqz3fxw/screenshot-39.png
+
+    Shot in 70,000 lux with f/22, ISO 100, 24fps, 180° shutter
+
+However, it is not necessary and matching your composited green-screen footage with the render is more important.
+We want precise control over the final RGB values generated from Unreal.
+It will be easier to minimize the number of nobs to turn, and thus, we are going completely disregard physical lighting.
+
+Before we get started, it's important to understand how Unreal handles color and how that interacts with OCIO.
+
+Linear sRGB
+===========
+
+However you choose to light your scene, ultimately a virtual camera is observing the scene and outputting numeric values for each pixel.
+Those values make their way to your monitor, which tell the display how bright or dark to make that same pixel.
+The journey from Unreal to your Monitor is our Color Pipeline.
+
+.. figure:: https://i.postimg.cc/Bb6NBsjd/Plot-loglog-linear-s-RGB-to-ACES.png
+
+    sRGBLinear and ACES have identical Black, Gray, and White points.
+
+Unreal renders your content in the *sRGBLinear* color space:
+
+#. Each pixel's color and intensity is determined by three numbers, one for *Red*, one for *Green*, and one for *Blue*. e.g. [1, 0.5, 0] means 1 unit of red, 0.5  units of green, and zero blue.
 #. Higher numbers are brighter. Lower numbers are darker. So [1, 1, 1] is brighter than [.5, .5, .5]
-#. Double the number means double the brightness. (This is only true for linear color spaces, and definitely not true for sRGB).
+#. Double the number means double the brightness. (This is only true for linear color spaces, and definitely not true for sRGB). So [2, 2, 2] is twice as bright as [1, 1, 1].
 #. When the numbers are all equal, that pixel is *neutral*. It has no color.
+   For example [.7, .7, .7] or [10, 10, 10].
 #. The value of 0 means none of that color. Three zeros [0,0,0] is the complete absense of light (i.e. absolute black).
-#. The upper limit is 100, at least for Unreal.
+#. Theoretically there is no upper limit, but Unreal stops at 100.
+   File formats like 16-bit EXR can go up to 65504.
 
-The next rules are not absolute.
+
+
+How OCIO Transforms Color
+=========================
+
+
+
 As in it's possible to not obey them, but in following them other color processing tools will *just work*.
 
 #. Light values are relative. To what? Make them relative to your key light, and 18% gray card.
