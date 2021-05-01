@@ -129,6 +129,145 @@ The HDRI has likely already been recorded.
 Ideally, you have a reference value for 18% gray.
 
 
+Lighting
+========
+
+Live composites can look really nice, indistinguishable from reality.
+They can also look noticeably fake.
+
+Poor lighting break a scene.
+Green screened actors can look like there standing in front of a flat background, and CG elements can look cartoonish.
+
+The goal of this section is not to discuss how to use lighting to affect mood, direct the viewer, 
+or any other artistically motivated cinematographic techniques.
+The goal is to have the composite technically good enough that you can spend color grade focused on storytelling,
+and not fixing mistakes.
+
+In other words, this section is a technical guide to maintaining the color pipeline through the composited image.
+If you think about it, that's not that easy to do.
+You are attempting to merge two images, originating in separate color spaces, with different lighting conditions.
+
+Again, we are not concerned with mood, atmosphere, or anything other than providing a good, robust base to color grade from.
+A good starting formula is to attempt to composite your scene in the following order:
+
+1. White Balancing
+2. Equalizing Dynamic Range
+3. Gray Matching
+
+In all of these steps, we will use 18% gray cards, both real and virtual.
+Gray cards are your friend.
+A color chart and VFX sphere are also super helpful,
+but at minimum you will need a gray card.
+
+White Balancing
+---------------
+
+While as a director you may choose to tint or off-balance the lighting in your scene,
+compositing into a non-white-balanced scene is going to suck.
+
+#. Use your gray card to white balance your camera footage in-camera.
+   You can post-process it in Unreal, but doing it in camera is faster and easier to modify.
+   The reason to use the gray card is that later we need that gray card to be neutral.
+#. An HDRI can *color* your scene off balance.
+   That's fine, it will add to the realism of your final image,
+   but the time to fix it is now.
+
+   #. In your CG layer, disable color grading override.
+      We are going to adjust everything in the virtual camera.
+
+   #. Use the composure preview and hover your mouse over the gray card to get the RGB values.
+      If the values are all equal, you are white balanced.
+      If they are not, you need to adjust your cameras *White Balance* and *Tint* settings until the RGB values of the gray card are equal.
+
+.. important::
+
+   See :doc:`/help/white-balance-in-lab` on manually white balancing using the CIE.Lab Color Space.
+
+.. highlights::
+
+   White balance is the foundation of the color pipeline
+
+
+
+Equalizing Dynamic Range
+------------------------
+
+.. highlights::
+
+   Ambient, Direct, Front
+
+Gray Matching
+-------------
+
+.. highlights::
+
+   **If you start with a gray card, you end with a gray card.**
+
+.. sidebar:: What happens if there are multiple gray cards, all at different values?
+
+   This could happen if the cards are facing different orientations,
+   or are in uneven lighting. What then?
+
+   Not to worry, we are only concerned with *any gray cards we calibrate against*.
+   In any one shot, you calibrate against a single gray card only, typically the one normal (facing directly) to the camera.
+
+The life of gray starts at either the physical gray card filmed by your camera, or virtual gray card in Unreal.
+It ends at your monitor.
+Our goal is that, for whatever color-value your monitor considers middle-gray, 
+that any gray cards we calibrate against end up as that value when sent to the monitor.
+
+.. important::
+
+   See :doc:`/help/one-shade-of-gray` to learn about the life of gray values.
+
+In a scene with 1) a green screen actor, 2) a GC set, and 3) an HDRI, there are three gray values we need to pay attention to.
+The closer they all match, the better.
+
+Unreal Gray
+-----------
+
+#. Create an gray-card material::
+
+   [0.18] diffuse
+   [1.00] roughness
+
+#. Add a plane to your scene with the gray card material. 
+   Place it geometrically equal to where your real-life actor will stand,
+   and face the card towards the camera.
+   The plane should correspond to the same location and orientation of the real-life gray card you will use to calibrate the camera footage.
+#. Open the composure CG preview.
+   You can hover your cursor over any point to inspect its RGB value.
+
+   #. Ensure there is no enabled preview transform.
+      We want to view the RGB Linear values, where gray is 0.18.
+
+#. Select the cinema camera attached to your CG layer and set exposure to manual.
+
+   #. Optionally disable physical based settings.
+      This makes your camera 1:1 encode nits to RGB value, and can make this step easier.
+      When disabled, ISO, aperture, and shutter speed have no affect on the image.
+
+#. Tweak camera and lighting until the gray card reads exactly 0.18.
+
+   #. Camera exposure compensation moves all image values higher or lower.
+   #. HDRI intensity brightens the gray-card as well as the HDRI background.
+   #. Sky dome intensity brightens gray-card without brightening the HDRI background.
+   #. Directional lighting brightens the directional light on your card.
+
+Real Camera Gray
+----------------
+
+It is important to setup any lighting to match Unreal before calibrating your camera's gray level.
+
+#. If your camera has false color, you should use that to calibrate your gray exposure.
+#. Adjust the aperture until your gray card reads exactly "middle gray".
+#. Inspect the 
+
+.. important:: 
+   
+   See :doc:`unreal-composure-lighting`.
+
+
 .. math::
 
     E_{Dir} &= E_{Sun} - E_{Shade} \\
