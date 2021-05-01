@@ -238,8 +238,8 @@ This will insert the live actors into the CG scene seen by the camera.
 
 If you want to add motion see :doc:`unreal-vive-livelink`.
 
-Composition
-===========
+Composing Layers
+================
 
 Select your comp, and in the details panel under ``Transform Passes`` add a transform pass.
 
@@ -282,22 +282,64 @@ Add two ``TextureSampleParamater2D`` nodes.
 
    .. figure:: https://i.postimg.cc/m2KDGcB4/screenshot-16.png
 
-Dynamic Range Matching
-======================
 
-Your composure will look much better if you match the dynamic range between the CG layer and media plate.
-We will accomplish this by adjusting lighting, both in the real scene and virtual scene.
+Lighting
+========
 
-In Unreal
----------
+Live composites can look really nice, indistinguishable from reality.
+They can also look noticeably fake.
+
+Poor lighting break a scene.
+Green screened actors can look like there standing in front of a flat background, and CG elements can look cartoonish.
+
+The goal of this section is not to discuss how to use lighting to affect mood, direct the viewer, 
+or any other artistically motivated cinematographic techniques.
+The goal is to have the composite technically good enough that you can spend color grade focused on storytelling,
+and not fixing mistakes.
+
+In other words, this section is a technical guide to maintaining the color pipeline through the composited image.
+If you think about it, that's not that easy to do.
+You are attempting to merge two images, originating in separate color spaces, with different lighting conditions.
+
+A good way of thinking about the color pipeline during compositing is:
+
+.. highlights::
+
+   **If you start with a gray card, you end with a gray card.**
+
+.. sidebar:: What happens if there are multiple gray cards, all at different values?
+
+   This could happen if the cards are facing different orientations,
+   or are in uneven lighting. What then?
+
+   Not to worry, we are only concerned with *any gray cards we calibrate against*.
+   In any one shot, you calibrate against a single gray card only, typically the one normal (facing directly) to the camera.
+
+The life of gray starts at either the physical gray card filmed by your camera, or virtual gray card in Unreal.
+It ends at your monitor.
+Our goal is that, for whatever color-value your monitor considers middle-gray, 
+that any gray cards we calibrate against end up as that value when sent to the monitor.
+
+.. important::
+
+   See :doc:`/help/one-shade-of-gray` to learn about the life of gray values.
+
+In a scene with 1) a green screen actor, 2) a GC set, and 3) an HDRI, there are three gray values we need to pay attention to.
+The closer they all match, the better.
+
+Unreal HDRI Gray
+----------------
 
 #. In your Cinema Camera's details panel, disable physical based controls.
 #. Adjust your scene lighting until :math:`L_{M}` measures 0.18 nits. This is middle-gray in [SRGBLinear]_.
 #. Measure :math:`L_{N}` and :math:`L_{S}`.
 #. Calculate the dynamic range :math:`\Delta EV=EV_{N} - EV_{S}`.
 
-In Real Life
-------------
+Unreal Camera Gray
+------------------
+
+Real Camera Gray
+----------------
 
 #. Measure :math:`L_{S'}`.
 #. Adjust your key light until :math:`EV_{N'} = EV_{S'} + \Delta EV`
