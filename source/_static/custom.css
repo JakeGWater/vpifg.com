@@ -53,7 +53,7 @@ p.topic-title::before {
 /* From https://codepen.io/cliftwalker/pen/XJaEXY */
 
 /* @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic); */
-blockquote{
+blockquote.epigraph {
   font-size: 1.4em;
   /* width:60%; */
   /* margin:50px auto; */
@@ -67,7 +67,7 @@ blockquote{
   background:#EDEDED;
 }
 
-blockquote::before{
+blockquote.epigraph::before{
   font-family:Arial;
   content: "\201C";
   color:#78C0A8;
@@ -77,12 +77,26 @@ blockquote::before{
   top:-10px;
 }
 
-blockquote::after{
+blockquote.epigraph::after{
   content: '';
 }
 
-blockquote .attribution {
+blockquote.epigraph .attribution {
     text-align: right;
+}
+
+blockquote.highlights {
+    margin: 0;
+    padding:2em;
+    font-size: larger;
+    font-weight: lighter;
+    text-align: center;
+    box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.05), 0 0 0.05rem rgba(0,0,0,.1);
+    border: 1px solid #aaa;
+    margin-bottom: 1.5rem;
+}
+blockquote.highlights p {
+    margin: 0;
 }
 
 .prev-next-bottom a.right-next:after{
