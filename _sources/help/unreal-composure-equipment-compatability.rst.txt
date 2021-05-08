@@ -4,7 +4,7 @@ Unreal Composure Equipment Compatibility
 
 .. important::
 
-    View the `full Compatibility table </csv#/data/unreal-composure-compatible-equipment.csv>`_.
+    View the `full Compatibility table <../../csv#table=/data/unreal-composure-compatible-equipment.csv>`_.
 
 Table
 =====
