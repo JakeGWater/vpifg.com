@@ -48,6 +48,7 @@ sys.path.append(os.path.abspath("./_ext"))
 # ones.
 extensions = [
     'fa',
+    'download',
     'csvtable',
     'notices',
     'recommonmark',
