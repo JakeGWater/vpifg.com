@@ -45,7 +45,10 @@ class NoticeDirective(SphinxDirective):
         notice_node = notice('\n'.join(self.content))
         notice_node += nodes.title(_('Work In Progress'), _('Work In Progress'))
         notice_node['classes'] = ['warning']
-        textnodes, messages = self.state.paragraph(["This page is a **Work in Progress** and may be incomplete."], 0)
+        textnodes, messages = self.state.paragraph([
+            "This page is a **Work in Progress** and may be incomplete.",
+            "Please see our :doc:`/about/roadmap` for more info."
+        ], 0)
         for node in textnodes:
             notice_node += node
         

@@ -5,8 +5,6 @@
 Unreal Composure
 ==============================
 
-.. wip::
-
 .. topic:: Pre-Requisites
 
    * :doc:`bmpcc-hdmi-srgb`
@@ -17,7 +15,7 @@ Unreal Composure
 .. topic:: Lesson Plan
    
    We are going to setup Composure in Unreal to take in a live camera feed,
-   compose it with a CG scene, and send the combined out over SDI.
+   compose it with a CG scene, and send the combined footage out over SDI.
 
 .. topic:: Next
 
@@ -63,7 +61,7 @@ We will use a Decklink 8K Pro, but other supported cards should work the same.
 .. note::
 
    To our knowledge, the **Microconverter - Blackmagic HDMI to SDI 3G** is the only supported
-   HDMI to SDI coverter that preserves timecode.
+   HDMI to SDI converter that preserves timecode.
 
 Settings
 --------
@@ -80,8 +78,6 @@ While the HDMI signal is 1080p sRGB, ensure your camera is set to record in its 
 .. important::
    
    See :doc:`bmpcc-to-braw` on setting up the BMPCC to record in 4K RAW.
-
-Check that your camera connection is working :doc:`/help/troubleshooting-decklink`.
 
 Media Source Setup
 ==================
@@ -100,7 +96,7 @@ We use a Media Bundle to connect Unreal to the Decklink.
 
    .. figure:: https://i.postimg.cc/d0MBDp2m/image.png
 
-#. Choose the settings which exactly match your camrea feed.
+#. Choose the settings which exactly match your camera feed.
    For ours, we are shooting at 24fps. 
    Despite recording at 4k the HDMI output is only 1080p.
 
@@ -194,7 +190,7 @@ Add a new transform pass, and move it to the beginning before *Multi Pass Chroma
 
 .. figure:: https://i.postimg.cc/DzrHwNG6/screenshot-8.png
 
-.. hint::
+.. note::
 
    It is handy to have a color chart to see if your colors look right.
    If not, you may have a break in your color pipeline.
@@ -208,7 +204,7 @@ In the :doc:`/workflows/BURN`, the composure output we are creating is a sort of
 We capture the live composure, which allows our editor to get started immediately,
 but the proxy will be replaced by a higher quality render later.
 
-We will key out our 4K footage again in Davinci Resolve,
+We will key out our 4K footage again in DaVinci Resolve,
 so the keyed footage in this section only needs to be *good enough*.
 
 #. Use the **Multi Pass Chroma Keyer** transform to remove your green screen.
@@ -228,7 +224,7 @@ CG Plate
 ========
 
 In the composure tab, right-click the comp and add another layer element. Choose **CG Layer**.
-You should see two layers to your comp, a media platae, and a cg element.
+You should see two layers to your comp, a media plate, and a cg element.
 
 .. figure:: https://i.postimg.cc/kg5VnrtN/screenshot-12.png
 
@@ -237,7 +233,9 @@ Point your camera at whatever you want.
 We are going to overlay the media plate and CG layer.
 This will insert the live actors into the CG scene seen by the camera.
 
-If you want to add motion see :doc:`unreal-vive-livelink`.
+.. important::
+   
+   If you want to add motion see :doc:`unreal-vive-livelink`.
 
 Composing Layers
 ================
@@ -254,7 +252,7 @@ Open the material editor to edit the material. We want it to look like this even
 
 .. figure:: https://i.postimg.cc/T1ZkTjtg/screenshot-14.png
 
-Add two ``TextureSampleParamater2D`` nodes.
+Add two ``TextureSampleParameter2D`` nodes.
 
 #. Name the first *exactly* the same name as your media plate.
 #. Name the second *exactly* the same name as your cg element.
@@ -283,14 +281,22 @@ Add two ``TextureSampleParamater2D`` nodes.
 
    .. figure:: https://i.postimg.cc/m2KDGcB4/screenshot-16.png
 
-Garbage Matte (Optional)
-========================
+.. important::
+
+   See :doc:`unreal-composure-garbage-matte` on adding a Garbage Matte.
 
 Media Output
 ============
 
 The composure is running! Now we need to send it somewhere to record.
-We will route the output through an unused Decklink port.
+We will send the video feed out through an unused Decklink port,
+and record the signal outside of Unreal.
+Any device which can record 1080p over SDI can be used,
+including the Decklink itself.
+
+.. important::
+
+   See :doc:`decklink-loopback-recording` on setting up Decklink to record the Unreal output in another program.
 
 #. Select the comp in World Outliner, and go to the details panel.
    Add a **Compositing Media Capture Output** Output Pass to the *Composure Outputs*.
@@ -304,6 +310,8 @@ We will route the output through an unused Decklink port.
    .. figure:: https://i.postimg.cc/mZjvhdxR/screenshot-36.png
 
 #. Make sure to set *VITC* as your timecode format, and *Wait for Sync* if you have genlock enabled.
+   Wait for sync will only render frames when your *Custom Time Step* triggers, 
+   which should help keep everything moving in lockstep.
 
    .. figure:: https://i.postimg.cc/wvVGyBGF/screenshot-37.png
 
@@ -314,6 +322,12 @@ OCIO Output Transform
 
    .. figure:: https://i.postimg.cc/76YNRnKM/composure-output-comparison.png
 
+We want precise control over the colors going in and out of unreal,
+and our color pipeline utility is OCIO.
+We will use OCIO to explicitly convert the color space of the SDI signal to sRGB.
+Remember that our live composure footage is a rapid proxy,
+and as such we don't want to waste time color grading the imported footage at edit.
+
 Under the default settings, Unreal applies tone mapping to our image, and sends it out.
 We don't want this.
 We want to use OCIO.
@@ -323,7 +337,7 @@ Next to *Color Conversion* click *Compositing Tone Pass* and change it to **Comp
 
 #. Select the OCIO Config you have already been using.
 #. The source color space is Unreal, which is always Linear - sRGB.
-#. The destinataion color space is whatever you want, but we are going to use sRGB.
+#. The destination color space is whatever you want, but we are going to use sRGB.
 
    .. figure:: https://i.postimg.cc/zvRPVQmB/screenshot-20.png
 
@@ -340,6 +354,6 @@ Final
 =====
 
 If you followed every step, great work.
-Yu have setup composure with end-to-end *timecode-integrity* and an intact *color pipeline*.
+You have setup composure with end-to-end *timecode-integrity* and an intact *color pipeline*.
 
 Next, we highly recommend :doc:`unreal-composure-lighting` to get your composure looking its best.
