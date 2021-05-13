@@ -53,4 +53,4 @@ See :doc:`about/contributing` for more.
 Sponsor
 =======
 
-Everything here is free to use, but if you would like to support us we very much welcome that.
+Everything here is free to use, but if you would like to support us we very much welcome that!
