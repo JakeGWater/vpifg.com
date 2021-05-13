@@ -6,7 +6,7 @@ Virtual Production Indie Film Guide
    :hidden:
    
    about
-   framework
+   theory
    workflows
    guides
    studios
@@ -36,7 +36,7 @@ Organization
 The guide organized as follows:
 
 * :doc:`workflows` are recipes for Virtual Production. They work, and they are used by others. If you're not sure where to start, take a look at some existing workflows.
-* :doc:`framework` explains how we evaluate and compare workflows. Not all workflows are created equal.
+* :doc:`theory` explains how we evaluate and compare workflows. Not all workflows are created equal.
 * :doc:`guides` are the ingredients of workflows. Guides break down a topic or task into detailed steps. A single guide might be shared by multiple workflows.
 * :doc:`studios` are reference examples of actual studio set up with a list of their equipment used. This should help others price estimate what a particular set up is going to cost, as well as valid weather a particular piece of equipment has been field tested.
 * :doc:`help` is a collection of helpful tips and solutions to problems we have encountered along the journey.

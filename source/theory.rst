@@ -1,5 +1,5 @@
 ============
-Framework
+Theory
 ============
 
 While independent productions are our focus,
@@ -18,7 +18,7 @@ our aim is towards professional content that is :term:`Production Ready`.
     :glob:
     :hidden:
     
-    framework/*
+    theory/*
 
 .. _production-checklist:
 
@@ -32,14 +32,14 @@ Workflow are evaluated along following requirements.
     Timecode
         Timecode requires that all hardware and software that consumes or produces media to maintain the original timecode both on import and export.
         
-        See more in :doc:`/framework/timecode`.
+        See more in :doc:`/theory/timecode`.
 
     ACES
         ACES requires an ACES working space and that Raw files are exported only to ACES, and not another smaller color space.
         Correct input and output transforms must be used to maintainer your color pipeline.
         CG footage may be exported to ACEScg.
 
-        See more in :doc:`/framework/aces`.
+        See more in :doc:`/theory/aces`.
     
     4K
         4K requires that all sources, both camera an renders, are either 3840x2160 or 4096x2160 resolution,
