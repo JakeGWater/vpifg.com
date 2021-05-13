@@ -4,7 +4,7 @@ Unreal to Nuke
 
 .. topic:: Pre-Requisites
 
-    #. :doc:`recording-take-recorder`
+    #. :doc:`unreal-take-recorder`
 
 .. topic:: Lesson Plan
 

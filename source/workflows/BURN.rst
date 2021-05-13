@@ -44,8 +44,8 @@ Pre-Production
     :titlesonly:
 
     /guides/unreal-set-design
-    /guides/timecode-bmpcc
-    /guides/bmpcc4k-to-braw
+    /guides/bmpcc-timecode
+    /guides/bmpcc-to-braw
     /guides/braw-to-resolve
 
 Production
@@ -57,7 +57,7 @@ Production
     /guides/unreal-ocio
     /guides/lens-distortion
     /guides/unreal-composure
-    /guides/recording-take-recorder
+    /guides/unreal-take-recorder
 
 Post-Production
 ---------------

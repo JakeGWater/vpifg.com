@@ -348,9 +348,36 @@ def configure_backend(app):
                                         'text', 'epub')})
 
     app.add_directive('thumbnail', ImageDirective)
+    app.add_node(Fig_node,
+             html=(html_visit_Fig_node, html_depart_Fig_node),)                 
     if config['override_image_directive']:
-        app.add_directive('figure', ImageDirective, override=True)
+        app.add_directive('figure', FigDirective, override=True)
     app.env.remote_images = {}
+
+from sphinx.util.docutils import SphinxDirective, directives
+
+class Fig_node(nodes.General, nodes.Element):
+    pass
+
+class FigDirective(SphinxDirective):
+    has_content = True
+    required_arguments = True
+
+    def run(self):
+        fig = Fig_node()
+        imgdir = ImageDirective(self.name, self.arguments, self.options, self.content, self.lineno, self.content_offset, self.block_text, self.state, self.state_machine)
+        fig += imgdir.run()
+        self.state.nested_parse(self.content, self.content_offset, fig)
+        return [fig]
+
+def html_visit_Fig_node(self, node):
+    self.body.append(f"""
+        <div class="figure align-default" id="id1">
+    """)
+
+def html_depart_Fig_node(self, node):
+    self.body.append('</div>')
+
 
 def setup(app):
     global DEFAULT_CONFIG

@@ -4,7 +4,7 @@ Recording with Take Recorder
 
 .. topic:: Pre-Requisites
 
-    #. :doc:`timecode-bmpcc`
+    #. :doc:`bmpcc-timecode`
     #. :doc:`unreal-composure`
 
 .. topic:: Lesson Plan
