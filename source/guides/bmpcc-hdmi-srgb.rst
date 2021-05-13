@@ -3,3 +3,7 @@ BMPCC HDMI sRGB Setup
 =====================
 
 .. milestone::
+
+.. guide:lesson::
+
+    Learn how to setup the [BMPCC4K]_ to send an sRGB signal over HDMI.

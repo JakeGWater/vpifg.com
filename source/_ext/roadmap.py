@@ -133,7 +133,10 @@ def purge_todos(app, env, docname):
     # env.roadmap_all_milestones = [todo for todo in env.roadmap_all_milestones
     #                       if todo['docname'] != docname]
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d0d2429 (save)
 def merge_todos(app, env, docnames, other):
     if not hasattr(env, 'roadmap_all_milestones'):
         env.roadmap_all_milestones = {}
@@ -179,8 +182,13 @@ def process_todo_nodes(app, doctree, fromdocname):
         if name in env.roadmap_all_planned:
             rm = env.roadmap_all_roadmaps[env.roadmap_all_planned[name]]
             notice_node = nodes.admonition()
+<<<<<<< HEAD
             notice_node += nodes.title(_('Planned'), _('Planned'))
             notice_node['classes'] = ['important']
+=======
+            notice_node += nodes.title(text=('Sorry! This page has not been created yet'))
+            notice_node['classes'] = ['attention']
+>>>>>>> d0d2429 (save)
             
             p = node[1]
 
@@ -198,7 +206,12 @@ def process_todo_nodes(app, doctree, fromdocname):
     
     for node in doctree.traverse(milestone):
         notice_node = nodes.admonition()
+<<<<<<< HEAD
         notice_node += nodes.title(_('Help Wanted'), _('Help Wanted'))
+=======
+        notice_node += nodes.title(text='Sorry! This page has not been created yet')
+        notice_node['classes'] = ['danger']
+>>>>>>> d0d2429 (save)
 
         newnode = nodes.reference('', '')
         newnode['refdocname'] = 'about/roadmap'
@@ -218,6 +231,10 @@ def process_todo_nodes(app, doctree, fromdocname):
                 ref = nodes.reference('', '')
                 ref['refdocname'] = docname
                 ref['refuri'] = app.builder.get_relative_uri(fromdocname, docname)
+<<<<<<< HEAD
+=======
+                
+>>>>>>> d0d2429 (save)
                 title = env.titles[docname].astext()
                 ref += nodes.inline(text=title)
                 p = nodes.paragraph()
@@ -244,9 +261,17 @@ def process_todo_nodes(app, doctree, fromdocname):
             if docname in env.roadmap_all_planned:
                 text = "Planned"
                 gl = nodes.inline(text=text, classes=['planned'])
+<<<<<<< HEAD
             else:
                 text = "Help Wanted"
                 gl = nodes.inline(text=text, classes=['helpwanted'])
+=======
+                ref['classes'] = ['roadmap']
+            else:
+                text = "Help Wanted"
+                gl = nodes.inline(text=text, classes=['helpwanted'])
+                ref['classes'] = ['backlog']
+>>>>>>> d0d2429 (save)
             il += gl
 
         node.replace_self(il)

@@ -2,13 +2,11 @@
 Unreal OCIO Setup
 =================
 
-.. contents:: Lesson Plan
-   :local:
+.. guide:lesson::
+   
+   Download OCIO and configure Unreal to use OCIO for color management.
 
-.. topic:: Next
-
-   * :goto:`guides/bmpcc-hdmi-srgb`
-   * :goto:`guides/unreal-composure`
+.. guide:shownexts::
 
 What is OCIO
 ============
@@ -123,7 +121,7 @@ We need to select every space we intend to convert from, as well as every space 
 This should cover everything we need.
 If you use other color spaces, add them to the list.
 
-.. note::
+.. guide:next:: BMPCC4K sRGB HDMI Output
 
    The BMPCC does not output sRGB by default.
    We will need to conimage it in :goto:`guides/bmpcc-hdmi-srgb`.

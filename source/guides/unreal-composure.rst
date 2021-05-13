@@ -5,23 +5,14 @@
 Unreal Composure
 ==============================
 
-.. topic:: Pre-Requisites
-
-   * :goto:`guides/bmpcc-hdmi-srgb`
-   * :goto:`guides/unreal-ocio`
-   * :goto:`guides/unreal-timecode-genlock`
-   * :goto:`guides/unreal-virtual-camera-matching`
+.. guide:showdeps::
 
 .. topic:: Lesson Plan
    
    We are going to setup Composure in Unreal to take in a live camera feed,
    compose it with a CG scene, and send the combined footage out over SDI.
 
-.. topic:: Next
-
-   * :goto:`guides/unreal-composure-lighting`
-   * :goto:`guides/bmpcc-to-braw`
-   * :goto:`guides/unreal-take-recorder`
+.. guide:shownexts::
 
 Camera
 ======
@@ -69,13 +60,13 @@ Settings
 Your camera *must* output a known color space.
 We will use sRGB in our example by having the BMPCC transform the outgoing HDMI signal via a LUT.
 
-.. important::
+.. guide:dep:: BMPCC sRGB over HDMI
 
    See :goto:`guides/bmpcc-hdmi-srgb` on setting up the BMPCC to output sRGB.
 
 While the HDMI signal is 1080p sRGB, ensure your camera is set to record in its RAW format with its widest-gamut color space.
 
-.. important::
+.. guide:dep:: Blackmagic Raw Setup
    
    See :goto:`guides/bmpcc-to-braw` on setting up the BMPCC to record in 4K RAW.
 
@@ -123,7 +114,7 @@ Our composure output will output timecode, and use genlock to drive the render f
 Without timecode, the footage you record from composure will not match up with any VFX you render in post-processing.
 We want the live composited footage to exactly match the timecode of the raw footage.
 
-.. important::
+.. guide:dep:: Timecode & Genlock
 
    See :goto:`guides/unreal-timecode-genlock` on setting up timecode and genlock with the Blackmagic Decklink 8K Pro.
 
@@ -138,7 +129,7 @@ Virtual Camera
 
 Set your virtual camera to exactly match your real-life camera. 
 
-.. important::
+.. guide:dep:: Virtual Camera Matching
 
    See :goto:`guides/unreal-virtual-camera-matching` for details on configuring the virtual camera.
 
@@ -233,7 +224,7 @@ Point your camera at whatever you want.
 We are going to overlay the media plate and CG layer.
 This will insert the live actors into the CG scene seen by the camera.
 
-.. important::
+.. guide:next:: LiveLink
    
    If you want to add motion see :goto:`guides/unreal-vive-livelink`.
 
@@ -281,7 +272,7 @@ Add two ``TextureSampleParameter2D`` nodes.
 
    .. figure:: https://i.postimg.cc/m2KDGcB4/screenshot-16.png
 
-.. important::
+.. guide:next:: Adding a Garbage Matte
 
    See :goto:`guides/unreal-composure-garbage-matte` on adding a Garbage Matte.
 
@@ -294,7 +285,7 @@ and record the signal outside of Unreal.
 Any device which can record 1080p over SDI can be used,
 including the Decklink itself.
 
-.. important::
+.. guide:next:: Loopback Recording
 
    See :goto:`guides/decklink-loopback-recording` on setting up Decklink to record the Unreal output in another program.
 

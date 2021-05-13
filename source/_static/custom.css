@@ -169,12 +169,46 @@ iframe.figma {
     margin: auto 2px;
     bottom: 1px;
     position: relative;
+    color: rgba(51, 51, 51, .5);
 }
 .helpwanted {
-    border: 1px solid #7fbbe3;
-    background: #e7f2fa;
+    border: 1px solid rgba(127,187,227,.5);
+    background: rgba(231,242,250,.5);
 }
 .planned {
-    border: 1px solid #7fe3bb;
-    background: #e7faf2;
+    border: 1px solid rgba(127, 227, 187, .5);
+    background: rgba(231, 250, 242, .5);
+}
+a.backlog, a.roadmap  {
+    color:rgba(0, 91, 129, .5);
+}
+
+/* Next */
+.guide-next.admonition .admonition-title:before {
+    border-color: rgba(var(--pst-color-admonition-default),1);   
+}
+.guide-next.admonition .admonition-title:before {
+    color: rgba(var(--pst-color-admonition-default),1);
+    content: '\f0a9'!important; /* https://fontawesome.com/icons/arrow-circle-right?style=solid */
+}
+.guide-next.admonition .admonition-title {
+    background-color: rgba(var(--pst-color-admonition-default),.1);
+}
+.guide-next.admonition {
+    border-left-color: rgba(var(--pst-color-admonition-default),1);
+}
+
+/* Dep */
+.guide-dep.admonition .admonition-title:before {
+    border-color: rgba(var(--pst-color-admonition-important),1);   
+}
+.guide-dep.admonition .admonition-title {
+    background-color: rgba(var(--pst-color-admonition-important),.1);
+}
+.guide-dep.admonition {
+    border-left-color: rgba(var(--pst-color-admonition-important),1);
+}
+.guide-dep.admonition .admonition-title:before {
+    color: rgba(var(--pst-color-admonition-important),1);
+    content: '\f0a8'!important; /* https://fontawesome.com/icons/arrow-circle-left?style=solid */
 }

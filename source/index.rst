@@ -19,9 +19,10 @@ Virtual Production Indie Film Guide
 The VPIFG intends to be a technical reference for virtual production for smaller independent studios and individuals.
 Primarily using [UnrealEngine]_, but extensible enough to accommodate as many production workflows as necessary.
 
-.. topic:: Latest Updates
+.. topic:: Latest Guides
 
-   .. git_changelog::
+   .. 
+      git_changelog::
       :hide_details: 1
       :class: shortlog
       :revisions: 3
@@ -29,7 +30,20 @@ Primarily using [UnrealEngine]_, but extensible enough to accommodate as many pr
       :link-to-docs: 1
       :title-exclude: (save|Fix|Meta)
 
+   Guides are detailed tutorials on Virtual Production.
+
+   - :goto:`guides/unreal-composure`
+   - :goto:`guides/unreal-ocio`
+   - :goto:`guides/bmpcc-to-braw`
+   - :goto:`guides/unreal-virtual-camera-matching`
+
    See :goto:`about/changelog` for all updates.
+
+.. topic:: Latest Workflows
+
+   Workflows are whole virtual production recipes.
+
+   - :doc:`workflows/BURN`
 
 Organization
 ============

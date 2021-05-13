@@ -52,6 +52,7 @@ extensions = [
     'download',
     'fa',
     'figma',
+    'guide',
     'license',
     'notices',
     'prodcheck',
@@ -194,13 +195,11 @@ html_theme_options = {
 
 roadmap = {
     'backlog_message': [
-        "**Sorry**! This content has not been created yet."
-        "It is in our backlog, but not on any roadmap. There is no estimate on when it will be completed. \
+        "It is in our backlog, but not on any roadmap.\
             See our :doc:`/about/roadmap` for more info.",
         "If you would like to help author this content, check out our :doc:`/about/contributing` guide."
     ],
     'roadmap_message': [
-        "**Sorry**! This page has not been created yet.",
         "This content is planned on our :findroadmap:`*`.",
         "See our :doc:`/about/roadmap` for more info.",
     ]

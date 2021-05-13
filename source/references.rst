@@ -44,8 +44,7 @@ Software
 Hardware
 ========
 
-.. 
-    [BMPCC4k] 
+.. [BMPCC4K] 
     
     Introductory 4k RAW Cinema Cmera.
 
