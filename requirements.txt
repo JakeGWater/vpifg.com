@@ -5,18 +5,20 @@ commonmark==0.9.1
 docutils==0.16
 humanize==3.5.0
 imagesize==1.2.0
+Jinja2==3.0.0
 livereload==2.6.3
--e git+https://github.com/JakeGWater/vpifg.com.git@81f871a0568e3f31d33267667baebf2a7e549810#egg=pydata_sphinx_theme&subdirectory=forks/pydata-sphinx-theme
+MarkupSafe==2.0.0
+-e forks/pydata-sphinx-theme
 pytz==2021.1
 recommonmark==0.7.1
 soupsieve==2.2.1
 Sphinx==3.5.4
 sphinx-autobuild==2021.3.14
--e git+https://github.com/JakeGWater/vpifg.com.git@81f871a0568e3f31d33267667baebf2a7e549810#egg=sphinx_git&subdirectory=forks/sphinx-git
+-e forks/sphinx-git
 sphinxcontrib-applehelp==1.0.2
 sphinxcontrib-devhelp==1.0.2
 sphinxcontrib-htmlhelp==1.0.3
--e git+https://github.com/JakeGWater/vpifg.com.git@81f871a0568e3f31d33267667baebf2a7e549810#egg=sphinxcontrib_images&subdirectory=forks/images
+-e forks/images
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.4
