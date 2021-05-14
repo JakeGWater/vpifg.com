@@ -1,0 +1,2086 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unreal Composure &#8212; Virtual Production Indie Film Guide</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.ee6fb81b276d6fba8a971ad8e9b95dd9.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.c86189f1ce1b71a67eb6.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="author" title="About these documents" href="../../about/" />
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Recording with Take Recorder" href="../unreal-take-recorder/" />
+    <link rel="prev" title="Adjusting for Lens Distortion" href="../lens-distortion/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+    <div id="navbar-start">
+      
+      <a class="navbar-brand" href="../../">
+  <span class="title">Virtual Production Indie Film Guide</span>
+</a>
+      
+    </div>
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    
+    <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+      <div id="navbar-center" class="">
+        
+        <div class="navbar-center-item">
+          <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    <a class="navbar-brand" href="https://www.patreon.com/bePatron?u=10865958"><img alt="Become a Patron" src="/_static/patron.png"></a>
+</ul>
+        </div>
+        
+      </div>
+  
+      <div id="navbar-end">
+        
+        <div class="navbar-end-item">
+          <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/JakeGWater/vpifg.com" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.youtube.com/channel/UCnfp_DTTZZ4I0R_4SDs46JQ" rel="noopener" target="_blank" title="YouTube">
+            <span><i class="fab fa-youtube-square"></i></span>
+            <label class="sr-only">YouTube</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/JakeGWater" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+</ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><div style="margin:auto; width:100px;" >
+<img height=100 width=100 src="../../_static/logo.png" class="logo" alt="logo">
+</div><form class="bd-search d-flex align-items-center" action="../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/">
+   About
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/changelog/">
+     Changelog
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../about/contributing/">
+     Contributing
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../about/contributing/#overview">
+       Overview
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../about/contributing/#contributing-guidelines">
+       Contributing Guidelines
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+      <label for="toctree-checkbox-3">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../about/contributing/#adding-workflows">
+         Adding Workflows
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../about/contributing/#adding-guides">
+         Adding Guides
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../about/contributing/#adding-help">
+         Adding Help
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../about/contributing/#referencing-content">
+         Referencing Content
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../about/contributing/#embedding-content">
+         Embedding Content
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../about/contributing/#work-in-progress">
+         Work in Progress
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../about/contributing/#experimental">
+         Experimental
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/licenses/">
+     Licenses
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/roadmap/">
+     Roadmap
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../theory/">
+   Theory
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/4k/">
+     4K
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/aces/">
+     ACES
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/live/">
+     Live
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/multicam/">
+     Multicam
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/ndisplay/">
+     nDisplay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/raw/">
+     RAW
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/timecode/">
+     Timecode
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../workflows/">
+   Workflows
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="../../workflows/BURN/">
+     BURN Workflow
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../workflows/BURN/#overview">
+       Overview
+      </a>
+     </li>
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="../../workflows/BURN/#guides">
+       Guides
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="current">
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../../workflows/BURN/#pre-production">
+         Pre-Production
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+        <label for="toctree-checkbox-8">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../unreal-set-design/">
+           Unreal Set Design
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../bmpcc-timecode/">
+           Setting Up Timecode with BMPCC4k
+          </a>
+         </li>
+         <li class="toctree-l5 has-children">
+          <a class="reference internal" href="../bmpcc-to-braw/">
+           BMPCC4k to BRaw
+          </a>
+          <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+          <label for="toctree-checkbox-9">
+           <i class="fas fa-chevron-down">
+           </i>
+          </label>
+          <ul>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../bmpcc-to-braw/#overview">
+             Overview
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../bmpcc-to-braw/#settings">
+             Settings
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../braw-to-resolve/">
+           BRaw to Davinci Resolve
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l4 current active has-children">
+        <a class="reference internal" href="../../workflows/BURN/#production">
+         Production
+        </a>
+        <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+        <label for="toctree-checkbox-10">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul class="current">
+         <li class="toctree-l5 has-children">
+          <a class="reference internal" href="../unreal-ocio/">
+           Unreal OCIO Setup
+          </a>
+          <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+          <label for="toctree-checkbox-11">
+           <i class="fas fa-chevron-down">
+           </i>
+          </label>
+          <ul>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../unreal-ocio/#what-is-ocio">
+             What is OCIO
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../unreal-ocio/#where-ocio-is-necessary">
+             Where OCIO is Necessary
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../unreal-ocio/#downloading-ocio">
+             Downloading OCIO
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../unreal-ocio/#configuring-unreal">
+             Configuring Unreal
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../unreal-ocio/#references">
+             References
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../lens-distortion/">
+           Adjusting for Lens Distortion
+          </a>
+         </li>
+         <li class="toctree-l5 current active has-children">
+          <a class="current reference internal" href="#">
+           Unreal Composure
+          </a>
+          <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+          <label for="toctree-checkbox-12">
+           <i class="fas fa-chevron-down">
+           </i>
+          </label>
+          <ul>
+           <li class="toctree-l6 has-children">
+            <a class="reference internal" href="#camera">
+             Camera
+            </a>
+            <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+            <label for="toctree-checkbox-13">
+             <i class="fas fa-chevron-down">
+             </i>
+            </label>
+            <ul>
+             <li class="toctree-l7">
+              <a class="reference internal" href="#connecting">
+               Connecting
+              </a>
+             </li>
+             <li class="toctree-l7">
+              <a class="reference internal" href="#settings">
+               Settings
+              </a>
+             </li>
+            </ul>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="#media-source-setup">
+             Media Source Setup
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="#timecode-and-genlock">
+             Timecode and Genlock
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="#virtual-camera">
+             Virtual Camera
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="#composure">
+             Composure
+            </a>
+           </li>
+           <li class="toctree-l6 has-children">
+            <a class="reference internal" href="#media-plate">
+             Media Plate
+            </a>
+            <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+            <label for="toctree-checkbox-14">
+             <i class="fas fa-chevron-down">
+             </i>
+            </label>
+            <ul>
+             <li class="toctree-l7">
+              <a class="reference internal" href="#ocio-input-transform">
+               OCIO Input Transform
+              </a>
+             </li>
+             <li class="toctree-l7">
+              <a class="reference internal" href="#chroma-keying">
+               Chroma Keying
+              </a>
+             </li>
+            </ul>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="#cg-plate">
+             CG Plate
+            </a>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="#composing-layers">
+             Composing Layers
+            </a>
+           </li>
+           <li class="toctree-l6 has-children">
+            <a class="reference internal" href="#media-output">
+             Media Output
+            </a>
+            <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+            <label for="toctree-checkbox-15">
+             <i class="fas fa-chevron-down">
+             </i>
+            </label>
+            <ul>
+             <li class="toctree-l7">
+              <a class="reference internal" href="#ocio-output-transform">
+               OCIO Output Transform
+              </a>
+             </li>
+            </ul>
+           </li>
+           <li class="toctree-l6">
+            <a class="reference internal" href="#final">
+             Final
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../unreal-take-recorder/">
+           Recording with Take Recorder
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../../workflows/BURN/#post-production">
+         Post-Production
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+        <label for="toctree-checkbox-16">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../unreal-to-nuke/">
+           Unreal to Nuke
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../unreal-to-resolve/">
+           Unreal to Resolve
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../nuke-depth-of-field/">
+           Adding DoF to Unreal Renders in Nuke
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../nuke-to-resolve/">
+           Nuke to Resolve
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../resolve-to-nuke/">
+           Resolve to Nuke
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../workflows/LIVE/">
+     LIVE Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../workflows/#comparison">
+     Comparison
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../workflows/#add-your-own">
+     Add Your Own
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../">
+   Guides
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../bmpcc-hdmi-srgb/">
+     BMPCC HDMI sRGB Setup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../bmpcc-timecode/">
+     Setting Up Timecode with BMPCC4k
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../bmpcc-to-braw/">
+     BMPCC4k to BRaw
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+    <label for="toctree-checkbox-18">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../bmpcc-to-braw/#overview">
+       Overview
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../bmpcc-to-braw/#settings">
+       Settings
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../braw-to-resolve/">
+     BRaw to Davinci Resolve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../decklink-loopback-recording/">
+     Decklink Loopback Recording
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../lens-distortion/">
+     Adjusting for Lens Distortion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../nuke-depth-of-field/">
+     Adding DoF to Unreal Renders in Nuke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../nuke-to-resolve/">
+     Nuke to Resolve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../resolve-to-nuke/">
+     Resolve to Nuke
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="current reference internal" href="#">
+     Unreal Composure
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+    <label for="toctree-checkbox-19">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="#camera">
+       Camera
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+      <label for="toctree-checkbox-20">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="#connecting">
+         Connecting
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="#settings">
+         Settings
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#media-source-setup">
+       Media Source Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#timecode-and-genlock">
+       Timecode and Genlock
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#virtual-camera">
+       Virtual Camera
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#composure">
+       Composure
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="#media-plate">
+       Media Plate
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="#ocio-input-transform">
+         OCIO Input Transform
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="#chroma-keying">
+         Chroma Keying
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#cg-plate">
+       CG Plate
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#composing-layers">
+       Composing Layers
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="#media-output">
+       Media Output
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="#ocio-output-transform">
+         OCIO Output Transform
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#final">
+       Final
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unreal-composure-garbage-matte/">
+     Unreal Composure Garbage Matting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unreal-composure-lighting/">
+     Unreal Composure Lighting
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../unreal-ocio/">
+     Unreal OCIO Setup
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-ocio/#what-is-ocio">
+       What is OCIO
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-ocio/#where-ocio-is-necessary">
+       Where OCIO is Necessary
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-ocio/#downloading-ocio">
+       Downloading OCIO
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-ocio/#configuring-unreal">
+       Configuring Unreal
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-ocio/#references">
+       References
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unreal-set-design/">
+     Unreal Set Design
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unreal-take-recorder/">
+     Recording with Take Recorder
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../unreal-timecode-genlock/">
+     Unreal Timecode and Genlock
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-timecode-genlock/#timecode">
+       Timecode
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-timecode-genlock/#genlock">
+       Genlock
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unreal-to-nuke/">
+     Unreal to Nuke
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unreal-to-resolve/">
+     Unreal to Resolve
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../unreal-virtual-camera-matching/">
+     Unreal Virtual Camera Matching
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
+    <label for="toctree-checkbox-25">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-virtual-camera-matching/#sensor-size">
+       Sensor Size
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-virtual-camera-matching/#focal-length">
+       Focal Length
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-virtual-camera-matching/#calculating">
+       Calculating
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unreal-vive-livelink/">
+     Unreal Vive LiveLink
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../studios/">
+   Studios
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/>
+  <label for="toctree-checkbox-26">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../studios/ben/">
+     Ben’s Home Studio
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/>
+    <label for="toctree-checkbox-27">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../studios/ben/#equipment">
+       Equipment
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/>
+      <label for="toctree-checkbox-28">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../../studios/ben/#hardware">
+         Hardware
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/>
+        <label for="toctree-checkbox-29">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5 has-children">
+          <a class="reference internal" href="../../studios/ben/#filming">
+           Filming
+          </a>
+          <input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/>
+          <label for="toctree-checkbox-30">
+           <i class="fas fa-chevron-down">
+           </i>
+          </label>
+          <ul>
+           <li class="toctree-l6">
+            <a class="reference internal" href="../../studios/ben/#green-screen">
+             Green Screen
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../studios/ben/#computer-setup">
+           Computer Setup
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../studios/ben/#software">
+           Software
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../studios/jake/">
+     Jake’s Home Studio
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/>
+    <label for="toctree-checkbox-31">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../studios/jake/#workflows">
+       Workflows
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../studios/jake/#equipment">
+       Equipment
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/>
+      <label for="toctree-checkbox-32">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4 has-children">
+        <a class="reference internal" href="../../studios/jake/#hardware">
+         Hardware
+        </a>
+        <input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/>
+        <label for="toctree-checkbox-33">
+         <i class="fas fa-chevron-down">
+         </i>
+        </label>
+        <ul>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../studios/jake/#filming">
+           Filming
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../../studios/jake/#computer">
+           Computer
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../studios/jake/#software">
+         Software
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../studios/#add-your-studio">
+     Add Your Studio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../help/">
+   Help
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/>
+  <label for="toctree-checkbox-34">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../help/bmpcc-dead-pixel/">
+     Dead Pixel on BMPCC
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../help/icc-profiles/">
+     ICC Profiles
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../help/one-shade-of-gray/">
+     One Shade of Gray
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/>
+    <label for="toctree-checkbox-35">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../help/one-shade-of-gray/#fifty-values-of-middle-gray">
+       Fifty Values of Middle Gray
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../help/troubleshooting-decklink/">
+     Verifying the Decklink SDI Connection
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/>
+    <label for="toctree-checkbox-36">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../help/troubleshooting-decklink/#blackmagic-mediaexpress">
+       Blackmagic MediaExpress
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../help/troubleshooting-decklink/#troubleshooting">
+       Troubleshooting
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../help/unreal-composure-equipment-compatability/">
+     Unreal Composure Equipment Compatibility
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/>
+    <label for="toctree-checkbox-37">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../help/unreal-composure-equipment-compatability/#table">
+       Table
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../references/">
+   References
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/>
+  <label for="toctree-checkbox-38">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../references/#content">
+     Content
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../references/#software">
+     Software
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../references/#hardware">
+     Hardware
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../CodeOfConduct/">
+   Code of Conduct
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/>
+  <label for="toctree-checkbox-39">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../CodeOfConduct/#our-pledge">
+     Our Pledge
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../CodeOfConduct/#our-standards">
+     Our Standards
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../CodeOfConduct/#enforcement-responsibilities">
+     Enforcement Responsibilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../CodeOfConduct/#scope">
+     Scope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../CodeOfConduct/#enforcement">
+     Enforcement
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../CodeOfConduct/#enforcement-guidelines">
+     Enforcement Guidelines
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/>
+    <label for="toctree-checkbox-40">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../CodeOfConduct/#correction">
+       1. Correction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../CodeOfConduct/#warning">
+       2. Warning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../CodeOfConduct/#temporary-ban">
+       3. Temporary Ban
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../CodeOfConduct/#permanent-ban">
+       4. Permanent Ban
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../CodeOfConduct/#attribution">
+     Attribution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../LICENSE/">
+   License
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/>
+  <label for="toctree-checkbox-41">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../LICENSE/#creative-commons-attribution-noncommercial-noderivatives-4-0-international-public-license">
+     Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/>
+    <label for="toctree-checkbox-42">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../LICENSE/#section-1-definitions">
+       Section 1 – Definitions.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../LICENSE/#section-2-scope">
+       Section 2 – Scope.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../LICENSE/#section-3-license-conditions">
+       Section 3 – License Conditions.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../LICENSE/#section-4-sui-generis-database-rights">
+       Section 4 – Sui Generis Database Rights.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../LICENSE/#section-5-disclaimer-of-warranties-and-limitation-of-liability">
+       Section 5 – Disclaimer of Warranties and Limitation of Liability.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../LICENSE/#section-6-term-and-termination">
+       Section 6 – Term and Termination.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../LICENSE/#section-7-other-terms-and-conditions">
+       Section 7 – Other Terms and Conditions.
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../LICENSE/#section-8-interpretation">
+       Section 8 – Interpretation.
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../cla/">
+   Contributor License Agreement
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/>
+  <label for="toctree-checkbox-43">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cla/#tl-dr">
+     tl;dr
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cla/#unowned">
+     Unowned
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#camera">
+   Camera
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connecting">
+     Connecting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#settings">
+     Settings
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#media-source-setup">
+   Media Source Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#timecode-and-genlock">
+   Timecode and Genlock
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#virtual-camera">
+   Virtual Camera
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#composure">
+   Composure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#media-plate">
+   Media Plate
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ocio-input-transform">
+     OCIO Input Transform
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chroma-keying">
+     Chroma Keying
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cg-plate">
+   CG Plate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#composing-layers">
+   Composing Layers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#media-output">
+   Media Output
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ocio-output-transform">
+     OCIO Output Transform
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final">
+   Final
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/JakeGWater/vpifg.com/edit/milestone/source/guides/unreal-composure.rst">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+<div class="tocsection editthispage">
+    <a href="https://gitpod.io/#https://github.com/JakeGWater/vpifg.com/blob/milestone/source/guides/unreal-composure.rst">
+        <img alt="Edit in Gitpod" src="https://gitpod.io/button/open-in-gitpod.svg">
+    </a>
+</div>
+
+              </div>
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-info-circle"></i> Metadata
+</div>
+<ul class="visible nav section-nav flex-column">
+    <li class="toc-h2 nav-item toc-entry">
+        <a clspanss="nav-link" href="#">
+        Author: Jake G. Water
+        </a>
+    </li>
+    <li class="toc-h2 nav-item toc-entry">
+        <a clspanss="nav-link" href="#">
+        Date: 2021-04-23
+        </a>
+    </li>
+</ul>
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="unreal-composure">
+<h1>Unreal Composure<a class="headerlink" href="#unreal-composure" title="Permalink to this headline">¶</a></h1>
+<div class="topic">
+<p class="topic-title">Pre-Requisites</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../bmpcc-hdmi-srgb/"><span class="doc">BMPCC HDMI sRGB Setup</span></a></p></li>
+<li><p><a class="reference internal" href="../unreal-ocio/"><span class="doc">Unreal OCIO Setup</span></a></p></li>
+<li><p><a class="reference internal" href="../unreal-timecode-genlock/"><span class="doc">Unreal Timecode and Genlock</span></a></p></li>
+<li><p><a class="reference internal" href="../unreal-virtual-camera-matching/"><span class="doc">Unreal Virtual Camera Matching</span></a></p></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title">Lesson Plan</p>
+<p>We are going to setup Composure in Unreal to take in a live camera feed,
+compose it with a CG scene, and send the combined footage out over SDI.</p>
+</div>
+<div class="topic">
+<p class="topic-title">Next</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../unreal-composure-lighting/"><span class="doc">Unreal Composure Lighting</span></a></p></li>
+<li><p><a class="reference internal" href="../bmpcc-to-braw/"><span class="doc">BMPCC4k to BRaw</span></a></p></li>
+<li><p><a class="reference internal" href="../unreal-take-recorder/"><span class="doc">Recording with Take Recorder</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="camera">
+<h2>Camera<a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connecting">
+<h3>Connecting<a class="headerlink" href="#connecting" title="Permalink to this headline">¶</a></h3>
+<p>Turn your camera on, and connect it to the Decklink.
+We will use a Decklink 8K Pro, but other supported cards should work the same.</p>
+<img alt="                                                                                    Decklink 8K Pro                                                                                     ┌──────────────┐                                                                                 ┌───┤              │                                                                                 │   │SYNC          │                                                                                 └───┤              │   BMPCC                                                                             │              │ ┌───────────┐                                                                       │              │ │           │              Microconverter                                       ┌───┤              │ │           │              Blackmagic HDMI to SDI 3G               ┌───────────►│   │SDI 1         │ │           │               ┌───────────────────────┐              │            └───┤              │ │           │               │                       ├───┐     SDI  │                │              │ │     Out   │               │                       │   ├──────────┘            ┌───┤              │ │     HDMI  │               │                       ├───┘                       │   │SDI 2         │ │     ┌──┐  │    HDMI       │                       │SDI Out                    └───┤              │ │     │  ├──┼─────┐       ┌─┤                       ├───┐                           │              │ │     │  │  │     │       │ │ HDMI                  │   │                       ┌───┤              │ │     └──┘  │     └──────►│ │ In                    ├───┘                       │   │SDI 3         │ │           │             │ │                       │                           └───┤              │ │           │             └─┴───────────────────────┘                               │              │ └───────────┘                                                                   ┌───┤              │                                                                                 │   │SDI 4         │                                                                                 └───┤              │                                                                                     └──────────────┘" class="svgbob" src="../../_images/svgbob-243a1e02243144c6818edffd29d9bc36cbe6b9e7.svg" /><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To our knowledge, the <strong>Microconverter - Blackmagic HDMI to SDI 3G</strong> is the only supported
+HDMI to SDI converter that preserves timecode.</p>
+</div>
+</div>
+<div class="section" id="settings">
+<h3>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h3>
+<p>Your camera <em>must</em> output a known color space.
+We will use sRGB in our example by having the BMPCC transform the outgoing HDMI signal via a LUT.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>See <a class="reference internal" href="../bmpcc-hdmi-srgb/"><span class="doc">BMPCC HDMI sRGB Setup</span></a> on setting up the BMPCC to output sRGB.</p>
+</div>
+<p>While the HDMI signal is 1080p sRGB, ensure your camera is set to record in its RAW format with its widest-gamut color space.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>See <a class="reference internal" href="../bmpcc-to-braw/"><span class="doc">BMPCC4k to BRaw</span></a> on setting up the BMPCC to record in 4K RAW.</p>
+</div>
+</div>
+</div>
+<div class="section" id="media-source-setup">
+<h2>Media Source Setup<a class="headerlink" href="#media-source-setup" title="Permalink to this headline">¶</a></h2>
+<p>We use a Media Bundle to connect Unreal to the Decklink.</p>
+<ol class="arabic">
+<li><p>Create a new <strong>Media Bundle</strong></p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/4dT0cmgd/image.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/4dT0cmgd/image.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>Double click the bundle to configure it.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/GtgzXpZv/image.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/GtgzXpZv/image.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>Add a Blackmagic Media Source.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/d0MBDp2m/image.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/d0MBDp2m/image.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>Choose the settings which exactly match your camera feed.
+For ours, we are shooting at 24fps.
+Despite recording at 4k the HDMI output is only 1080p.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/vZ5P7GHS/image.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/vZ5P7GHS/image.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>Drag the media bundle into your scene.
+It doesn’t matter where. We are just testing that it works.
+You should see your camera feed appear on the plane you just dragged in.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/d193Gkzt/recording.gif"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/d193Gkzt/recording.gif"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>If the media isn’t playing, try clicking <strong>Request Play Media</strong> in the details panel.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/hvWqJnYJ/screenshot-2.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/hvWqJnYJ/screenshot-2.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If your footage doesn’t appear see <a class="reference internal" href="../../help/troubleshooting-decklink/"><span class="doc">Verifying the Decklink SDI Connection</span></a> for help.</p>
+</div>
+</div>
+<div class="section" id="timecode-and-genlock">
+<h2>Timecode and Genlock<a class="headerlink" href="#timecode-and-genlock" title="Permalink to this headline">¶</a></h2>
+<p>Our composure output will output timecode, and use genlock to drive the render frame rate.
+Without timecode, the footage you record from composure will not match up with any VFX you render in post-processing.
+We want the live composited footage to exactly match the timecode of the raw footage.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>See <a class="reference internal" href="../unreal-timecode-genlock/"><span class="doc">Unreal Timecode and Genlock</span></a> on setting up timecode and genlock with the Blackmagic Decklink 8K Pro.</p>
+</div>
+<p>Check that the timecode in Unreal is being driven by your custom blueprint,
+and the displayed time matches your camera.
+Check that genlock is operating at the desired framerate.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/wv0msKcD/screenshot-33.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/wv0msKcD/screenshot-33.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></div>
+<div class="section" id="virtual-camera">
+<h2>Virtual Camera<a class="headerlink" href="#virtual-camera" title="Permalink to this headline">¶</a></h2>
+<p>Set your virtual camera to exactly match your real-life camera.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>See <a class="reference internal" href="../unreal-virtual-camera-matching/"><span class="doc">Unreal Virtual Camera Matching</span></a> for details on configuring the virtual camera.</p>
+</div>
+</div>
+<div class="section" id="composure">
+<h2>Composure<a class="headerlink" href="#composure" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Ensure the composure tab is visible</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/fLbVHcW7/screenshot-3.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/fLbVHcW7/screenshot-3.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>From the composure tab, right-click to create a new comp and choose <strong>Empty Comp Shot</strong>.
+Name it anything you like.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/FRqy5rKB/screenshot-4.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/FRqy5rKB/screenshot-4.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+</ol>
+<p>The composure actor serves as a container for our other components which will be added together to make the final output.</p>
+</div>
+<div class="section" id="media-plate">
+<h2>Media Plate<a class="headerlink" href="#media-plate" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Media Plate</strong> is how we add our camera input to the composure.</p>
+<ol class="arabic">
+<li><p>Right-click the comp and <em>Add Layer Element</em>. Choose Media Plate.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/zDCv1D3H/screenshot-5.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/zDCv1D3H/screenshot-5.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>In the media plate details panel, under <code class="docutils literal notranslate"><span class="pre">Inputs</span> <span class="pre">&gt;</span> <span class="pre">MediaSource</span> <span class="pre">&gt;</span> <span class="pre">Media</span> <span class="pre">Source</span></code> find the texture created with your media bundle.
+You should be see a copy of the live video in the texture thumbnail.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/0jn9KQJt/screenshot-7.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/0jn9KQJt/screenshot-7.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+</ol>
+<div class="section" id="ocio-input-transform">
+<h3>OCIO Input Transform<a class="headerlink" href="#ocio-input-transform" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="sidebar-title">Transform Comparison</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/DfWQksdx/composure-ocio-comparison.png"
+               title="A broken color pipeline can be hard to notice.
+sRGB without an OCIO transform looks almost right,
+but it's not nearly as vibrant when compared to correctly transformed footage."
+               data-title="A broken color pipeline can be hard to notice.
+sRGB without an OCIO transform looks almost right,
+but it's not nearly as vibrant when compared to correctly transformed footage."
+               ><img src="https://i.postimg.cc/DfWQksdx/composure-ocio-comparison.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a><p>A broken color pipeline can be hard to notice.
+sRGB without an OCIO transform looks <em>almost right</em>,
+but it’s not nearly as vibrant when compared to correctly transformed footage.</p>
+</div></div>
+<p>Before keying, we need to convert the sRGB footage into sRGB-linear.
+Add a new transform pass, and move it to the beginning before <em>Multi Pass Chroma Keyer</em>.</p>
+<ol class="arabic simple">
+<li><p>Choose <strong>Compositing Open Color IOPass</strong>, and select your OCIO config.</p></li>
+<li><p>Under Source Color Space, choose the color space your HDMI feed is using, in our case it is sRGB.</p></li>
+<li><p>Under Destination Color Space, choose <code class="docutils literal notranslate"><span class="pre">Utility</span> <span class="pre">-</span> <span class="pre">Linear</span> <span class="pre">-</span> <span class="pre">sRGB</span></code> the Unreal Engine color space.</p></li>
+</ol>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/DzrHwNG6/screenshot-8.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/DzrHwNG6/screenshot-8.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is handy to have a color chart to see if your colors look right.
+If not, you may have a break in your color pipeline.
+Fix it now.</p>
+</div>
+</div>
+<div class="section" id="chroma-keying">
+<h3>Chroma Keying<a class="headerlink" href="#chroma-keying" title="Permalink to this headline">¶</a></h3>
+<p>The next step is keying out the green screen.
+In the <a class="reference internal" href="../../workflows/BURN/"><span class="doc">BURN Workflow</span></a>, the composure output we are creating is a sort of “proxy”.
+We capture the live composure, which allows our editor to get started immediately,
+but the proxy will be replaced by a higher quality render later.</p>
+<p>We will key out our 4K footage again in DaVinci Resolve,
+so the keyed footage in this section only needs to be <em>good enough</em>.</p>
+<ol class="arabic">
+<li><p>Use the <strong>Multi Pass Chroma Keyer</strong> transform to remove your green screen.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/cJv7Dtxn/screenshot-9.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/cJv7Dtxn/screenshot-9.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>Despill helps remove any green color which has reflected back onto your subject.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/yxW4rTGH/screenshot-10.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/yxW4rTGH/screenshot-10.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>Erode trims the fringes of your subject, letting you create a crisper edge.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/ZYQ15pgW/screenshot-11.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/ZYQ15pgW/screenshot-11.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+</ol>
+</div>
+</div>
+<div class="section" id="cg-plate">
+<h2>CG Plate<a class="headerlink" href="#cg-plate" title="Permalink to this headline">¶</a></h2>
+<p>In the composure tab, right-click the comp and add another layer element. Choose <strong>CG Layer</strong>.
+You should see two layers to your comp, a media plate, and a cg element.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/kg5VnrtN/screenshot-12.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/kg5VnrtN/screenshot-12.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div><p>The CG layer adds a camera to your scene.
+Point your camera at whatever you want.
+We are going to overlay the media plate and CG layer.
+This will insert the live actors into the CG scene seen by the camera.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you want to add motion see <a class="reference internal" href="../unreal-vive-livelink/"><span class="doc">Unreal Vive LiveLink</span></a>.</p>
+</div>
+</div>
+<div class="section" id="composing-layers">
+<h2>Composing Layers<a class="headerlink" href="#composing-layers" title="Permalink to this headline">¶</a></h2>
+<p>Select your comp, and in the details panel under <code class="docutils literal notranslate"><span class="pre">Transform</span> <span class="pre">Passes</span></code> add a transform pass.</p>
+<ol class="arabic simple">
+<li><p>Leave the default type as <code class="docutils literal notranslate"><span class="pre">Compositing</span> <span class="pre">Element</span> <span class="pre">Material</span> <span class="pre">Pass</span></code>.</p></li>
+<li><p>Create a new material, and save it anywhere.</p></li>
+</ol>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/Gm9pWkZq/screenshot-13.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/Gm9pWkZq/screenshot-13.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div><p>The material we just created is in charge of combining the layers of the comp.
+Open the material editor to edit the material. We want it to look like this eventually:</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/T1ZkTjtg/screenshot-14.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/T1ZkTjtg/screenshot-14.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div><p>Add two <code class="docutils literal notranslate"><span class="pre">TextureSampleParameter2D</span></code> nodes.</p>
+<ol class="arabic simple">
+<li><p>Name the first <em>exactly</em> the same name as your media plate.</p></li>
+<li><p>Name the second <em>exactly</em> the same name as your cg element.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the node names do not exactly match your layer comp names, it won’t work.</p>
+</div>
+<ol class="arabic">
+<li><p>Combine the <em>RGBA</em> channels with an <em>Over</em> node.
+Ensure the media plate is on top, since it contains an alpha layer (from the keyer).</p></li>
+<li><p>After combining, we have to mask out the alpha layer, or the Blackmagic Media Output will complain.
+Attach the Over node’s output to a new <em>Component Mask</em> node.
+In the details panel, ensure only <em>R</em>, <em>G</em>, and <em>B</em> are selected.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/fyj6qrzk/screenshot-17.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/fyj6qrzk/screenshot-17.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>While selecting the output material, under the details panel change <em>Material Domain</em> to <em>Post Process</em>.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/YqCgSL5m/screenshot-15.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/YqCgSL5m/screenshot-15.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>Attach the mask output to the emissive color.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/T1ZkTjtg/screenshot-14.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/T1ZkTjtg/screenshot-14.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>Click on the comp to see a preview of the combined layers.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/m2KDGcB4/screenshot-16.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/m2KDGcB4/screenshot-16.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>See <a class="reference internal" href="../unreal-composure-garbage-matte/"><span class="doc">Unreal Composure Garbage Matting</span></a> on adding a Garbage Matte.</p>
+</div>
+</div>
+<div class="section" id="media-output">
+<h2>Media Output<a class="headerlink" href="#media-output" title="Permalink to this headline">¶</a></h2>
+<p>The composure is running! Now we need to send it somewhere to record.
+We will send the video feed out through an unused Decklink port,
+and record the signal outside of Unreal.
+Any device which can record 1080p over SDI can be used,
+including the Decklink itself.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>See <a class="reference internal" href="../decklink-loopback-recording/"><span class="doc">Decklink Loopback Recording</span></a> on setting up Decklink to record the Unreal output in another program.</p>
+</div>
+<ol class="arabic">
+<li><p>Select the comp in World Outliner, and go to the details panel.
+Add a <strong>Compositing Media Capture Output</strong> Output Pass to the <em>Composure Outputs</em>.</p>
+<p>If the <em>Capture Output</em> setting is blank, create a new <strong>Blackmagic Media Output</strong> and save it anywhere you like.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/fTThvG7J/screenshot-35.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/fTThvG7J/screenshot-35.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>Choose an unused port to output the SDI signal.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/mZjvhdxR/screenshot-36.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/mZjvhdxR/screenshot-36.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>Make sure to set <em>VITC</em> as your timecode format, and <em>Wait for Sync</em> if you have genlock enabled.
+Wait for sync will only render frames when your <em>Custom Time Step</em> triggers,
+which should help keep everything moving in lockstep.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/wvVGyBGF/screenshot-37.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/wvVGyBGF/screenshot-37.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+</ol>
+<div class="section" id="ocio-output-transform">
+<h3>OCIO Output Transform<a class="headerlink" href="#ocio-output-transform" title="Permalink to this headline">¶</a></h3>
+<div class="sidebar">
+<p class="sidebar-title">Color Conversion Comparison</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/76YNRnKM/composure-output-comparison.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/76YNRnKM/composure-output-comparison.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></div>
+<p>We want precise control over the colors going in and out of unreal,
+and our color pipeline utility is OCIO.
+We will use OCIO to explicitly convert the color space of the SDI signal to sRGB.
+Remember that our live composure footage is a rapid proxy,
+and as such we don’t want to waste time color grading the imported footage at edit.</p>
+<p>Under the default settings, Unreal applies tone mapping to our image, and sends it out.
+We don’t want this.
+We want to use OCIO.</p>
+<p>With the comp selected, go to the details panel.
+Next to <em>Color Conversion</em> click <em>Compositing Tone Pass</em> and change it to <strong>Compositing OpenColor IO Pass</strong>.</p>
+<ol class="arabic">
+<li><p>Select the OCIO Config you have already been using.</p></li>
+<li><p>The source color space is Unreal, which is always Linear - sRGB.</p></li>
+<li><p>The destination color space is whatever you want, but we are going to use sRGB.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/zvRPVQmB/screenshot-20.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/zvRPVQmB/screenshot-20.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></li>
+<li><p>If you view the SDI signal on an sRGB calibrated monitor, it should look correct.
+Here we have looped our signal back into the Decklink to view the composure output in Blackmagic MediaExpress.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/wxGQr2Cf/screenshot-29.png"
+               title="We loop back our SDI connection into Blackmagic Media Express to view the output."
+               data-title="We loop back our SDI connection into Blackmagic Media Express to view the output."
+               ><img src="https://i.postimg.cc/wxGQr2Cf/screenshot-29.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a><p>We loop back our SDI connection into Blackmagic Media Express to view the output.</p>
+</div><p>You can use Blackmagic MediaExpress to record the composure output, as it will capture the output with timecode intact.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="final">
+<h2>Final<a class="headerlink" href="#final" title="Permalink to this headline">¶</a></h2>
+<p>If you followed every step, great work.
+You have setup composure with end-to-end <em>timecode-integrity</em> and an intact <em>color pipeline</em>.</p>
+<p>Next, we highly recommend <a class="reference internal" href="../unreal-composure-lighting/"><span class="doc">Unreal Composure Lighting</span></a> to get your composure looking its best.</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../lens-distortion/" title="previous page">Adjusting for Lens Distortion</a>
+    <a class='right-next' id="next-link" href="../unreal-take-recorder/" title="next page">Recording with Take Recorder</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+    
+  <script src="../../_static/js/index.c86189f1ce1b71a67eb6.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Jake G. Water.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
