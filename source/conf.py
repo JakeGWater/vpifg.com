@@ -47,15 +47,16 @@ sys.path.append(os.path.abspath("./_ext"))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'fa',
-    'download',
-    'csvtable',
-    'notices',
-    'figma',
     'compare',
+    'csvtable',
+    'download',
+    'fa',
+    'figma',
     'license',
+    'notices',
     'prodcheck',
     'recommonmark',
+    'roadmap',
     'sphinx_git',
     'sphinx.ext.githubpages',
     'sphinx.ext.ifconfig',

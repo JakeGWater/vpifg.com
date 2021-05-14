@@ -2,4 +2,4 @@
 BMPCC HDMI sRGB Setup
 =====================
 
-.. planned::
+.. milestone:: BMPCC HDMI to sRGB

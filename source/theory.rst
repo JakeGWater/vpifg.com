@@ -2,30 +2,14 @@
 Theory
 ============
 
-While independent productions are our focus,
-our aim is towards professional content that is :term:`Production Ready`.
-
-.. glossary::
-
-    Production Ready
-        
-        Production Ready content is sellable.
-        It should meet whatever broadcast are required by the workflows target domain.
-        The exact criteria depends on the content and the buyer,
-        but we believe our `Production Checklist`_ is a good starting place on which to evalute workflow.
-
 .. toctree::
     :glob:
     :hidden:
     
     theory/*
 
-.. _production-checklist:
-
-Production Checklist
-====================
-
-Workflow are evaluated along following requirements.
+We believe the following topics are important to Virtual Production,
+and each workflow is evaluated using the following *Production Checklist*.
 
 .. glossary::
 
@@ -47,7 +31,7 @@ Workflow are evaluated along following requirements.
 
     Raw
         Raw requires that all original footage is shot in that cameras RAW format at 10-bit color depth or higher,
-        and written using a relatively high-quality compression and colorspace.
+        and written using a relatively high-quality compression and color-space.
         Raw footage should only be re-encoded in a lossless format to-and-from ACES.
 
     Live
