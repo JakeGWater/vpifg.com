@@ -4,7 +4,7 @@ Adding DoF to Unreal Renders in Nuke
 
 .. topic:: Pre-Requisites
 
-    #. :doc:`unreal-to-nuke`
+    #. :goto:`guides/unreal-to-nuke`
 
 .. topic:: Lesson Plan
 
@@ -13,6 +13,6 @@ Adding DoF to Unreal Renders in Nuke
 
 .. topic:: Next Steps
 
-    #. :doc:`nuke-to-resolve`
+    #. :goto:`guides/nuke-to-resolve`
 
 .. milestone::

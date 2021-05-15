@@ -49,4 +49,4 @@ Comparison
 Add Your Own
 ============
 
-If you would like to add your own workflow, check out :doc:`/about/contributing` to get started.
+If you would like to add your own workflow, check out :goto:`about/contributing` to get started.

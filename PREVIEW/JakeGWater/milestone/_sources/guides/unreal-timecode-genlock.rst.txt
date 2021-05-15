@@ -8,7 +8,7 @@ Unreal Timecode and Genlock
 
 .. topic:: Pre-Requisites
 
-    * :doc:`bmpcc-timecode`
+    * :goto:`guides/bmpcc-timecode`
 
 Timecode
 --------

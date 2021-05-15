@@ -28,19 +28,19 @@ Primarily using [UnrealEngine]_, but extensible enough to accommodate as many pr
       :filename_filter: source/.*\.rst
       :link-to-docs: 1
 
-   See :doc:`about/changelog` for all updates.
+   See :goto:`about/changelog` for all updates.
 
 Organization
 ============
 
 The guide organized as follows:
 
-* :doc:`workflows` are recipes for Virtual Production. They work, and they are used by others. If you're not sure where to start, take a look at some existing workflows.
-* :doc:`theory` explains how we evaluate and compare workflows. Not all workflows are created equal.
-* :doc:`guides` are the ingredients of workflows. Guides break down a topic or task into detailed steps. A single guide might be shared by multiple workflows.
-* :doc:`studios` are reference examples of actual studio set up with a list of their equipment used. This should help others price estimate what a particular set up is going to cost, as well as valid weather a particular piece of equipment has been field tested.
-* :doc:`help` is a collection of helpful tips and solutions to problems we have encountered along the journey.
-* :doc:`references` are external links to other handy resources, tutorials, guides etc.
+* :goto:`workflows` are recipes for Virtual Production. They work, and they are used by others. If you're not sure where to start, take a look at some existing workflows.
+* :goto:`theory` explains how we evaluate and compare workflows. Not all workflows are created equal.
+* :goto:`guides` are the ingredients of workflows. Guides break down a topic or task into detailed steps. A single guide might be shared by multiple workflows.
+* :goto:`studios` are reference examples of actual studio set up with a list of their equipment used. This should help others price estimate what a particular set up is going to cost, as well as valid weather a particular piece of equipment has been field tested.
+* :goto:`help` is a collection of helpful tips and solutions to problems we have encountered along the journey.
+* :goto:`references` are external links to other handy resources, tutorials, guides etc.
 
 Contribution
 ============
@@ -48,7 +48,7 @@ Contribution
 This guide is open source. We welcome other contributions.
 The project is maintained on GitHub at `JakeGWater/vpifg.com <https://github.com/JakeGWater/vpifg.com>`_ and built using `Spihnx and reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_.
 
-See :doc:`about/contributing` for more.
+See :goto:`about/contributing` for more.
 
 Sponsor
 =======

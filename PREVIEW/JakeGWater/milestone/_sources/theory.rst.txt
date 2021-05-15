@@ -16,14 +16,14 @@ and each workflow is evaluated using the following *Production Checklist*.
     Timecode
         Timecode requires that all hardware and software that consumes or produces media to maintain the original timecode both on import and export.
         
-        See more in :doc:`/theory/timecode`.
+        See more in :goto:`theory/timecode`.
 
     ACES
         ACES requires an ACES working space and that Raw files are exported only to ACES, and not another smaller color space.
         Correct input and output transforms must be used to maintainer your color pipeline.
         CG footage may be exported to ACEScg.
 
-        See more in :doc:`/theory/aces`.
+        See more in :goto:`theory/aces`.
     
     4K
         4K requires that all sources, both camera an renders, are either 3840x2160 or 4096x2160 resolution,

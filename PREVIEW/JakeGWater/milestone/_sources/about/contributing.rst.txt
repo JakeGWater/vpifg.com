@@ -28,15 +28,15 @@ As such, there are a few guidelines we would like contributions to follow:
 
    #. `Workflow <#adding-workflows>`_
    #. `Guides <#adding-guides>`_
-   #. :doc:`/studios`
+   #. :goto:`studios`
    #. `Help <#adding-help>`_
 
 Adding Workflows
 ----------------
 
-#. Workflows should reference a series of :doc:`/guides` to be placed in `sources/guides <https://github.com/JakeGWater/vpifg.com/tree/main/source/guides>`_.
+#. Workflows should reference a series of :goto:`guides` to be placed in `sources/guides <https://github.com/JakeGWater/vpifg.com/tree/main/source/guides>`_.
 #. Incomplete workflows **must** be marked as `Work in Progress`_.
-#. Workflows **must** include a :ref:`production-checklist` banner. See :doc:`/workflows/BURN`.
+#. Workflows **must** include a :ref:`production-checklist` banner. See :goto:`workflows/BURN`.
    Insert after your title::
 
         .. prodcheck::
@@ -96,14 +96,14 @@ Referencing Content
    #. Refer to to the citation from your guide or workflow as follows::
 
        Use the [unrealengine]_ to ...
-   #. Add the citation, either in the same document, or in :doc:`/references` as::
+   #. Add the citation, either in the same document, or in :goto:`references` as::
 
        .. [unrealengine] The unreal game engine `<https://www.unrealengine.com>`_
-   #. Keep in mind, your citation might be relocated to :doc:`/references`.
+   #. Keep in mind, your citation might be relocated to :goto:`references`.
 
 #. *Exceptions* 
     
-   #. Studio pages (:doc:`/studios`) may use external links, including affiliate links.
+   #. Studio pages (:goto:`studios`) may use external links, including affiliate links.
    #. About pages may use external links.
 
 Using citations keeps things under control, and ensures that all links are reusable and relevant.

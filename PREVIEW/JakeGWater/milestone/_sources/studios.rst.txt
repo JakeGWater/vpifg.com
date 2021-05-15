@@ -11,7 +11,7 @@ Studios
 
 .. topic:: Check Out the Latest Studios
 
-    * :doc:`studios/jake`
+    * :goto:`studios/jake`
 
 Add Your Studio
 ===============

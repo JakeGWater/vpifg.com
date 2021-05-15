@@ -14,7 +14,7 @@ ACES
         Color Pipeline
             The color pipeline is a technical process, ensuring color spaces are appropriately transformed at each step of your production and post-production process.
 
-            See :doc:`aces/pipeline` for more details.
+            See :goto:`aces/pipeline` for more details.
         
         Color Correction
             Color correction involves correcting footage against a real-life reference,

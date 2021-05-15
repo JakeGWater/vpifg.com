@@ -1391,8 +1391,8 @@
 <div class="topic">
 <p class="topic-title">Next</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../bmpcc-hdmi-srgb/"><span class="doc">BMPCC HDMI sRGB Setup</span></a></p></li>
-<li><p><a class="reference internal" href="../unreal-composure/"><span class="doc">Unreal Composure</span></a></p></li>
+<li><p><span><a class="reference external" href="../bmpcc-hdmi-srgb/"><span>BMPCC HDMI sRGB Setup</span></a><span class="planned">Planned</span></span></p></li>
+<li><p><span><a class="reference external" href="../unreal-composure/"><span>Unreal Composure</span></a></span></p></li>
 </ul>
 </div>
 <div class="section" id="what-is-ocio">
@@ -1402,7 +1402,7 @@
 <li><p>What color space the footage is coming from, and</p></li>
 <li><p>what color space the footage is going into.</p></li>
 </ol>
-<p>For example, an annotated color pipeline from <a class="reference internal" href="../../workflows/BURN/"><span class="doc">BURN Workflow</span></a> looks like:</p>
+<p>For example, an annotated color pipeline from <span><a class="reference external" href="../../workflows/BURN/"><span>BURN Workflow</span></a></span> looks like:</p>
 <img alt="      Raw        ┌──────┐             Raw    ┌────────────►│  BRaw├───────────────────────────────────┐    │             └──────┘                                   │    │                                                        ▼    │                        sRGB                        ┌───────┐   ACES ┌──┴──┐  sRGB    ┌──────┐  Linear   ┌─────────┐         │Davinci├───────► │BMPCC├─────────►│Unreal├──────────►│Composure│         │Resolve│ └─────┘          └──┬───┘           └────┬────┘         │       │                     │                    │              └───────┘                     │                    ▼ sRGB             ▲                     │               ┌────────┐              │                     │sRGB           │LiveView│              │                     │Linear         └────────┘              │                     │                                       │                     ▼                                       │               ┌────────────┐ ACEScg   ┌──────┐  ACEScg      │               │Movie Render├─────────►│  Nuke├──────────────┘               │   Queue    │          └──────┘               └────────────┘" class="svgbob align-center" src="../../_images/svgbob-6fd4c4da0b76bf491b3a285294be5536b063769a.svg" /><p>Unreal uses sRGB-Linear internally, but from the above diagram it will also need to convert from and into sRGB, and ACEScg.</p>
 <p>OCIO makes converting between color spaces easy. In short OCIO is:</p>
 <ol class="arabic simple">
@@ -1554,7 +1554,7 @@ If you use other color spaces, add them to the list.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The BMPCC does not output sRGB by default.
-We will need to conimage it in <a class="reference internal" href="../bmpcc-hdmi-srgb/"><span class="doc">BMPCC HDMI sRGB Setup</span></a>.</p>
+We will need to conimage it in <span><a class="reference external" href="../bmpcc-hdmi-srgb/"><span>BMPCC HDMI sRGB Setup</span></a><span class="planned">Planned</span></span>.</p>
 </div>
 </div>
 <div class="section" id="references">
