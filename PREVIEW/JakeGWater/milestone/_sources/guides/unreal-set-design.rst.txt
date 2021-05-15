@@ -11,5 +11,5 @@ Unreal Set Design
     #. Bridge
     #. Color Chart
 
-.. planned::
+.. milestone::
 

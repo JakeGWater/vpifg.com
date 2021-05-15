@@ -2,7 +2,7 @@
 Timecode
 ##################
 
-.. planned::
+.. milestone::
 
 ..
     Timecode will make our lives easier at every step.

@@ -2,4 +2,4 @@
 RAW
 ===
 
-.. planned::
+.. milestone::

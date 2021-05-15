@@ -4,7 +4,7 @@
 Unreal Virtual Camera Matching
 ==============================
 
-.. wip::
+.. milestone::
 
 The CineCameraActor in Unreal has a lot of settings that mirror real world cameras.
 Those settings when tweaked can affect the image.

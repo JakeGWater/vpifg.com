@@ -2,4 +2,4 @@
 Decklink Loopback Recording
 ===========================
 
-.. planned::
+.. milestone::

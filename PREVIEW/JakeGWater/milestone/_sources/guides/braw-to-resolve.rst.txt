@@ -2,6 +2,8 @@
 BRaw to Davinci Resolve
 ########################
 
+.. milestone::
+
 .. topic:: Pre-Requisites
     
     #. :doc:`bmpcc-to-braw`
@@ -14,5 +16,3 @@ BRaw to Davinci Resolve
 
     #. Camera Raw Settings
     #. Color Correction
-
-.. planned::
