@@ -68,6 +68,15 @@ class FindRoadmapRole(SphinxRole):
     def run(self):
         return [findroadmap()], []
 
+class goto(nodes.General, nodes.Element):
+    pass
+
+class GotoRole(SphinxRole):
+    def run(self):
+        node = goto()
+        node['doc'] = self.text
+        return [node], []
+
 class MilestoneDirective(SphinxDirective):
     def run(self):
         targetid = 'milestone-%d' % self.env.new_serialno('roadmap')
@@ -152,7 +161,7 @@ def process_todo_nodes(app, doctree, fromdocname):
                 newnode['refuri'] = app.builder.get_relative_uri(fromdocname, ms['docname'])
                 newnode['refuri'] += '#' + ms['target']['refid']
                 title = env.titles[ms['docname']]
-                newnode += nodes.emphasis(text=title.astext())
+                newnode += nodes.inline(text=title.astext())
                 z.replace_self(newnode)
             else:
                 raise RuntimeError("OOPS")
@@ -180,7 +189,7 @@ def process_todo_nodes(app, doctree, fromdocname):
                 newnode['refdocname'] = rm['docname']
                 newnode['refuri'] = app.builder.get_relative_uri(fromdocname, rm['docname'])
                 newnode['refuri'] += '#' + rm['target']['refid']
-                newnode += nodes.emphasis(text=f"""{rm['name']} Roadmap""")
+                newnode += nodes.inline(text=f"""{rm['name']} Roadmap""")
                 fr.replace_self(newnode)
 
             notice_node += p
@@ -194,7 +203,7 @@ def process_todo_nodes(app, doctree, fromdocname):
         newnode = nodes.reference('', '')
         newnode['refdocname'] = 'about/roadmap'
         newnode['refuri'] = app.builder.get_relative_uri(fromdocname, 'about/roadmap')
-        newnode += nodes.emphasis(text=f"""Roadmaps""")
+        newnode += nodes.inline(text=f"""Roadmaps""")
 
         p = node[0]
         notice_node += p
@@ -210,13 +219,33 @@ def process_todo_nodes(app, doctree, fromdocname):
                 ref['refdocname'] = docname
                 ref['refuri'] = app.builder.get_relative_uri(fromdocname, docname)
                 title = env.titles[docname].astext()
-                ref += nodes.emphasis(text=title)
+                ref += nodes.inline(text=title)
                 p = nodes.paragraph()
                 p += ref
                 li += p
                 ul += li
         node.replace_self(ul)
     
+    for node in doctree.traverse(goto):
+        docname = node['doc']
+        il = nodes.inline()
+        ref = nodes.reference('', '')
+        ref['refdocname'] = docname
+        ref['refuri'] = app.builder.get_relative_uri(fromdocname, docname)
+        title = env.titles[docname].astext()
+        ref += nodes.inline(text=title)
+        il += ref
+        if docname in env.roadmap_all_milestones:
+            if docname in env.roadmap_all_planned:
+                text = "Planned"
+                gl = nodes.inline(text=text, classes=['planned'])
+            else:
+                text = "Help Wanted"
+                gl = nodes.inline(text=text, classes=['helpwanted'])
+            il += gl
+
+        node.replace_self(il)
+
 def visit_planned_node(self, node):
     self.body.append("planned")
 
@@ -245,6 +274,7 @@ def setup(app):
     app.add_directive('milestone', MilestoneDirective)
     app.add_role('planned', PlannedRole())
     app.add_role('findroadmap', FindRoadmapRole())
+    app.add_role('goto', GotoRole())
 
     # app.connect('env-purge-doc', purge_todos)
     # app.connect('env-merge-info', merge_todos)

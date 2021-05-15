@@ -160,3 +160,21 @@ iframe.figma {
     --img-width: calc(width);
     --img-height: calc(height);
 }
+
+.planned, .helpwanted {
+    font-size: 80%;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 2.4px 6px;
+    margin: auto 2px;
+    bottom: 2px;
+    position: relative;
+}
+.helpwanted {
+    border: 1px solid #7fbbe3;
+    background: #e7f2fa;
+}
+.planned {
+    border: 1px solid #7fe3bb;
+    background: #e7faf2;
+}
