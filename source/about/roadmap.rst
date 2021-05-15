@@ -29,8 +29,13 @@ Each guide should include:
     - :planned:`guides/unreal-take-recorder`
 
 
-Help Wanted
-===========
+Backlog
+=======
+
+.. admonition:: Help Wanted
+
+    If you would like to help write any content in our Backlog,
+    check out our :doc:`contributing` guide.
 
 .. backlog::
 

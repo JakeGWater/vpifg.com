@@ -15,20 +15,6 @@ class roadmap(nodes.General, nodes.Element):
 class backlog(nodes.General, nodes.Element):
     pass
 
-def visit_roadmap_node(self, node):
-    pass
-    # self.body.append("Roadmap")
-
-def depart_roadmap_node(self, node):
-    pass
-
-def visit_milestone_node(self, node):
-    # self.body.append("Milestone")
-    pass
-
-def depart_milestone_node(self, node):
-    pass
-
 class BacklogDirective(SphinxDirective):
     def run(self):
         return [backlog()]
@@ -67,8 +53,6 @@ class RoadmapDirective(SphinxDirective):
             'target': targetnode,
         }
 
-        # print(node)
-        
         return [targetnode, node]
 
 class PlannedRole(SphinxRole):
@@ -76,6 +60,13 @@ class PlannedRole(SphinxRole):
         node = planned()
         node['name'] = self.text
         return [node], []
+
+class findroadmap(nodes.General, nodes.Element):
+    pass
+
+class FindRoadmapRole(SphinxRole):
+    def run(self):
+        return [findroadmap()], []
 
 class MilestoneDirective(SphinxDirective):
     def run(self):
@@ -86,6 +77,32 @@ class MilestoneDirective(SphinxDirective):
 
         milestone_node = milestone(text=name)
         milestone_node['name'] = name
+
+        if 'roadmap' in self.env.app.config:
+            conf = self.env.app.config['roadmap']
+        else:
+            conf = CONFIG_DEFAULTS
+
+        message_vars = {
+            'roadmap': name
+        }
+
+        backlog_container = nodes.container()
+        for line in conf['backlog_message']:
+            backlog_message, _messages = self.state.inline_text(line.format(**message_vars), 0)
+            p = nodes.paragraph()
+            p += backlog_message
+            backlog_container += p
+
+        roadmap_container = nodes.container()
+        for line in conf['roadmap_message']:
+            roadmap_message, _messages = self.state.inline_text(line.format(**message_vars), 0)
+            p = nodes.paragraph()
+            p += roadmap_message
+            roadmap_container += p
+
+        milestone_node += backlog_container
+        milestone_node += roadmap_container
 
         if not hasattr(self.env, 'roadmap_all_milestones'):
             self.env.roadmap_all_milestones = {}
@@ -150,30 +167,27 @@ def process_todo_nodes(app, doctree, fromdocname):
 
     for node in doctree.traverse(milestone):
         name = node['name']
-        # TODO: optimize this to dictionary
         if name in env.roadmap_all_planned:
             rm = env.roadmap_all_roadmaps[env.roadmap_all_planned[name]]
             notice_node = nodes.admonition()
             notice_node += nodes.title(_('Planned'), _('Planned'))
             notice_node['classes'] = ['important']
-            p = nodes.paragraph(text=f"""This item is planned in the """)
+            
+            p = node[1]
 
-            newnode = nodes.reference('', '')
-            newnode['refdocname'] = rm['docname']
-            newnode['refuri'] = app.builder.get_relative_uri(
-                fromdocname, rm['docname'])
-            newnode['refuri'] += '#' + rm['target']['refid']
-            newnode += nodes.emphasis(text=f"""{rm['name']} Roadmap.""")
+            for fr in node.traverse(condition=findroadmap):
+                newnode = nodes.reference('', '')
+                newnode['refdocname'] = rm['docname']
+                newnode['refuri'] = app.builder.get_relative_uri(fromdocname, rm['docname'])
+                newnode['refuri'] += '#' + rm['target']['refid']
+                newnode += nodes.emphasis(text=f"""{rm['name']} Roadmap""")
+                fr.replace_self(newnode)
 
-            p += newnode
             notice_node += p
 
             node.replace_self(notice_node)
     
     for node in doctree.traverse(milestone):
-        # env.roadmap_backlog.append({
-        #     'name': node['name']
-        # })
         notice_node = nodes.admonition()
         notice_node += nodes.title(_('Help Wanted'), _('Help Wanted'))
 
@@ -182,23 +196,7 @@ def process_todo_nodes(app, doctree, fromdocname):
         newnode['refuri'] = app.builder.get_relative_uri(fromdocname, 'about/roadmap')
         newnode += nodes.emphasis(text=f"""Roadmaps""")
 
-        p = nodes.paragraph()
-        p += nodes.inline(text=f"""This page is not currently planned. As such, there is no estimate on when it might get completed. See """)
-        p += newnode
-        p += nodes.inline(text=" for more info.")
-
-        notice_node += p
-
-        p = nodes.paragraph(text="Check out our ")
-
-        newnode = nodes.reference('', '')
-        newnode['refdocname'] = 'about/contributing'
-        newnode['refuri'] = app.builder.get_relative_uri(fromdocname, 'about/contributing')
-        newnode += nodes.emphasis(text=f"""Contributing Guide""")
-
-        p += newnode
-        p += nodes.inline(text=" if you would like to help maintain this content.")
-
+        p = node[0]
         notice_node += p
 
         node.replace_self(notice_node)
@@ -225,13 +223,20 @@ def visit_planned_node(self, node):
 def depart_planned_node(self, node):
     pass
 
+CONFIG_DEFAULTS = {
+    'backlog_message': ["Backlog"],
+    'roadmap_message': ["Roadmap"],
+}
+
 def setup(app):
     # app.add_config_value('todo_include_todos', False, 'html')
 
-    app.add_node(roadmap,
-                html=(visit_roadmap_node, depart_roadmap_node))
-    app.add_node(milestone,
-                 html=(visit_milestone_node, depart_milestone_node))
+    # app.add_node(roadmap,
+    #             html=(visit_roadmap_node, depart_roadmap_node))
+    # app.add_node(milestone,
+    #              html=(visit_milestone_node, depart_milestone_node))
+
+    app.add_config_value('roadmap', CONFIG_DEFAULTS, 'html')
 
     app.connect('doctree-resolved', process_todo_nodes)
 
@@ -239,6 +244,7 @@ def setup(app):
     app.add_directive('backlog', BacklogDirective)
     app.add_directive('milestone', MilestoneDirective)
     app.add_role('planned', PlannedRole())
+    app.add_role('findroadmap', FindRoadmapRole())
 
     # app.connect('env-purge-doc', purge_todos)
     # app.connect('env-merge-info', merge_todos)
