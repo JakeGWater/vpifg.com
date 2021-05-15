@@ -5,7 +5,7 @@
 Unreal Composure Lighting
 =========================
 
-.. planned::
+.. milestone::
 
 .. 
    .. important::

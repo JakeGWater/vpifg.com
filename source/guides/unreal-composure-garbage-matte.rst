@@ -2,4 +2,4 @@
 Unreal Composure Garbage Matting
 ================================
 
-.. planned::
+.. milestone::

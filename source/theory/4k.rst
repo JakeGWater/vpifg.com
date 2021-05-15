@@ -2,5 +2,5 @@
 4K
 ==
 
-.. milestone:: 4K
+.. milestone::
 

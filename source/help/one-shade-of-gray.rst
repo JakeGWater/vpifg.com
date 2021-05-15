@@ -2,7 +2,7 @@
 One Shade of Gray
 =================
 
-.. planned::
+.. milestone::
 
 Fifty Values of Middle Gray
 ---------------------------

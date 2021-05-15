@@ -4,7 +4,7 @@
 Unreal Timecode and Genlock
 ===========================
 
-.. wip::
+.. milestone::
 
 .. topic:: Pre-Requisites
 

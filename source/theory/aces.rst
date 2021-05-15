@@ -2,7 +2,7 @@
 ACES
 =====
 
-.. planned::
+.. milestone::
 
 ..
     Colors is a complex topic, both technically and artistically.

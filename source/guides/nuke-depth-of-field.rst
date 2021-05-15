@@ -15,4 +15,4 @@ Adding DoF to Unreal Renders in Nuke
 
     #. :doc:`nuke-to-resolve`
 
-.. planned::
+.. milestone::

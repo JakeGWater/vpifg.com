@@ -2,4 +2,4 @@
 Unreal to Resolve
 =================
 
-.. planned::
+.. milestone::

@@ -13,5 +13,5 @@ Recording with Take Recorder
     #. Posessable vs. Spawnable
     #. Recording Actors
 
-.. planned::
+.. milestone::
 
