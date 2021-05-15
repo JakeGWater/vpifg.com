@@ -25,8 +25,9 @@ Primarily using [UnrealEngine]_, but extensible enough to accommodate as many pr
       :hide_details: 1
       :class: shortlog
       :revisions: 3
-      :filename_filter: source/.*\.rst
+      :filename_filter: source/guides/.*\.rst
       :link-to-docs: 1
+      :title-exclude: (save|Fix|Meta)
 
    See :goto:`about/changelog` for all updates.
 

@@ -127,6 +127,7 @@ class GitChangelog(GitDirectiveBase):
         'hide_details': bool,
         'repo-dir': six.text_type,
         'link-to-docs': bool,
+        'title-exclude': six.text_type,
     }
 
     def run(self):
@@ -166,7 +167,7 @@ class GitChangelog(GitDirectiveBase):
             commits = repo.iter_commits(rev=self.options['rev-list'])
         else:
             commits = repo.iter_commits()
-            revisions_to_display = self.options.get('revisions', 10)
+            revisions_to_display = 100
             commits = list(commits)[:revisions_to_display]
         # if 'filename_filter' in self.options:
         return self._filter_commits_on_filenames(commits)
@@ -200,8 +201,20 @@ class GitChangelog(GitDirectiveBase):
         global SPHINX_SRC_DIR
         output = output_node()
         list_node = nodes.bullet_list()
+        i=0
+        n = self.options.get('revisions', 100)
         for commit, files in commits_and_files:
             date_str = datetime.fromtimestamp(commit.authored_date)
+            
+            if 'title-exclude' in self.options:
+                matcher = re.compile(self.options['title-exclude'], flags=re.IGNORECASE)
+                if matcher.match(commit.message):
+                    continue
+
+            if i >= n: 
+                break
+            i = i + 1
+
             if '\n' in commit.message:
                 message, detailed_message = commit.message.split('\n', 1)
             else:

@@ -61,7 +61,7 @@ class NoticeDirective(SphinxDirective):
         notice_node += nodes.title(_('Work In Progress'), _('Work In Progress'))
         notice_node['classes'] = ['danger']
         textnodes, messages = self.state.paragraph([
-            "This page is **Experimental** and may not be :term:`Production Ready`.",
+            "This page is **Experimental** and may not be Production Ready.",
         ], 0)
         for node in textnodes:
             notice_node += node
