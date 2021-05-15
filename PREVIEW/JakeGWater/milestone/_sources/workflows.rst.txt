@@ -29,7 +29,7 @@ Comparison
         - :term:`Live`
         - :term:`Multicam`
         - :term:`nDisplay`
-    *   - `BURN <workflows/BURN>`_
+    *   - :goto:`workflows/BURN`
         - ✅
         - ✅
         - ✅
@@ -37,7 +37,7 @@ Comparison
         - ❌
         - ❌
         - ❌
-    *   - `LIVE <workflows/LIVE>`_
+    *   - :goto:`workflows/LIVE`
         - ❌
         - ✅
         - ❌
