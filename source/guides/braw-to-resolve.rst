@@ -6,7 +6,7 @@ BRaw to Davinci Resolve
 
 .. topic:: Pre-Requisites
     
-    #. :doc:`bmpcc-to-braw`
+    #. :goto:`guides/bmpcc-to-braw`
 
 .. topic:: Lesson Plan
 

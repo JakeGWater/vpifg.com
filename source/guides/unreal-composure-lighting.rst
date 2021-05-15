@@ -184,7 +184,7 @@ Unreal Composure Lighting
 
    .. important::
 
-      See :doc:`/help/white-balance-in-lab` on manually white balancing using the CIE.Lab Color Space.
+      See :goto:`help/white-balance-in-lab` on manually white balancing using the CIE.Lab Color Space.
 
    .. highlights::
 
@@ -221,7 +221,7 @@ Unreal Composure Lighting
 
    .. important::
 
-      See :doc:`/help/one-shade-of-gray` to learn about the life of gray values.
+      See :goto:`help/one-shade-of-gray` to learn about the life of gray values.
 
    In a scene with 1) a green screen actor, 2) a GC set, and 3) an HDRI, there are three gray values we need to pay attention to.
    The closer they all match, the better.
@@ -268,7 +268,7 @@ Unreal Composure Lighting
 
    .. important:: 
       
-      See :doc:`unreal-composure-lighting`.
+      See :goto:`guides/unreal-composure-lighting`.
 
 
    .. math::

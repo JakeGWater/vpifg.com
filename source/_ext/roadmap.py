@@ -232,7 +232,11 @@ def process_todo_nodes(app, doctree, fromdocname):
         ref = nodes.reference('', '')
         ref['refdocname'] = docname
         ref['refuri'] = app.builder.get_relative_uri(fromdocname, docname)
-        title = env.titles[docname].astext()
+        print(fromdocname, docname, ref['refuri'])
+        if docname in env.titles:
+            title = env.titles[docname].astext()
+        else:
+            title = docname
         ref += nodes.inline(text=title)
         il += ref
         if docname in env.roadmap_all_milestones:
