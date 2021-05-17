@@ -7,12 +7,10 @@ Unreal Composure
 
 .. guide:showdeps::
 
-.. topic:: Lesson Plan
+.. guide:lesson::
    
-   We are going to setup Composure in Unreal to take in a live camera feed,
-   compose it with a CG scene, and send the combined footage out over SDI.
-
-.. guide:shownexts::
+   Setup Composure in Unreal to merge a live camera feed with a with a CG scene, 
+   and send the combined footage out over SDI.
 
 Camera
 ======
@@ -344,7 +342,11 @@ Next to *Color Conversion* click *Compositing Tone Pass* and change it to **Comp
 Final
 =====
 
+.. guide:next:: Enhance Your Lighting
+
+   Check out :goto:`guides/unreal-composure-lighting` to get your composure looking its best.
+
 If you followed every step, great work.
 You have setup composure with end-to-end *timecode-integrity* and an intact *color pipeline*.
 
-Next, we highly recommend :goto:`guides/unreal-composure-lighting` to get your composure looking its best.
+.. guide:shownexts::

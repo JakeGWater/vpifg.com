@@ -2,7 +2,7 @@
 Unreal Set Design
 =================
 
-.. topic:: Lesson Plan
+.. guide:lesson::
 
     #. Plugins & Settings
     #. Landscape
@@ -12,4 +12,3 @@ Unreal Set Design
     #. Color Chart
 
 .. milestone::
-

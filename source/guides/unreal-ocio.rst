@@ -1,3 +1,6 @@
+:author: Jake G. Water
+:date: 2021-04-15
+
 =================
 Unreal OCIO Setup
 =================

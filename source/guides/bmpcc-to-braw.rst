@@ -1,9 +1,9 @@
 :author: Jake G. Water
 :date: 2021-04-21
 
-===============
-BMPCC4k to BRaw
-===============
+=========================
+BMPCC4K to Blackmagic Raw
+=========================
 
 .. topic:: Lesson Plan
 

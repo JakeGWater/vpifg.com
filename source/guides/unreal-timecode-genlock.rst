@@ -4,11 +4,13 @@
 Unreal Timecode and Genlock
 ===========================
 
-.. milestone::
+.. wip::
 
-.. topic:: Pre-Requisites
+.. guide::showdeps::
 
-    * :goto:`guides/bmpcc-timecode`
+.. guide:dep::
+
+    See :goto:`guides/bmpcc-timecode` on setting up your [BMPCC4K]_ to output timecode.
 
 Timecode
 --------

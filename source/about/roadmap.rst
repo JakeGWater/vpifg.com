@@ -2,9 +2,6 @@
 Roadmap
 ==========
 
-Planned
-=======
-
 The current plan is to complete the guides associated with :goto:`workflows/BURN`.
 Each guide should include:
 
@@ -16,7 +13,7 @@ Each guide should include:
 .. roadmap:: May 2021
 
     - :planned:`guides/bmpcc-hdmi-srgb`
-
+    - :planned:`guides/unreal-composure-lighting`
 
 .. roadmap:: June 2021
 

@@ -4,6 +4,10 @@
 Unreal Virtual Camera Matching
 ==============================
 
+.. guide:lesson::
+
+   Match the settings of your real-life camera with Unreal for maximal realism.
+
 The CineCameraActor in Unreal has a lot of settings that mirror real world cameras.
 Those settings when tweaked can affect the image.
 
