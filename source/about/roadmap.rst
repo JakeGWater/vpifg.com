@@ -16,7 +16,6 @@ Each guide should include:
 .. roadmap:: May 2021
 
     - :planned:`guides/bmpcc-hdmi-srgb`
-    - :planned:`guides/unreal-virtual-camera-matching`
 
 
 .. roadmap:: June 2021

@@ -37,8 +37,6 @@ Primarily using [UnrealEngine]_, but extensible enough to accommodate as many pr
    - :goto:`guides/bmpcc-to-braw`
    - :goto:`guides/unreal-virtual-camera-matching`
 
-   See :goto:`about/changelog` for all updates.
-
 .. topic:: Latest Workflows
 
    Workflows are whole virtual production recipes.

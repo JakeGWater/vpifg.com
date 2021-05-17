@@ -163,7 +163,7 @@ def process_todo_nodes(app, doctree, fromdocname):
                 newnode += nodes.inline(text=title.astext())
                 z.replace_self(newnode)
             else:
-                raise RuntimeError("OOPS")
+                raise RuntimeError(f"Not Found {zname}")
         sec = nodes.section()
         sec += nodes.title(text=f"{name} Roadmap")
         for ch in node:
