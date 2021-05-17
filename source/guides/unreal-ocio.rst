@@ -1,4 +1,5 @@
-:author: Jake G. Water
+:author: |jake|
+:author_url: |jake.url|
 :date: 2021-04-15
 
 =================
