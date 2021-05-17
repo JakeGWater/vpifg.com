@@ -163,7 +163,7 @@ def process_todo_nodes(app, doctree, fromdocname):
                 newnode += nodes.inline(text=title.astext())
                 z.replace_self(newnode)
             else:
-                raise RuntimeError(f"Not Found {zname}")
+                raise RuntimeError("OOPS")
         sec = nodes.section()
         sec += nodes.title(text=f"{name} Roadmap")
         for ch in node:
@@ -197,7 +197,6 @@ def process_todo_nodes(app, doctree, fromdocname):
     
     for node in doctree.traverse(milestone):
         notice_node = nodes.admonition()
-        notice_node += nodes.title(_('Help Wanted'), _('Help Wanted'))
         notice_node += nodes.title(text='Sorry! This page has not been created yet')
         notice_node['classes'] = ['danger']
 
@@ -219,6 +218,7 @@ def process_todo_nodes(app, doctree, fromdocname):
                 ref = nodes.reference('', '')
                 ref['refdocname'] = docname
                 ref['refuri'] = app.builder.get_relative_uri(fromdocname, docname)
+                
                 title = env.titles[docname].astext()
                 ref += nodes.inline(text=title)
                 p = nodes.paragraph()
