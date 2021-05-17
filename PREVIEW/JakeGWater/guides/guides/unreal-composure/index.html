@@ -452,11 +452,6 @@
       </ul>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="#media-source-setup">
-       Media Source Setup
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="#timecode-and-genlock">
        Timecode and Genlock
       </a>
@@ -464,11 +459,6 @@
      <li class="toctree-l3">
       <a class="reference internal" href="#virtual-camera">
        Virtual Camera
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="#composure">
-       Composure
       </a>
      </li>
      <li class="toctree-l3 has-children">
@@ -493,19 +483,9 @@
        </li>
       </ul>
      </li>
-     <li class="toctree-l3">
+     <li class="toctree-l3 has-children">
       <a class="reference internal" href="#cg-plate">
        CG Plate
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="#composing-layers">
-       Composing Layers
-      </a>
-     </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="#media-output">
-       Media Output
       </a>
       <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
       <label for="toctree-checkbox-14">
@@ -1084,11 +1064,6 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#media-source-setup">
-   Media Source Setup
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#timecode-and-genlock">
    Timecode and Genlock
   </a>
@@ -1096,11 +1071,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#virtual-camera">
    Virtual Camera
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#composure">
-   Composure
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1123,16 +1093,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cg-plate">
    CG Plate
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#composing-layers">
-   Composing Layers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#media-output">
-   Media Output
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -1201,29 +1161,33 @@
                 
   <div class="section" id="unreal-composure">
 <h1>Unreal Composure<a class="headerlink" href="#unreal-composure" title="Permalink to this headline">¶</a></h1>
-<div class="topic">
-<p class="topic-title">Pre-Requisites</p>
-<ul class="simple">
-<li><p><span><a class="roadmap reference external" href="../bmpcc-hdmi-srgb/"><span>BMPCC HDMI sRGB Setup</span></a><span class="planned">Planned</span></span></p></li>
-<li><p><span><a class="reference external" href="../unreal-ocio/"><span>Unreal OCIO Setup</span></a></span></p></li>
-<li><p><span><a class="backlog reference external" href="../unreal-timecode-genlock/"><span>Unreal Timecode and Genlock</span></a><span class="helpwanted">Help Wanted</span></span></p></li>
-<li><p><span><a class="reference external" href="../unreal-virtual-camera-matching/"><span>Unreal Virtual Camera Matching</span></a></span></p></li>
+
+        <div class="topic guide-showdeps">
+        <p class="topic-title">Pre-Requisites</p>
+        <ul class="simple">
+<li><p><a class="reference external" href="#guide-0"><span>BMPCC sRGB over HDMI</span></a></p></li>
+<li><p><a class="reference external" href="#guide-1"><span>Blackmagic Raw Setup</span></a></p></li>
+<li><p><a class="reference external" href="#guide-2"><span>Timecode &amp; Genlock</span></a></p></li>
+<li><p><a class="reference external" href="#guide-3"><span>Virtual Camera Matching</span></a></p></li>
 </ul>
-</div>
-<div class="topic">
+
+        </div>
+        <div class="topic">
 <p class="topic-title">Lesson Plan</p>
 <p>We are going to setup Composure in Unreal to take in a live camera feed,
 compose it with a CG scene, and send the combined footage out over SDI.</p>
 </div>
-<div class="topic">
-<p class="topic-title">Next</p>
-<ul class="simple">
-<li><p><span><a class="backlog reference external" href="../unreal-composure-lighting/"><span>Unreal Composure Lighting</span></a><span class="helpwanted">Help Wanted</span></span></p></li>
-<li><p><span><a class="reference external" href="../bmpcc-to-braw/"><span>BMPCC4k to BRaw</span></a></span></p></li>
-<li><p><span><a class="roadmap reference external" href="../unreal-take-recorder/"><span>Recording with Take Recorder</span></a><span class="planned">Planned</span></span></p></li>
+
+        <div class="topic guide-shownexts">
+        <p class="topic-title">Next Steps</p>
+        <ul class="simple">
+<li><p><a class="reference external" href="#guide-4"><span>LiveLink</span></a></p></li>
+<li><p><a class="reference external" href="#guide-5"><span>Adding a Garbage Matte</span></a></p></li>
+<li><p><a class="reference external" href="#guide-6"><span>Loopback Recording</span></a></p></li>
 </ul>
-</div>
-<div class="section" id="camera">
+
+        </div>
+        <div class="section" id="camera">
 <h2>Camera<a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="connecting">
 <h3>Connecting<a class="headerlink" href="#connecting" title="Permalink to this headline">¶</a></h3>
@@ -1239,19 +1203,23 @@ HDMI to SDI converter that preserves timecode.</p>
 <h3>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h3>
 <p>Your camera <em>must</em> output a known color space.
 We will use sRGB in our example by having the BMPCC transform the outgoing HDMI signal via a LUT.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>See <span><a class="roadmap reference external" href="../bmpcc-hdmi-srgb/"><span>BMPCC HDMI sRGB Setup</span></a><span class="planned">Planned</span></span> on setting up the BMPCC to output sRGB.</p>
-</div>
-<p>While the HDMI signal is 1080p sRGB, ensure your camera is set to record in its RAW format with its widest-gamut color space.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>See <span><a class="reference external" href="../bmpcc-to-braw/"><span>BMPCC4k to BRaw</span></a></span> on setting up the BMPCC to record in 4K RAW.</p>
-</div>
-</div>
-</div>
-<div class="section" id="media-source-setup">
-<h2>Media Source Setup<a class="headerlink" href="#media-source-setup" title="Permalink to this headline">¶</a></h2>
+
+        <div class="guide-dep admonition" id="guide-0">
+        <p class="admonition-title">BMPCC sRGB over HDMI</p>
+        <div class="docutils container">
+        <p>See <span><a class="roadmap reference external" href="../bmpcc-hdmi-srgb/"><span>BMPCC HDMI sRGB Setup</span></a><span class="planned">Planned</span></span> on setting up the BMPCC to output sRGB.</p>
+
+        </div>
+        </div>
+        
+        <div class="guide-dep admonition" id="guide-1">
+        <p class="admonition-title">Blackmagic Raw Setup</p>
+        <div class="docutils container">
+        <p>See <span><a class="reference external" href="../bmpcc-to-braw/"><span>BMPCC4k to BRaw</span></a></span> on setting up the BMPCC to record in 4K RAW.</p>
+
+        </div>
+        </div>
+        <hr class="docutils" />
 <p>We use a Media Bundle to connect Unreal to the Decklink.</p>
 <ol class="arabic">
 <li><p>Create a new <strong>Media Bundle</strong></p>
@@ -1348,17 +1316,21 @@ You should see your camera feed appear on the plane you just dragged in.</p>
 <p>If your footage doesn’t appear see <span><a class="reference external" href="../../help/troubleshooting-decklink/"><span>Verifying the Decklink SDI Connection</span></a></span> for help.</p>
 </div>
 </div>
+</div>
 <div class="section" id="timecode-and-genlock">
 <h2>Timecode and Genlock<a class="headerlink" href="#timecode-and-genlock" title="Permalink to this headline">¶</a></h2>
 <p>Our composure output will output timecode, and use genlock to drive the render frame rate.
 Without timecode, the footage you record from composure will not match up with any VFX you render in post-processing.
 We want the live composited footage to exactly match the timecode of the raw footage.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>See <span><a class="backlog reference external" href="../unreal-timecode-genlock/"><span>Unreal Timecode and Genlock</span></a><span class="helpwanted">Help Wanted</span></span> on setting up timecode and genlock with the Blackmagic Decklink 8K Pro.</p>
-</div>
-<p>Check that the timecode in Unreal is being driven by your custom blueprint,
-and the displayed time matches your camera.
+
+        <div class="guide-dep admonition" id="guide-2">
+        <p class="admonition-title">Timecode & Genlock</p>
+        <div class="docutils container">
+        <p>See <span><a class="backlog reference external" href="../unreal-timecode-genlock/"><span>Unreal Timecode and Genlock</span></a><span class="helpwanted">Help Wanted</span></span> on setting up timecode and genlock with the Blackmagic Decklink 8K Pro.</p>
+
+        </div>
+        </div>
+        <p>and the displayed time matches your camera.
 Check that genlock is operating at the desired framerate.</p>
 
         <div class="figure align-default" id="id1">
@@ -1376,13 +1348,15 @@ Check that genlock is operating at the desired framerate.</p>
 <div class="section" id="virtual-camera">
 <h2>Virtual Camera<a class="headerlink" href="#virtual-camera" title="Permalink to this headline">¶</a></h2>
 <p>Set your virtual camera to exactly match your real-life camera.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>See <span><a class="reference external" href="../unreal-virtual-camera-matching/"><span>Unreal Virtual Camera Matching</span></a></span> for details on configuring the virtual camera.</p>
-</div>
-</div>
-<div class="section" id="composure">
-<h2>Composure<a class="headerlink" href="#composure" title="Permalink to this headline">¶</a></h2>
+
+        <div class="guide-dep admonition" id="guide-3">
+        <p class="admonition-title">Virtual Camera Matching</p>
+        <div class="docutils container">
+        <p>See <span><a class="reference external" href="../unreal-virtual-camera-matching/"><span>Unreal Virtual Camera Matching</span></a></span> for details on configuring the virtual camera.</p>
+
+        </div>
+        </div>
+        <hr class="docutils" />
 <ol class="arabic">
 <li><p>Ensure the composure tab is visible</p>
 
@@ -1574,13 +1548,15 @@ You should see two layers to your comp, a media plate, and a cg element.</p>
 Point your camera at whatever you want.
 We are going to overlay the media plate and CG layer.
 This will insert the live actors into the CG scene seen by the camera.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>If you want to add motion see <span><a class="backlog reference external" href="../unreal-vive-livelink/"><span>Unreal Vive LiveLink</span></a><span class="helpwanted">Help Wanted</span></span>.</p>
-</div>
-</div>
-<div class="section" id="composing-layers">
-<h2>Composing Layers<a class="headerlink" href="#composing-layers" title="Permalink to this headline">¶</a></h2>
+
+        <div class="guide-next admonition" id="guide-4">
+        <p class="admonition-title">LiveLink</p>
+        <div class="docutils container">
+        <p>If you want to add motion see <span><a class="backlog reference external" href="../unreal-vive-livelink/"><span>Unreal Vive LiveLink</span></a><span class="helpwanted">Help Wanted</span></span>.</p>
+
+        </div>
+        </div>
+        <hr class="docutils" />
 <p>Select your comp, and in the details panel under <code class="docutils literal notranslate"><span class="pre">Transform</span> <span class="pre">Passes</span></code> add a transform pass.</p>
 <ol class="arabic simple">
 <li><p>Leave the default type as <code class="docutils literal notranslate"><span class="pre">Compositing</span> <span class="pre">Element</span> <span class="pre">Material</span> <span class="pre">Pass</span></code>.</p></li>
@@ -1683,25 +1659,30 @@ In the details panel, ensure only <em>R</em>, <em>G</em>, and <em>B</em> are sel
                      alt=""/>
                 </a></div></li>
 </ol>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>See <span><a class="backlog reference external" href="../unreal-composure-garbage-matte/"><span>Unreal Composure Garbage Matting</span></a><span class="helpwanted">Help Wanted</span></span> on adding a Garbage Matte.</p>
-</div>
-</div>
-<div class="section" id="media-output">
-<h2>Media Output<a class="headerlink" href="#media-output" title="Permalink to this headline">¶</a></h2>
+
+        <div class="guide-next admonition" id="guide-5">
+        <p class="admonition-title">Adding a Garbage Matte</p>
+        <div class="docutils container">
+        <p>See <span><a class="backlog reference external" href="../unreal-composure-garbage-matte/"><span>Unreal Composure Garbage Matting</span></a><span class="helpwanted">Help Wanted</span></span> on adding a Garbage Matte.</p>
+
+        </div>
+        </div>
+        <hr class="docutils" />
 <p>The composure is running! Now we need to send it somewhere to record.
 We will send the video feed out through an unused Decklink port,
 and record the signal outside of Unreal.
 Any device which can record 1080p over SDI can be used,
 including the Decklink itself.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>See <span><a class="backlog reference external" href="../decklink-loopback-recording/"><span>Decklink Loopback Recording</span></a><span class="helpwanted">Help Wanted</span></span> on setting up Decklink to record the Unreal output in another program.</p>
-</div>
-<ol class="arabic">
-<li><p>Select the comp in World Outliner, and go to the details panel.
-Add a <strong>Compositing Media Capture Output</strong> Output Pass to the <em>Composure Outputs</em>.</p>
+
+        <div class="guide-next admonition" id="guide-6">
+        <p class="admonition-title">Loopback Recording</p>
+        <div class="docutils container">
+        <p>See <span><a class="backlog reference external" href="../decklink-loopback-recording/"><span>Decklink Loopback Recording</span></a><span class="helpwanted">Help Wanted</span></span> on setting up Decklink to record the Unreal output in another program.</p>
+
+        </div>
+        </div>
+        <blockquote>
+<div><p>Add a <strong>Compositing Media Capture Output</strong> Output Pass to the <em>Composure Outputs</em>.</p>
 <p>If the <em>Capture Output</em> setting is blank, create a new <strong>Blackmagic Media Output</strong> and save it anywhere you like.</p>
 
         <div class="figure align-default" id="id1">
@@ -1715,7 +1696,8 @@ Add a <strong>Compositing Media Capture Output</strong> Output Pass to the <em>C
                      width="auto"
                      height="auto"
                      alt=""/>
-                </a></div></li>
+                </a></div></div></blockquote>
+<ol class="arabic">
 <li><p>Choose an unused port to output the SDI signal.</p>
 
         <div class="figure align-default" id="id1">

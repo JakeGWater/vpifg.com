@@ -6,7 +6,7 @@ Unreal OCIO Setup
    
    Download OCIO and configure Unreal to use OCIO for color management.
 
-.. guide:shownext::
+.. guide:shownexts::
 
 What is OCIO
 ============
