@@ -12,7 +12,8 @@ Software
 
 .. [UnrealEngine] :guilabel:`FREE` `<https://unrealengine.com>`_
 
-.. [NukeNonCommercial] :guilabel:`FREE` `<https://www.foundry.com/products/nuke/non-commercial>`_
+.. 
+    [NukeNonCommercial] :guilabel:`FREE` `<https://www.foundry.com/products/nuke/non-commercial>`_
 
 .. [Resolve] 
     :guilabel:`FREE` `Davinci Resolve <https://www.blackmagicdesign.com/products/davinciresolve/>`_
@@ -28,20 +29,23 @@ Software
     `Manual <https://documents.blackmagicdesign.com/UserManuals/BlackmagicPocketCinemaCamera4KManual.pdf>`_
 
 
-.. [Nuke]
+.. 
+    [Nuke]
     
     Paid software from `Foundary <https://www.foundry.com/products/nuke>`_.
 
     For non-commercial usage, there is [NukeNonCommercial]_, as well as [NukeIndie]_ for studios with limited revenue.
 
-.. [NukeIndie] is a slightly limited version of Nuke `<https://www.foundry.com/products/nuke/nuke-indie>`_.
+.. 
+    [NukeIndie] is a slightly limited version of Nuke `<https://www.foundry.com/products/nuke/nuke-indie>`_.
 
 .. [ResolveStudio] `<https://www.blackmagicdesign.com/products/davinciresolve/studio>`_
 
 Hardware
 ========
 
-.. [BMPCC4k] 
+.. 
+    [BMPCC4k] 
     
     Introductory 4k RAW Cinema Cmera.
 

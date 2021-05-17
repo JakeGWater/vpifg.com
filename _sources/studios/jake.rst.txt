@@ -8,7 +8,7 @@ My home studio.
 Workflows
 *********
 
-* :doc:`/workflows/BURN`
+* :goto:`workflows/BURN`
 
 *********
 Equipment

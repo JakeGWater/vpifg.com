@@ -1,5 +1,0 @@
-===========================
-Decklink Loopback Recording
-===========================
-
-.. milestone::

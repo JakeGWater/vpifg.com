@@ -7,10 +7,10 @@ Unreal Composure
 
 .. topic:: Pre-Requisites
 
-   * :doc:`bmpcc-hdmi-srgb`
-   * :doc:`unreal-ocio`
-   * :doc:`unreal-timecode-genlock`
-   * :doc:`unreal-virtual-camera-matching`
+   * :goto:`guides/bmpcc-hdmi-srgb`
+   * :goto:`guides/unreal-ocio`
+   * :goto:`guides/unreal-timecode-genlock`
+   * :goto:`guides/unreal-virtual-camera-matching`
 
 .. topic:: Lesson Plan
    
@@ -19,9 +19,9 @@ Unreal Composure
 
 .. topic:: Next
 
-   * :doc:`unreal-composure-lighting`
-   * :doc:`bmpcc-to-braw`
-   * :doc:`unreal-take-recorder`
+   * :goto:`guides/unreal-composure-lighting`
+   * :goto:`guides/bmpcc-to-braw`
+   * :goto:`guides/unreal-take-recorder`
 
 Camera
 ======
@@ -71,13 +71,13 @@ We will use sRGB in our example by having the BMPCC transform the outgoing HDMI 
 
 .. important::
 
-   See :doc:`bmpcc-hdmi-srgb` on setting up the BMPCC to output sRGB.
+   See :goto:`guides/bmpcc-hdmi-srgb` on setting up the BMPCC to output sRGB.
 
 While the HDMI signal is 1080p sRGB, ensure your camera is set to record in its RAW format with its widest-gamut color space.
 
 .. important::
    
-   See :doc:`bmpcc-to-braw` on setting up the BMPCC to record in 4K RAW.
+   See :goto:`guides/bmpcc-to-braw` on setting up the BMPCC to record in 4K RAW.
 
 Media Source Setup
 ==================
@@ -114,7 +114,7 @@ We use a Media Bundle to connect Unreal to the Decklink.
 
 .. important::
 
-   If your footage doesn't appear see :doc:`/help/troubleshooting-decklink` for help.
+   If your footage doesn't appear see :goto:`help/troubleshooting-decklink` for help.
 
 Timecode and Genlock
 ====================
@@ -125,7 +125,7 @@ We want the live composited footage to exactly match the timecode of the raw foo
 
 .. important::
 
-   See :doc:`unreal-timecode-genlock` on setting up timecode and genlock with the Blackmagic Decklink 8K Pro.
+   See :goto:`guides/unreal-timecode-genlock` on setting up timecode and genlock with the Blackmagic Decklink 8K Pro.
 
 Check that the timecode in Unreal is being driven by your custom blueprint,
 and the displayed time matches your camera.
@@ -140,7 +140,7 @@ Set your virtual camera to exactly match your real-life camera.
 
 .. important::
 
-   See :doc:`unreal-virtual-camera-matching` for details on configuring the virtual camera.
+   See :goto:`guides/unreal-virtual-camera-matching` for details on configuring the virtual camera.
 
 Composure
 =========
@@ -200,7 +200,7 @@ Chroma Keying
 -------------
 
 The next step is keying out the green screen.
-In the :doc:`/workflows/BURN`, the composure output we are creating is a sort of "proxy".
+In the :goto:`workflows/BURN`, the composure output we are creating is a sort of "proxy".
 We capture the live composure, which allows our editor to get started immediately,
 but the proxy will be replaced by a higher quality render later.
 
@@ -235,7 +235,7 @@ This will insert the live actors into the CG scene seen by the camera.
 
 .. important::
    
-   If you want to add motion see :doc:`unreal-vive-livelink`.
+   If you want to add motion see :goto:`guides/unreal-vive-livelink`.
 
 Composing Layers
 ================
@@ -283,7 +283,7 @@ Add two ``TextureSampleParameter2D`` nodes.
 
 .. important::
 
-   See :doc:`unreal-composure-garbage-matte` on adding a Garbage Matte.
+   See :goto:`guides/unreal-composure-garbage-matte` on adding a Garbage Matte.
 
 Media Output
 ============
@@ -296,7 +296,7 @@ including the Decklink itself.
 
 .. important::
 
-   See :doc:`decklink-loopback-recording` on setting up Decklink to record the Unreal output in another program.
+   See :goto:`guides/decklink-loopback-recording` on setting up Decklink to record the Unreal output in another program.
 
 #. Select the comp in World Outliner, and go to the details panel.
    Add a **Compositing Media Capture Output** Output Pass to the *Composure Outputs*.
@@ -356,4 +356,4 @@ Final
 If you followed every step, great work.
 You have setup composure with end-to-end *timecode-integrity* and an intact *color pipeline*.
 
-Next, we highly recommend :doc:`unreal-composure-lighting` to get your composure looking its best.
+Next, we highly recommend :goto:`guides/unreal-composure-lighting` to get your composure looking its best.

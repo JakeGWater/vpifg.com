@@ -2,4 +2,4 @@
 Nuke to Resolve
 ===============
 
-.. planned::
+.. milestone::

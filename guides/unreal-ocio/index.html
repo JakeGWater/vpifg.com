@@ -205,78 +205,73 @@
      Licenses
     </a>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../about/roadmap/">
      Roadmap
     </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../framework/">
-   Framework
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/4k/">
-     4K
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../framework/aces/">
-     ACES
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
      <i class="fas fa-chevron-down">
      </i>
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../framework/aces/correction/">
-       Color Correction
+      <a class="reference internal" href="../../about/roadmap/#planned">
+       Planned
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../framework/aces/pipeline/">
-       Color Pipeline
+      <a class="reference internal" href="../../about/roadmap/#backlog">
+       Backlog
       </a>
      </li>
     </ul>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../theory/">
+   Theory
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/live/">
+    <a class="reference internal" href="../../theory/4k/">
+     4K
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/aces/">
+     ACES
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/live/">
      Live
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/multicam/">
+    <a class="reference internal" href="../../theory/multicam/">
      Multicam
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/ndisplay/">
+    <a class="reference internal" href="../../theory/ndisplay/">
      nDisplay
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/raw/">
+    <a class="reference internal" href="../../theory/raw/">
      RAW
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/timecode/">
+    <a class="reference internal" href="../../theory/timecode/">
      Timecode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/#production-checklist">
-     Production Checklist
     </a>
    </li>
   </ul>
@@ -1396,8 +1391,8 @@
 <div class="topic">
 <p class="topic-title">Next</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../bmpcc-hdmi-srgb/"><span class="doc">BMPCC HDMI sRGB Setup</span></a></p></li>
-<li><p><a class="reference internal" href="../unreal-composure/"><span class="doc">Unreal Composure</span></a></p></li>
+<li><p><span><a class="reference external" href="../bmpcc-hdmi-srgb/"><span>BMPCC HDMI sRGB Setup</span></a><span class="planned">Planned</span></span></p></li>
+<li><p><span><a class="reference external" href="../unreal-composure/"><span>Unreal Composure</span></a></span></p></li>
 </ul>
 </div>
 <div class="section" id="what-is-ocio">
@@ -1407,7 +1402,7 @@
 <li><p>What color space the footage is coming from, and</p></li>
 <li><p>what color space the footage is going into.</p></li>
 </ol>
-<p>For example, an annotated color pipeline from <a class="reference internal" href="../../workflows/BURN/"><span class="doc">BURN Workflow</span></a> looks like:</p>
+<p>For example, an annotated color pipeline from <span><a class="reference external" href="../../workflows/BURN/"><span>BURN Workflow</span></a></span> looks like:</p>
 <img alt="      Raw        ┌──────┐             Raw    ┌────────────►│  BRaw├───────────────────────────────────┐    │             └──────┘                                   │    │                                                        ▼    │                        sRGB                        ┌───────┐   ACES ┌──┴──┐  sRGB    ┌──────┐  Linear   ┌─────────┐         │Davinci├───────► │BMPCC├─────────►│Unreal├──────────►│Composure│         │Resolve│ └─────┘          └──┬───┘           └────┬────┘         │       │                     │                    │              └───────┘                     │                    ▼ sRGB             ▲                     │               ┌────────┐              │                     │sRGB           │LiveView│              │                     │Linear         └────────┘              │                     │                                       │                     ▼                                       │               ┌────────────┐ ACEScg   ┌──────┐  ACEScg      │               │Movie Render├─────────►│  Nuke├──────────────┘               │   Queue    │          └──────┘               └────────────┘" class="svgbob align-center" src="../../_images/svgbob-6fd4c4da0b76bf491b3a285294be5536b063769a.svg" /><p>Unreal uses sRGB-Linear internally, but from the above diagram it will also need to convert from and into sRGB, and ACEScg.</p>
 <p>OCIO makes converting between color spaces easy. In short OCIO is:</p>
 <ol class="arabic simple">
@@ -1559,7 +1554,7 @@ If you use other color spaces, add them to the list.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The BMPCC does not output sRGB by default.
-We will need to conimage it in <a class="reference internal" href="../bmpcc-hdmi-srgb/"><span class="doc">BMPCC HDMI sRGB Setup</span></a>.</p>
+We will need to conimage it in <span><a class="reference external" href="../bmpcc-hdmi-srgb/"><span>BMPCC HDMI sRGB Setup</span></a><span class="planned">Planned</span></span>.</p>
 </div>
 </div>
 <div class="section" id="references">

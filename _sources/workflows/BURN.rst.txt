@@ -2,8 +2,6 @@
 BURN Workflow
 #################
 
-.. wip::
-
 .. prodcheck::
     :4k: yes
     :timecode: yes

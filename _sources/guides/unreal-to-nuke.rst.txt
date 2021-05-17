@@ -4,7 +4,7 @@ Unreal to Nuke
 
 .. topic:: Pre-Requisites
 
-    #. :doc:`unreal-take-recorder`
+    #. :goto:`guides/unreal-take-recorder`
 
 .. topic:: Lesson Plan
 
@@ -15,7 +15,7 @@ Unreal to Nuke
 
 .. topic:: Next Steps
 
-    #. :doc:`nuke-depth-of-field`
-    #. :doc:`lens-distortion`
+    #. :goto:`guides/nuke-depth-of-field`
+    #. :goto:`guides/lens-distortion`
 
-.. planned::
+.. milestone::

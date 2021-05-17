@@ -9,4 +9,4 @@ Adjusting for Lens Distortion
     #. Applying Distortion to Renders
     #. Applying Distortion in Unreal
 
-.. planned::
+.. milestone::

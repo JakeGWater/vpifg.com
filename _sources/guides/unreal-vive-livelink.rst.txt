@@ -2,4 +2,4 @@
 Unreal Vive LiveLink
 =====================
 
-.. planned::
+.. milestone::

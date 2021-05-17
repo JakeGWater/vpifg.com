@@ -29,7 +29,7 @@ Comparison
         - :term:`Live`
         - :term:`Multicam`
         - :term:`nDisplay`
-    *   - `BURN <workflows/burn>`_
+    *   - :goto:`workflows/BURN`
         - ✅
         - ✅
         - ✅
@@ -37,7 +37,7 @@ Comparison
         - ❌
         - ❌
         - ❌
-    *   - `LIVE <workflows/live>`_
+    *   - :goto:`workflows/LIVE`
         - ❌
         - ✅
         - ❌
@@ -49,4 +49,4 @@ Comparison
 Add Your Own
 ============
 
-If you would like to add your own workflow, check out :doc:`/about/contributing` to get started.
+If you would like to add your own workflow, check out :goto:`about/contributing` to get started.

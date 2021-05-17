@@ -205,78 +205,73 @@
      Licenses
     </a>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../roadmap/">
      Roadmap
     </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../framework/">
-   Framework
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/4k/">
-     4K
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../framework/aces/">
-     ACES
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
      <i class="fas fa-chevron-down">
      </i>
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../framework/aces/correction/">
-       Color Correction
+      <a class="reference internal" href="../roadmap/#planned">
+       Planned
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../framework/aces/pipeline/">
-       Color Pipeline
+      <a class="reference internal" href="../roadmap/#backlog">
+       Backlog
       </a>
      </li>
     </ul>
    </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../theory/">
+   Theory
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/live/">
+    <a class="reference internal" href="../../theory/4k/">
+     4K
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/aces/">
+     ACES
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../theory/live/">
      Live
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/multicam/">
+    <a class="reference internal" href="../../theory/multicam/">
      Multicam
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/ndisplay/">
+    <a class="reference internal" href="../../theory/ndisplay/">
      nDisplay
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/raw/">
+    <a class="reference internal" href="../../theory/raw/">
      RAW
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/timecode/">
+    <a class="reference internal" href="../../theory/timecode/">
      Timecode
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../framework/#production-checklist">
-     Production Checklist
     </a>
    </li>
   </ul>
@@ -1431,7 +1426,7 @@ As such, there are a few guidelines we would like contributions to follow:</p>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="#adding-workflows">Workflow</a></p></li>
 <li><p><a class="reference external" href="#adding-guides">Guides</a></p></li>
-<li><p><a class="reference internal" href="../../studios/"><span class="doc">Studios</span></a></p></li>
+<li><p><span><a class="reference external" href="../../studios/"><span>Studios</span></a></span></p></li>
 <li><p><a class="reference external" href="#adding-help">Help</a></p></li>
 </ol>
 </li>
@@ -1439,9 +1434,9 @@ As such, there are a few guidelines we would like contributions to follow:</p>
 <div class="section" id="adding-workflows">
 <h3>Adding Workflows<a class="headerlink" href="#adding-workflows" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
-<li><p>Workflows should reference a series of <a class="reference internal" href="../../guides/"><span class="doc">Guides</span></a> to be placed in <a class="reference external" href="https://github.com/JakeGWater/vpifg.com/tree/main/source/guides">sources/guides</a>.</p></li>
+<li><p>Workflows should reference a series of <span><a class="reference external" href="../../guides/"><span>Guides</span></a></span> to be placed in <a class="reference external" href="https://github.com/JakeGWater/vpifg.com/tree/main/source/guides">sources/guides</a>.</p></li>
 <li><p>Incomplete workflows <strong>must</strong> be marked as <a class="reference internal" href="#work-in-progress">Work in Progress</a>.</p></li>
-<li><p>Workflows <strong>must</strong> include a <a class="reference internal" href="../../framework/#production-checklist"><span class="std std-ref">Production Checklist</span></a> banner. See <a class="reference internal" href="../../workflows/BURN/"><span class="doc">BURN Workflow</span></a>.
+<li><p>Workflows <strong>must</strong> include a Production Checklist banner. See <span><a class="reference external" href="../../workflows/BURN/"><span>BURN Workflow</span></a></span>.
 Insert after your title:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">prodcheck</span><span class="p">::</span>
     <span class="p">:</span><span class="mi">4</span><span class="n">k</span><span class="p">:</span> <span class="n">yes</span><span class="o">|</span><span class="n">no</span>
@@ -1469,13 +1464,13 @@ This produces something like:</p>
 <col style="width: 14%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p><a class="reference internal" href="../../framework/#term-4K"><span class="xref std std-term">4K</span></a></p></th>
-<th class="head"><p><a class="reference internal" href="../../framework/#term-Raw"><span class="xref std std-term">RAW</span></a></p></th>
-<th class="head"><p><a class="reference internal" href="../../framework/#term-Timecode"><span class="xref std std-term">Timecode</span></a></p></th>
-<th class="head"><p><a class="reference internal" href="../../framework/#term-ACES"><span class="xref std std-term">ACES</span></a></p></th>
-<th class="head"><p><a class="reference internal" href="../../framework/#term-Live"><span class="xref std std-term">Live</span></a></p></th>
-<th class="head"><p><a class="reference internal" href="../../framework/#term-Multicam"><span class="xref std std-term">Multicam</span></a></p></th>
-<th class="head"><p><a class="reference internal" href="../../framework/#term-nDisplay"><span class="xref std std-term">nDisplay</span></a></p></th>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="../../theory/#term-4K"><span class="xref std std-term">4K</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="../../theory/#term-Raw"><span class="xref std std-term">RAW</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="../../theory/#term-Timecode"><span class="xref std std-term">Timecode</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="../../theory/#term-ACES"><span class="xref std std-term">ACES</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="../../theory/#term-Live"><span class="xref std std-term">Live</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="../../theory/#term-Multicam"><span class="xref std std-term">Multicam</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="../../theory/#term-nDisplay"><span class="xref std std-term">nDisplay</span></a></p></th>
 </tr>
 </thead>
 <tbody>
@@ -1533,17 +1528,17 @@ Nonetheless, we want things to be centered around a virtual production.</p>
 </pre></div>
 </div>
 </li>
-<li><p>Add the citation, either in the same document, or in <a class="reference internal" href="../../references/"><span class="doc">References</span></a> as:</p>
+<li><p>Add the citation, either in the same document, or in <span><a class="reference external" href="../../references/"><span>References</span></a></span> as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. [unrealengine] The unreal game engine `&lt;https://www.unrealengine.com&gt;`_
 </pre></div>
 </div>
 </li>
-<li><p>Keep in mind, your citation might be relocated to <a class="reference internal" href="../../references/"><span class="doc">References</span></a>.</p></li>
+<li><p>Keep in mind, your citation might be relocated to <span><a class="reference external" href="../../references/"><span>References</span></a></span>.</p></li>
 </ol>
 </li>
 <li><p><em>Exceptions</em></p>
 <ol class="arabic simple">
-<li><p>Studio pages (<a class="reference internal" href="../../studios/"><span class="doc">Studios</span></a>) may use external links, including affiliate links.</p></li>
+<li><p>Studio pages (<span><a class="reference external" href="../../studios/"><span>Studios</span></a></span>) may use external links, including affiliate links.</p></li>
 <li><p>About pages may use external links.</p></li>
 </ol>
 </li>
@@ -1581,7 +1576,7 @@ Please see our <a class="reference internal" href="../roadmap/"><span class="doc
 Experimental pages should begin with the following display:</p>
 <div class="danger admonition">
 <p class="admonition-title">Work In Progress</p>
-<p>This page is <strong>Experimental</strong> and may not be <a class="reference internal" href="../../framework/#term-Production-Ready"><span class="xref std std-term">Production Ready</span></a>.</p>
+<p>This page is <strong>Experimental</strong> and may not be Production Ready.</p>
 </div>
 <p>Insert the following code into the beginning of your page:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">experimental</span><span class="p">::</span>
