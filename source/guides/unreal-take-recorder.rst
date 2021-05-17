@@ -4,8 +4,8 @@ Recording with Take Recorder
 
 .. topic:: Pre-Requisites
 
-    #. :doc:`bmpcc-timecode`
-    #. :doc:`unreal-composure`
+    #. :goto:`guides/bmpcc-timecode`
+    #. :goto:`guides/unreal-composure`
 
 .. topic:: Lesson Plan
 
@@ -13,5 +13,5 @@ Recording with Take Recorder
     #. Posessable vs. Spawnable
     #. Recording Actors
 
-.. planned::
+.. milestone::
 

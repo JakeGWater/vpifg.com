@@ -1,45 +1,29 @@
 ============
-Framework
+Theory
 ============
-
-While independent productions are our focus,
-our aim is towards professional content that is :term:`Production Ready`.
-
-.. glossary::
-
-    Production Ready
-        
-        Production Ready content is sellable.
-        It should meet whatever broadcast are required by the workflows target domain.
-        The exact criteria depends on the content and the buyer,
-        but we believe our `Production Checklist`_ is a good starting place on which to evalute workflow.
 
 .. toctree::
     :glob:
     :hidden:
     
-    framework/*
+    theory/*
 
-.. _production-checklist:
-
-Production Checklist
-====================
-
-Workflow are evaluated along following requirements.
+We believe the following topics are important to Virtual Production,
+and each workflow is evaluated using the following *Production Checklist*.
 
 .. glossary::
 
     Timecode
         Timecode requires that all hardware and software that consumes or produces media to maintain the original timecode both on import and export.
         
-        See more in :doc:`/framework/timecode`.
+        See more in :goto:`theory/timecode`.
 
     ACES
         ACES requires an ACES working space and that Raw files are exported only to ACES, and not another smaller color space.
         Correct input and output transforms must be used to maintainer your color pipeline.
         CG footage may be exported to ACEScg.
 
-        See more in :doc:`/framework/aces`.
+        See more in :goto:`theory/aces`.
     
     4K
         4K requires that all sources, both camera an renders, are either 3840x2160 or 4096x2160 resolution,
@@ -47,7 +31,7 @@ Workflow are evaluated along following requirements.
 
     Raw
         Raw requires that all original footage is shot in that cameras RAW format at 10-bit color depth or higher,
-        and written using a relatively high-quality compression and colorspace.
+        and written using a relatively high-quality compression and color-space.
         Raw footage should only be re-encoded in a lossless format to-and-from ACES.
 
     Live

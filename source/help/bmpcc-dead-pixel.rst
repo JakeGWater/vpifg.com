@@ -2,4 +2,4 @@
 Dead Pixel on BMPCC
 ====================
 
-.. wip::
+.. milestone::

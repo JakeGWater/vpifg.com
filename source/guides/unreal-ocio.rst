@@ -7,8 +7,8 @@ Unreal OCIO Setup
 
 .. topic:: Next
 
-   * :doc:`bmpcc-hdmi-srgb`
-   * :doc:`unreal-composure`
+   * :goto:`guides/bmpcc-hdmi-srgb`
+   * :goto:`guides/unreal-composure`
 
 What is OCIO
 ============
@@ -18,7 +18,7 @@ Any time footage leaves the camera and enters your computer, or your video files
 #. What color space the footage is coming from, and
 #. what color space the footage is going into.
 
-For example, an annotated color pipeline from :doc:`/workflows/BURN` looks like:
+For example, an annotated color pipeline from :goto:`workflows/BURN` looks like:
 
 .. svgbob::
    :align: center
@@ -126,7 +126,7 @@ If you use other color spaces, add them to the list.
 .. note::
 
    The BMPCC does not output sRGB by default.
-   We will need to conimage it in :doc:`bmpcc-hdmi-srgb`.
+   We will need to conimage it in :goto:`guides/bmpcc-hdmi-srgb`.
 
 References
 ==========

@@ -47,15 +47,16 @@ sys.path.append(os.path.abspath("./_ext"))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'fa',
-    'download',
-    'csvtable',
-    'notices',
-    'figma',
     'compare',
+    'csvtable',
+    'download',
+    'fa',
+    'figma',
     'license',
+    'notices',
     'prodcheck',
     'recommonmark',
+    'roadmap',
     'sphinx_git',
     'sphinx.ext.githubpages',
     'sphinx.ext.ifconfig',
@@ -101,6 +102,7 @@ pygments_style = None
 html_title = project
 
 html_theme_path = ["../_themes"]
+
 
 import json
 
@@ -188,6 +190,20 @@ html_theme_options = {
     'globaltoc_includehidden': True,
 
     'navigation_with_keys': False
+}
+
+roadmap = {
+    'backlog_message': [
+        "**Sorry**! This content has not been created yet."
+        "It is in our backlog, but not on any roadmap. There is no estimate on when it will be completed. \
+            See our :doc:`/about/roadmap` for more info.",
+        "If you would like to help author this content, check out our :doc:`/about/contributing` guide."
+    ],
+    'roadmap_message': [
+        "**Sorry**! This page has not been created yet.",
+        "This content is planned on our :findroadmap:`*`.",
+        "See our :doc:`/about/roadmap` for more info.",
+    ]
 }
 
 # -- Options for HTMLHelp output ---------------------------------------------

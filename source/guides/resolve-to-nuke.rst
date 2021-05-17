@@ -2,5 +2,5 @@
 Resolve to Nuke
 ===============
 
-.. planned::
+.. milestone::
 

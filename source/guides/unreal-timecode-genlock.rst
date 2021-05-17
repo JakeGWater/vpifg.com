@@ -4,11 +4,11 @@
 Unreal Timecode and Genlock
 ===========================
 
-.. wip::
+.. milestone::
 
 .. topic:: Pre-Requisites
 
-    * :doc:`bmpcc-timecode`
+    * :goto:`guides/bmpcc-timecode`
 
 Timecode
 --------
