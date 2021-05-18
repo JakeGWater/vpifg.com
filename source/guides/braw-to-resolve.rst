@@ -2,13 +2,7 @@
 BRaw to Davinci Resolve
 ########################
 
-.. milestone::
-
-.. topic:: Pre-Requisites
-    
-    #. :goto:`guides/bmpcc-to-braw`
-
-.. topic:: Lesson Plan
+.. guide:lesson::
 
     #. ACES Project
 
@@ -16,3 +10,6 @@ BRaw to Davinci Resolve
 
     #. Camera Raw Settings
     #. Color Correction
+
+.. milestone::
+

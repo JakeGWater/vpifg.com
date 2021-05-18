@@ -2,7 +2,7 @@
 Adjusting for Lens Distortion
 #############################
 
-.. topic:: Lesson Plan
+.. guide:lesson::
 
     #. Measuring Distortion in Nuke
     #. Measuring Distortion in Resolve

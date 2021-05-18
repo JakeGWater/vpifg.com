@@ -2,9 +2,6 @@
 Roadmap
 ==========
 
-Planned
-=======
-
 The current plan is to complete the guides associated with :goto:`workflows/BURN`.
 Each guide should include:
 
@@ -16,18 +13,23 @@ Each guide should include:
 .. roadmap:: May 2021
 
     - :planned:`guides/bmpcc-hdmi-srgb`
-    - :planned:`guides/unreal-virtual-camera-matching`
-
+    - :planned:`guides/decklink-loopback-recording`
+    - :planned:`guides/unreal-take-recorder`
 
 .. roadmap:: June 2021
 
+    - :planned:`guides/unreal-to-nuke`
+    - :planned:`guides/nuke-depth-of-field`
+    - :planned:`guides/nuke-to-resolve`
     - :planned:`guides/braw-to-resolve`
-
+    - :planned:`guides/unreal-lens-distortion`
 
 .. roadmap:: July 2021
 
-    - :planned:`guides/unreal-take-recorder`
-
+    - :planned:`guides/unreal-composure-lighting`
+    - :planned:`guides/unreal-vive-livelink`
+    - :planned:`guides/unreal-to-resolve`
+    - :planned:`guides/resolve-to-nuke`
 
 Backlog
 =======

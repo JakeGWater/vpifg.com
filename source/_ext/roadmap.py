@@ -126,19 +126,17 @@ class MilestoneDirective(SphinxDirective):
 
         return [targetnode, milestone_node]
 
-def purge_todos(app, env, docname):
-    if not hasattr(env, 'roadmap_all_milestones'):
-        return
-
+# def purge_todos(app, env, docname):
+#     if not hasattr(env, 'roadmap_all_milestones'):
+#         return
     # env.roadmap_all_milestones = [todo for todo in env.roadmap_all_milestones
     #                       if todo['docname'] != docname]
 
-
-def merge_todos(app, env, docnames, other):
-    if not hasattr(env, 'roadmap_all_milestones'):
-        env.roadmap_all_milestones = {}
-    if hasattr(other, 'roadmap_all_milestones'):
-        env.roadmap_all_milestones.extend(other.roadmap_all_milestones)
+# def merge_todos(app, env, docnames, other):
+#     if not hasattr(env, 'roadmap_all_milestones'):
+#         env.roadmap_all_milestones = {}
+#     if hasattr(other, 'roadmap_all_milestones'):
+#         env.roadmap_all_milestones.extend(other.roadmap_all_milestones)
 
 class planned(nodes.General, nodes.Element):
     pass
@@ -175,15 +173,33 @@ def process_todo_nodes(app, doctree, fromdocname):
         node.replace_self(nodes.emphasis(text=f"{node['name']} (Unknown Milestone)"))
 
     for node in doctree.traverse(milestone):
+
+        # Check if the milestone is *last* or close to last.
+        # If so, we treat the page as "Not Yet Implemented".
+        # If any sections follow the milestone, then we convert it to "Work in Progress".
+        MILESTONE=False
+        WORK_IN_PROGRESS=False
+        for c in node.parent.children:
+            if isinstance(c, milestone):
+                MILESTONE=True
+            elif MILESTONE and isinstance(c, nodes.paragraph):
+                print(f"{fromdocname} is WIP")
+                WORK_IN_PROGRESS=True
+                break
+
         name = node['name']
         if name in env.roadmap_all_planned:
             rm = env.roadmap_all_roadmaps[env.roadmap_all_planned[name]]
             notice_node = nodes.admonition()
-            notice_node += nodes.title(_('Planned'), _('Planned'))
-            notice_node['classes'] = ['important']
+            if WORK_IN_PROGRESS:
+                notice_node += nodes.title(text=('Work in Progress'))
+                p = node[1]
+            else:
+                notice_node += nodes.title(text=('Sorry! This page has not been created yet'))
+                p = node[1]
             
-            p = node[1]
-
+            notice_node['classes'] = ['attention']
+            
             for fr in node.traverse(condition=findroadmap):
                 newnode = nodes.reference('', '')
                 newnode['refdocname'] = rm['docname']
@@ -198,7 +214,12 @@ def process_todo_nodes(app, doctree, fromdocname):
     
     for node in doctree.traverse(milestone):
         notice_node = nodes.admonition()
-        notice_node += nodes.title(_('Help Wanted'), _('Help Wanted'))
+        if WORK_IN_PROGRESS:
+            notice_node += nodes.title(text=('Work in Progress'))
+            notice_node['classes'] = ['warning']
+        else:
+            notice_node += nodes.title(text='Sorry! This page has not been created yet')
+            notice_node['classes'] = ['danger']
 
         newnode = nodes.reference('', '')
         newnode['refdocname'] = 'about/roadmap'
@@ -218,6 +239,7 @@ def process_todo_nodes(app, doctree, fromdocname):
                 ref = nodes.reference('', '')
                 ref['refdocname'] = docname
                 ref['refuri'] = app.builder.get_relative_uri(fromdocname, docname)
+                
                 title = env.titles[docname].astext()
                 ref += nodes.inline(text=title)
                 p = nodes.paragraph()
@@ -244,9 +266,11 @@ def process_todo_nodes(app, doctree, fromdocname):
             if docname in env.roadmap_all_planned:
                 text = "Planned"
                 gl = nodes.inline(text=text, classes=['planned'])
+                ref['classes'] = ['roadmap']
             else:
                 text = "Help Wanted"
                 gl = nodes.inline(text=text, classes=['helpwanted'])
+                ref['classes'] = ['backlog']
             il += gl
 
         node.replace_self(il)

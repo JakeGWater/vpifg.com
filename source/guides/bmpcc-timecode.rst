@@ -1,6 +1,14 @@
+:author: |jake|
+:author_url: |jake.url|
+:date: 2021-04-15
+
 ================================
-Setting Up Timecode with BMPCC4k
+Setting Up Timecode with BMPCC4K
 ================================ 
+
+.. guide:lesson::
+
+    Setup your [BMPCC4K]_ to output timecode over SDI.
 
 .. raw:: html
 

@@ -38,33 +38,24 @@ Guides
 Pre-Production
 --------------
 
-.. toctree::
-    :titlesonly:
-
-    /guides/unreal-set-design
-    /guides/bmpcc-timecode
-    /guides/bmpcc-to-braw
-    /guides/braw-to-resolve
+#. :goto:`guides/unreal-set-design`
+#. :goto:`guides/bmpcc-timecode`
+#. :goto:`guides/bmpcc-to-braw`
+#. :goto:`guides/braw-to-resolve`
 
 Production
 ----------
 
-.. toctree::
-    :titlesonly:
-
-    /guides/unreal-ocio
-    /guides/lens-distortion
-    /guides/unreal-composure
-    /guides/unreal-take-recorder
+#. :goto:`guides/unreal-ocio`
+#. :goto:`guides/lens-distortion`
+#. :goto:`guides/unreal-composure`
+#. :goto:`guides/unreal-take-recorder`
 
 Post-Production
 ---------------
 
-.. toctree::
-    :titlesonly:
-
-    /guides/unreal-to-nuke
-    /guides/unreal-to-resolve
-    /guides/nuke-depth-of-field
-    /guides/nuke-to-resolve
-    /guides/resolve-to-nuke
+#. :goto:`guides/unreal-to-nuke`
+#. :goto:`guides/unreal-to-resolve`
+#. :goto:`guides/nuke-depth-of-field`
+#. :goto:`guides/nuke-to-resolve`
+#. :goto:`guides/resolve-to-nuke`

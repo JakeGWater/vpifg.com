@@ -1,4 +1,5 @@
-:author: Jake G. Water
+:author: |jake|
+:author_url: |jake.url|
 
 =====================================
 Verifying the Decklink SDI Connection
