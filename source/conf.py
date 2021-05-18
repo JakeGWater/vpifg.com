@@ -58,6 +58,7 @@ extensions = [
     'prodcheck',
     'recommonmark',
     'roadmap',
+    'youtube',
     'sphinx_git',
     'sphinx.ext.githubpages',
     'sphinx.ext.ifconfig',
