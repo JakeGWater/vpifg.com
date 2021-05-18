@@ -12,7 +12,6 @@ Each guide should include:
 
 .. roadmap:: May 2021
 
-    - :planned:`guides/bmpcc-hdmi-srgb`
     - :planned:`guides/decklink-loopback-recording`
     - :planned:`guides/unreal-take-recorder`
 

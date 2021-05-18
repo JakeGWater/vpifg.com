@@ -128,7 +128,7 @@ If you use other color spaces, add them to the list.
 .. guide:next:: BMPCC4K sRGB HDMI Output
 
    The BMPCC does not output sRGB by default.
-   We will need to conimage it in :goto:`guides/bmpcc-hdmi-srgb`.
+   We will need to conimage it in :goto:`guides/resolve-lut-colorspace-transform`.
 
 References
 ==========
