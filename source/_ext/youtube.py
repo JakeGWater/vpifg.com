@@ -26,7 +26,6 @@ class youtubeDirective(SphinxDirective):
         youtube_node = youtube()
         srcuri = self.arguments[0]
         srcurl = urlparse(srcuri)
-        print(srcurl)
         if srcurl.path.startswith('/watch'):
             v = parse_qs(srcurl.query)['v'][0]
             srcurl = srcurl._replace(path=f"/embed/{v}", query="")

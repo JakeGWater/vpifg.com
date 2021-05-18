@@ -31,7 +31,7 @@ So `rgb(92,92,92)` in sRGB is middle gray.
 sRGB Linear
 ===========
 
-Unreal uses [sRGBLinear]_, so do we need another graph?
+Unreal uses Linear sRGB, so do we need another graph?
 We could, but Linear sRGB and ACES are both linear, and neutral colors are identically encoded.
 
 That is, `r=0.18, g=0.18, b=0.18` is the same in ACES and Linear sRGB.
