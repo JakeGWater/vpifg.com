@@ -786,6 +786,16 @@
        sRGB Linear
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#blackmagic-raw">
+       Blackmagic Raw
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#putting-it-all-together">
+       Putting it all Together
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -1051,6 +1061,16 @@
    sRGB Linear
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#blackmagic-raw">
+   Blackmagic Raw
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#putting-it-all-together">
+   Putting it all Together
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -1135,6 +1155,32 @@ So <cite>rgb(92,92,92)</cite> in sRGB is middle gray.</p>
 <p>Unreal uses <span id="id2">[sRGBLinear]</span>, so do we need another graph?
 We could, but Linear sRGB and ACES are both linear, and neutral colors are identically encoded.</p>
 <p>That is, <cite>r=0.18, g=0.18, b=0.18</cite> is the same in ACES and Linear sRGB.</p>
+</div>
+<div class="section" id="blackmagic-raw">
+<h2>Blackmagic Raw<a class="headerlink" href="#blackmagic-raw" title="Permalink to this headline">¶</a></h2>
+<p>Unfortunately there are no OCIO config files for Blackmagic Raw,
+but DaVinci Resolve can generate a <em>Blackmagic Film Gen 4 to ACES</em> LUT for you.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/cCsdmyDC/Plot-Blackmagic-Pocket4k-Film-to-ACES.png"
+               title="The plot of exposure values from Blackmagic Raw using the Pocket 4K Film color space to ACES."
+               data-title="The plot of exposure values from Blackmagic Raw using the Pocket 4K Film color space to ACES."
+               ><img src="https://i.postimg.cc/cCsdmyDC/Plot-Blackmagic-Pocket4k-Film-to-ACES.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a><p>The plot of exposure values from Blackmagic Raw using the Pocket 4K Film color space to ACES.</p>
+</div><p>As we can see, the value for <em>middle gray</em> is 0.38.
+Luckily, according to the following source, 0.38 coincides exactly with <em>green</em> when using false color mode.</p>
+<div><div class="video-container"><iframe src="https://www.youtube.com/embed/ToUeatbx9Lo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div></div>
+<div class="section" id="putting-it-all-together">
+<h2>Putting it all Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
+<p>If you are combining Unreal footage with camera footage,
+you will want your gray values to be set correctly at the source.
+When applying any OCIO transforms, the gray values from your different sources will match up exactly when combined.</p>
 <dl class="citation">
 <dt class="label" id="aces-spec"><span class="brackets"><a class="fn-backref" href="#id1">ACES_SPEC</a></span></dt>
 <dd><p><a class="reference external" href="https://acescentral.com/aces-documentation/">https://acescentral.com/aces-documentation/</a></p>

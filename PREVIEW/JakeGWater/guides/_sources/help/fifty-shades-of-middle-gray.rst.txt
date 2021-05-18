@@ -36,6 +36,31 @@ We could, but Linear sRGB and ACES are both linear, and neutral colors are ident
 
 That is, `r=0.18, g=0.18, b=0.18` is the same in ACES and Linear sRGB.
 
+Blackmagic Raw
+==============
 
+Unfortunately there are no OCIO config files for Blackmagic Raw,
+but DaVinci Resolve can generate a *Blackmagic Film Gen 4 to ACES* LUT for you.
+
+.. figure:: https://i.postimg.cc/cCsdmyDC/Plot-Blackmagic-Pocket4k-Film-to-ACES.png
+
+   The plot of exposure values from Blackmagic Raw using the Pocket 4K Film color space to ACES.
+
+As we can see, the value for *middle gray* is 0.38.
+Luckily, according to the following source, 0.38 coincides exactly with *green* when using false color mode.
+
+.. youtube:: https://www.youtube.com/watch?v=ToUeatbx9Lo
+
+Putting it all Together
+=======================
+
+If you are combining Unreal footage with camera footage,
+you will want your gray values to be set correctly at the source.
+When applying any OCIO transforms, the gray values from your different sources will match up exactly when combined.
+
+..
+   https://github.com/ampas/aces-dev/blob/master/transforms/ctl/README-MATRIX.md
+   https://github.com/microsoft/vcpkg#quick-start-windows
+   https://github.com/OpenImageIO/oiio/blob/master/INSTALL.md#installing-from-package-managers
 
 .. [ACES_SPEC] https://acescentral.com/aces-documentation/
