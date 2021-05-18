@@ -1,18 +1,9 @@
-####################################
+====================================
 Adding DoF to Unreal Renders in Nuke
-####################################
+====================================
 
-.. topic:: Pre-Requisites
+.. guide:lesson::
 
-    #. :goto:`guides/unreal-to-nuke`
-
-.. topic:: Lesson Plan
-
-    #. Exporting ZDepth in Unreal
-    #. Applying *Defocus*
-
-.. topic:: Next Steps
-
-    #. :goto:`guides/nuke-to-resolve`
+    Add Depth of Field to the rendered Unreal footage using Nuke an zDepth channels.
 
 .. milestone::

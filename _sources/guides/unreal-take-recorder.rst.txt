@@ -2,12 +2,7 @@
 Recording with Take Recorder
 ============================
 
-.. topic:: Pre-Requisites
-
-    #. :goto:`guides/bmpcc-timecode`
-    #. :goto:`guides/unreal-composure`
-
-.. topic:: Lesson Plan
+.. guide:lesson::
 
     #. Timecode
     #. Posessable vs. Spawnable
