@@ -67,3 +67,4 @@ Sponsor
 =======
 
 Everything here is free to use, but if you would like to support us we very much welcome that!
+See `<https://www.patreon.com/jakegwater>`_.

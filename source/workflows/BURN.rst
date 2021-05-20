@@ -17,8 +17,9 @@ Overview
 **Blackmagic, Unreal, Resolve, and Nuke.**
 
 The BURN workflow is a green-screen, single camera, shot-oriented workflow for pre-recorded film or TV. 
-It is designed to be small, cost-efficient, but able to achive high-quality output.
-BURN is a compromise between mixed-reality and traditional green-screen workflows. BURN has two pieces:
+It is designed to be small, cost-efficient, but able to achieve high-quality output.
+BURN is a compromise between mixed-reality and traditional green-screen workflows. 
+BURN has two pieces:
 
 1. All equipment records internally at its highest quality.
 2. A lower-fidelity live-composite is captured, viewable, and recorded on-set during the shot.
@@ -28,34 +29,30 @@ After editing, the higher quality footage may be substituted in using timecode t
 
 .. rubric:: Illustsrated Workflow
 
-.. raw:: html
-
-    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTyVdwzfBvYXjmkwG5eYsrhs0YIabcefUiPRgfXbdiu_NToHf2SqT9aJ31ci7LT0pj-rlzt9Y-y5sHx/embed?start=false&loop=false&delayms=3000#slide=id.gcae64a3773_2_37" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+.. figure:: https://i.postimg.cc/HLM1Wr48/screenshot-52.png
 
 Guides
 ======
 
-Pre-Production
---------------
+.. figure:: https://i.postimg.cc/MpGXKJTJ/screenshot-53.png
+
+1. :goto:`guides/bmpcc-to-braw`
+   :goto:`guides/braw-to-resolve`
+2. :goto:`guides/bmpcc-timecode`
+3. :goto:`guides/unreal-vive-livelink`
+4. :goto:`bmpcc-hdmi-srgb`
+5. :goto:`guides/unreal-composure`
+   :goto:`guides/unreal-ocio`
+   :goto:`guides/lens-distortion`
+6. :goto:`guides/decklink-loopback-recording`
+7. :goto:`guides/unreal-take-recorder`
+8. :goto:`guides/unreal-to-nuke`
+9. :goto:`guides/nuke-depth-of-field`
+10. :goto:`guides/nuke-to-resolve`
+
+Extras
+------
 
 #. :goto:`guides/unreal-set-design`
-#. :goto:`guides/bmpcc-timecode`
-#. :goto:`guides/bmpcc-to-braw`
-#. :goto:`guides/braw-to-resolve`
-
-Production
-----------
-
-#. :goto:`guides/unreal-ocio`
-#. :goto:`guides/lens-distortion`
-#. :goto:`guides/unreal-composure`
-#. :goto:`guides/unreal-take-recorder`
-
-Post-Production
----------------
-
-#. :goto:`guides/unreal-to-nuke`
 #. :goto:`guides/unreal-to-resolve`
-#. :goto:`guides/nuke-depth-of-field`
-#. :goto:`guides/nuke-to-resolve`
 #. :goto:`guides/resolve-to-nuke`
