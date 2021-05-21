@@ -821,8 +821,18 @@
     </ul>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../help/find-my-color-space/">
+     Find My Camera’s Color Space
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../help/icc-profiles/">
      ICC Profiles
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../help/sRGB-or-sRGB-linear/">
+     sRGB vs sRGBLinear over HDMI
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -1146,15 +1156,33 @@ We like including reference implementations, since we have a BMPCC4K.</p>
 </div>
 <p>The camera should be setup such that:</p>
 <ol class="arabic simple">
-<li><p>A maximum-quality Raw file is saved locally to SDCard, SSD, CFAST, etc.</p></li>
-<li><p>A lower-quality (but the best you can make it) clean feed is sent to the Decklink for use with Composure.</p></li>
+<li><p>A maximum-quality <span id="id1">[Raw]</span> file is saved to your camera’s removable media cards, such as an SDCard, USB-C hard drive, or CFAST card.</p></li>
+<li><p>A lower-quality (but the best you can make it) clean feed is sent to the Decklink for use with Unreal’s <span id="id2">[Composure]</span> tool.</p></li>
 </ol>
 <p>Diagraming the physical components and color spaces, we get:</p>
-<img alt="         Blackmagic    ┌────────┐              Raw       │   SD   │       ┌───────────────►│  Card  │       │                └────────┘       │       │  ┌────┴─────┐  │          │  │  Camera  │  │          │  └────┬─────┘       │       │       │                 ┌─────────────┐            ┌──────────┐       │     sRGB        │             │            │          │       └────────────────►│ HDMI to SDI ├────SDI────►│ Decklink │                         │             │            │          │                         └─────────────┘            └──────────┘" class="svgbob align-center" src="../../_images/svgbob-cef86ae285aba91eacc7a415f22d3a32195ae42c.svg" /><p>The BMPCC4K records Blackmagic Raw files at 12-bit log,
+<img alt="         Blackmagic    ┌────────┐              Raw       │   SD   │       ┌───────────────►│  Card  │       │                └────────┘       │       │  ┌────┴─────┐  │          │  │  Camera  │  │          │  └────┬─────┘       │       │       │                 ┌─────────────┐            ┌──────────┐       │     sRGB        │             │            │          │       └────────────────►│ HDMI to SDI ├────SDI────►│ Decklink │                         │             │            │          │                         └─────────────┘            └──────────┘" class="svgbob align-center" src="../../_images/svgbob-cef86ae285aba91eacc7a415f22d3a32195ae42c.svg" /><p>The <a class="reference internal" href="../../references/#bmpcc4k" id="id3"><span>[BMPCC4K]</span></a> records Blackmagic Raw files at 12-bit log,
 under a variety of compression settings.</p>
 <p>Documentation on Blackmagic color spaces is difficult at best.
-<a class="reference internal" href="#davinciresolve" id="id1"><span>[DaVinciResolve]</span></a> can tell you your clips color space.
-Our camera is set to <a class="reference internal" href="#blackmagicdesignfilmgen1" id="id2"><span>[BlackmagicDesignFilmGen1]</span></a> color space by default.</p>
+<a class="reference internal" href="#davinciresolve" id="id4"><span>[DaVinciResolve]</span></a> can tell you your clips color space.
+Our camera is set to <a class="reference internal" href="#blackmagicdesignfilmgen1" id="id5"><span>[BlackmagicDesignFilmGen1]</span></a> color space by default.</p>
+<p>By default, the camera’s HDMI video feed will use the same color space as its internal recording,
+which is <a class="reference internal" href="#blackmagicdesignfilmgen1" id="id6"><span>[BlackmagicDesignFilmGen1]</span></a>.
+Unfortunately Unreal does not know anything about this color space,
+meaning the footage will look like crap.
+It will either be too dark, or washed out.
+OCIO is a tool used by Unreal to convert between color spaces,
+but it also doesn’t know the BlackmagicDesignFilmGen1 color space.
+What we should do is tell the camera to send a color space that Unreal recognizes.
+In this case, sRGB Linear.</p>
+<div class="sidebar">
+<p class="sidebar-title">Color Space as Language</p>
+<p>As an analogy, imagine our Camera speaks French, but Unreal expects English.
+Somewhere, we need a translator.
+In this example, the camera will translate to English before speaking to Unreal.</p>
+</div>
+<p>To send sRGB linear from the camera,
+we apply a LUT specially generated to go from BlackmagicDesignFilmGen1 to sRGB Linear.
+We will have to manually create the LUT, but it can be easily done using DaVinciResolve.</p>
 <p>By default, the HDMI signal will use the same color space as our internal recording.
 Unfortunately OCIO and Blackmagic do not play well together.
 Specifically, OCIO does not have any input or output transforms for Blackmagic color spaces.</p>
@@ -1171,27 +1199,11 @@ Specifically, OCIO does not have any input or output transforms for Blackmagic c
 <li><p>Convert to sRGB</p></li>
 <li><p>Convert to sRGB Linear</p></li>
 </ol>
-<p>SRGB <em>looks right</em> when displayed on a monitor.
-Linear sRGB is Unreal’s working color space, and thus wouldn’t require an input transform in composure.</p>
-<p>In a very unscientific test, we processed an sRGB and linear sRGB test pattern through the 10-bit 4:2:0 sub-sampling used by our HDMI connection.</p>
-
-        <div class="figure align-default" id="id1">
-    <a class="thumbnail"
-               data-lightbox="group-images"
-               href="https://i.postimg.cc/X7cm2FF1/screenshot-45.png"
-               title="Linear sRGB (left) and sRGB (right) after converted to 10-bit and compressed in YCbCr using 4:2:0 chroma sub-sampling.
-Test pattern from RTINGSChromaTest."
-               data-title="Linear sRGB (left) and sRGB (right) after converted to 10-bit and compressed in YCbCr using 4:2:0 chroma sub-sampling.
-Test pattern from RTINGSChromaTest."
-               ><img src="https://i.postimg.cc/X7cm2FF1/screenshot-45.png"
-                     class=""
-                     width="auto"
-                     height="auto"
-                     alt=""/>
-                </a><p>Linear sRGB (left) and sRGB (right) after converted to 10-bit and compressed in YCbCr using 4:2:0 chroma sub-sampling.
-Test pattern from <a class="reference internal" href="#rtingschromatest" id="id4"><span>[RTINGSChromaTest]</span></a>.</p>
-</div><p>The sRGB linear appears to fair better in this example.
-You can use either color space, as long as you understand the implications of both approaches.</p>
+<p>We recommend using sRGB linear, as it is the default color space used by Unreal.</p>
+<div class="admonition-srgb-vs-srgb-linear-deep-dive admonition">
+<p class="admonition-title">sRGB vs sRGB Linear Deep Dive</p>
+<p>See our comparison of <span><a class="reference external" href="../../help/sRGB-or-sRGB-linear/"><span>sRGB vs sRGBLinear over HDMI</span></a></span>.</p>
+</div>
 <div class="section" id="generating-a-lut-in-resolve">
 <h2>Generating a LUT in Resolve<a class="headerlink" href="#generating-a-lut-in-resolve" title="Permalink to this headline">¶</a></h2>
 <p>Our camera lets us apply a LUT before sending the image over HDMI.
@@ -1242,8 +1254,13 @@ In our case, from BlackmagicDesignFilmGen1 to sRGBLinear.</p>
                 </a></div></li>
 <li><p>Set your input and output color spaces accordingly.
 The input space is whatever your camera uses,
-and the output space is sRGB with appropriate gamma.
-Disable Tone Mapping, Forward OOTF, and Inverse OOTF.</p>
+and the output space is sRGB with appropriate gamma:</p>
+<ol class="arabic simple">
+<li><p>Gamma 2.2 is the sRGB default gamma used by computer monitors.</p></li>
+<li><p>Gamma 2.4 is used by Rec.709 which is for HDTV.</p></li>
+<li><p>Linear is best when importing to another VFX program, including Unreal, and Nuke.</p></li>
+</ol>
+<p>Also disable Tone Mapping, Forward OOTF, and Inverse OOTF.</p>
 
         <div class="figure align-default" id="id1">
     <a class="thumbnail"
@@ -1256,12 +1273,13 @@ Disable Tone Mapping, Forward OOTF, and Inverse OOTF.</p>
                      width="auto"
                      height="auto"
                      alt=""/>
-                </a></div><ol class="arabic simple">
-<li><p>Gamma 2.2 is the sRGB default gamma.</p></li>
-<li><p>Gamma 2.4 is used by Rec.709.</p></li>
-<li><p>Linear is <em>Linear sRGB</em>.</p></li>
+                </a></div></li>
 </ol>
-</li>
+<div class="admonition-how-do-i-find-my-camera-s-color-space admonition">
+<p class="admonition-title">How Do I Find My Camera’s Color Space?</p>
+<p>See <span><a class="backlog reference external" href="../../help/find-my-color-space/"><span>Find My Camera’s Color Space</span></a><span class="helpwanted">Help Wanted</span></span> if you’re unsure which input space to use.</p>
+</div>
+<ol class="arabic">
 <li><p>With the color transform applied, right-click the clip and choose <em>Generate LUT</em>.
 The BMPCC4K uses a 33 point LUT.</p>
 
@@ -1279,7 +1297,7 @@ The BMPCC4K uses a 33 point LUT.</p>
                 </a></div></li>
 </ol>
 <p>Save the file wherever you like.
-It is now ready to be used as a color space transform in OCIO, your camera, or anywhere else!</p>
+It is now ready to be used as a color space transform in your camera, or anywhere else!</p>
 
         <div class="guide-next admonition" id="guide-1">
         <p class="admonition-title">Applying a LUT to the BMPCC4K</p>
@@ -1290,7 +1308,7 @@ It is now ready to be used as a color space transform in OCIO, your camera, or a
         </div>
         <hr class="docutils" />
 <dl class="citation">
-<dt class="label" id="blackmagicdesignfilmgen1"><span class="brackets"><a class="fn-backref" href="#id2">BlackmagicDesignFilmGen1</a></span></dt>
+<dt class="label" id="blackmagicdesignfilmgen1"><span class="brackets">BlackmagicDesignFilmGen1</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id6">2</a>)</span></dt>
 <dd>
         <div class="figure align-default" id="id1">
     <a class="thumbnail"
@@ -1304,9 +1322,9 @@ It is now ready to be used as a color space transform in OCIO, your camera, or a
                      height="auto"
                      alt=""/>
                 </a></div></dd>
-<dt class="label" id="davinciresolve"><span class="brackets"><a class="fn-backref" href="#id1">DaVinciResolve</a></span></dt>
+<dt class="label" id="davinciresolve"><span class="brackets"><a class="fn-backref" href="#id4">DaVinciResolve</a></span></dt>
 <dd></dd>
-<dt class="label" id="rtingschromatest"><span class="brackets">RTINGSChromaTest</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>)</span></dt>
+<dt class="label" id="rtingschromatest"><span class="brackets">RTINGSChromaTest</span></dt>
 <dd><p><a class="reference external" href="https://www.rtings.com/tv/learn/chroma-subsampling">https://www.rtings.com/tv/learn/chroma-subsampling</a></p>
 </dd>
 </dl>
