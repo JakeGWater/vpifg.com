@@ -19,8 +19,8 @@ Generate a LUT Color Space Transforms
 
 The camera should be setup such that:
 
-#. A maximum-quality Raw file is saved locally to SDCard, SSD, CFAST, etc.
-#. A lower-quality (but the best you can make it) clean feed is sent to the Decklink for use with Composure.
+#. A maximum-quality [Raw]_ file is saved to your camera's removable media cards, such as an SDCard, USB-C hard drive, or CFAST card.
+#. A lower-quality (but the best you can make it) clean feed is sent to the Decklink for use with Unreal's [Composure]_ tool.
 
 Diagraming the physical components and color spaces, we get:
 
@@ -46,12 +46,43 @@ Diagraming the physical components and color spaces, we get:
                            │             │            │          │
                            └─────────────┘            └──────────┘
 
-The BMPCC4K records Blackmagic Raw files at 12-bit log,
+.. 
+    Color space is like writing and speaking a language.
+    For example, ACES is a color space.
+    That involves things as different as English, Turkish, Punjabi.
+    Now we have to get into which area are we really focusing in on.
+    Romance languages. French Italian, Spansih, Romanian.
+    Making the color space smaller.
+    Doing it in this alphabet.
+    Autocorrect. A big broad family to a narrow family.
+
+The [BMPCC4K]_ records Blackmagic Raw files at 12-bit log,
 under a variety of compression settings.
 
 Documentation on Blackmagic color spaces is difficult at best.
 [DaVinciResolve]_ can tell you your clips color space.
 Our camera is set to [BlackmagicDesignFilmGen1]_ color space by default.
+
+By default, the camera's HDMI video feed will use the same color space as its internal recording,
+which is [BlackmagicDesignFilmGen1]_. 
+Unfortunately Unreal does not know anything about this color space,
+meaning the footage will look like crap.
+It will either be too dark, or washed out.
+OCIO is a tool used by Unreal to convert between color spaces,
+but it also doesn't know the BlackmagicDesignFilmGen1 color space.
+What we should do is tell the camera to send a color space that Unreal recognizes.
+In this case, sRGB Linear.
+
+.. sidebar:: Color Space as Language
+
+    As an analogy, imagine our Camera speaks French, but Unreal expects English.
+    Somewhere, we need a translator.
+    In this example, the camera will translate to English before speaking to Unreal.
+
+To send sRGB linear from the camera,
+we apply a LUT specially generated to go from BlackmagicDesignFilmGen1 to sRGB Linear.
+We will have to manually create the LUT, but it can be easily done using DaVinciResolve.
+
 
 By default, the HDMI signal will use the same color space as our internal recording.
 Unfortunately OCIO and Blackmagic do not play well together.
@@ -67,18 +98,11 @@ There are two good options from here:
 #. Convert to sRGB
 #. Convert to sRGB Linear
 
-SRGB *looks right* when displayed on a monitor.
-Linear sRGB is Unreal's working color space, and thus wouldn't require an input transform in composure.
+We recommend using sRGB linear, as it is the default color space used by Unreal.
 
-In a very unscientific test, we processed an sRGB and linear sRGB test pattern through the 10-bit 4:2:0 sub-sampling used by our HDMI connection.
+.. admonition:: sRGB vs sRGB Linear Deep Dive
 
-.. figure:: https://i.postimg.cc/X7cm2FF1/screenshot-45.png
-
-    Linear sRGB (left) and sRGB (right) after converted to 10-bit and compressed in YCbCr using 4:2:0 chroma sub-sampling.
-    Test pattern from [RTINGSChromaTest]_.
-
-The sRGB linear appears to fair better in this example.
-You can use either color space, as long as you understand the implications of both approaches.
+    See our comparison of :goto:`help/sRGB-or-sRGB-linear`.
 
 Generating a LUT in Resolve
 ===========================
@@ -99,14 +123,19 @@ In our case, from BlackmagicDesignFilmGen1 to sRGBLinear.
 
 #. Set your input and output color spaces accordingly.
    The input space is whatever your camera uses,
-   and the output space is sRGB with appropriate gamma.
-   Disable Tone Mapping, Forward OOTF, and Inverse OOTF.
+   and the output space is sRGB with appropriate gamma:
+   
+   #. Gamma 2.2 is the sRGB default gamma used by computer monitors.
+   #. Gamma 2.4 is used by Rec.709 which is for HDTV.
+   #. Linear is best when importing to another VFX program, including Unreal, and Nuke.
+
+   Also disable Tone Mapping, Forward OOTF, and Inverse OOTF.
 
    .. figure:: https://i.postimg.cc/CMGTB9vq/screenshot-49.png
 
-   #. Gamma 2.2 is the sRGB default gamma.
-   #. Gamma 2.4 is used by Rec.709.
-   #. Linear is *Linear sRGB*.
+.. admonition:: How Do I Find My Camera's Color Space?
+
+    See :goto:`help/find-my-color-space` if you're unsure which input space to use.
 
 #. With the color transform applied, right-click the clip and choose *Generate LUT*.
    The BMPCC4K uses a 33 point LUT.
@@ -114,7 +143,7 @@ In our case, from BlackmagicDesignFilmGen1 to sRGBLinear.
    .. figure:: https://i.postimg.cc/X75ZCjRg/recording-1.gif
 
 Save the file wherever you like.
-It is now ready to be used as a color space transform in OCIO, your camera, or anywhere else!
+It is now ready to be used as a color space transform in your camera, or anywhere else!
 
 .. guide:next:: Applying a LUT to the BMPCC4K
 
