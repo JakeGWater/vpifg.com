@@ -34,7 +34,7 @@ Comparison
         - ✅
         - ✅
         - ✅
-        - ❌
+        - ✅
         - ❌
         - ❌
     *   - :goto:`workflows/LIVE`
