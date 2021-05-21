@@ -2,9 +2,9 @@
 :author_url: |jake.url|
 :date: 2021-04-21
 
-=========================
-BMPCC4K to Blackmagic Raw
-=========================
+=======================
+BMPCC to Blackmagic Raw
+=======================
 
 .. topic:: Lesson Plan
 

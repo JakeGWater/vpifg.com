@@ -373,12 +373,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../guides/bmpcc-timecode/">
-     Setting Up Timecode with BMPCC4K
+     BMPCC to Decklink with Timecode
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../guides/bmpcc-to-braw/">
-     BMPCC4K to Blackmagic Raw
+     BMPCC to Blackmagic Raw
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
     <label for="toctree-checkbox-12">
@@ -416,6 +416,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../guides/nuke-to-resolve/">
      Nuke to Resolve
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../guides/resolve-proxy-editing/">
+     DaVinci Resolve Proxy Editing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../guides/resolve-relink-media/">
+     DaVinci Resolve Relink Media
     </a>
    </li>
    <li class="toctree-l2">
@@ -524,6 +534,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../../guides/unreal-lens-distortion/">
      Adjusting for Lens Distortion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../guides/unreal-media-capture/">
+     Unreal Media Capture
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../guides/unreal-movie-render-queue/">
+     Unreal Movie Render Queue
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -1149,7 +1169,7 @@
 <td><p>✅</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
-<td><p>❌</p></td>
+<td><p>✅</p></td>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
 </tr>
@@ -1170,48 +1190,40 @@ BURN has two pieces:</p>
 </ol>
 <p>The lower quality capture is immediately available for editing, and contains all the final vfx, but without any post-processing polish that may be applied.
 After editing, the higher quality footage may be substituted in using timecode to insert any clips into their correct spot in the timeline.</p>
-<p class="rubric">Illustsrated Workflow</p>
-
-        <div class="figure align-default" id="id1">
-    <a class="thumbnail"
-               data-lightbox="group-images"
-               href="https://i.postimg.cc/HLM1Wr48/screenshot-52.png"
-               title=""
-               data-title=""
-               ><img src="https://i.postimg.cc/HLM1Wr48/screenshot-52.png"
-                     class=""
-                     width="auto"
-                     height="auto"
-                     alt=""/>
-                </a></div></div>
+</div>
 <div class="section" id="guides">
 <h2>Guides<a class="headerlink" href="#guides" title="Permalink to this headline">¶</a></h2>
+<p>Each step of the workflow is illustrated below:</p>
 
         <div class="figure align-default" id="id1">
     <a class="thumbnail"
                data-lightbox="group-images"
-               href="https://i.postimg.cc/MpGXKJTJ/screenshot-53.png"
+               href="https://i.postimg.cc/hP41tsFJ/screenshot-56.png"
                title=""
                data-title=""
-               ><img src="https://i.postimg.cc/MpGXKJTJ/screenshot-53.png"
+               ><img src="https://i.postimg.cc/hP41tsFJ/screenshot-56.png"
                      class=""
                      width="auto"
                      height="auto"
                      alt=""/>
-                </a></div><ol class="arabic simple">
-<li><p><span><a class="reference external" href="../../guides/bmpcc-to-braw/"><span>BMPCC4K to Blackmagic Raw</span></a></span>
-<span><a class="roadmap reference external" href="../../guides/braw-to-resolve/"><span>BRaw to Davinci Resolve</span></a><span class="planned">Planned</span></span></p></li>
-<li><p><span><a class="reference external" href="../../guides/bmpcc-timecode/"><span>Setting Up Timecode with BMPCC4K</span></a></span></p></li>
+                </a></div><p>Please see the corresponding guide for each step:</p>
+<ol class="arabic simple">
+<li><p><span><a class="reference external" href="../../guides/bmpcc-to-braw/"><span>BMPCC to Blackmagic Raw</span></a></span></p></li>
+<li><p><span><a class="roadmap reference external" href="../../guides/braw-to-resolve/"><span>BRaw to Davinci Resolve</span></a><span class="planned">Planned</span></span></p></li>
+<li><p><span><a class="roadmap reference external" href="../../guides/bmpcc-hdmi-srgb/"><span>BMPCC HDMI sRGB Setup</span></a><span class="planned">Planned</span></span></p></li>
+<li><p><span><a class="reference external" href="../../guides/bmpcc-timecode/"><span>BMPCC to Decklink with Timecode</span></a></span></p></li>
 <li><p><span><a class="roadmap reference external" href="../../guides/unreal-vive-livelink/"><span>Unreal Vive LiveLink</span></a><span class="planned">Planned</span></span></p></li>
-<li><p><span><a class="reference external" href="../../bmpcc-hdmi-srgb/"><span>bmpcc-hdmi-srgb</span></a></span></p></li>
-<li><p><span><a class="reference external" href="../../guides/unreal-composure/"><span>Unreal Composure</span></a></span>
-<span><a class="reference external" href="../../guides/unreal-ocio/"><span>Unreal OCIO Setup</span></a></span>
-<span><a class="reference external" href="../../guides/lens-distortion/"><span>guides/lens-distortion</span></a></span></p></li>
+<li><p><span><a class="reference external" href="../../guides/unreal-ocio/"><span>Unreal OCIO Setup</span></a></span></p></li>
+<li><p><span><a class="backlog reference external" href="../../guides/unreal-media-capture/"><span>Unreal Media Capture</span></a><span class="helpwanted">Help Wanted</span></span></p></li>
+<li><p><span><a class="reference external" href="../../guides/unreal-composure/"><span>Unreal Composure</span></a></span></p></li>
 <li><p><span><a class="roadmap reference external" href="../../guides/decklink-loopback-recording/"><span>Decklink Loopback Recording</span></a><span class="planned">Planned</span></span></p></li>
+<li><p><span><a class="backlog reference external" href="../../guides/resolve-proxy-editing/"><span>DaVinci Resolve Proxy Editing</span></a><span class="helpwanted">Help Wanted</span></span></p></li>
 <li><p><span><a class="roadmap reference external" href="../../guides/unreal-take-recorder/"><span>Recording with Take Recorder</span></a><span class="planned">Planned</span></span></p></li>
+<li><p><span><a class="backlog reference external" href="../../guides/unreal-movie-render-queue/"><span>Unreal Movie Render Queue</span></a><span class="helpwanted">Help Wanted</span></span></p></li>
 <li><p><span><a class="roadmap reference external" href="../../guides/unreal-to-nuke/"><span>Unreal to Nuke</span></a><span class="planned">Planned</span></span></p></li>
 <li><p><span><a class="roadmap reference external" href="../../guides/nuke-depth-of-field/"><span>Adding DoF to Unreal Renders in Nuke</span></a><span class="planned">Planned</span></span></p></li>
 <li><p><span><a class="roadmap reference external" href="../../guides/nuke-to-resolve/"><span>Nuke to Resolve</span></a><span class="planned">Planned</span></span></p></li>
+<li><p><span><a class="backlog reference external" href="../../guides/resolve-relink-media/"><span>DaVinci Resolve Relink Media</span></a><span class="helpwanted">Help Wanted</span></span></p></li>
 </ol>
 <div class="section" id="extras">
 <h3>Extras<a class="headerlink" href="#extras" title="Permalink to this headline">¶</a></h3>
@@ -1219,6 +1231,7 @@ After editing, the higher quality footage may be substituted in using timecode t
 <li><p><span><a class="backlog reference external" href="../../guides/unreal-set-design/"><span>Unreal Set Design</span></a><span class="helpwanted">Help Wanted</span></span></p></li>
 <li><p><span><a class="roadmap reference external" href="../../guides/unreal-to-resolve/"><span>Unreal to Resolve</span></a><span class="planned">Planned</span></span></p></li>
 <li><p><span><a class="roadmap reference external" href="../../guides/resolve-to-nuke/"><span>Resolve to Nuke</span></a><span class="planned">Planned</span></span></p></li>
+<li><p><span><a class="roadmap reference external" href="../../guides/unreal-lens-distortion/"><span>Adjusting for Lens Distortion</span></a><span class="planned">Planned</span></span></p></li>
 </ol>
 </div>
 </div>

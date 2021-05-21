@@ -8,7 +8,7 @@ BURN Workflow
     :raw: yes
     :aces: yes
     :ndisplay: no
-    :live: no
+    :live: yes
     :multicam: no
 
 Overview
@@ -27,28 +27,31 @@ BURN has two pieces:
 The lower quality capture is immediately available for editing, and contains all the final vfx, but without any post-processing polish that may be applied.
 After editing, the higher quality footage may be substituted in using timecode to insert any clips into their correct spot in the timeline.
 
-.. rubric:: Illustsrated Workflow
-
-.. figure:: https://i.postimg.cc/HLM1Wr48/screenshot-52.png
-
 Guides
 ======
 
-.. figure:: https://i.postimg.cc/MpGXKJTJ/screenshot-53.png
+Each step of the workflow is illustrated below:
 
-1. :goto:`guides/bmpcc-to-braw`
-   :goto:`guides/braw-to-resolve`
-2. :goto:`guides/bmpcc-timecode`
-3. :goto:`guides/unreal-vive-livelink`
-4. :goto:`bmpcc-hdmi-srgb`
-5. :goto:`guides/unreal-composure`
-   :goto:`guides/unreal-ocio`
-   :goto:`guides/lens-distortion`
-6. :goto:`guides/decklink-loopback-recording`
-7. :goto:`guides/unreal-take-recorder`
-8. :goto:`guides/unreal-to-nuke`
-9. :goto:`guides/nuke-depth-of-field`
-10. :goto:`guides/nuke-to-resolve`
+.. figure:: https://i.postimg.cc/hP41tsFJ/screenshot-56.png
+
+Please see the corresponding guide for each step:
+
+#. :goto:`guides/bmpcc-to-braw`
+#. :goto:`guides/braw-to-resolve`
+#. :goto:`guides/bmpcc-hdmi-srgb`
+#. :goto:`guides/bmpcc-timecode`
+#. :goto:`guides/unreal-vive-livelink`
+#. :goto:`guides/unreal-ocio`
+#. :goto:`guides/unreal-media-capture`
+#. :goto:`guides/unreal-composure`
+#. :goto:`guides/decklink-loopback-recording`
+#. :goto:`guides/resolve-proxy-editing`
+#. :goto:`guides/unreal-take-recorder`
+#. :goto:`guides/unreal-movie-render-queue`
+#. :goto:`guides/unreal-to-nuke`
+#. :goto:`guides/nuke-depth-of-field`
+#. :goto:`guides/nuke-to-resolve`
+#. :goto:`guides/resolve-relink-media`
 
 Extras
 ------
@@ -56,3 +59,4 @@ Extras
 #. :goto:`guides/unreal-set-design`
 #. :goto:`guides/unreal-to-resolve`
 #. :goto:`guides/resolve-to-nuke`
+#. :goto:`guides/unreal-lens-distortion`
