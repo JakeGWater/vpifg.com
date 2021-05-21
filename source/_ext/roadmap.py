@@ -3,8 +3,14 @@ from docutils.parsers.rst import Directive
 
 from sphinx.locale import _
 from sphinx.util.docutils import SphinxDirective, SphinxRole
+from sphinx.util import logging
 
 from notices import notice
+
+logger = logging.getLogger(__name__)
+
+def DEBUG(str):
+    print(f"--{str}--")
 
 class milestone(nodes.General, nodes.Element):
     pass
@@ -146,11 +152,11 @@ def process_todo_nodes(app, doctree, fromdocname):
 
     env = app.builder.env
     
-    # Search roadmaps and catalogue all of the <planned> roles
+    # For each roadmap in the current document, search out any <planned> items
+    # and link to the corresponding document source.
     for node in doctree.traverse(roadmap):
         name = node['name']
         for z in node.traverse(condition=planned):
-            # TODO: optimize this to dictionary
             zname = z['name']
             if zname in env.roadmap_all_milestones:
                 ms = env.roadmap_all_milestones[zname]
@@ -169,14 +175,15 @@ def process_todo_nodes(app, doctree, fromdocname):
             sec += ch
         node.replace_self(sec)
 
+    # If a <planned> had no corresponding milestone,
+    # raise a warning.
     for node in doctree.traverse(planned):
         node.replace_self(nodes.emphasis(text=f"{node['name']} (Unknown Milestone)"))
 
+    # Check if the milestone directive comes *last* or close to last in a page.
+    # If so, we treat the page as "Not Yet Implemented".
+    # If any <paragraph>s follow the milestone, then we convert it to "Work in Progress".
     for node in doctree.traverse(milestone):
-
-        # Check if the milestone is *last* or close to last.
-        # If so, we treat the page as "Not Yet Implemented".
-        # If any sections follow the milestone, then we convert it to "Work in Progress".
         MILESTONE=False
         WORK_IN_PROGRESS=False
         for c in node.parent.children:
@@ -212,6 +219,8 @@ def process_todo_nodes(app, doctree, fromdocname):
 
             node.replace_self(notice_node)
     
+    # Any milestones that still exist do not have a <planned> elsewhere in a roadmap.
+    # They are considered "in the backlog" and we show a message linking to the roadmap page.
     for node in doctree.traverse(milestone):
         notice_node = nodes.admonition()
         if WORK_IN_PROGRESS:
@@ -231,6 +240,8 @@ def process_todo_nodes(app, doctree, fromdocname):
 
         node.replace_self(notice_node)
 
+    # Replace the backlog directive with a list of any milestones which do 
+    # not have a any <planned> elements on any roadmap.
     for node in doctree.traverse(backlog):
         ul = nodes.bullet_list()
         for docname in env.roadmap_all_milestones:
@@ -248,19 +259,23 @@ def process_todo_nodes(app, doctree, fromdocname):
                 ul += li
         node.replace_self(ul)
     
+    # Add annotations for incomplete docs that are planned or unplanned.
     for node in doctree.traverse(goto):
         docname = node['doc']
-        il = nodes.inline()
-        ref = nodes.reference('', '')
-        ref['refdocname'] = docname
-        ref['refuri'] = app.builder.get_relative_uri(fromdocname, docname)
+        li = nodes.inline()
 
         if docname in env.titles:
+            ref = nodes.reference('', '')
+            ref['refdocname'] = docname
+            ref['refuri'] = app.builder.get_relative_uri(fromdocname, docname)
             title = env.titles[docname].astext()
+            ref += nodes.inline(text=title)
+            li += ref
         else:
             title = docname
-        ref += nodes.inline(text=title)
-        il += ref
+            problem = nodes.problematic(text=f"(Unknown Document {title})")
+            logger.warning(f"Unknown :goto:`{title}` in {fromdocname}")
+            li += problem
         
         if docname in env.roadmap_all_milestones:
             if docname in env.roadmap_all_planned:
@@ -271,9 +286,9 @@ def process_todo_nodes(app, doctree, fromdocname):
                 text = "Help Wanted"
                 gl = nodes.inline(text=text, classes=['helpwanted'])
                 ref['classes'] = ['backlog']
-            il += gl
+            li += gl
 
-        node.replace_self(il)
+        node.replace_self(li)
 
 def visit_planned_node(self, node):
     self.body.append("planned")
