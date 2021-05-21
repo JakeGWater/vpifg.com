@@ -2,9 +2,15 @@
 :author_url: |jake.url|
 :date: 2021-04-15
 
-================================
-Setting Up Timecode with BMPCC4K
-================================ 
+===============================
+BMPCC to Decklink with Timecode
+===============================
+
+.. note::
+
+    This guide was originally recorded for YouTube with an attached Google Slides deck.
+    In future, the content may be converted to a guide,
+    but for now please see the embedded content.
 
 .. guide:lesson::
 

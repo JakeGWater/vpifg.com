@@ -13,7 +13,8 @@ Overview
    #. Check out the official `Contributing Explainer <https://github.com/JakeGWater/vpifg.com/blob/main/README.md#contribute>`_
 
 #. If you have never used GitHub, don't worry. There's a little bit of setup, but you can do everything from the website.
-#. Try to follow the `Contributing Guidelines`_ as much as possible.
+#. Try to follow the `Contributing Guidelines`_ as much as possible,
+   but it's okay to skim this section for now.
 #. Once approved, your content will be merged and immediately visible.
 
 Contributing Guidelines
@@ -26,16 +27,15 @@ As such, there are a few guidelines we would like contributions to follow:
 #. Contributions **must** be centred around virtual production.
 #. Your contribution must fit into one of the existing categories:
 
-   #. `Workflow <#adding-workflows>`_
-   #. `Guides <#adding-guides>`_
-   #. :goto:`studios`
-   #. `Help <#adding-help>`_
+   #. `Adding Workflows <#adding-workflows>`_
+   #. `Adding Guides <#adding-guides>`_
+   #. `Adding Studios <#adding-studios>`_
+   #. `Adding Help <#adding-help>`_
 
 Adding Workflows
 ----------------
 
 #. Workflows should reference a series of :goto:`guides` to be placed in `sources/guides <https://github.com/JakeGWater/vpifg.com/tree/main/source/guides>`_.
-#. Incomplete workflows **must** be marked as `Work in Progress`_.
 #. Workflows **must** include a Production Checklist banner. See :goto:`workflows/BURN`.
    Insert after your title::
 
@@ -62,12 +62,69 @@ Adding Workflows
 
    **Important** your workflow does not need to check all boxes.
 
+.. _adding-guides:
+
 Adding Guides
 -------------
 
-#. Guides must be part of a workflow. If you have a general tip, consider adding a Help page instead.
-#. Contribution which are not complete must be marked as `Work in Progress`_.
-#. Please follow the `Referencing Content`_ and `Embedding Content`_ guidelines.
+If workflows are recipes, then guides are ingredients.
+While workflows can be *seasoned to taste* a guide is more all-or-nothing.
+
+Try to keep the following in mind:
+
+#. Guides must be part of a workflow. 
+   If you have a general tip, consider adding a Help page instead.
+#. A guide must be complete before it will be published.
+#. Please follow the `Referencing Content`_, `Adding Media`_, and `Embedding Content`_ guidelines.
+#. Guides should link to pre-requisites, next steps, or alternative approaches.
+   Keep your guide sizes reasonable.
+
+Guide Template
+^^^^^^^^^^^^^^
+
+You can copy-paste the following into your new guide
+
+.. code-block:: rst
+
+   :author: YOUR NAME
+   :author_url: YOUR LINK
+   :date: THE DATE
+
+   ================
+   YOUR GUIDE TITLE
+   ================
+
+   .. deps:deps::
+
+   .. deps:lesson::
+
+      IN TWO SENTENCES DESCRIBE THIS GUIDES OBJECTIVE
+   
+   ANY PARAGRAPH, SECTION, ETC CONTENT
+
+For any pre-requisites add
+
+.. code-block:: rst
+
+   .. deps:dep:: DEP TITLE
+
+      DESCRIBE THE DEP :goto:`guides/GUIDE-NAME`.
+
+If the guide does not exist, add a *placeholder* file at `source/guides/GUIDE-NAME.rst`
+
+.. code-block:: rst
+
+   ================
+   GUIDE NAME TITLE
+   ================
+
+   .. milestone::
+
+This will automatically track the guide in our backlog. For next steps, use `.. deps:next:: NEXT TITLE` similar to above.
+
+Adding Media
+------------
+
 #. Images must:
    
    #. be hosted from vpifg.com by adding them to the repository, or
@@ -84,7 +141,12 @@ Adding Help
 
 Sometimes content doesn't fit into a guide, but it is helpful nonetheless.
 The guidelines for what goes and help our a little looser than what goes into a workflow or a guide.
-Nonetheless, we want things to be centered around a virtual production.
+Still, we prefer help articles that:
+
+#. are centered around a virtual production
+#. address a specific technical hurdle
+#. are short and to the point
+#. include diagrams, images, and videos
 
 Each Help article should be its own document in ``sources/help``.
 
@@ -121,32 +183,22 @@ The content must be served from one of the following domains:
 
 If you would like to add another domain, please `open an issue <https://github.com/JakeGWater/vpifg.com/issues/new>`_ to discuss.
 
-Work in Progress
-----------------
+.. _adding-studios:
 
-Any incomplete content must be marked as a work in progress with the following display:
+Adding Studios
+--------------
 
-.. wip::
+Feel free to add your studio to :doc:`/studios`.
 
-Insert the following code immediately after the page title.
+#. All content must follow our :doc:`/CodeOfConduct`.
+#. Limit to a single page in `source/studios <https://github.com/JakeGWater/vpifg.com/tree/main/source/studios>`_.
+#. You are encouraged to:
+   
+   #. Link to your website.
+   #. Advertise any virtual production services.
+   #. List your equipment, and even include affiliate links. Be specific if you can, including model numbers.
+   #. Describe your vision for virtual production.
+   #. Include photos of your studio.
 
-.. code-block:: rst
-
-    .. wip::
-
-If content is also experimental, it should be marked as both.
-
-Experimental
-------------
-
-We encourage experimental setups, but we don't want to send people down the wrong path.
-Experimental pages should begin with the following display:
-
-.. experimental::
-
-Insert the following code into the beginning of your page:
-
-.. code-block:: rst
-
-    .. experimental::
-
+#. Fore everything above, it should be limited to virtual production.
+#. There are no size minimums. A home setup is just as good as a large studio.

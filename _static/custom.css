@@ -2,6 +2,20 @@ dl.citation dt {
     float:none!important;
 }
 
+.problematic {
+    color: red;
+    font-style: italic;
+}
+
+li p {
+    margin-bottom: 0;
+}
+
+ol ol, ol ul, ul ol, ul ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 #navbar-icon-links i.fa-youtube-square:before {
     color: #c4302b;
 }
