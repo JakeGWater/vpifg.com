@@ -434,6 +434,21 @@
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="../resolve-lut-colorspace-transform/#motivation">
+       Motivation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../resolve-lut-colorspace-transform/#the-problem">
+       The Problem
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../resolve-lut-colorspace-transform/#solution">
+       Solution
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../resolve-lut-colorspace-transform/#generating-a-lut-in-resolve">
        Generating a LUT in Resolve
       </a>
@@ -488,6 +503,11 @@
       </ul>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="#media-source-setup">
+       Media Source Setup
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="#timecode-and-genlock">
        Timecode and Genlock
       </a>
@@ -495,6 +515,11 @@
      <li class="toctree-l3">
       <a class="reference internal" href="#virtual-camera">
        Virtual Camera
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#composure">
+       Composure
       </a>
      </li>
      <li class="toctree-l3 has-children">
@@ -519,9 +544,19 @@
        </li>
       </ul>
      </li>
-     <li class="toctree-l3 has-children">
+     <li class="toctree-l3">
       <a class="reference internal" href="#cg-plate">
        CG Plate
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="#composing-layers">
+       Composing Layers
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="#media-output">
+       Media Output
       </a>
       <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
       <label for="toctree-checkbox-17">
@@ -598,6 +633,11 @@
        Configuring Unreal
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-ocio/#references">
+       References
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -620,6 +660,11 @@
      </i>
     </label>
     <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../unreal-timecode-genlock/#timecode">
+       Timecode
+      </a>
+     </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../unreal-timecode-genlock/#genlock">
        Genlock
@@ -1120,6 +1165,11 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#media-source-setup">
+   Media Source Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#timecode-and-genlock">
    Timecode and Genlock
   </a>
@@ -1127,6 +1177,11 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#virtual-camera">
    Virtual Camera
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#composure">
+   Composure
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1149,6 +1204,16 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cg-plate">
    CG Plate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#composing-layers">
+   Composing Layers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#media-output">
+   Media Output
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -1259,7 +1324,8 @@ We will use sRGB in our example by having the BMPCC transform the outgoing HDMI 
 
         </div>
         </div>
-        
+        <p>While the HDMI signal is 1080p sRGB, ensure your camera is set to record in its RAW format with its widest-gamut color space.</p>
+
         <div class="guide-dep admonition" id="guide-1">
         <p class="admonition-title">Blackmagic Raw Setup</p>
         <div class="docutils container">
@@ -1267,7 +1333,10 @@ We will use sRGB in our example by having the BMPCC transform the outgoing HDMI 
 
         </div>
         </div>
-        <hr class="docutils" />
+        </div>
+</div>
+<div class="section" id="media-source-setup">
+<h2>Media Source Setup<a class="headerlink" href="#media-source-setup" title="Permalink to this headline">¶</a></h2>
 <p>We use a Media Bundle to connect Unreal to the Decklink.</p>
 <ol class="arabic">
 <li><p>Create a new <strong>Media Bundle</strong></p>
@@ -1364,7 +1433,6 @@ You should see your camera feed appear on the plane you just dragged in.</p>
 <p>If your footage doesn’t appear see <span><a class="reference external" href="../../help/troubleshooting-decklink/"><span>Verifying the Decklink SDI Connection</span></a></span> for help.</p>
 </div>
 </div>
-</div>
 <div class="section" id="timecode-and-genlock">
 <h2>Timecode and Genlock<a class="headerlink" href="#timecode-and-genlock" title="Permalink to this headline">¶</a></h2>
 <p>Our composure output will output timecode, and use genlock to drive the render frame rate.
@@ -1378,7 +1446,8 @@ We want the live composited footage to exactly match the timecode of the raw foo
 
         </div>
         </div>
-        <p>and the displayed time matches your camera.
+        <p>Check that the timecode in Unreal is being driven by your custom blueprint,
+and the displayed time matches your camera.
 Check that genlock is operating at the desired framerate.</p>
 
         <div class="figure align-default" id="id1">
@@ -1404,7 +1473,9 @@ Check that genlock is operating at the desired framerate.</p>
 
         </div>
         </div>
-        <hr class="docutils" />
+        </div>
+<div class="section" id="composure">
+<h2>Composure<a class="headerlink" href="#composure" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Ensure the composure tab is visible</p>
 
@@ -1604,7 +1675,9 @@ This will insert the live actors into the CG scene seen by the camera.</p>
 
         </div>
         </div>
-        <hr class="docutils" />
+        </div>
+<div class="section" id="composing-layers">
+<h2>Composing Layers<a class="headerlink" href="#composing-layers" title="Permalink to this headline">¶</a></h2>
 <p>Select your comp, and in the details panel under <code class="docutils literal notranslate"><span class="pre">Transform</span> <span class="pre">Passes</span></code> add a transform pass.</p>
 <ol class="arabic simple">
 <li><p>Leave the default type as <code class="docutils literal notranslate"><span class="pre">Compositing</span> <span class="pre">Element</span> <span class="pre">Material</span> <span class="pre">Pass</span></code>.</p></li>
@@ -1715,7 +1788,9 @@ In the details panel, ensure only <em>R</em>, <em>G</em>, and <em>B</em> are sel
 
         </div>
         </div>
-        <hr class="docutils" />
+        </div>
+<div class="section" id="media-output">
+<h2>Media Output<a class="headerlink" href="#media-output" title="Permalink to this headline">¶</a></h2>
 <p>The composure is running! Now we need to send it somewhere to record.
 We will send the video feed out through an unused Decklink port,
 and record the signal outside of Unreal.
@@ -1729,8 +1804,9 @@ including the Decklink itself.</p>
 
         </div>
         </div>
-        <blockquote>
-<div><p>Add a <strong>Compositing Media Capture Output</strong> Output Pass to the <em>Composure Outputs</em>.</p>
+        <ol class="arabic">
+<li><p>Select the comp in World Outliner, and go to the details panel.
+Add a <strong>Compositing Media Capture Output</strong> Output Pass to the <em>Composure Outputs</em>.</p>
 <p>If the <em>Capture Output</em> setting is blank, create a new <strong>Blackmagic Media Output</strong> and save it anywhere you like.</p>
 
         <div class="figure align-default" id="id1">
@@ -1744,8 +1820,7 @@ including the Decklink itself.</p>
                      width="auto"
                      height="auto"
                      alt=""/>
-                </a></div></div></blockquote>
-<ol class="arabic">
+                </a></div></li>
 <li><p>Choose an unused port to output the SDI signal.</p>
 
         <div class="figure align-default" id="id1">
@@ -1851,7 +1926,8 @@ Here we have looped our signal back into the Decklink to view the composure outp
 
         </div>
         </div>
-        <p>You have setup composure with end-to-end <em>timecode-integrity</em> and an intact <em>color pipeline</em>.</p>
+        <p>If you followed every step, great work.
+You have setup composure with end-to-end <em>timecode-integrity</em> and an intact <em>color pipeline</em>.</p>
 
         <div class="topic guide-shownexts">
         <p class="topic-title">Next Steps</p>
