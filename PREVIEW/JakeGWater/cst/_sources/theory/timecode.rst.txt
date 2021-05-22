@@ -32,4 +32,4 @@ Timecode
 
             Example: ``scene1-shot3-00014291.exr``
 
-            [Nuke]_ natively uses Frame Numbering. [Resolve]_ can use both Frame Numbering as well as SMPTE timecodes.
+            [Nuke]_ natively uses Frame Numbering. [DaVinciResolve]_ can use both Frame Numbering as well as SMPTE timecodes.

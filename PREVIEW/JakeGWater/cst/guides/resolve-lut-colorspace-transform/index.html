@@ -920,16 +920,6 @@
      Content
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../references/#software">
-     Software
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../references/#hardware">
-     Hardware
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -1174,45 +1164,44 @@
 
         <div class="topic guide-lesson">
         <p class="topic-title">Lesson Plan</p>
-        <p>Generate a LUT from BlackmagicDesignFilmGen1 to sRGB or Linear sRGB.</p>
+        <p>Generate a LUT from Blackmagic’s Custom Color Space to sRGB or Linear sRGB.</p>
 
         </div>
         <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The general concept described in this article can be applied to any camera.
-We like including reference implementations, since we have a BMPCC4K.</p>
+We include the reference implementations using a BMPCC4K.</p>
 <p>If you would like to include another camera, please consider adding a guide!</p>
 </div>
-<p>The camera should be setup such that:</p>
-<ol class="arabic simple">
-<li><p>A maximum-quality <span id="id1">[Raw]</span> file is saved to your camera’s removable media cards, such as an SDCard, USB-C hard drive, or CFAST card.</p></li>
-<li><p>A lower-quality (but the best you can make it) clean feed is sent to the Decklink for use with Unreal’s <span id="id2">[Composure]</span> tool.</p></li>
-</ol>
-<p>Diagraming the physical components and color spaces, we get:</p>
-<img alt="         Blackmagic    ┌────────┐              Raw       │   SD   │       ┌───────────────►│  Card  │       │                └────────┘       │       │  ┌────┴─────┐  │          │  │  Camera  │  │          │  └────┬─────┘       │       │       │                 ┌─────────────┐            ┌──────────┐       │     sRGB        │             │            │          │       └────────────────►│ HDMI to SDI ├────SDI────►│ Decklink │                         │             │            │          │                         └─────────────┘            └──────────┘" class="svgbob align-center" src="../../_images/svgbob-cef86ae285aba91eacc7a415f22d3a32195ae42c.svg" /><p>The <a class="reference internal" href="../../references/#bmpcc4k" id="id3"><span>[BMPCC4K]</span></a> records Blackmagic Raw files at 12-bit log,
-under a variety of compression settings.</p>
-<p>Documentation on Blackmagic color spaces is difficult at best.
-<a class="reference internal" href="#davinciresolve" id="id4"><span>[DaVinciResolve]</span></a> can tell you your clips color space.
-Our camera is set to <a class="reference internal" href="#blackmagicdesignfilmgen1" id="id5"><span>[BlackmagicDesignFilmGen1]</span></a> color space by default.</p>
-<p>By default, the camera’s HDMI video feed will use the same color space as its internal recording,
-which is <a class="reference internal" href="#blackmagicdesignfilmgen1" id="id6"><span>[BlackmagicDesignFilmGen1]</span></a>.
-Unfortunately Unreal does not know anything about this color space,
-meaning the footage will look like crap.
-It will either be too dark, or washed out.
-OCIO is a tool used by Unreal to convert between color spaces,
-but it also doesn’t know the BlackmagicDesignFilmGen1 color space.
-What we should do is tell the camera to send a color space that Unreal recognizes.
-In this case, sRGB Linear.</p>
+<p>The <a class="reference internal" href="../../references/#bmpcc4k" id="id1"><span>[BMPCC4K]</span></a> records Blackmagic Raw files in a custom wide-gamut color space.
+By default, the camera’s HDMI video feed will use the same color space as its internal recording.
+Our camera uses <a class="reference internal" href="../../references/#blackmagicdesignfilmgen1" id="id2"><span>[BlackmagicDesignFilmGen1]</span></a>.</p>
 <div class="sidebar">
 <p class="sidebar-title">Color Space as Language</p>
-<p>As an analogy, imagine our Camera speaks French, but Unreal expects English.
+<p>Imagine our camera speaks French, but Unreal expects English.
 Somewhere, we need a translator.
 In this example, the camera will translate to English before speaking to Unreal.</p>
 </div>
-<p>To send sRGB linear from the camera,
-we apply a LUT specially generated to go from BlackmagicDesignFilmGen1 to sRGB Linear.
-We will have to manually create the LUT, but it can be easily done using DaVinciResolve.</p>
-<p>By default, the HDMI signal will use the same color space as our internal recording.
+<p>Unfortunately Unreal does not know anything about this color space,
+meaning the footage will look incorrect.
+It will either be too dark, or washed out.</p>
+<p>OCIO is a tool used by Unreal to convert between color spaces,
+but it also doesn’t know the BlackmagicDesignFilmGen1 color space.
+What we should do is tell the camera to send a color space that Unreal recognizes.
+In this case, sRGB Linear.</p>
+<p class="rubric">Our Objective</p>
+<ol class="arabic simple">
+<li><p>A 4K <a class="reference internal" href="../../theory/#term-Raw"><span class="xref std std-term">Raw</span></a> file is saved to your camera’s removable media cards, such as an SDCard, USB-C hard drive, or CFAST card.
+The Raw file will use a wide-gamut color space, and preserve as much image data as possible.</p></li>
+<li><p>A 1080p clean feed is sent to the Decklink via HDMI/SDI for use with Unreal’s Composure tool.
+The HDMI feed uses the sRGB linear color space, which matches Unreal.</p></li>
+</ol>
+<p>Diagraming the physical components and color spaces, we get:</p>
+<img alt="         Blackmagic    ┌────────┐              Raw       │   SD   │       ┌───────────────►│  Card  │       │                └────────┘       │       │  ┌────┴─────┐  │          │  │  Camera  │  │          │  └────┬─────┘       │       │       │                 ┌─────────────┐            ┌──────────┐       │     sRGB        │             │            │          │       └────────────────►│ HDMI to SDI ├────SDI────►│ Decklink │                         │             │            │          │                         └─────────────┘            └──────────┘" class="svgbob align-center" src="../../_images/svgbob-cef86ae285aba91eacc7a415f22d3a32195ae42c.svg" /><p>To send sRGB linear from the camera,
+we apply a LUT specially generated to transform video from BlackmagicDesignFilmGen1 to sRGB Linear.
+We have to manually create the LUT, but it can be generated using DaVinciResolve.</p>
+<p>By default, the HDMI signal will use the same color space as the camera’s internal recording,
+which in our case is BlackmagicDesignFilmGen1.
 Unfortunately OCIO and Blackmagic do not play well together.
 Specifically, OCIO does not have any input or output transforms for Blackmagic color spaces.</p>
 
@@ -1223,12 +1212,9 @@ Specifically, OCIO does not have any input or output transforms for Blackmagic c
 
         </div>
         </div>
-        <p>There are two good options from here:</p>
-<ol class="arabic simple">
-<li><p>Convert to sRGB</p></li>
-<li><p>Convert to sRGB Linear</p></li>
-</ol>
-<p>We recommend using sRGB linear, as it is the default color space used by Unreal.</p>
+        <p>The Raw file recorded internally to the camera should not be affected.</p>
+<p>We recommend use sRGB linear over HDMI/SDI, because that is the default color space used by Unreal.
+It is possible to use another color space, but we will reference using sRGB linear in the following examples.</p>
 <div class="admonition-srgb-vs-srgb-linear-deep-dive admonition">
 <p class="admonition-title">sRGB vs sRGB Linear Deep Dive</p>
 <p>See our comparison of <span><a class="reference external" href="../../help/sRGB-or-sRGB-linear/"><span>sRGB vs sRGBLinear over HDMI</span></a></span>.</p>
@@ -1335,29 +1321,7 @@ It is now ready to be used as a color space transform in your camera, or anywher
 
         </div>
         </div>
-        <hr class="docutils" />
-<dl class="citation">
-<dt class="label" id="blackmagicdesignfilmgen1"><span class="brackets">BlackmagicDesignFilmGen1</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id6">2</a>)</span></dt>
-<dd>
-        <div class="figure align-default" id="id1">
-    <a class="thumbnail"
-               data-lightbox="group-images"
-               href="https://i.postimg.cc/y6fS0ppL/screenshot-46.png"
-               title=""
-               data-title=""
-               ><img src="https://i.postimg.cc/y6fS0ppL/screenshot-46.png"
-                     class=""
-                     width="auto"
-                     height="auto"
-                     alt=""/>
-                </a></div></dd>
-<dt class="label" id="davinciresolve"><span class="brackets"><a class="fn-backref" href="#id4">DaVinciResolve</a></span></dt>
-<dd></dd>
-<dt class="label" id="rtingschromatest"><span class="brackets">RTINGSChromaTest</span></dt>
-<dd><p><a class="reference external" href="https://www.rtings.com/tv/learn/chroma-subsampling">https://www.rtings.com/tv/learn/chroma-subsampling</a></p>
-</dd>
-</dl>
-</div>
+        </div>
 </div>
 
 
