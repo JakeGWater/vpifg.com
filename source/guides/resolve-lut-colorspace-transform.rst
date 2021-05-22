@@ -38,10 +38,10 @@ In this case, sRGB Linear.
 
 .. rubric:: Our Objective
 
-#. A 4K :term:`Raw` file is saved to your camera's removable media cards, such as an SDCard, USB-C hard drive, or CFAST card.
-   The Raw file will use a wide-gamut color space, and preserve as much image data as possible.
-#. A 1080p clean feed is sent to the Decklink via HDMI/SDI for use with Unreal's Composure tool.
-   The HDMI feed uses the sRGB linear color space, which matches Unreal. 
+#. Record a high-quality 4K :term:`Raw` file to your camera's removable media cards, such as an SDCard, USB-C hard drive, or CFAST card.
+   The Raw file should use a wide-gamut color space, and preserve as much image data as possible.
+#. Send a 1080p HDMI/SDI clean-feed to Unreal for use in Composure.
+   The HDMI feed should use the sRGB linear color space, which matches Unreal.
 
 Diagraming the physical components and color spaces, we get:
 
