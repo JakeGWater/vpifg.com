@@ -1191,10 +1191,10 @@ What we should do is tell the camera to send a color space that Unreal recognize
 In this case, sRGB Linear.</p>
 <p class="rubric">Our Objective</p>
 <ol class="arabic simple">
-<li><p>A 4K <a class="reference internal" href="../../theory/#term-Raw"><span class="xref std std-term">Raw</span></a> file is saved to your camera’s removable media cards, such as an SDCard, USB-C hard drive, or CFAST card.
-The Raw file will use a wide-gamut color space, and preserve as much image data as possible.</p></li>
-<li><p>A 1080p clean feed is sent to the Decklink via HDMI/SDI for use with Unreal’s Composure tool.
-The HDMI feed uses the sRGB linear color space, which matches Unreal.</p></li>
+<li><p>Record a high-quality 4K <a class="reference internal" href="../../theory/#term-Raw"><span class="xref std std-term">Raw</span></a> file to your camera’s removable media cards, such as an SDCard, USB-C hard drive, or CFAST card.
+The Raw file should use a wide-gamut color space, and preserve as much image data as possible.</p></li>
+<li><p>Send a 1080p HDMI/SDI clean-feed to Unreal for use in Composure.
+The HDMI feed should use the sRGB linear color space, which matches Unreal.</p></li>
 </ol>
 <p>Diagraming the physical components and color spaces, we get:</p>
 <img alt="         Blackmagic    ┌────────┐              Raw       │   SD   │       ┌───────────────►│  Card  │       │                └────────┘       │       │  ┌────┴─────┐  │          │  │  Camera  │  │          │  └────┬─────┘       │       │       │                 ┌─────────────┐            ┌──────────┐       │     sRGB        │             │            │          │       └────────────────►│ HDMI to SDI ├────SDI────►│ Decklink │                         │             │            │          │                         └─────────────┘            └──────────┘" class="svgbob align-center" src="../../_images/svgbob-cef86ae285aba91eacc7a415f22d3a32195ae42c.svg" /><p>To send sRGB linear from the camera,
