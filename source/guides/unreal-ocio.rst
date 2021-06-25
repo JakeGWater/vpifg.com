@@ -79,9 +79,14 @@ Downloading OCIO
 
    .. figure:: https://i.postimg.cc/RZCHwRh2/image.png
 
-#. Download the repository. It's **BIG**, like 5GB.
+#. Don't download the whole repository, It's **BIG**, like 5GB.
+   Instead click into the *Releases* section on the right:
 
-   .. figure:: https://i.postimg.cc/hGnsNwDv/image.png
+   .. figure:: https://i.postimg.cc/qBNSzMDn/screenshot-63.png
+
+#. From here, download the latest configs as a much smaller 125MB zip.
+
+   .. figure:: https://i.postimg.cc/W4t6Xtkw/screenshot-64.png
    
 #. Save it somewhere you can access from Unreal.
 
