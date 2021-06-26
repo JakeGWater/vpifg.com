@@ -31,6 +31,7 @@ Filming
 #. Blackmagic micro converter HDMI to SDI
 #. UltraSync One for Timecode
 #. Lots of SDI and HDMI Cables
+#. Rode NTG5 Shotgun Microphone
 
 Computer
 --------
