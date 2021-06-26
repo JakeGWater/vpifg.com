@@ -1,9 +1,9 @@
 {
   "rules": {
     "content/guides": ["source/guides"],
-    "content/workflow": ["source/workflow"],
+    "content/workflow": ["source/workflows"],
     "content/help": ["source/help"],
-    "content/studio": ["source/studio"],
+    "content/studio": ["source/studios"],
     "content/theory": ["source/theory"],
     "dev/template": ["source/_templates"],
     "dev/static": ["source/_static"],
