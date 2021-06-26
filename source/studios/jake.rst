@@ -30,6 +30,7 @@ Filming
 #. Lastolite Panoramic Background (13', Chroma Key Green)
 #. Blackmagic micro converter HDMI to SDI
 #. UltraSync One for Timecode
+#. UltraSync Blue
 #. Lots of SDI and HDMI Cables
 #. Rode NTG5 Shotgun Microphone
 
