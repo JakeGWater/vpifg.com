@@ -1,0 +1,20 @@
+path:
+  product: false
+  pullrequest: true
+  labelprefix: 'lang:'
+  extensions: 
+    rst: ['rst']
+    code: ['py', 'js', 'json']
+    markdown: ['md']
+    # i.e. label all JSON and ts files as "lang:js"
+  paths:
+    source:
+      studios: 'content/studio'
+      guides: 'content/guide'
+      help: 'content/help'
+      theory: 'content/theory'
+      workflows: 'content/workflow'
+      _templates: 'dev/template'
+      _static: 'dev/static'
+      _ext: 'dev/extension'
+      _copy: 'dev/copy'
