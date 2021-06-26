@@ -20,6 +20,6 @@ jobs:
     steps:
       - uses: reitermarkus/automerge@v1.5.2
         with:
-          token: ${{ secrets.MY_GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           merge-method: squash
           squash-title: true
