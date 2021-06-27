@@ -7,7 +7,7 @@ Content
 
 .. .. [HdriHaven] :guilabel:`FREE` high quality HDRIs `<https://hdrihaven.com>`_
 
-.. [RTINGSChromaTest] 
+.. .. [RTINGSChromaTest] 
 
     `<https://www.rtings.com/tv/learn/chroma-subsampling>`_
 

@@ -1378,25 +1378,6 @@ One could say that our brain <em>sees light non-linearly</em>.</p>
 <p>In fact, non-linear started well before digital video.
 It’s so common in consumer devices that all consumer cameras output nonlinear signals,
 and all consumer displays expect nonlinear signals.</p>
-<p>SRGB <em>looks right</em> when displayed on a monitor.
-Linear sRGB is Unreal’s working color space, and thus wouldn’t require an input transform in composure.</p>
-<p>In a very unscientific test, we processed an sRGB and linear sRGB test pattern through the 10-bit 4:2:0 sub-sampling used by our HDMI connection.</p>
-
-        <div class="figure align-default" id="id1">
-    <a class="thumbnail"
-               data-lightbox="group-images"
-               href="https://i.postimg.cc/X7cm2FF1/screenshot-45.png"
-               title=""
-               data-title=""
-               ><img src="https://i.postimg.cc/X7cm2FF1/screenshot-45.png"
-                     class=""
-                     width="auto"
-                     height="auto"
-                     alt=""/>
-                </a></div><p>Linear sRGB (left) and sRGB (right) after converted to 10-bit and compressed in YCbCr using 4:2:0 chroma sub-sampling.
-Test pattern from <a class="reference internal" href="../../references/#rtingschromatest" id="id1"><span>[RTINGSChromaTest]</span></a>.</p>
-<p>The sRGB linear appears to fair better in this example.
-You can use either color space, as long as you understand the implications of both approaches.</p>
 </div>
 </div>
 
