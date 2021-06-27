@@ -12,7 +12,6 @@ Each guide should include:
 
 .. roadmap:: Upcoming
 
-    - :planned:`guides/bmpcc-hdmi-srgb`
     - :planned:`guides/decklink-loopback-recording`
     - :planned:`guides/unreal-take-recorder`
     - :planned:`guides/unreal-to-nuke`

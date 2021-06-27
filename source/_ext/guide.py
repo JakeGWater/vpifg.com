@@ -68,7 +68,7 @@ class LessonDirective(SphinxDirective):
     def run(self):
         DEBUG("LESSONDIRECTIVE")
         node = lesson()
-        self.state.nested_parse(self.content, self.content_offset - 1, node)
+        self.state.nested_parse(self.content, self.content_offset, node)
         return [node]
     
 def visit_lesson(self, node):
@@ -91,12 +91,12 @@ class DepDirective(SphinxDirective):
     has_content = True
     def run(self):
         node_dep = dep()
-        title = self.content.pop(0)
+        title = self.content[0]
         targetid = 'guide-%d' % self.env.new_serialno('guide')
         node_dep['title'] = title
         node_dep['targetid'] = targetid
         DEBUG(targetid)
-        self.state.nested_parse(self.content, self.content_offset - 1, node_dep)
+        self.state.nested_parse(self.content[1:], self.content_offset, node_dep)
         return [node_dep]
 
 def visit_dep(self, node):
@@ -123,12 +123,12 @@ class NextDirective(SphinxDirective):
     has_content=True
     def run(self):
         node_dep = next()
-        title = self.content.pop(0)
+        title = self.content[0]
         targetid = 'guide-%d' % self.env.new_serialno('guide')
         node_dep['title'] = title
         node_dep['targetid'] = targetid
         DEBUG(targetid)
-        self.state.nested_parse(self.content, self.content_offset - 1, node_dep)
+        self.state.nested_parse(self.content[1:], self.content_offset, node_dep)
         return [node_dep]
 
 def visit_next(self, node):

@@ -61,7 +61,7 @@ We will use sRGB in our example by having the BMPCC transform the outgoing HDMI 
 
 .. guide:dep:: BMPCC sRGB over HDMI
 
-   See :goto:`guides/bmpcc-hdmi-srgb` on setting up the BMPCC to output sRGB.
+   See :goto:`guides/resolve-lut-colorspace-transform` on setting up the BMPCC to output sRGB.
 
 While the HDMI signal is 1080p sRGB, ensure your camera is set to record in its RAW format with its widest-gamut color space.
 

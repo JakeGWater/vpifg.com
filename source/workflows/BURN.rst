@@ -38,7 +38,7 @@ Please see the corresponding guide for each step:
 
 #. :goto:`guides/bmpcc-to-braw`
 #. :goto:`guides/braw-to-resolve`
-#. :goto:`guides/bmpcc-hdmi-srgb`
+#. :goto:`guides/resolve-lut-colorspace-transform`
 #. :goto:`guides/bmpcc-timecode`
 #. :goto:`guides/unreal-vive-livelink`
 #. :goto:`guides/unreal-ocio`

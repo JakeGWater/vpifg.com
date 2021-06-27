@@ -7,12 +7,13 @@ class license(nodes.General, nodes.Element):
     pass
 
 def visit_license_node(self, node):
-    self.body.append(self.starttag(node, 'div', '', CLASS='license'))
+    self.body.append(f'<div class="license">')
 
 def depart_license_node(self, node):
     self.body.append('<div class="license-notice">This content is %s licensed from ' % node['license'])
     self.body.append(f'<a class="license-source", href={node["source_url"]}>{node["source"]}</a>')
-    return self.body.append('</div>')
+    self.body.append('</div>')
+    self.body.append('</div>')
 
 # def yesno(argument):
 #     return directives.choice(argument, ('yes', 'no'))
@@ -26,13 +27,17 @@ class licenseDirective(SphinxDirective):
     }
 
     def run(self):
+        print(self.content_offset, self.content)
+        print(''.join(self.content)[self.content_offset:])
         license_node = license()
         license_node['license'] = self.arguments[0]
         license_node['source'] = self.options['source']
         license_node['source_url'] = self.options['source_url']
 
         self.state.nested_parse(self.content, self.content_offset, license_node)
+
         return [license_node]
+
 def setup(app):
 
     app.add_node(license,
