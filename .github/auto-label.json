@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "content/guides": ["source/guides"],
+    "content/workflow": ["source/workflows"],
+    "content/help": ["source/help"],
+    "content/studio": ["source/studios"],
+    "content/theory": ["source/theory"],
+    "dev/template": ["source/_templates"],
+    "dev/static": ["source/_static"],
+    "dev/copy": ["source/_copy"],
+    "dev/extension": ["source/_ext"] 
+  }
+}

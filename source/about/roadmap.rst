@@ -10,21 +10,15 @@ Each guide should include:
 - a short writeup
 - relevant photos
 
-.. roadmap:: May 2021
+.. roadmap:: Upcoming
 
     - :planned:`guides/decklink-loopback-recording`
     - :planned:`guides/unreal-take-recorder`
-
-.. roadmap:: June 2021
-
     - :planned:`guides/unreal-to-nuke`
     - :planned:`guides/nuke-depth-of-field`
     - :planned:`guides/nuke-to-resolve`
     - :planned:`guides/braw-to-resolve`
     - :planned:`guides/unreal-lens-distortion`
-
-.. roadmap:: July 2021
-
     - :planned:`guides/unreal-composure-lighting`
     - :planned:`guides/unreal-vive-livelink`
     - :planned:`guides/unreal-to-resolve`
