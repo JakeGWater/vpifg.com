@@ -83,18 +83,13 @@ In this case, sRGB Linear.
     An alternative would be to :goto:`guides/ocio-customize-add-blackmagic`.
 
 To send sRGB linear from the camera,
-we apply a LUT specially generated to transform video from BlackmagicDesignFilmGen1 to sRGB Linear.
+we apply a LUT specially generated to transform video from BlackmagicDesignFilmGen1 to an OCIO-friendly color space like Rec.709, sRGB, or sRGB Linear.
 We have to manually create the LUT, but it can be generated using DaVinciResolve.
 
-We use a LUT to transform *only* the HDMI signal to an OCIO-friendly color space before sending to Unreal.
+We only use the LUT to transform the HDMI signal.
 The Raw file recorded internally to the camera should not be affected.
 
-We recommend use sRGB linear for HDMI/SDI, because that is the default color space used by Unreal.
-It is possible to use another color space, but Unreal will have to transform the color space again on capture.
-
-.. admonition:: sRGB vs sRGB Linear Deep Dive
-
-    See our comparison of :goto:`help/sRGB-or-sRGB-linear`.
+In this example we will use transform to sRGB Linear.
 
 Generating a LUT in Resolve
 ===========================
@@ -140,4 +135,3 @@ It is now ready to be used as a color space transform in your camera, or anywher
 .. guide:next:: Applying a LUT to the BMPCC4K
 
     Next, see :goto:`guides/bmpcc-hdmi-lut`.
-
