@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Unreal Set Design &#8212; Virtual Production Indie Film Guide</title>
+    <title>BMPCC4K Applying a LUT to the HDMI Output &#8212; Virtual Production Indie Film Guide</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.ee6fb81b276d6fba8a971ad8e9b95dd9.css" rel="stylesheet" />
@@ -39,8 +39,8 @@
     <link rel="author" title="About these documents" href="../../about/" />
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
-    <link rel="next" title="Recording with Take Recorder" href="../unreal-take-recorder/" />
-    <link rel="prev" title="Unreal OCIO Setup" href="../unreal-ocio/" />
+    <link rel="next" title="BMPCC to Decklink with Timecode" href="../bmpcc-timecode/" />
+    <link rel="prev" title="Guides" href="../" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -388,8 +388,8 @@
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../bmpcc-hdmi-lut/">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      BMPCC4K Applying a LUT to the HDMI Output
     </a>
    </li>
@@ -662,8 +662,8 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unreal-set-design/">
      Unreal Set Design
     </a>
    </li>
@@ -1168,12 +1168,12 @@
                 
 
 <div class="tocsection editthispage">
-    <a href="https://github.com/JakeGWater/vpifg.com/edit/main/source/guides/unreal-set-design.rst">
+    <a href="https://github.com/JakeGWater/vpifg.com/edit/main/source/guides/bmpcc-hdmi-lut.rst">
         <i class="fas fa-pencil-alt"></i> Edit this page
     </a>
 </div>
 <div class="tocsection editthispage">
-    <a href="https://gitpod.io/#https://github.com/JakeGWater/vpifg.com/blob/main/source/guides/unreal-set-design.rst">
+    <a href="https://gitpod.io/#https://github.com/JakeGWater/vpifg.com/blob/main/source/guides/bmpcc-hdmi-lut.rst">
         <img alt="Edit in Gitpod" src="https://gitpod.io/button/open-in-gitpod.svg">
     </a>
 </div>
@@ -1201,29 +1201,78 @@
               
               <div>
                 
-  <div class="section" id="unreal-set-design">
-<h1>Unreal Set Design<a class="headerlink" href="#unreal-set-design" title="Permalink to this headline">¶</a></h1>
-
-        <div class="topic guide-lesson">
-        <p class="topic-title">Lesson Plan</p>
-        <ol class="arabic simple">
-<li><p>Plugins &amp; Settings</p></li>
-<li><p>Landscape</p></li>
-<li><p>Lighting</p></li>
-<li><p>HDRIs and [HdriHaven]</p></li>
-<li><p>Bridge</p></li>
-<li><p>Color Chart</p></li>
-</ol>
-
-        </div>
-        <div class="danger admonition" id="milestone-0">
-<p class="admonition-title">Sorry! This page has not been created yet</p>
+  <div class="section" id="bmpcc4k-applying-a-lut-to-the-hdmi-output">
+<h1>BMPCC4K Applying a LUT to the HDMI Output<a class="headerlink" href="#bmpcc4k-applying-a-lut-to-the-hdmi-output" title="Permalink to this headline">¶</a></h1>
+<div class="warning admonition" id="milestone-0">
+<p class="admonition-title">Work in Progress</p>
 <div class="docutils container">
 <p>Content is prioritized according to our <a class="reference internal" href="../../about/roadmap/"><span class="doc">Roadmap</span></a>.        This page does not appear on any roadmap, so there is no estimate when it may be completed.</p>
 <p>If you would like to help author this content, check out our <a class="reference internal" href="../../about/contributing/"><span class="doc">Contributing</span></a> guide.</p>
 </div>
 </div>
-</div>
+<p>Wherever you save the file, you’ll need to transfer it to your camera storage.
+Assuming your external media is mounted at <cite>E:\</cite> copy the LUT to <cite>C:\3DLUTs</cite>.</p>
+
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/QxqbRZmh/screenshot-50.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/QxqbRZmh/screenshot-50.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/DyyhVnhc/2021-05-18-16.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/DyyhVnhc/2021-05-18-16.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/QtQDDMVf/2021-05-18-16.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/QtQDDMVf/2021-05-18-16.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/GtbCm1yd/2021-05-18-16.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/GtbCm1yd/2021-05-18-16.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div>
+        <div class="figure align-default" id="id1">
+    <a class="thumbnail"
+               data-lightbox="group-images"
+               href="https://i.postimg.cc/pXGHR4XM/Photo-May-18-16-31-05.png"
+               title=""
+               data-title=""
+               ><img src="https://i.postimg.cc/pXGHR4XM/Photo-May-18-16-31-05.png"
+                     class=""
+                     width="auto"
+                     height="auto"
+                     alt=""/>
+                </a></div></div>
 
 
               </div>
@@ -1231,8 +1280,8 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../unreal-ocio/" title="previous page">Unreal OCIO Setup</a>
-    <a class='right-next' id="next-link" href="../unreal-take-recorder/" title="next page">Recording with Take Recorder</a>
+    <a class='left-prev' id="prev-link" href="../" title="previous page">Guides</a>
+    <a class='right-next' id="next-link" href="../bmpcc-timecode/" title="next page">BMPCC to Decklink with Timecode</a>
 
               </div>
               

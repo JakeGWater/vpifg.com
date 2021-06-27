@@ -7,15 +7,20 @@ Content
 
 .. .. [HdriHaven] :guilabel:`FREE` high quality HDRIs `<https://hdrihaven.com>`_
 
-Software
-========
+.. [RTINGSChromaTest] 
+
+    `<https://www.rtings.com/tv/learn/chroma-subsampling>`_
+
+.. [BlackmagicDesignFilmGen1]
+
+    https://www.blackmagicdesign.com/products/blackmagicraw
 
 .. [UnrealEngine] :guilabel:`FREE` `<https://unrealengine.com>`_
 
 .. 
     [NukeNonCommercial] :guilabel:`FREE` `<https://www.foundry.com/products/nuke/non-commercial>`_
 
-.. [Resolve] 
+.. [DaVinciResolve]
     :guilabel:`FREE` `Davinci Resolve <https://www.blackmagicdesign.com/products/davinciresolve/>`_
     
     See also [ResolveStudio]_
@@ -41,8 +46,6 @@ Software
 
 .. [ResolveStudio] `<https://www.blackmagicdesign.com/products/davinciresolve/studio>`_
 
-Hardware
-========
 
 .. [BMPCC4K] 
     

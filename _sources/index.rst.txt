@@ -32,6 +32,7 @@ Primarily using [UnrealEngine]_, but extensible enough to accommodate as many pr
 
    Guides are detailed tutorials on Virtual Production.
 
+   - :goto:`guides/resolve-lut-colorspace-transform`
    - :goto:`guides/unreal-composure`
    - :goto:`guides/unreal-ocio`
    - :goto:`guides/bmpcc-to-braw`
