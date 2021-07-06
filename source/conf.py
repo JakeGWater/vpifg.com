@@ -192,8 +192,7 @@ html_theme_options = {
 
     'globaltoc_collapse': True,
     'globaltoc_includehidden': True,
-
-    'navigation_with_keys': False
+    'navigation_with_keys': False,
 }
 
 roadmap = {
