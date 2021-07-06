@@ -17,6 +17,8 @@ Generate a LUT Color Space Transforms
 
     If you would like to include another camera, please consider adding a guide!
 
+.. youtube:: https://www.youtube.com/watch?v=L6ekJf-xd5U&t=522s
+
 Motivation
 ==========
 
