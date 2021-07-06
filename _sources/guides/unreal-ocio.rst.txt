@@ -12,6 +12,8 @@ Unreal OCIO Setup
 
 .. guide:shownexts::
 
+.. youtube:: https://www.youtube.com/watch?v=mvEwsjRtN_M&t=7s
+
 What is OCIO
 ============
 
